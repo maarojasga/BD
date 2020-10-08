@@ -1,23 +1,10 @@
+
 -- *************************************************************
 -- Versión para ASE SAP
 -- *************************************************************
-/* Crear una tabla que contenga las características presentadas en el
+/* Crear una tabla EMPLEADO que contenga las características presentadas en el
 enunciado del problema e incluya las columnas digitador y fecha */
 
-CREATE TABLE Proveedor
-(
-    productoID INTEGER,
-    empleadoID INTEGER,
-    proveeedorID INTEGER,
-    nombre VARCHAR(30),
-    nit BIGINT,
-    numeroTelefonico BIGINT,
-    numeroCentroLlamadas BIGINT,
-    direccion VARCHAR(30),
-    nombreGerente VARCHAR(30),
-    documentoGerente BIGINT,
-    telefonoGerente BIGINT,
-)
 
 CREATE TABLE Empleado
 (
@@ -41,14 +28,14 @@ CREATE TABLE Empleado
     fecha DATETIME default getdate () NOT NULL
 )
 
-/* Crear la vista VISTA_1, que muestre las columnas que usted definió en
+/* Crear la vista VISTA_Empleado_Edit, que muestre las columnas que usted definió en
 la tabla recién creada y que excluya las columnas digitador y fecha */
 
 
-CREATE VIEW VISTA_1
+CREATE VIEW VISTA_Empleado_Edit
 AS
     SELECT
-        identificacion,
+        empleadoID,
         nombres,
         apellidos,
         telefonoFijoEmpleado,
@@ -63,74 +50,86 @@ AS
         comision,
         identificacionCliente,
         nombreCliente,
-        telefonoCliente
+        telefonoCliente,
+        digitador,
+        fecha
     FROM Empleado
 
-/* Crear la vista VISTA_2, que muestre todas las columnas de la tabla
+/* Crear la vista VISTA_Empleado_View, que muestre todas las columnas de la tabla
 recién creada y que incluya un filtro por usuario */
 
-CREATE VIEW VISTA_2
+CREATE VIEW VISTA_Empleado_View
 AS
     SELECT *
     FROM Empleado
     WHERE digitador = user_name()
 
-/* Añadir datos a su tabla NOMBRE_DE_LA_TABLA usando la VISTA_1 */
+/* Añadir datos a su tabla Empleado usando la VISTA_Empleado_Edit */
 
-INSERT INTO VISTA_1
+INSERT INTO VISTA_Empleado_Edit
 VALUES
     (valor_1, valor_2, . . . , valor_n)
 
 /* Permitir que sus compañeros de grupo únicamente puedan a añadir datos
-a su tabla NOMBRE_DE_LA_TABLA utilizando la vista VISTA_1 */
+a su tabla Empleado utilizando la vista VISTA_Empleado_Edit */
 /* Permitir a sus compañeros de grupo, ver los datos que ellos añadieron
-a su tabla NOMBRE_DE_LA_TABLA utilizando la vista VISTA_2 */
+a su tabla Empleado utilizando la vista VISTA_Empleado_View*/
+/* Permitir a sus compañeros de grupo, ver los datos que todos añadieron
+a su tabla Empleado utilizando la vista VISTA_Empleado_Edit*/
 
-GRANT SELECT ON VISTA_2 TO maarojasga
-GRANT INSERT ON VISTA_1 TO maarojasga
+GRANT SELECT ON VISTA_Empleado_View TO negarzonc
+GRANT INSERT ON VISTA_Empleado_Edit TO negarzonc
+GRANT SELECT ON VISTA_Empleado_Edit TO negarzonc
 
-GRANT SELECT ON VISTA_2 TO dsilvamo
-GRANT INSERT ON VISTA_1 TO dsilvamo
+GRANT SELECT ON VISTA_Empleado_View TO dsilvamo
+GRANT INSERT ON VISTA_Empleado_Edit TO dsilvamo
+GRANT SELECT ON VISTA_Empleado_Edit TO dsilvamo
 
-GRANT SELECT ON VISTA_2 TO dabonilla
-GRANT INSERT ON VISTA_1 TO dabonilla
-
+GRANT SELECT ON VISTA_Empleado_View TO dabonilla
+GRANT INSERT ON VISTA_Empleado_Edit TO dabonilla
+GRANT SELECT ON VISTA_Empleado_Edit TO dabonilla
 
 /* Los compañeros de su grupos tienen que añadir datos a su tabla
-NOMBRE_DE_LA_TABLA, usando la vista cuenta.VISTA_1 */
-INSERT INTO cuenta_del_compañero.VISTA_1
+Empleado, usando la vista cuenta.VISTA_Empleado_Edit */
+INSERT INTO cuenta_del_compañero.VISTA_Empleado_Edit
 VALUES
     (valor_1, valor_2, . . . , valor_n)
-/* Ver los datos que cada uno ingresó a la tabla NOMBRE_DE_LA_TABLA
-utilizando la vista cuenta.VISTA_2 */
+
+/* Ver los datos que cada uno ingresó a la tabla Empleado
+utilizando la vista cuenta.VISTA_Empleado_View */
 SELECT *
-FROM cuenta_del_compañero.VISTA_2
+FROM cuenta_del_compañero.VISTA_Empleado_View
+
+/* Ver los datos que cada todos ingresaron a la tabla Empleado
+utilizando la vista cuenta.VISTA_Empleado_View */
+SELECT *
+FROM cuenta_del_compañero.VISTA_Empleado_View
 
 /* DATOS */
 /* Recursos Humanos, Contabilidad,
 Mercadeo, Sistemas e Informática, Ventas, Jurídico, Producción, Empaque. */
 
-/* SEBASTIAN */
-INSERT INTO VISTA_1
+/* ALEJANDRA */
+INSERT INTO VISTA_Empleado_Edit
 VALUES
     (valor_1, valor_2, . . . , valor_n)
 
 /* DIEGO */
-INSERT INTO cuenta_del_compañero.VISTA_1
+INSERT INTO cuenta_del_compañero.VISTA_Empleado_Edit
 VALUES
     (valor_1, valor_2, . . . , valor_n)
 
-/* ALEJANDRA */
-INSERT INTO cuenta_del_compañero.VISTA_1
+/* SEBASTIAN */
+INSERT INTO cuenta_del_compañero.VISTA_Empleado_Edit
 VALUES
     (valor_1, valor_2, . . . , valor_n)
 
 /* DANIEL */
-INSERT INTO cuenta_del_compañero.VISTA_1
+INSERT INTO cuenta_del_compañero.VISTA_Empleado_Edit
 VALUES
     (valor_1, valor_2, . . . , valor_n)
 
 /* DAVID */
-INSERT INTO cuenta_del_compañero.VISTA_1
+INSERT INTO cuenta_del_compañero.VISTA_Empleado_Edit
 VALUES
     (valor_1, valor_2, . . . , valor_n)

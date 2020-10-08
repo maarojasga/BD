@@ -42,7 +42,7 @@ AS
 
 /* Crear la vista VISTA_2, que muestre todas las columnas de la tabla
 recién creada y que incluya un filtro por usuario */
-CREATE VIEW VISTA_Proveedor_View
+CREATE VIEW negarzonc
 AS
     SELECT *
     FROM Proveedor
@@ -70,6 +70,7 @@ CREATE TABLE Empleado
     digitador VARCHAR(15) default user_name() NOT NULL,
     fecha DATETIME default getdate () NOT NULL
 )
+
 
 /* Crear la vista VISTA_1, que muestre las columnas que usted definió en
 la tabla recién creada y que excluya las columnas digitador y fecha */
@@ -104,6 +105,80 @@ AS
     SELECT *
     FROM Empleado
     WHERE digitador = user_name()
+
+
+CREATE TABLE Cliente
+(
+    numeroCliente INTEGER NOT NULL,
+    NIT INT NOT NULL,
+    Nombre VARCHAR(30) NOT NULL,
+    Dirección VARCHAR(30) NULL,
+    Ciudad VARCHAR(30) not NULL,
+    Correo VARCHAR(50) NULL,
+    Teléfono INT NULL,
+    Producto VARCHAR(50),
+    listaEspera NCHAR(2),
+    representanteLegal VARCHAR (50) NOT NULL,
+    Cedula INT NOT NULL,
+    constraint PK_ncliente primary key(numeroCliente),
+    digitador VARCHAR(15) default user_name() NOT NULL,
+    fecha DATETIME default getdate () NOT NULL
+);
+
+
+
+/* Crear la vista VISTA_1, que muestre las columnas que usted definió en
+la tabla recién creada y que excluya las columnas digitador y fecha */
+
+CREATE VIEW VISTA_Empleado_Edit
+AS
+    SELECT
+        empleadoID,
+        nombres,
+        apellidos,
+        telefonoFijoEmpleado,
+        telefonoMovilEmpleado,
+        dirreccion,
+        genero,
+        correo,
+        fechaIngreso,
+        departamentoEmpresa,
+        cargoEmpresa,
+        salarioMensual,
+        comision,
+        identificacionCliente,
+        nombreCliente,
+        telefonoCliente,
+        digitador,
+        fecha
+    FROM Empleado
+
+/* Crear la vista VISTA_2, que muestre todas las columnas de la tabla
+recién creada y que incluya un filtro por usuario */
+CREATE VIEW VISTA_Empleado_View
+AS
+    SELECT *
+    FROM Empleado
+    WHERE digitador = user_name()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
