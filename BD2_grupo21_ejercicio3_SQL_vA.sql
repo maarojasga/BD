@@ -6,9 +6,9 @@ enunciado del problema e incluya las columnas digitador y fecha */
 
 CREATE TABLE Proveedor
 (
-    productoID INTEGER,
+    productoID INTEGER UNIQUE,
     empleadoID INTEGER,
-    proveeedorID INTEGER,
+    proveeedorID INTEGER ,
     nombre VARCHAR(30),
     nit BIGINT,
     numeroTelefonico BIGINT,
@@ -93,9 +93,7 @@ AS
         comision,
         identificacionCliente,
         nombreCliente,
-        telefonoCliente,
-        digitador,
-        fecha
+        telefonoCliente
     FROM Empleado
 
 /* Crear la vista VISTA_2, que muestre todas las columnas de la tabla
@@ -146,23 +144,17 @@ AS
         comision,
         identificacionCliente,
         nombreCliente,
-        telefonoCliente,
-        digitador,
-        fecha
+        telefonoCliente
     FROM Cliente
 
-/* Crear la vista VISTA_2, que muestre todas las columnas de la tabla
-recién creada y que incluya un filtro por usuario */
+/* */
 CREATE VIEW VISTA_Cliente_View
 AS
     SELECT *
     FROM Cliente
     WHERE digitador = user_name()
 
-/* Permitir que sus compañeros de grupo únicamente puedan a añadir datos
-a su tabla NOMBRE_DE_LA_TABLA utilizando la vista VISTA_1 */
-/* Permitir a sus compañeros de grupo, ver los datos que ellos añadieron
-a su tabla NOMBRE_DE_LA_TABLA utilizando la vista VISTA_2 */
+/* Permitir acceso a los compañeros de grupo */
 
 GRANT SELECT ON VISTA_Proveedor_View TO maarojasga
 GRANT SELECT ON VISTA_Proveedor_View TO maarojasga
@@ -185,42 +177,66 @@ GRANT INSERT ON VISTA_Cliente_Edit TO dsilvamo
 GRANT INSERT ON VISTA_Cliente_Edit TO dabonilla
 GRANT INSERT ON VISTA_Cliente_Edit TO dabonilla
 
+/*///////////////////////////////*/
+INSERT INTO VISTA_Proveedor_Edit
+VALUES(
+        0, 0, 0, 'Luis Hernando', 112321245, 3132324456, 7864212, 'Cra 98 # 12 R 21-2', 'Jose', 1209786453, 1223423453
+);
 
-/* Los compañeros de su grupos tienen que añadir datos a su tabla
-NOMBRE_DE_LA_TABLA, usando la vista cuenta.VISTA_1 */
-INSERT INTO cuenta_del_compañero.VISTA_1
-VALUES
-    (valor_1, valor_2, . . . , valor_n)
-/* Ver los datos que cada uno ingresó a la tabla NOMBRE_DE_LA_TABLA
-utilizando la vista cuenta.VISTA_2 */
-SELECT *
-FROM cuenta_del_compañero.VISTA_2
+INSERT INTO VISTA_Proveedor_Edit
+VALUES(
+        1, 1, 1, 'Jose Ignazio', 112321245, 3132324456, 7864212, 'Cra 98 # 12 R 21-2', 'Jose', 1209786453, 1223423453
+);
 
-/* DATOS */
-/* Recursos Humanos, Contabilidad,
-Mercadeo, Sistemas e Informática, Ventas, Jurídico, Producción, Empaque. */
+INSERT INTO VISTA_Proveedor_Edit
+VALUES(
+        2, 2, 2, 'Ana Galingo', 112321245, 3132324456, 7864212, 'Cra 98 # 12 R 21-2', 'Jose', 1209786453, 1223423453
+);
 
-/* SEBASTIAN */
-INSERT INTO VISTA_1
-VALUES
-    (valor_1, valor_2, . . . , valor_n)
+INSERT INTO VISTA_Proveedor_Edit
+VALUES(
+        1, 1, 1, 'Luis Hernando', 112321245, 3132324456, 7864212, 'Cra 98 # 12 R 21-2', 'Jose', 1209786453, 1223423453
+);
 
-/* DIEGO */
-INSERT INTO cuenta_del_compañero.VISTA_1
-VALUES
-    (valor_1, valor_2, . . . , valor_n)
+/*///////////////////////////////*/
+INSERT INTO VISTA_Empleado_Edit
+VALUES(
+        0, 'Jose', 'Ignazio', 3002238754, 98352673, 'Trans 23 # 91 -2', 'Masculino', 'jose@jose.com', '02/05/2020', 'gerencia'
+);
 
-/* ALEJANDRA */
-INSERT INTO cuenta_del_compañero.VISTA_1
-VALUES
-    (valor_1, valor_2, . . . , valor_n)
+INSERT INTO VISTA_Empleado_Edit
+VALUES(
+        1, 1, 1, 'Jose Ignazio', 112321245, 3132324456, 7864212, 'Cra 98 # 12 R 21-2', 'Jose', 1209786453, 1223423453
+);
 
-/* DANIEL */
-INSERT INTO cuenta_del_compañero.VISTA_1
-VALUES
-    (valor_1, valor_2, . . . , valor_n)
+INSERT INTO VISTA_Empleado_Edit
+VALUES(
+        2, 2, 2, 'Ana Galingo', 112321245, 3132324456, 7864212, 'Cra 98 # 12 R 21-2', 'Jose', 1209786453, 1223423453
+);
 
-/* DAVID */
-INSERT INTO cuenta_del_compañero.VISTA_1
-VALUES
-    (valor_1, valor_2, . . . , valor_n)
+INSERT INTO VISTA_Empleado_Edit
+VALUES(
+        1, 1, 1, 'Luis Hernando', 112321245, 3132324456, 7864212, 'Cra 98 # 12 R 21-2', 'Jose', 1209786453, 1223423453
+);
+
+/*///////////////////////////////*/
+INSERT INTO VISTA_Proveedor_Edit
+VALUES(
+        0, 0, 0, 'Luis Hernando', 112321245, 3132324456, 7864212, 'Cra 98 # 12 R 21-2', 'Jose', 1209786453, 1223423453
+);
+
+INSERT INTO VISTA_Proveedor_Edit
+VALUES(
+        1, 1, 1, 'Jose Ignazio', 112321245, 3132324456, 7864212, 'Cra 98 # 12 R 21-2', 'Jose', 1209786453, 1223423453
+);
+
+INSERT INTO VISTA_Proveedor_Edit
+VALUES(
+        2, 2, 2, 'Ana Galingo', 112321245, 3132324456, 7864212, 'Cra 98 # 12 R 21-2', 'Jose', 1209786453, 1223423453
+);
+
+INSERT INTO VISTA_Proveedor_Edit
+VALUES(
+        1, 1, 1, 'Luis Hernando', 112321245, 3132324456, 7864212, 'Cra 98 # 12 R 21-2', 'Jose', 1209786453, 1223423453
+);
+
