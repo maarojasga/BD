@@ -8,7 +8,7 @@ enunciado del problema e incluya las columnas digitador y fecha */
 
 CREATE TABLE Empleado
 (
-    empleadoID INTEGER,
+    empleadoID INT,
     nombres VARCHAR(30),
     apellidos VARCHAR(30),
     telefonoFijoEmpleado BIGINT,
@@ -133,3 +133,8 @@ VALUES
 INSERT INTO cuenta_del_compañero.VISTA_Empleado_Edit
 VALUES
     (valor_1, valor_2, . . . , valor_n)
+
+
+
+/* Crear una tabla EMPLEADO que contenga las características presentadas en el
+enunciado del problema e incluya las columnas digitador y fecha */

@@ -152,10 +152,10 @@ create sequence numeroCliente minvalue 1 start with 1;
 
 
 
-CREATE TABLE Provedor(
+CREATE TABLE Proveedor(
                         productoID INTEGER NOT NULL ,
                         vendedorID INTEGER NOT NULL ,
-                        provedoRID INTEGER NOT NULL,
+                        proveedorID INTEGER NOT NULL,
                         nombre VARCHAR(30) NOT NULL,
                         nit NUMBER(19) NOT NULL,
                         numeroTelefonico NUMBER(19) NOT NULL,
@@ -168,12 +168,12 @@ CREATE TABLE Provedor(
                         fecha DATE  default sysdate NOT NULL
                         );
                         
-/* Crear la vista VISTA_Provedor_Edit que muestre las columnas que usted definió en
+/* Crear la vista VISTA_Proveedor_Edit que muestre las columnas que usted definió en
 la tabla recién creada y que excluya las columnas digitador y fecha */
 
-CREATE view VISTA_Provedor_Edit AS SELECT productoID,
+CREATE view VISTA_Proveedor_Edit AS SELECT productoID,
                                     vendedorID,
-                                    provedoRID,
+                                    proveedorID,
                                     nombre,
                                     nit,
                                     numeroTelefonico,
@@ -183,37 +183,37 @@ CREATE view VISTA_Provedor_Edit AS SELECT productoID,
                                     documentosGerente,
                                     telefonoGerente FROM provedorr;
 
-/* Crear la VISTA_Provedor_View, que muestre todas las columnas de la tabla
+/* Crear la VISTA_Proveedor_View, que muestre todas las columnas de la tabla
 recién creada y que incluya un filtro por usuario */
 
-CREATE  view VISTA_Provedor_View AS 
+CREATE  view VISTA_Proveedor_View AS 
 SELECT *
-FROM Provedor
+FROM Proveedor
 WHERE digitador = user;
 
-/* Añadir datos a su tabla NOMBRE_DE_LA_TABLA usando la VISTA_Provedor_Edit */
-INSERT INTO VISTA_Provedor_Edit VALUES (valor_1, valor_2, . . . , valor_n);
+/* Añadir datos a su tabla NOMBRE_DE_LA_TABLA usando la VISTA_Proveedor_Edit */
+INSERT INTO VISTA_Proveedor_Edit VALUES (valor_1, valor_2, . . . , valor_n);
 
 /* Permitir que sus compañeros de grupo únicamente puedan a añadir datos
-a su tabla Empleado utilizando la VISTA_Provedor_Edit */
+a su tabla Empleado utilizando la VISTA_Proveedor_Edit */
 /* Permitir a sus compañeros de grupo, ver los datos que ellos añadieron
-a su tabla Empleado utilizando la vista VISTA_Provedor_View */
+a su tabla Empleado utilizando la vista VISTA_Proveedor_View */
 /* Permitir a sus compañeros de grupo, ver los datos que todos añadieron
-a su tabla Empleado utilizando la VISTA_Provedor_Edit */
+a su tabla Empleado utilizando la VISTA_Proveedor_Edit */
 
 
 
-GRANT SELECT ON VISTA_Provedor_View TO negarzonc;
-GRANT INSERT ON VISTA_Provedor_Edit TO negarzonc;
-GRANT SELECT ON VISTA_Provedor_Edit TO negarzonc;
+GRANT SELECT ON VISTA_Proveedor_View TO negarzonc;
+GRANT INSERT ON VISTA_Proveedor_Edit TO negarzonc;
+GRANT SELECT ON VISTA_Proveedor_Edit TO negarzonc;
 
-GRANT SELECT ON VISTA_Provedor_View TO dsilvamo;
-GRANT INSERT ON VISTA_Provedor_Edit TO dsilvamo;
-GRANT SELECT ON VISTA_Provedor_Edit TO dsilvamo;
+GRANT SELECT ON VISTA_Proveedor_View TO dsilvamo;
+GRANT INSERT ON VISTA_Proveedor_Edit TO dsilvamo;
+GRANT SELECT ON VISTA_Proveedor_Edit TO dsilvamo;
 
-GRANT SELECT ON VISTA_Provedor_View TO maarojasg;
-GRANT INSERT ON VISTA_Provedor_EditTO maarojasg;
-GRANT SELECT ON VISTA_Provedor_Edit TO maarojasg;
+GRANT SELECT ON VISTA_Proveedor_View TO maarojasg;
+GRANT INSERT ON VISTA_Proveedor_EditTO maarojasg;
+GRANT SELECT ON VISTA_Proveedor_Edit TO maarojasg;
 
 -----------------------------------------------------------
 
