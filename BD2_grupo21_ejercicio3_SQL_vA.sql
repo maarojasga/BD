@@ -193,45 +193,35 @@ VALUES(
         1, 1, 1, 'Luis Hernando', 112321245, 3132324456, 7864212, 'Cra 98 # 12 R 21-2', 'Jose', 1209786453, 1223423453
 );
 
-/*///////////////////////////////*/
-INSERT INTO VISTA_Empleado_Edit
-VALUES(
-        0, 'Jose', 'Ignazio', 3002238754, 98352673, 'Trans 23 # 91 -2', 'Masculino', 'jose@jose.com', '02/05/2020', 'gerencia'
-);
-
-INSERT INTO VISTA_Empleado_Edit
-VALUES(
-        1, 1, 1, 'Jose Ignazio', 112321245, 3132324456, 7864212, 'Cra 98 # 12 R 21-2', 'Jose', 1209786453, 1223423453
-);
-
-INSERT INTO VISTA_Empleado_Edit
-VALUES(
-        2, 2, 2, 'Ana Galingo', 112321245, 3132324456, 7864212, 'Cra 98 # 12 R 21-2', 'Jose', 1209786453, 1223423453
-);
-
-INSERT INTO VISTA_Empleado_Edit
-VALUES(
-        1, 1, 1, 'Luis Hernando', 112321245, 3132324456, 7864212, 'Cra 98 # 12 R 21-2', 'Jose', 1209786453, 1223423453
-);
 
 /*///////////////////////////////*/
+
+INSERT INTO VISTA_Empleado_Edit
+VALUES(
+        0, 'Jose', 'Ignazio', 3002238754, 98352673, 'Trans 23 # 91 -2', 'Masculino', 'jose@jose.com', '02/05/2020', 'gerencia', 'presidente', 8000000, 12000000, 12512, 305486235
+);
+
+INSERT INTO VISTA_Empleado_Edit
+VALUES(
+        1, 'MAria', 'Ignazio', 3002238754, 98352673, 'Cra 23 # 91 -2', 'Femenino', 'jose@jose.com', '02/05/2020', 'gerencia', 'presidente', 8000000, 12000000, 12512, 305486235
+);
+
+INSERT INTO VISTA_Empleado_Edit
+VALUES(
+        2, 'Luis', 'Ricardo', 3002238754, 98352673, 'Trans 23 # 91 -2', 'Masculino', 'jose@jose.com', '02/05/2020', 'gerencia', 'presidente', 8000000, 12000000, 12512, 305486235
+);
+
+INSERT INTO VISTA_Empleado_Edit
+VALUES(
+        1, 'Luisa', 'Betancour', 3002238754, 98352673, 'Trans 23 # 91 -2', 'Femenino', 'jose@jose.com', '02/05/2020', 'gerencia', 'presidente', 8000000, 12000000, 12512, 305486235
+);
+
+
+
+/*///////////////////////////////*/
+
 INSERT INTO VISTA_Proveedor_Edit
 VALUES(
         0, 0, 0, 'Luis Hernando', 112321245, 3132324456, 7864212, 'Cra 98 # 12 R 21-2', 'Jose', 1209786453, 1223423453
-);
-
-INSERT INTO VISTA_Proveedor_Edit
-VALUES(
-        1, 1, 1, 'Jose Ignazio', 112321245, 3132324456, 7864212, 'Cra 98 # 12 R 21-2', 'Jose', 1209786453, 1223423453
-);
-
-INSERT INTO VISTA_Proveedor_Edit
-VALUES(
-        2, 2, 2, 'Ana Galingo', 112321245, 3132324456, 7864212, 'Cra 98 # 12 R 21-2', 'Jose', 1209786453, 1223423453
-);
-
-INSERT INTO VISTA_Proveedor_Edit
-VALUES(
-        1, 1, 1, 'Luis Hernando', 112321245, 3132324456, 7864212, 'Cra 98 # 12 R 21-2', 'Jose', 1209786453, 1223423453
 );
 

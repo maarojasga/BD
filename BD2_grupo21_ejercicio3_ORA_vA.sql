@@ -1,3 +1,9 @@
+-- *************************************************************
+-- Versión para Oracle
+-- *************************************************************
+/* Crear una tabla que contenga las características presentadas en el
+enunciado del problema e incluya las columnas digitador y fecha */
+
 create table Cliente
 (
     clienteID number not null,
@@ -249,16 +255,35 @@ numeroProducto.nextval,
 4900000,
 10,
 'pilas duraderas',
-4,
-'10/20/2019'
+11,
+'01/06/2019'
 );
 
-
-
-
-
-
-
+insert into cuenta_del_compañero.VISTA_Producto_Edit
+values (
+numeroProducto.nextval,
+'Tapabocas',
+20000,
+5000000,
+5600000,
+01,
+'frama implementos',
+4,
+'03/20/2020'
+);
+/* insertar con error*/
+insert into cuenta_del_compañero.VISTA_Producto_Edit
+values (
+1,    /*llave primaria*/
+'Llantas',
+20,
+4000000,
+4600000,
+15,
+'llantas Silva',
+4,
+'05/02/2019'
+);
 
 
 
@@ -347,7 +372,7 @@ GRANT INSERT ON VISTA_Proveedor_EditTO maarojasga;
 GRANT SELECT ON VISTA_Proveedor_Edit TO maarojasga;
 
 /* Los compañeros de su grupos tienen que añadir datos a su tabla
-NOMBRE_DE_LA_TABLA, usando la vista cuenta.VISTA_1 */
+NOMBRE_DE_LA_TABLA, usando la vista cuenta.VISTA_Provedor_Edit */
 insert into cuenta_del_compañero.VISTA_Proveedor_Edit
  values (10245101, 
         10003541,
@@ -356,9 +381,13 @@ insert into cuenta_del_compañero.VISTA_Proveedor_Edit
         00001,
         7647251,
         7412548,
-        'Calle 87 ' . . . , valor_n);
+        'Calle 87 B 01',
+        'Mauricio Ramirez Quintero',
+        100025840,
+        7541458,
+        );
 /* Ver los datos que cada uno ingresó a la tabla NOMBRE_DE_LA_TABLA
-utilizando la vista cuenta.VISTA_2 */
+utilizando la vista cuenta.VISTA_Provedor_View */
 select * from cuenta_del_compañero.VISTA_Proveedor_View;
 
 
@@ -463,9 +492,24 @@ GRANT INSERT ON VISTA_Empleados_Edit TO maarojasga;
 GRANT SELECT ON VISTA_Empleados_Edit TO maarojasga;
 
 /* Los compañeros de su grupos tienen que añadir datos a su tabla
-NOMBRE_DE_LA_TABLA, usando la vista cuenta.VISTA_1 */
-insert into cuenta_del_compañero.VISTA_1
- values (valor_1, valor_2, . . . , valor_n);
+NOMBRE_DE_LA_TABLA, usando la vista cuenta.VISTA_Provedor_Edit */
+insert into cuenta_del_compañero.VISTA_Empleados_Edit
+ values (20045101, 
+        'Leonardo Pardo Marquez',
+        7485412,
+        'Medellin',
+        'Masculino',
+        '10/05/2015',
+        'Sucursal',
+        'Recursos Humanos',
+        'Secretario',
+        'nombreJefe',
+        800000,
+        null,
+        
+        100025840,
+        7541458,
+        );
 /* Ver los datos que cada uno ingresó a la tabla NOMBRE_DE_LA_TABLA
-utilizando la vista cuenta.VISTA_2 */
-select * from cuenta_del_compañero.VISTA_2;
+utilizando la vista cuenta.VISTA_Provedor_View */
+select * from cuenta_del_compañero.VISTA_Proveedor_View;
