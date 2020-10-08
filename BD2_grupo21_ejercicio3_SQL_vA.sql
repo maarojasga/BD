@@ -149,6 +149,73 @@ AS
     FROM Cliente
     WHERE digitador = user_name()
 
+
+CREATE TABLE Producto
+(
+    productoID NUMERIC IDENTITY,
+    nombre VARCHAR(20),
+    cantidad INT,
+    precioCompra MONEY,
+    precioVenta MONEY,
+    proveedorID INT,
+    proveedor VARCHAR(25),
+    bodega INT,
+    fechaAdquisicion DATETIME,
+    digitador VARCHAR(15) default user_name() NOT NULL,
+    fecha DATETIME default getdate () NOT NULL,
+    constraint  PK_JJ primary key   (productoID)
+)
+
+
+-- ****************************************************************************
+/* Crear una tabla PRODUCTO que contenga las características presentadas en el
+enunciado del problema e incluya las columnas digitador y fecha */
+-- ****************************************************************************
+
+CREATE TABLE Producto
+(
+    productoID NUMERIC IDENTITY,
+    nombre VARCHAR(20),
+    cantidad INT,
+    precioCompra MONEY,
+    precioVenta MONEY,
+    proveedorID INT,
+    proveedor VARCHAR(25),
+    bodega INT,
+    fechaAdquisicion DATETIME,
+    digitador VARCHAR(15) default user_name() NOT NULL,
+    fecha DATETIME default getdate () NOT NULL,
+    constraint  PK_JJ primary key   (productoID)
+)
+
+/* Crear la vista VISTA_Producto_Edit, que muestre las columnas que usted definió en
+la tabla recién creada y que excluya las columnas digitador y fecha */
+
+CREATE VIEW VISTA_Producto_Edit
+AS
+    SELECT
+        nombre,
+        cantidad,
+        precioCompra,
+        precioVenta,
+        proveedorID,
+        proveedor,
+        bodega,
+        fechaAdquisicion
+
+    FROM Producto
+
+/* Crear la vista VISTA_Producto_View, que muestre todas las columnas de la tabla
+recién creada y que incluya un filtro por usuario */
+
+CREATE VIEW VISTA_Producto_View
+AS
+    SELECT *
+    FROM Producto
+    WHERE digitador = user_name()
+
+
+
 /* Permitir acceso a los compañeros de grupo */
 
 GRANT SELECT ON VISTA_Proveedor_View TO maarojasga
@@ -171,6 +238,13 @@ GRANT SELECT ON VISTA_Cliente_View TO dsilvamo
 GRANT INSERT ON VISTA_Cliente_Edit TO dsilvamo
 GRANT INSERT ON VISTA_Cliente_Edit TO dabonilla
 GRANT INSERT ON VISTA_Cliente_Edit TO dabonilla
+
+GRANT SELECT ON VISTA_Producto_View TO maarojasga
+GRANT SELECT ON VISTA_Producto_View TO maarojasga
+GRANT SELECT ON VISTA_Producto_View TO dsilvamo
+GRANT INSERT ON VISTA_Producto_Edit TO dsilvamo
+GRANT INSERT ON VISTA_Producto_Edit TO dabonilla
+GRANT INSERT ON VISTA_Producto_Edit TO dabonilla
 
 /*///////////////////////////////*/
 INSERT INTO VISTA_Proveedor_Edit
@@ -220,8 +294,44 @@ VALUES(
 
 /*///////////////////////////////*/
 
-INSERT INTO VISTA_Proveedor_Edit
+INSERT INTO VISTA_Cliente_Edit
 VALUES(
-        0, 0, 0, 'Luis Hernando', 112321245, 3132324456, 7864212, 'Cra 98 # 12 R 21-2', 'Jose', 1209786453, 1223423453
+        0, 6843561210, 'Luis Hernando','Cra 98 # 12 R 21-2', 'Bogota', 'lh@gmail.com', 8752541, 'zapatos', 'no', 'Jose', 896512354
 );
 
+INSERT INTO VISTA_Cliente_Edit
+VALUES(
+        1, 4897465132, 'Luis Garcia','Tras 98 # 12 R 21-2', 'Bogota', 'lh@gmail.com', 8752541, 'zapatos', 'no', 'Jose', 896512354
+);
+
+INSERT INTO VISTA_Cliente_Edit
+VALUES(
+        2, 310684, 'Maria Gonzales','Cra 98 # 85 R 21-2', 'Bogota', 'lh@gmail.com', 8752541, 'zapatos', 'no', 'Jose', 896512354
+);
+
+INSERT INTO VISTA_Cliente_Edit
+VALUES(
+        2, 69845132, 'Luis Hernando','Cra 98 # 12 R 21-2', 'Bogota', 'lh@gmail.com', 8752541, 'zapatos', 'no', 'Jose', 896512354
+);
+
+/*///////////////////////////////*/
+
+INSERT INTO VISTA_Producto_Edit
+VALUES(
+        0, 'Zapatos', 2, 12000, 50000, 0, 'NA',2, '20/05/2019'
+);
+
+INSERT INTO VISTA_Producto_Edit
+VALUES(
+        3, 'Camisas', 2, 12000, 50000, 0, 'NA',2, '20/05/2019'
+);
+
+INSERT INTO VISTA_Producto_Edit
+VALUES(
+        2, 'Zapatos', 2, 12000, 50000, 0, 'NA',2, '20/05/2019'
+);
+
+INSERT INTO VISTA_Producto_Edit
+VALUES(
+        0, 'Zapatos', 2, 12000, 50000, 0, 'NA',2, '20/05/2019'
+);

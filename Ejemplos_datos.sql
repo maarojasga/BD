@@ -31,3 +31,6 @@ INSERT INTO maarojasga.VISTA_Producto_Edit VALUES ('Zapatos', 35, 38000, 62000, 
 INSERT INTO maarojasga.VISTA_Producto_Edit VALUES ('Medias', 120, 12000, 39780, 2147, 'Gomosos SAS', 002, '10/07/2020')
 /*ASE SAP-PRODUCTO NO VÁLIDO*/
 INSERT INTO maarojasga.VISTA_Producto_Edit VALUES (002,'Camisas', 20, 50000, 120000, 121356, 'Camisas del Oriente', 003, '10/07/2020')
+
+
+

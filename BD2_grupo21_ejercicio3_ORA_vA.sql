@@ -223,9 +223,9 @@ GRANT SELECT ON VISTA_Producto_View TO negarzonc;
 GRANT INSERT ON VISTA_Producto_Edit TO negarzonc;
 GRANT SELECT ON VISTA_Producto_Edit TO negarzonc;
 
-GRANT SELECT ON VISTA_Producto_View TO dabonilla;
-GRANT INSERT ON VISTA_Producto_Edit TO dabonilla;
-GRANT SELECT ON VISTA_Producto_Edit TO dabonilla;
+GRANT SELECT ON VISTA_Producto_View TO ;
+GRANT INSERT ON VISTA_Producto_Edit TO ;
+GRANT SELECT ON VISTA_Producto_Edit TO ;
 
 GRANT SELECT ON VISTA_Producto_View TO maarojasga;
 GRANT INSERT ON VISTA_Producto_Edit TO maarojasga;
@@ -327,7 +327,7 @@ AS
 /* Crear la VISTA_Proveedor_View, que muestre todas las columnas de la tabla
 recién creada y que incluya un filtro por usuario */
 
-CREATE  CREATE OR REPLACE view VISTA_Proveedor_View
+CREATE  OR REPLACE view VISTA_Proveedor_View
  AS SELECT 
     vendedorID  ,
     proveedorID ,
@@ -343,12 +343,23 @@ CREATE  CREATE OR REPLACE view VISTA_Proveedor_View
     to_char(fecha, 'dd-mm-yyyy" "hh24:mi:ss') 
 
     FROM Proveedor
-    WHERE digitador = user;
+    WHERE digitador = USER;
 
 /* Añadir datos a su tabla NOMBRE_DE_LA_TABLA usando la VISTA_Proveedor_Edit */
+
 INSERT INTO VISTA_Proveedor_Edit
-VALUES
-    (valor_1, valor_2, . . . , valor_n);
+VALUES (10245101, 
+        10003541,
+        10002141,
+        'Fernando Garcia Lopez',
+        00001,
+        7647251,
+        7412548,
+        'Calle 87 B 01',
+        'Mauricio Ramirez Quintero',
+        100025840,
+        7541458,
+        );
 
 /* Permitir que sus compañeros de grupo únicamente puedan a añadir datos
 a su tabla Empleado utilizando la VISTA_Proveedor_Edit */
@@ -373,8 +384,8 @@ GRANT SELECT ON VISTA_Proveedor_Edit TO maarojasga;
 
 /* Los compañeros de su grupos tienen que añadir datos a su tabla
 NOMBRE_DE_LA_TABLA, usando la vista cuenta.VISTA_Provedor_Edit */
-insert into cuenta_del_compañero.VISTA_Proveedor_Edit
- values (10245101, 
+INSERT INTO cuenta_del_compañero.VISTA_Proveedor_Edit
+ VALUES (10245101, 
         10003541,
         10002141,
         'Fernando Garcia Lopez',
@@ -388,7 +399,7 @@ insert into cuenta_del_compañero.VISTA_Proveedor_Edit
         );
 /* Ver los datos que cada uno ingresó a la tabla NOMBRE_DE_LA_TABLA
 utilizando la vista cuenta.VISTA_Provedor_View */
-select * from cuenta_del_compañero.VISTA_Proveedor_View;
+SELECT * FROM cuenta_del_compañero.VISTA_Proveedor_View;
 
 
 
@@ -443,7 +454,7 @@ CREATE view VISTA_Empleados_Edit AS SELECT
 recién creada y que incluya un filtro por usuario */
 
 
-CREATE OR replace view VISTA_Empleados_View as select 
+CREATE OR replace view VISTA_Empleados_View AS SELECT 
        empleadoID ,
         nombresApellidos ,
         telefono ,
@@ -467,8 +478,22 @@ CREATE OR replace view VISTA_Empleados_View as select
 /* Añadir datos a su tabla NOMBRE_DE_LA_TABLA usando la VISTA_Empleados_Edit */
 
 INSERT INTO VISTA_Empleados_Edit
-VALUES
-    (valor_1, valor_2, . . . , valor_n);
+ VALUES (20045101, 
+        'Leonardo Pardo Marquez',
+        7485412,
+        'Medellin',
+        'Masculino',
+        '10/05/2015',
+        'Sucursal',
+        'Recursos Humanos',
+        'Secretario',
+        'nombreJefe',
+        800000,
+        NULL,
+        100024584,
+        'Fabian Restrepo',
+        31235845,
+        );
 
 
 /* Permitir que sus compañeros de grupo únicamente puedan a añadir datos
@@ -493,8 +518,8 @@ GRANT SELECT ON VISTA_Empleados_Edit TO maarojasga;
 
 /* Los compañeros de su grupos tienen que añadir datos a su tabla
 NOMBRE_DE_LA_TABLA, usando la vista cuenta.VISTA_Provedor_Edit */
-insert into cuenta_del_compañero.VISTA_Empleados_Edit
- values (20045101, 
+INSERT INTO cuenta_del_compañero.VISTA_Empleados_Edit
+ VALUES (20045101, 
         'Leonardo Pardo Marquez',
         7485412,
         'Medellin',
@@ -505,11 +530,11 @@ insert into cuenta_del_compañero.VISTA_Empleados_Edit
         'Secretario',
         'nombreJefe',
         800000,
-        null,
-        
-        100025840,
-        7541458,
+        NULL,
+        100024584,
+        'Fabian Restrepo',
+        31235845,
         );
 /* Ver los datos que cada uno ingresó a la tabla NOMBRE_DE_LA_TABLA
 utilizando la vista cuenta.VISTA_Provedor_View */
-select * from cuenta_del_compañero.VISTA_Proveedor_View;
+SELECT * FROM cuenta_del_compañero.VISTA_Proveedor_View;
