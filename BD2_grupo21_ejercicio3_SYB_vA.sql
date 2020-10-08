@@ -2,9 +2,13 @@
 -- *************************************************************
 -- Versión para ASE SAP
 -- *************************************************************
+
+
+
+-- ****************************************************************************
 /* Crear una tabla EMPLEADO que contenga las características presentadas en el
 enunciado del problema e incluya las columnas digitador y fecha */
-
+-- ****************************************************************************
 
 CREATE TABLE Empleado
 (
@@ -33,7 +37,6 @@ CREATE TABLE Empleado
 
 /* Crear la vista VISTA_Empleado_Edit, que muestre las columnas que usted definió en
 la tabla recién creada y que excluya las columnas digitador y fecha */
-
 
 CREATE VIEW VISTA_Empleado_Edit
 AS
@@ -66,62 +69,225 @@ AS
     FROM Empleado
     WHERE digitador = user_name()
 
-/* Añadir datos a su tabla Empleado usando VISTA_Empleado_Edit */
+-- ****************************************************************************
+/* Crear una tabla PROVEEDOR que contenga las características presentadas en el
+enunciado del problema e incluya las columnas digitador y fecha */
+-- ****************************************************************************
+
+CREATE TABLE Proveedor
+(
+    productoID INT UNIQUE,
+    empleadoID INT,
+    proveeedorID NUMERIC IDENTITY,
+    nombre VARCHAR(30),
+    nit BIGINT,
+    numeroTelefonico BIGINT,
+    numeroCentroLlamadas BIGINT,
+    direccion VARCHAR(30),
+    nombreGerente VARCHAR(30),
+    documentoGerente BIGINT,
+    telefonoGerente BIGINT,
+    digitador VARCHAR (15) default user_name() NOT NULL,
+    fecha DATETIME default getdate () NOT NULL
+)
+
+/* Crear la vista VISTA_Proveedor_Edit, que muestre las columnas que usted definió en
+la tabla recién creada y que excluya las columnas digitador y fecha */
+
+CREATE VIEW VISTA_Proveedor_Edit
+AS
+    SELECT
+        productoID,
+        empleadoID,
+        nombre,
+        nit,
+        numeroTelefonico,
+        numeroCentroLlamadas,
+        direccion,
+        nombreGerente,
+        documentoGerente,
+        telefonoGerente
+    FROM Proveedor
+
+/* Crear la vista VISTA_Proveedor_View, que muestre todas las columnas de la tabla
+recién creada y que incluya un filtro por usuario */
+CREATE VIEW VISTA_Proveedor_View
+AS
+    SELECT *
+    FROM Proveedor
+    WHERE digitador = user_name()
+
+-- ****************************************************************************
+/* Crear una tabla CLIENTE que contenga las características presentadas en el
+enunciado del problema e incluya las columnas digitador y fecha */
+-- ****************************************************************************
+CREATE TABLE Cliente
+(
+    clienteID NUMERIC IDENTITY,
+    nit BIGINT,
+    nombre VARCHAR(30),
+    dirección VARCHAR(30),
+    ciudad VARCHAR(30),
+    correo VARCHAR(50) NULL,
+    teléfono INT NULL,
+    producto VARCHAR(50),
+    listaEspera NCHAR(2),
+    representanteLegal VARCHAR(50),
+    cedula INT,
+    digitador VARCHAR (15) default user_name() NOT NULL,
+    fecha DATETIME default getdate () NOT NULL,
+    constraint PK_ncliente primary key(clienteID) 
+)
+
+
+/* Crear la vista VISTA_Cliente_Edit, que muestre las columnas que usted definió en
+la tabla recién creada y que excluya las columnas digitador y fecha */
+
+CREATE VIEW VISTA_Cliente_Edit
+AS
+    SELECT
+    nit,
+    nombre,
+    dirección,
+    ciudad,
+    correo,
+    teléfono,
+    producto,
+    listaEspera,
+    representanteLegal,
+    cedula
+
+    FROM Cliente
+
+/* Crear la vista VISTA_Cliente_View, que muestre todas las columnas de la tabla
+recién creada y que incluya un filtro por usuario */
+CREATE VIEW VISTA_Cliente_View
+AS
+    SELECT *
+    FROM Cliente
+    WHERE digitador = user_name()
+
+-- ****************************************************************************
+/* Crear una tabla PRODUCTO que contenga las características presentadas en el
+enunciado del problema e incluya las columnas digitador y fecha */
+-- ****************************************************************************
+
+CREATE TABLE Producto (
+    productoID NUMERIC IDENTITY,
+    nombre VARCHAR(20),
+    cantidad INT,
+    precioCompra MONEY,
+    precioVenta MONEY,
+    proveedorID INT,
+    proveedor VARCHAR(25),
+    bodega INT,
+    fechaAdquisicion DATETIME,
+    digitador VARCHAR(15) default user_name() NOT NULL,
+    fecha DATETIME default getdate () NOT NULL,
+    constraint  PK_JJ primary key   (productoID)
+)
+
+/* Crear la vista VISTA_Producto_Edit, que muestre las columnas que usted definió en
+la tabla recién creada y que excluya las columnas digitador y fecha */
+
+    CREATE VIEW VISTA_Producto_Edit
+AS
+    SELECT
+        nombre,
+        cantidad,
+        precioCompra,
+        precioVenta,
+        proveedorID,
+        proveedor,
+        bodega,
+        fechaAdquisicion
+
+        FROM Producto
+
+/* Crear la vista VISTA_Producto_View, que muestre todas las columnas de la tabla
+recién creada y que incluya un filtro por usuario */
+     
+     CREATE VIEW VISTA_Producto_View
+AS
+    SELECT *
+    FROM Producto
+    WHERE digitador = user_name()
+
+
+-- ****************************************************************************
+/* G E N E R A L */
+-- ****************************************************************************
+
+/* Añadir datos a sus tablas */
 
 INSERT INTO VISTA_Empleado_Edit VALUES (valor_1, valor_2, . . . , valor_n)
+INSERT INTO VISTA_Proveedor_Edit VALUES (valor_1, valor_2, . . . , valor_n)
+INSERT INTO VISTA_Cliente_Edit VALUES (valor_1, valor_2, . . . , valor_n)
+INSERT INTO VISTA_Producto_Edit VALUES (valor_1, valor_2, . . . , valor_n)
 
-/* Permitir que sus compañeros de grupo únicamente puedan a añadir datos
-a su tabla Empleado utilizando la vista VISTA_Empleado_Edit */
-/* Permitir a sus compañeros de grupo, ver los datos que ellos añadieron
-a su tabla Empleado utilizando la vista VISTA_Empleado_View */
+/* Permisos */
 
 GRANT SELECT ON VISTA_Empleado_View TO negarzonc
 GRANT INSERT ON VISTA_Empleado_Edit TO negarzonc
 GRANT SELECT ON VISTA_Empleado_Edit TO negarzonc
-
 GRANT SELECT ON VISTA_Empleado_View TO dsilvamo
 GRANT INSERT ON VISTA_Empleado_Edit TO dsilvamo
 GRANT SELECT ON VISTA_Empleado_Edit TO dsilvamo
-
 GRANT SELECT ON VISTA_Empleado_View TO dabonilla
 GRANT INSERT ON VISTA_Empleado_Edit TO dabonilla
 GRANT SELECT ON VISTA_Empleado_Edit TO dabonilla
 
+GRANT SELECT ON VISTA_Proveedor_View TO negarzonc
+GRANT INSERT ON VISTA_Proveedor_Edit TO negarzonc
+GRANT SELECT ON VISTA_Proveedor_Edit TO negarzonc
+GRANT SELECT ON VISTA_Proveedor_View TO dsilvamo
+GRANT INSERT ON VISTA_Proveedor_Edit TO dsilvamo
+GRANT SELECT ON VISTA_Proveedor_Edit TO dsilvamo
+GRANT SELECT ON VISTA_Proveedor_View TO dabonilla
+GRANT INSERT ON VISTA_Proveedor_Edit TO dabonilla
+GRANT SELECT ON VISTA_Proveedor_Edit TO dabonilla
 
-/* Los compañeros de su grupos tienen que añadir datos a su tabla
-Empleado, usando la vista cuenta.VISTA_Empleado_Edit*/
-INSERT INTO cuenta_del_compañero.VISTA_Empleado_Edit
-VALUES (valor_1, valor_2, . . . , valor_n)
+GRANT SELECT ON VISTA_Cliente_View TO negarzonc
+GRANT INSERT ON VISTA_Cliente_Edit TO negarzonc
+GRANT SELECT ON VISTA_Cliente_Edit TO negarzonc
+GRANT SELECT ON VISTA_Cliente_View TO dsilvamo
+GRANT INSERT ON VISTA_Cliente_Edit TO dsilvamo
+GRANT SELECT ON VISTA_Cliente_Edit TO dsilvamo
+GRANT SELECT ON VISTA_Cliente_View TO dabonilla
+GRANT INSERT ON VISTA_Cliente_Edit TO dabonilla
+GRANT SELECT ON VISTA_Cliente_Edit TO dabonilla
 
-/* Ver los datos que cada uno ingresó a la tabla Empleado
-utilizando la vista cuenta.VISTA_Empleado_View */
-SELECT * FROM cuenta_del_compañero.VISTA_Empleado_View
+GRANT SELECT ON VISTA_Producto_View TO negarzonc
+GRANT INSERT ON VISTA_Producto_Edit TO negarzonc
+GRANT SELECT ON VISTA_Producto_Edit TO negarzonc
+GRANT SELECT ON VISTA_Producto_View TO dsilvamo
+GRANT INSERT ON VISTA_Producto_Edit TO dsilvamo
+GRANT SELECT ON VISTA_Producto_Edit TO dsilvamo
+GRANT SELECT ON VISTA_Producto_View TO dabonilla
+GRANT INSERT ON VISTA_Producto_Edit TO dabonilla
+GRANT SELECT ON VISTA_Producto_Edit TO dabonilla
 
-/* Ver los datos que todos ingresaron a la tabla Empleado
-utilizando la vista cuenta.VISTA_Empleado_Edit */
-SELECT * FROM cuenta_del_compañero.VISTA_Empleado_Edit
-
-
-/* DATOS */
-/* Recursos Humanos, Contabilidad,
-Mercadeo, Sistemas e Informática, Ventas, Jurídico, Producción, Empaque. */
-
-/* ALEJANDRA */
-INSERT INTO VISTA_Empleado_Edit VALUES (valor_1, valor_2, . . . , valor_n)
-
-/* DIEGO */
+/* Los compañeros de su grupos tienen que añadir datos a sus tablas,
+usando la vista cuenta.VISTA_NombreTabla_Edit*/
 INSERT INTO maarojasga.VISTA_Empleado_Edit
 VALUES (valor_1, valor_2, . . . , valor_n)
-
-/* SEBASTIAN */
-INSERT INTO cuenta_del_compañero.VISTA_Empleado_Edit
+INSERT INTO maarojasga.VISTA_Proveedor_Edit
+VALUES (valor_1, valor_2, . . . , valor_n)
+INSERT INTO maarojasga.VISTA_Cliente_Edit
+VALUES (valor_1, valor_2, . . . , valor_n)
+INSERT INTO maarojasga.VISTA_Producto_Edit
 VALUES (valor_1, valor_2, . . . , valor_n)
 
-/* DANIEL */
-INSERT INTO cuenta_del_compañero.VISTA_Empleado_Edit
-VALUES (valor_1, valor_2, . . . , valor_n)
+/* Ver los datos que cada uno ingresó a las tablas
+utilizando la vista cuenta.VISTA_NombreTabla_View */
+SELECT * FROM maarojasga.VISTA_Empleado_View
+SELECT * FROM maarojasga.VISTA_Proveedor_View
+SELECT * FROM maarojasga.VISTA_Cliente_View
+SELECT * FROM maarojasga.VISTA_Producto_View
 
-/* DAVID */
-INSERT INTO cuenta_del_compañero.VISTA_Empleado_Edit
-VALUES (valor_1, valor_2, . . . , valor_n)
-
+/* Ver los datos que todos ingresaron a las tablas
+utilizando la vista cuenta.VISTA_NombreTabla_Edit */
+SELECT * FROM maarojasga.VISTA_Empleado_Edit
+SELECT * FROM maarojasga.VISTA_Proveedores_Edit
+SELECT * FROM maarojasga.VISTA_Cliente_Edit
+SELECT * FROM maarojasga.VISTA_Producto_Edit
