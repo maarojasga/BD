@@ -1,5 +1,5 @@
 -- *************************************************************
--- Versión para Microsoft SQL Server
+-- Versión para Microsoft SQL Server 48
 -- *************************************************************
 /* Crear una tabla que contenga las características presentadas en el
 enunciado del problema e incluya las columnas digitador y fecha */
@@ -129,22 +129,17 @@ la tabla recién creada y que excluya las columnas digitador y fecha */
 CREATE VIEW VISTA_Cliente_Edit
 AS
     SELECT
-        ClienteID,
-        nombres,
-        apellidos,
-        telefonoFijoCliente,
-        telefonoMovilCliente,
-        dirreccion,
-        genero,
-        correo,
-        fechaIngreso,
-        departamentoEmpresa,
-        cargoEmpresa,
-        salarioMensual,
-        comision,
-        identificacionCliente,
-        nombreCliente,
-        telefonoCliente
+        numeroCliente,
+        NIT,
+        Nombre,
+        Dirección,
+        Ciudad,
+        Correo,
+        Teléfono,
+        Producto,
+        listaEspera,
+        representanteLegal,
+        Cedula
     FROM Cliente
 
 /* */
