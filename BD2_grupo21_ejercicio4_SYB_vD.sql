@@ -6,68 +6,88 @@
 
 
 -- ****************************************************************************
-/* Crear una tabla EMPLEADO que contenga las características presentadas en el
+/* Crear una tabla EMPRESA que contenga las características presentadas en el
 enunciado del problema e incluya las columnas digitador y fecha */
 -- ****************************************************************************
 
-CREATE TABLE Empleado
+CREATE TABLE Empresa
 (
-    empleadoID NUMERIC IDENTITY,
-    cédula BIGINT constraint  I_aaa unique clustered,
-    nombresApellidos VARCHAR(50),
-    telefonoMovilEmpleado BIGINT,
-    ciudad VARCHAR(15),
+    empresaID NUMERIC IDENTITY,
+    tiendaID BIGINT NULL,
+    empleadoID BIGINT NULL,
+    nombreEmpresa VARCHAR(50),
+    NIT BIGINT NULL,
+    representanteLegal VARCHAR(50),
     direccion VARCHAR(50),
-    genero VARCHAR(10),
-    correo VARCHAR(30),
-    fechaIngreso DATETIME,
-    sucursal INT,
-    departamentoEmpresa VARCHAR(25),
-    cargoEmpresa VARCHAR(25),
-    idJefeInmediato BIGINT,
-    sueldoFijo MONEY,
-    comision MONEY NULL,
-    clienteID BIGINT NULL,
-    nombreCliente VARCHAR(30) NULL,
-    telefonoCliente BIGINT NULL,
     digitador VARCHAR(15) default user_name() NOT NULL,
     fecha DATETIME default getdate () NOT NULL,
-    constraint  PK_JJ primary key   (empleadoID)
+    constraint  PK_JJ primary key   (empresaID)
+
 )
 
-/* Crear la vista VISTA_Empleado_Edit, que muestre las columnas que usted definió en
+/* Crear la vista VISTA_Empresa_Edit, que muestre las columnas que usted definió en
 la tabla recién creada y que excluya las columnas digitador y fecha */
 
-CREATE VIEW VISTA_Empleado_Edit
+CREATE VIEW VISTA_Empresa_Edit
 AS
     SELECT
-    cédula,
-    nombresApellidos,
-    telefonoMovilEmpleado,
-    ciudad,
+    nombreEmpresa,
+    NIT,
+    representanteLegal,
     direccion,
-    genero,
-    correo,
-    fechaIngreso,
-    sucursal,
-    departamentoEmpresa,
-    cargoEmpresa,
-    idJefeInmediato,
-    sueldoFijo,
-    comision,
-    clienteID,
-    nombreCliente,
-    telefonoCliente
-    FROM Empleado
 
-/* Crear la vista VISTA_Empleado_View, que muestre todas las columnas de la tabla
+    FROM Empresa
+
+/* Crear la vista VISTA_Empresa_View, que muestre todas las columnas de la tabla
 recién creada y que incluya un filtro por usuario */
 
-CREATE VIEW VISTA_Empleado_View
+CREATE VIEW VISTA_Empresa_View
 AS
     SELECT *
-    FROM Empleado
+    FROM Empresa
     WHERE digitador = user_name()
+    
+    -- ****************************************************************************
+/* Crear una tabla TIENDA que contenga las características presentadas en el
+enunciado del problema e incluya las columnas digitador y fecha */
+-- ****************************************************************************
+
+CREATE TABLE Tienda
+(
+    tiendaID NUMERIC IDENTITY,
+    empresaID BIGINT NULL,
+    proveedorID BIGINT NULL,
+    empleadoID BIGINT NULL,
+    clienteID BIGINT NULL,
+    nombreTienda VARCHAR(50),
+    direccion VARCHAR(50),
+    digitador VARCHAR(15) default user_name() NOT NULL,
+    fecha DATETIME default getdate () NOT NULL,
+    constraint  PK_JJ primary key   (tiendaID)
+
+)
+
+/* Crear la vista VISTA_Tienda_Edit, que muestre las columnas que usted definió en
+la tabla recién creada y que excluya las columnas digitador y fecha */
+
+CREATE VIEW VISTA_Tienda_Edit
+AS
+    SELECT
+    nombreTienda,
+    direccion,
+
+    FROM Tienda
+
+/* Crear la vista VISTA_Tienda_View, que muestre todas las columnas de la tabla
+recién creada y que incluya un filtro por usuario */
+
+CREATE VIEW VISTA_Tienda_View
+AS
+    SELECT *
+    FROM Tienda
+    WHERE digitador = user_name()
+    
+    
 
 -- ****************************************************************************
 /* Crear una tabla PROVEEDOR que contenga las características presentadas en el
@@ -212,6 +232,67 @@ AS
     SELECT *
     FROM Producto
     WHERE digitador = user_name()
+    
+    
+    
+    CREATE TABLE Empleado
+(
+    empleadoID NUMERIC IDENTITY,
+    cédula BIGINT constraint  I_aaa unique clustered,
+    nombresApellidos VARCHAR(50),
+    telefonoMovilEmpleado BIGINT,
+    ciudad VARCHAR(15),
+    direccion VARCHAR(50),
+    genero VARCHAR(10),
+    correo VARCHAR(30),
+    fechaIngreso DATETIME,
+    sucursal INT,
+    departamentoEmpresa VARCHAR(25),
+    cargoEmpresa VARCHAR(25),
+    idJefeInmediato BIGINT,
+    sueldoFijo MONEY,
+    comision MONEY NULL,
+    clienteID BIGINT NULL,
+    nombreCliente VARCHAR(30) NULL,
+    telefonoCliente BIGINT NULL,
+    digitador VARCHAR(15) default user_name() NOT NULL,
+    fecha DATETIME default getdate () NOT NULL,
+    constraint  PK_JJ primary key   (empleadoID)
+)
+
+/* Crear la vista VISTA_Empleado_Edit, que muestre las columnas que usted definió en
+la tabla recién creada y que excluya las columnas digitador y fecha */
+
+CREATE VIEW VISTA_Empleado_Edit
+AS
+    SELECT
+    cédula,
+    nombresApellidos,
+    telefonoMovilEmpleado,
+    ciudad,
+    direccion,
+    genero,
+    correo,
+    fechaIngreso,
+    sucursal,
+    departamentoEmpresa,
+    cargoEmpresa,
+    idJefeInmediato,
+    sueldoFijo,
+    comision,
+    clienteID,
+    nombreCliente,
+    telefonoCliente
+    FROM Empleado
+
+/* Crear la vista VISTA_Empleado_View, que muestre todas las columnas de la tabla
+recién creada y que incluya un filtro por usuario */
+
+CREATE VIEW VISTA_Empleado_View
+AS
+    SELECT *
+    FROM Empleado
+    WHERE digitador = user_name()
 
 
 -- ****************************************************************************
@@ -267,6 +348,26 @@ GRANT SELECT ON VISTA_Producto_View TO dabonilla
 GRANT INSERT ON VISTA_Producto_Edit TO dabonilla
 GRANT SELECT ON VISTA_Producto_Edit TO dabonilla
 
+GRANT SELECT ON VISTA_Empresa_View TO negarzonc
+GRANT INSERT ON VISTA_Empresa_Edit TO negarzonc
+GRANT SELECT ON VISTA_Empresa_Edit TO negarzonc
+GRANT SELECT ON VISTA_Empresa_View TO dsilvamo
+GRANT INSERT ON VISTA_Empresa_Edit TO dsilvamo
+GRANT SELECT ON VISTA_Empresa_Edit TO dsilvamo
+GRANT SELECT ON VISTA_Empresa_View TO dabonilla
+GRANT INSERT ON VISTA_Empresa_Edit TO dabonilla
+GRANT SELECT ON VISTA_Empresa_Edit TO dabonilla
+
+GRANT SELECT ON VISTA_Tienda_View TO negarzonc
+GRANT INSERT ON VISTA_Tienda_Edit TO negarzonc
+GRANT SELECT ON VISTA_Tienda_Edit TO negarzonc
+GRANT SELECT ON VISTA_Tienda_View TO dsilvamo
+GRANT INSERT ON VISTA_Tienda_Edit TO dsilvamo
+GRANT SELECT ON VISTA_Tienda_Edit TO dsilvamo
+GRANT SELECT ON VISTA_Tienda_View TO dabonilla
+GRANT INSERT ON VISTA_Tienda_Edit TO dabonilla
+GRANT SELECT ON VISTA_Tienda_Edit TO dabonilla
+
 /* Los compañeros de su grupos tienen que añadir datos a sus tablas,
 usando la vista cuenta.VISTA_NombreTabla_Edit*/
 INSERT INTO maarojasga.VISTA_Empleado_Edit
@@ -277,6 +378,10 @@ INSERT INTO maarojasga.VISTA_Cliente_Edit
 VALUES (valor_1, valor_2, . . . , valor_n)
 INSERT INTO maarojasga.VISTA_Producto_Edit
 VALUES (valor_1, valor_2, . . . , valor_n)
+INSERT INTO maarojasga.VISTA_Empresa_Edit
+VALUES (valor_1, valor_2, . . . , valor_n)
+INSERT INTO maarojasga.VISTA_Tienda_Edit
+VALUES (valor_1, valor_2, . . . , valor_n)
 
 /* Ver los datos que cada uno ingresó a las tablas
 utilizando la vista cuenta.VISTA_NombreTabla_View */
@@ -284,6 +389,8 @@ SELECT * FROM maarojasga.VISTA_Empleado_View
 SELECT * FROM maarojasga.VISTA_Proveedor_View
 SELECT * FROM maarojasga.VISTA_Cliente_View
 SELECT * FROM maarojasga.VISTA_Producto_View
+SELECT * FROM maarojasga.VISTA_Empresa_View
+SELECT * FROM maarojasga.VISTA_Tienda_View
 
 /* Ver los datos que todos ingresaron a las tablas
 utilizando la vista cuenta.VISTA_NombreTabla_Edit */
@@ -291,3 +398,5 @@ SELECT * FROM maarojasga.VISTA_Empleado_Edit
 SELECT * FROM maarojasga.VISTA_Proveedores_Edit
 SELECT * FROM maarojasga.VISTA_Cliente_Edit
 SELECT * FROM maarojasga.VISTA_Producto_Edit
+SELECT * FROM maarojasga.VISTA_Empresa_Edit
+SELECT * FROM maarojasga.VISTA_Tienda_Edit
