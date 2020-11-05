@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      ORACLE Version 10g                           */
-/* Created on:     4/11/2020 6:08:00 p. m.                      */
+/* Created on:     4/11/2020 6:08:00 p.ï¿½m.                      */
 /*==============================================================*/
 
 
@@ -151,8 +151,59 @@ create table CARGO  (
    DEPARTAMENTOID       INTEGER                         not null,
    CARGO_NOMBRE         VARCHAR2(100)                   not null,
    SALARIOMENSUAL       INTEGER                         not null,
+   digitador VARCHAR(15) default USER                    NOT NULL,
+   fecha DATE default sysdate                            NOT NULL,
    constraint PK_CARGO primary key (CARGOID)
 );
+
+
+/*==============================================================*/
+/* View_Edit: CARGO                                             */
+/*==============================================================*/
+CREATE view VISTA_CARGO_Edit AS SELECT 
+    CARGOID,
+    DEPARTAMENTOID,
+    CARGO_NOMBRE,
+    SALARIOMENSUAL
+                                    FROM CARGO;
+
+/*==============================================================*/
+/* View_View: CARGO                                             */
+/*==============================================================*/
+CREATE OR replace view VISTA_CARGO_View 
+(
+   CARGOID,
+   DEPARTAMENTOID,
+   CARGO_NOMBRE,
+   SALARIOMENSUAL,
+   digitador,
+   fecha
+)
+AS SELECT 
+   CARGOID,
+   DEPARTAMENTOID,
+   CARGO_NOMBRE,
+   SALARIOMENSUAL,
+   digitador,
+   to_char(fecha, 'dd-mm-yyyy" "hh24:mi:ss')
+FROM CARGO
+WHERE digitador = USER;
+
+/*==============================================================*/
+/* Permisos                                                     */
+/*==============================================================*/
+GRANT SELECT ON VISTA_CARGO_View TO negarzonc;
+GRANT INSERT ON VISTA_CARGO_Edit TO negarzonc;
+GRANT SELECT ON VISTA_CARGO_Edit TO negarzonc;
+
+GRANT SELECT ON VISTA_CARGO_View TO dabonilla;
+GRANT INSERT ON VISTA_CARGO_Edit TO dabonilla;
+GRANT SELECT ON VISTA_CARGO_Edit TO dabonilla;
+
+GRANT SELECT ON VISTA_CARGO_View TO dsilvamo;
+GRANT INSERT ON VISTA_CARGO_Edit TO dsilvamo;
+GRANT SELECT ON VISTA_CARGO_Edit TO dsilvamo;
+
 
 /*==============================================================*/
 /* Index: DEPENDENCIA_FK                                        */
@@ -168,8 +219,55 @@ create table CIUDAD  (
    CIUDADID             INTEGER                         not null,
    SUCURSALID           INTEGER,
    CIUDAD_NOMBRE        VARCHAR2(100)                   not null,
+   digitador VARCHAR(15) default USER                    NOT NULL,
+   fecha DATE default sysdate                            NOT NULL,
    constraint PK_CIUDAD primary key (CIUDADID)
 );
+
+
+/*==============================================================*/
+/* View_Edit: CIUDAD                                            */
+/*==============================================================*/
+CREATE view VISTA_CARGO_Edit AS SELECT 
+    CIUDADID,
+    SUCURSALID,
+    CIUDAD_NOMBRE
+                                    FROM CIUDAD;
+
+/*==============================================================*/
+/* View_View: CIUDAD                                            */
+/*==============================================================*/
+CREATE OR replace view VISTA_CIUDAD_View 
+(  
+   CIUDADID
+   SUCURSALID,
+   CIUDAD_NOMBRE,
+   digitador,
+   fecha
+)
+AS SELECT 
+   CIUDADID,
+   SUCURSALID,
+   CIUDAD_NOMBRE,
+    digitador,
+    to_char(fecha, 'dd-mm-yyyy" "hh24:mi:ss')
+FROM CIUDAD
+WHERE digitador = USER;
+
+/*==============================================================*/
+/* Permisos                                                     */
+/*==============================================================*/
+GRANT SELECT ON VISTA_CIUDAD_View TO negarzonc;
+GRANT INSERT ON VISTA_CIUDAD_Edit TO negarzonc;
+GRANT SELECT ON VISTA_CIUDAD_Edit TO negarzonc;
+
+GRANT SELECT ON VISTA_CIUDAD_View TO dabonilla;
+GRANT INSERT ON VISTA_CIUDAD_Edit TO dabonilla;
+GRANT SELECT ON VISTA_CIUDAD_Edit TO dabonilla;
+
+GRANT SELECT ON VISTA_CIUDAD_View TO dsilvamo;
+GRANT INSERT ON VISTA_CIUDAD_Edit TO dsilvamo;
+GRANT SELECT ON VISTA_CIUDAD_Edit TO dsilvamo;
 
 /*==============================================================*/
 /* Index: UBICACION_FK                                          */
@@ -191,8 +289,74 @@ create table CLIENTE  (
    CLIENTE_DIRECCION    VARCHAR2(100)                   not null,
    CLIENTE_CORREO       VARCHAR2(100)                   not null,
    CLIENTE_TELEFONOMOVIL INTEGER                         not null,
+   digitador VARCHAR(15) default USER                    NOT NULL,
+   fecha DATE default sysdate                            NOT NULL,
    constraint PK_CLIENTE primary key (CLIENTEID)
 );
+create sequence CLIENTEID minvalue 1 start with 1;
+
+/*==============================================================*/
+/* View_Edit: CLIENTE                                          */
+/*==============================================================*/
+CREATE view VISTA_CLIENTE_Edit AS SELECT 
+    CLIENTEID,
+    GERENTE_CLIENTEID,
+    SUCURSALID,
+    EMPLEADO_VENDEDORID,
+    CLIENTE_NOMBRE,
+    CLIENTE_NIT,
+    CLIENTE_DIRECCION,
+    CLIENTE_CORREO,
+    CLIENTE_TELEFONOMOVIL
+
+                                    FROM CLIENTE;
+
+/*==============================================================*/
+/* View_View: CLIENTE                                           */
+/*==============================================================*/
+CREATE OR replace view VISTA_CLIENTE_View 
+(    
+    CLIENTEID,
+    GERENTE_CLIENTEID,
+    SUCURSALID,
+    EMPLEADO_VENDEDORID,
+    CLIENTE_NOMBRE,
+    CLIENTE_NIT,
+    CLIENTE_DIRECCION,
+    CLIENTE_CORREO,
+    CLIENTE_TELEFONOMOVIL,
+    digitador,
+    fecha
+)
+AS SELECT 
+    CLIENTEID,
+    GERENTE_CLIENTEID,
+    SUCURSALID,
+    EMPLEADO_VENDEDORID,
+    CLIENTE_NOMBRE,
+    CLIENTE_NIT,
+    CLIENTE_DIRECCION,
+    CLIENTE_CORREO,
+    CLIENTE_TELEFONOMOVIL,
+    digitador,
+    to_char(fecha, 'dd-mm-yyyy" "hh24:mi:ss')
+FROM CLIENTE
+WHERE digitador = USER;
+
+/*==============================================================*/
+/* Permisos                                                     */
+/*==============================================================*/
+GRANT SELECT ON VISTA_CLIENTE_View TO negarzonc;
+GRANT INSERT ON VISTA_CLIENTE_Edit TO negarzonc;
+GRANT SELECT ON VISTA_CLIENTE_Edit TO negarzonc;
+
+GRANT SELECT ON VISTA_CLIENTE_View TO dabonilla;
+GRANT INSERT ON VISTA_CLIENTE_Edit TO dabonilla;
+GRANT SELECT ON VISTA_CLIENTE_Edit TO dabonilla;
+
+GRANT SELECT ON VISTA_CLIENTE_View TO dsilvamo;
+GRANT INSERT ON VISTA_CLIENTE_Edit TO dsilvamo;
+GRANT SELECT ON VISTA_CLIENTE_Edit TO dsilvamo;
 
 /*==============================================================*/
 /* Index: REPRESENTANTE2_FK                                     */
@@ -221,8 +385,53 @@ create index ENCARGADO_FK on CLIENTE (
 create table DEPARTAMENTO  (
    DEPARTAMENTOID       INTEGER                         not null,
    DEPARTAMENTO_NOMBRE  VARCHAR2(100)                   not null,
+   digitador VARCHAR(15) default USER                    NOT NULL,
+   fecha DATE default sysdate                            NOT NULL,
    constraint PK_DEPARTAMENTO primary key (DEPARTAMENTOID)
 );
+
+
+/*==============================================================*/
+/* View_Edit: DEPARTAMENTO                                         */
+/*==============================================================*/
+CREATE view VISTA_DEPARTAMENTO_Edit AS SELECT 
+    DEPARTAMENTOID,
+    DEPARTAMENTO_NOMBRE
+
+                                    FROM DEPARTAMENTO;
+
+/*==============================================================*/
+/* View_View: DEPARTAMENTO                                         */
+/*==============================================================*/
+CREATE OR replace view VISTA_DEPARTAMENTO_View 
+(
+    DEPARTAMENTOID,
+    DEPARTAMENTO_NOMBRE,
+    digitador,
+    fecha
+)
+AS SELECT 
+    DEPARTAMENTOID,
+    DEPARTAMENTO_NOMBRE,
+    digitador,
+    to_char(fecha, 'dd-mm-yyyy" "hh24:mi:ss')
+FROM DEPARTAMENTO
+WHERE digitador = USER;
+
+/*==============================================================*/
+/* Permisos                                                     */
+/*==============================================================*/
+GRANT SELECT ON VISTA_DEPARTAMENTO_View TO negarzonc;
+GRANT INSERT ON VISTA_DEPARTAMENTO_Edit TO negarzonc;
+GRANT SELECT ON VISTA_DEPARTAMENTO_Edit TO negarzonc;
+
+GRANT SELECT ON VISTA_DEPARTAMENTO_View TO dabonilla;
+GRANT INSERT ON VISTA_DEPARTAMENTO_Edit TO dabonilla;
+GRANT SELECT ON VISTA_DEPARTAMENTO_Edit TO dabonilla;
+
+GRANT SELECT ON VISTA_DEPARTAMENTO_View TO dsilvamo;
+GRANT INSERT ON VISTA_DEPARTAMENTO_Edit TO dsilvamo;
+GRANT SELECT ON VISTA_DEPARTAMENTO_Edit TO dsilvamo;
 
 /*==============================================================*/
 /* Table: EMPLEADO                                              */
@@ -233,13 +442,80 @@ create table EMPLEADO  (
    SUCURSALID           INTEGER                         not null,
    EMPLEADO_NOMBRE      VARCHAR2(100)                   not null,
    EMPLEADO_APELLIDO    VARCHAR2(100)                   not null,
-   EMPLEADO_TELEFONOMOVIL INTEGER                         not null,
+   EMPLEADO_TELEFONOMOVIL INTEGER                       not null,
    EMPLEADO_DIRECCION   VARCHAR2(100)                   not null,
    EMPLEADO_GENERO      VARCHAR2(100),
    EMPLEADO_CORREO      VARCHAR2(100)                   not null,
-   EMPLEADO_FECHAINGRESO DATE                            not null,
+   EMPLEADO_FECHAINGRESO DATE                           not null,
+   digitador VARCHAR(15) default USER                   NOT NULL,
+   fecha DATE default sysdate                           NOT NULL,
    constraint PK_EMPLEADO primary key (EMPLEADOID)
 );
+
+
+/*==============================================================*/
+/* View_Edit: EMPLEADO                                          */
+/*==============================================================*/
+CREATE view VISTA_EMPLEADO_Edit AS SELECT 
+    EMPLEADOID,
+    CARGOID,
+    SUCURSALID,
+    EMPLEADO_NOMBRE,
+    EMPLEADO_APELLIDO,
+    EMPLEADO_TELEFONOMOVIL,
+    EMPLEADO_DIRECCION,
+    EMPLEADO_GENERO,
+    EMPLEADO_CORREO
+    
+
+                                    FROM EMPLEADO;
+
+/*==============================================================*/
+/* View_View: EMPLEADO                                          */
+/*==============================================================*/
+CREATE OR replace view VISTA_EMPLEADO_View 
+( 
+    EMPLEADOID,
+    CARGOID,
+    SUCURSALID,
+    EMPLEADO_NOMBRE,
+    EMPLEADO_APELLIDO,
+    EMPLEADO_TELEFONOMOVIL,
+    EMPLEADO_DIRECCION,
+    EMPLEADO_GENERO,
+    EMPLEADO_CORREO,
+    digitador,
+    fecha
+)
+AS SELECT 
+    EMPLEADOID,
+    CARGOID,
+    SUCURSALID,
+    EMPLEADO_NOMBRE,
+    EMPLEADO_APELLIDO,
+    EMPLEADO_TELEFONOMOVIL,
+    EMPLEADO_DIRECCION,
+    EMPLEADO_GENERO,
+    EMPLEADO_CORREO,
+    digitador,
+    to_char(fecha, 'dd-mm-yyyy" "hh24:mi:ss')
+FROM EMPLEADO
+WHERE digitador = USER;
+
+/*==============================================================*/
+/* Permisos                                                     */
+/*==============================================================*/
+GRANT SELECT ON VISTA_EMPLEADO_View TO negarzonc;
+GRANT INSERT ON VISTA_EMPLEADO_Edit TO negarzonc;
+GRANT SELECT ON VISTA_EMPLEADO_Edit TO negarzonc;
+
+GRANT SELECT ON VISTA_EMPLEADO_View TO dabonilla;
+GRANT INSERT ON VISTA_EMPLEADO_Edit TO dabonilla;
+GRANT SELECT ON VISTA_EMPLEADO_Edit TO dabonilla;
+
+GRANT SELECT ON VISTA_EMPLEADO_View TO dsilvamo;
+GRANT INSERT ON VISTA_EMPLEADO_Edit TO dsilvamo;
+GRANT SELECT ON VISTA_EMPLEADO_Edit TO dsilvamo;
 
 /*==============================================================*/
 /* Index: PERTENECE_FK                                          */
@@ -259,18 +535,81 @@ create index CONTRATO_FK on EMPLEADO (
 /* Table: EMPLEADO_VENDEDOR                                     */
 /*==============================================================*/
 create table EMPLEADO_VENDEDOR  (
-   EMPLEADO_VENDEDORID  INTEGER                         not null,
-   SUCURSALID           INTEGER                         not null,
-   EMPLEADOVENDEDOR_NOMBRE VARCHAR2(100)                   not null,
-   EMPLEADOVENDEDOR_APELLIDO VARCHAR2(100)                   not null,
-   EMPLEADOVENDEDOR_TELEFONOMOVIL INTEGER                         not null,
-   EMPLEADOVENDEDOR_DIRECCION VARCHAR2(100)                   not null,
+   EMPLEADO_VENDEDORID  INTEGER                                not null,
+   SUCURSALID           INTEGER                                not null,
+   EMPLEADOVENDEDOR_NOMBRE VARCHAR2(100)                       not null,
+   EMPLEADOVENDEDOR_APELLIDO VARCHAR2(100)                     not null,
+   EMPLEADOVENDEDOR_TELEFONOMOVIL INTEGER                      not null,
+   EMPLEADOVENDEDOR_DIRECCION VARCHAR2(100)                    not null,
    EMPLEADOVENDEDOR_GENERO VARCHAR2(100),
-   EMPLEADOVENDEDOR_CORREO VARCHAR2(100)                   not null,
-   EMPLEADOVENDEDOR_FECHAINGRESO DATE                            not null,
-   COMISION             INTEGER                         not null,
+   EMPLEADOVENDEDOR_CORREO VARCHAR2(100)                       not null,
+   EMPLEADOVENDEDOR_FECHAINGRESO DATE                          not null,
+   COMISION             INTEGER                                not null,
+   digitador VARCHAR(15) default USER                          NOT NULL,
+   fecha DATE default sysdate                                  NOT NULL,
    constraint PK_EMPLEADO_VENDEDOR primary key (EMPLEADO_VENDEDORID)
 );
+
+
+/*==============================================================*/
+/* View_Edit: EMPLEADO_VENDEDOR                                 */
+/*==============================================================*/
+CREATE view VISTA_EMPLEADO_VENDEDOR_Edit AS SELECT 
+    EMPLEADO_VENDEDORID,
+    SUCURSALID,
+    EMPLEADOVENDEDOR_NOMBRE,
+    EMPLEADOVENDEDOR_APELLIDO,
+    EMPLEADOVENDEDOR_TELEFONOMOVIL,
+    EMPLEADOVENDEDOR_DIRECCION,
+    EMPLEADOVENDEDOR_GENERO,
+    EMPLEADOVENDEDOR_CORREO
+    
+
+                                    FROM EMPLEADO_VENDEDOR;
+
+/*==============================================================*/
+/* View_View: EMPLEADO_VENDEDOR                                 */
+/*==============================================================*/
+CREATE OR replace view VISTA_EMPLEADO_VENDEDOR_View 
+(   EMPLEADO_VENDEDORID,
+    SUCURSALID,
+    EMPLEADOVENDEDOR_NOMBRE,
+    EMPLEADOVENDEDOR_APELLIDO,
+    EMPLEADOVENDEDOR_TELEFONOMOVIL,
+    EMPLEADOVENDEDOR_DIRECCION,
+    EMPLEADOVENDEDOR_GENERO,
+    EMPLEADOVENDEDOR_CORREO,
+    digitador,
+    fecha
+)
+AS SELECT 
+    EMPLEADO_VENDEDORID,
+    SUCURSALID,
+    EMPLEADO_VENDEDOR_NOMBRE,
+    EMPLEADO_VENDEDOR_APELLIDO,
+    EMPLEADO_VENDEDOR_TELEFONOMOVIL,
+    EMPLEADO_VENDEDOR_DIRECCION,
+    EMPLEADO_VENDEDOR_GENERO,
+    EMPLEADO_VENDEDOR_CORREO,
+    digitador,
+    to_char(fecha, 'dd-mm-yyyy" "hh24:mi:ss')
+FROM EMPLEADO_VENDEDOR
+WHERE digitador = USER;
+
+/*==============================================================*/
+/* Permisos                                                     */
+/*==============================================================*/
+GRANT SELECT ON VISTA_EMPLEADO_VENDEDOR_View TO negarzonc;
+GRANT INSERT ON VISTA_EMPLEADO_VENDEDOR_Edit TO negarzonc;
+GRANT SELECT ON VISTA_EMPLEADO_VENDEDOR_Edit TO negarzonc;
+
+GRANT SELECT ON VISTA_EMPLEADO_VENDEDOR_View TO dabonilla;
+GRANT INSERT ON VISTA_EMPLEADO_VENDEDOR_Edit TO dabonilla;
+GRANT SELECT ON VISTA_EMPLEADO_VENDEDOR_Edit TO dabonilla;
+
+GRANT SELECT ON VISTA_EMPLEADO_VENDEDOR_View TO dsilvamo;
+GRANT INSERT ON VISTA_EMPLEADO_VENDEDOR_Edit TO dsilvamo;
+GRANT SELECT ON VISTA_EMPLEADO_VENDEDOR_Edit TO dsilvamo;
 
 /*==============================================================*/
 /* Index: CONTRATOVENDEDOR_FK                                   */
@@ -283,13 +622,67 @@ create index CONTRATOVENDEDOR_FK on EMPLEADO_VENDEDOR (
 /* Table: GERENTE_CLIENTE                                       */
 /*==============================================================*/
 create table GERENTE_CLIENTE  (
-   GERENTE_CLIENTEID    INTEGER                         not null,
+   GERENTE_CLIENTEID    INTEGER                          not null,
    CLIENTEID            INTEGER,
    GERENTECLIENTE_NOMBRE VARCHAR2(100)                   not null,
-   GERENTECLIENTE_DOCUMENTO INTEGER                         not null,
-   GERENTECLIENTE_TELEFONOMOVIL INTEGER                         not null,
+   GERENTECLIENTE_DOCUMENTO INTEGER                      not null,
+   GERENTECLIENTE_TELEFONOMOVIL INTEGER                  not null,
+   digitador VARCHAR(15) default USER                    NOT NULL,
+   fecha DATE default sysdate                            NOT NULL,
    constraint PK_GERENTE_CLIENTE primary key (GERENTE_CLIENTEID)
 );
+
+
+/*==============================================================*/
+/* View_Edit: GERENTE_CLIENTE                               */
+/*==============================================================*/
+CREATE view VISTA_GERENTE_CLIENTE_Edit AS SELECT 
+    GERENTE_CLIENTEID,
+    CLIENTEID,
+    GERENTECLIENTE_NOMBRE,
+    GERENTECLIENTE_DOCUMENTO,
+    GERENTECLIENTE_TELEFONOMOVIL
+
+                                    FROM GERENTE_CLIENTE;
+
+/*==============================================================*/
+/* View_View: GERENTE_CLIENTE                                   */
+/*==============================================================*/
+CREATE OR replace view VISTA_GERENTE_CLIENTE_View 
+(
+    GERENTE_CLIENTEID,
+    CLIENTEID,
+    GERENTECLIENTE_NOMBRE,
+    GERENTECLIENTE_DOCUMENTO,
+    GERENTECLIENTE_TELEFONOMOVIL,
+    digitador,
+    fecha
+)
+AS SELECT 
+    GERENTE_CLIENTEID,
+    CLIENTEID,
+    GERENTECLIENTE_NOMBRE,
+    GERENTECLIENTE_DOCUMENTO,
+    GERENTECLIENTE_TELEFONOMOVIL,
+    digitador,
+    to_char(fecha, 'dd-mm-yyyy" "hh24:mi:ss')
+FROM GERENTE_CLIENTE
+WHERE digitador = USER;
+
+/*==============================================================*/
+/* Permisos                                                     */
+/*==============================================================*/
+GRANT SELECT ON VISTA_GERENTE_CLIENTE_View TO negarzonc;
+GRANT INSERT ON VISTA_GERENTE_CLIENTE_Edit TO negarzonc;
+GRANT SELECT ON VISTA_GERENTE_CLIENTE_Edit TO negarzonc;
+
+GRANT SELECT ON VISTA_GERENTE_CLIENTE_View TO dabonilla;
+GRANT INSERT ON VISTA_GERENTE_CLIENTE_Edit TO dabonilla;
+GRANT SELECT ON VISTA_GERENTE_CLIENTE_Edit TO dabonilla;
+
+GRANT SELECT ON VISTA_GERENTE_CLIENTE_View TO dsilvamo;
+GRANT INSERT ON VISTA_GERENTE_CLIENTE_Edit TO dsilvamo;
+GRANT SELECT ON VISTA_GERENTE_CLIENTE_Edit TO dsilvamo;
 
 /*==============================================================*/
 /* Index: REPRESENTANTE_FK                                      */
@@ -307,8 +700,61 @@ create table GERENTE_PROVEEDOR  (
    GERENTEPROVEEDOR_NOMBRE VARCHAR2(100)                   not null,
    GERENTEPROVEEDOR_DOCUMENTO INTEGER                         not null,
    GERENTEPROVEEDOR_TELEFONO INTEGER                         not null,
+   digitador VARCHAR(15) default USER                    NOT NULL,
+   fecha DATE default sysdate                            NOT NULL,
    constraint PK_GERENTE_PROVEEDOR primary key (GERENTE_PROVEEDORID)
 );
+
+/*==============================================================*/
+/* View_Edit: GERENTE_PROVEEDOR                              */
+/*==============================================================*/
+CREATE view VISTA_GERENTE_PROVEEDOR_Edit AS SELECT 
+    GERENTE_PROVEEDORID,
+    PROVEEDORID,
+    GERENTEPROVEEDOR_NOMBRE,
+    GERENTEPROVEEDOR_DOCUMENTO,
+    GERENTEPROVEEDOR_TELEFONO
+
+                                    FROM GERENTE_PROVEEDOR;
+
+/*==============================================================*/
+/* View_View: GERENTE_PROVEEDOR                             */
+/*==============================================================*/
+CREATE OR replace view VISTA_GERENTE_PROVEEDOR_View 
+(
+    GERENTE_PROVEEDORID,
+    CLIENTEID,
+    GERENTEPROVEEDOR_NOMBRE,
+    GERENTEPROVEEDOR_DOCUMENTO,
+    GERENTEPROVEEDOR_TELEFONO,
+    digitador,
+    fecha
+)
+AS SELECT 
+    GERENTE_PROVEEDORID,
+    PROVEEDORID,
+    GERENTEPROVEEDOR_NOMBRE,
+    GERENTEPROVEEDOR_DOCUMENTO,
+    GERENTEPROVEEDOR_TELEFONOMOVIL,
+    digitador,
+    to_char(fecha, 'dd-mm-yyyy" "hh24:mi:ss')
+FROM GERENTE_PROVEEDOR
+WHERE digitador = USER;
+
+/*==============================================================*/
+/* Permisos                                                     */
+/*==============================================================*/
+GRANT SELECT ON VISTA_GERENTE_PROVEEDOR_View TO negarzonc;
+GRANT INSERT ON VISTA_GERENTE_PROVEEDOR_Edit TO negarzonc;
+GRANT SELECT ON VISTA_GERENTE_PROVEEDOR_Edit TO negarzonc;
+
+GRANT SELECT ON VISTA_GERENTE_PROVEEDOR_View TO dabonilla;
+GRANT INSERT ON VISTA_GERENTE_PROVEEDOR_Edit TO dabonilla;
+GRANT SELECT ON VISTA_GERENTE_PROVEEDOR_Edit TO dabonilla;
+
+GRANT SELECT ON VISTA_GERENTE_PROVEEDOR_View TO dsilvamo;
+GRANT INSERT ON VISTA_GERENTE_PROVEEDOR_Edit TO dsilvamo;
+GRANT SELECT ON VISTA_GERENTE_PROVEEDOR_Edit TO dsilvamo;
 
 /*==============================================================*/
 /* Index: REPRESENTAR2_FK                                       */
@@ -324,11 +770,68 @@ create table PRODUCTO  (
    PRODUCTOID           INTEGER                         not null,
    PROVEEDORID          INTEGER                         not null,
    PRODUCTO_NOMBRE      VARCHAR2(100)                   not null,
-   PRODUCTO_PRECIOCOMPRA INTEGER                         not null,
+   PRODUCTO_PRECIOCOMPRA INTEGER                        not null,
    PRODUCTO_PRECIOVENTA INTEGER                         not null,
-   PRODUCTO_FECHAADQUISICION DATE                            not null,
+   PRODUCTO_FECHAADQUISICION DATE                       not null,
+   digitador VARCHAR(15) default USER                    NOT NULL,
+   fecha DATE default sysdate                            NOT NULL,
    constraint PK_PRODUCTO primary key (PRODUCTOID)
 );
+
+
+/*==============================================================*/
+/* View_Edit: PRODUCTO                                          */
+/*==============================================================*/
+CREATE view VISTA_PRODUCTO_Edit AS SELECT 
+    PRODUCTOID,
+    PROVEEDORID,
+    PRODUCTO_NOMBRE,
+    PRODUCTO_PRECIOCOMPRA,
+    PRODUCTO_PRECIOVENTA,
+    PRODUCTO_FECHAADQUISICION
+
+                                    FROM PRODUCTO;
+
+/*==============================================================*/
+/* View_View: PRODUCTO                                          */
+/*==============================================================*/
+CREATE OR replace view VISTA_PRODUCTO_View 
+(
+    PRODUCTOID,
+    PROVEEDORID,
+    PRODUCTO_NOMBRE,
+    PRODUCTO_PRECIOCOMPRA,
+    PRODUCTO_PRECIOVENTA,
+    PRODUCTO_FECHAADQUISICION,
+    digitador,
+    fecha
+)
+AS SELECT 
+    PRODUCTOID,
+    PROVEEDORID,
+    PRODUCTO_NOMBRE,
+    PRODUCTO_PRECIOCOMPRA,
+    PRODUCTO_PRECIOVENTA,
+    PRODUCTO_FECHAADQUISICION,
+    digitador,
+    to_char(fecha, 'dd-mm-yyyy" "hh24:mi:ss')
+FROM PRODUCTO
+WHERE digitador = USER;
+
+/*==============================================================*/
+/* Permisos                                                     */
+/*==============================================================*/
+GRANT SELECT ON VISTA_PRODUCTO_View TO negarzonc;
+GRANT INSERT ON VISTA_PRODUCTO_Edit TO negarzonc;
+GRANT SELECT ON VISTA_PRODUCTO_Edit TO negarzonc;
+
+GRANT SELECT ON VISTA_PRODUCTO_View TO dabonilla;
+GRANT INSERT ON VISTA_PRODUCTO_Edit TO dabonilla;
+GRANT SELECT ON VISTA_PRODUCTO_Edit TO dabonilla;
+
+GRANT SELECT ON VISTA_PRODUCTO_View TO dsilvamo;
+GRANT INSERT ON VISTA_PRODUCTO_Edit TO dsilvamo;
+GRANT SELECT ON VISTA_PRODUCTO_Edit TO dsilvamo;
 
 /*==============================================================*/
 /* Index: PROVEER_FK                                            */
@@ -346,10 +849,69 @@ create table PROVEEDOR  (
    SUCURSALID           INTEGER                         not null,
    PROVEEDOR_NOMBRE     VARCHAR2(100)                   not null,
    PROVEEDOR_NIT        INTEGER                         not null,
-   PROVEEDOR_NUMEROCENTROLLAMADAS INTEGER                         not null,
+   PROVEEDOR_NUMEROCENTROLLAMADAS INTEGER               not null,
    PROVEEDOR_DIRECCION  VARCHAR2(100)                   not null,
+   digitador VARCHAR(15) default USER                   NOT NULL,
+   fecha DATE default sysdate                           NOT NULL,
    constraint PK_PROVEEDOR primary key (PROVEEDORID)
 );
+create sequence PROVEEDORID minvalue 1 start with 1;
+/*==============================================================*/
+/* View_Edit: PROVEEDOR                                          */
+/*==============================================================*/
+CREATE view VISTA_PROVEEDOR_Edit AS SELECT 
+    PROVEEDORID,
+    GERENTE_PROVEEDORID,
+    SUCURSALID,
+    PROVEEDOR_NOMBRE,
+    PROVEEDOR_NIT,
+    PROVEEDOR_NUMEROCENTROLLAMADAS,
+    PROVEEDOR_DIRECCION
+
+                                    FROM PROVEEDOR;
+
+/*==============================================================*/
+/* View_View: PROVEEDOR                                        */
+/*==============================================================*/
+CREATE OR replace view VISTA_PROVEEDOR_View 
+(
+    PROVEEDORID,
+    GERENTE_PROVEEDORID,
+    SUCURSALID,
+    PROVEEDOR_NOMBRE,
+    PROVEEDOR_NIT,
+    PROVEEDOR_NUMEROCENTROLLAMADAS,
+    PROVEEDOR_DIRECCION,
+    digitador,
+    fecha
+)
+AS SELECT 
+    PROVEEDORID,
+    GERENTE_PROVEEDORID,
+    SUCURSALID,
+    PROVEEDOR_NOMBRE,
+    PROVEEDOR_NIT,
+    PROVEEDOR_NUMEROCENTROLLAMADAS,
+    PROVEEDOR_DIRECCION,
+    digitador,
+    to_char(fecha, 'dd-mm-yyyy" "hh24:mi:ss')
+FROM PROVEEDOR
+WHERE digitador = USER;
+
+/*==============================================================*/
+/* Permisos                                                     */
+/*==============================================================*/
+GRANT SELECT ON VISTA_PROVEEDOR_View TO negarzonc;
+GRANT INSERT ON VISTA_PROVEEDOR_Edit TO negarzonc;
+GRANT SELECT ON VISTA_PROVEEDOR_Edit TO negarzonc;
+
+GRANT SELECT ON VISTA_PROVEEDOR_View TO dabonilla;
+GRANT INSERT ON VISTA_PROVEEDOR_Edit TO dabonilla;
+GRANT SELECT ON VISTA_PROVEEDOR_Edit TO dabonilla;
+
+GRANT SELECT ON VISTA_PROVEEDOR_View TO dsilvamo;
+GRANT INSERT ON VISTA_PROVEEDOR_Edit TO dsilvamo;
+GRANT SELECT ON VISTA_PROVEEDOR_Edit TO dsilvamo;
 
 /*==============================================================*/
 /* Index: REPRESENTAR_FK                                        */
@@ -372,8 +934,54 @@ create table SUCURSAL  (
    SUCURSALID           INTEGER                         not null,
    CIUDADID             INTEGER                         not null,
    SUCURSAL_NOMBRE      VARCHAR2(100)                   not null,
+   digitador VARCHAR(15) default USER                   NOT NULL,
+   fecha DATE default sysdate                           NOT NULL,
    constraint PK_SUCURSAL primary key (SUCURSALID)
 );
+create sequence SUCURSALID minvalue 1 start with 1;
+
+/*==============================================================*/
+/* View_Edit: SUCURSAL                                          */
+/*==============================================================*/
+CREATE view SUCURSAL_Edit AS SELECT 
+    SUCURSALID,
+    CIUDADID,
+    SUCURSAL_NOMBRE
+                                    FROM SUCURSAL;
+
+/*==============================================================*/
+/* View_View: SUCURSAL                                          */
+/*==============================================================*/
+CREATE OR replace view VISTA_SUCURSAL_View 
+(  SUCURSALID,
+   CIUDADID,
+   SUCURSAL_NOMBRE,
+   digitador,
+   fecha
+)
+AS SELECT 
+   SUCURSALID,
+   CIUDADID,
+   SUCURSAL_NOMBRE,
+    digitador,
+    to_char(fecha, 'dd-mm-yyyy" "hh24:mi:ss')
+FROM SUCURSAL
+WHERE digitador = USER;
+
+/*==============================================================*/
+/* Permisos                                                     */
+/*==============================================================*/
+GRANT SELECT ON VISTA_SUCURSAL_View TO negarzonc;
+GRANT INSERT ON VISTA_SUCURSAL_Edit TO negarzonc;
+GRANT SELECT ON VISTA_SUCURSAL_Edit TO negarzonc;
+
+GRANT SELECT ON VISTA_SUCURSAL_View TO dabonilla;
+GRANT INSERT ON VISTA_SUCURSAL_Edit TO dabonilla;
+GRANT SELECT ON VISTA_SUCURSAL_Edit TO dabonilla;
+
+GRANT SELECT ON VISTA_SUCURSAL_View TO dsilvamo;
+GRANT INSERT ON VISTA_SUCURSAL_Edit TO dsilvamo;
+GRANT SELECT ON VISTA_SUCURSAL_Edit TO dsilvamo;
 
 /*==============================================================*/
 /* Index: UBICACION2_FK                                         */
