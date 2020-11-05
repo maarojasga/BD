@@ -1,9 +1,3 @@
-/*==============================================================*/
-/* DBMS name:      Microsoft SQL Server 2008                    */
-/* Created on:     4/11/2020 6:06:23 p. m.                      */
-/*==============================================================*/
-
-
 if exists (select 1
    from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
    where r.fkeyid = object_id('ADQUISICION') and o.name = 'FK_ADQUISIC_ADQUISICI_PRODUCTO')
@@ -413,10 +407,12 @@ go
 /* Table: CARGO                                                 */
 /*==============================================================*/
 create table CARGO (
-   CARGOID              int                  not null,
+   CARGOID              int      identity(1,1)            not null,
    DEPARTAMENTOID       int                  not null,
    CARGO_NOMBRE         varchar(100)         not null,
    SALARIOMENSUAL       bigint               not null,
+   digitador VARCHAR(15) default user_name() NOT NULL,
+   fecha DATETIME default getdate () NOT NULL,
    constraint PK_CARGO primary key nonclustered (CARGOID)
 )
 go
@@ -433,9 +429,11 @@ go
 /* Table: CIUDAD                                                */
 /*==============================================================*/
 create table CIUDAD (
-   CIUDADID             int                  not null,
+   CIUDADID             int     identity(1,1)              not null,
    SUCURSALID           int                  null,
    CIUDAD_NOMBRE        varchar(100)         not null,
+   digitador VARCHAR(15) default user_name() NOT NULL,
+   fecha DATETIME default getdate () NOT NULL,
    constraint PK_CIUDAD primary key nonclustered (CIUDADID)
 )
 go
@@ -452,7 +450,7 @@ go
 /* Table: CLIENTE                                               */
 /*==============================================================*/
 create table CLIENTE (
-   CLIENTEID            int                  not null,
+   CLIENTEID            int       identity(1,1)            not null,
    GERENTE_CLIENTEID    int                  not null,
    SUCURSALID           int                  not null,
    EMPLEADO_VENDEDORID  int                  not null,
@@ -461,6 +459,8 @@ create table CLIENTE (
    CLIENTE_DIRECCION    varchar(100)         not null,
    CLIENTE_CORREO       varchar(100)         not null,
    CLIENTE_TELEFONOMOVIL bigint               not null,
+   digitador VARCHAR(15) default user_name() NOT NULL,
+   fecha DATETIME default getdate () NOT NULL,
    constraint PK_CLIENTE primary key nonclustered (CLIENTEID)
 )
 go
@@ -493,8 +493,10 @@ go
 /* Table: DEPARTAMENTO                                          */
 /*==============================================================*/
 create table DEPARTAMENTO (
-   DEPARTAMENTOID       int                  not null,
+   DEPARTAMENTOID       int      identity(1,1)             not null,
    DEPARTAMENTO_NOMBRE  varchar(100)         not null,
+   digitador VARCHAR(15) default user_name() NOT NULL,
+   fecha DATETIME default getdate () NOT NULL,
    constraint PK_DEPARTAMENTO primary key nonclustered (DEPARTAMENTOID)
 )
 go
@@ -503,7 +505,7 @@ go
 /* Table: EMPLEADO                                              */
 /*==============================================================*/
 create table EMPLEADO (
-   EMPLEADOID           int                  not null,
+   EMPLEADOID           int           identity(1,1)        not null,
    CARGOID              int                  not null,
    SUCURSALID           int                  not null,
    EMPLEADO_NOMBRE      varchar(100)         not null,
@@ -513,6 +515,9 @@ create table EMPLEADO (
    EMPLEADO_GENERO      varchar(100)         null,
    EMPLEADO_CORREO      varchar(100)         not null,
    EMPLEADO_FECHAINGRESO datetime             not null,
+   EMPLEADO_SALARIOMENSUAL bigint               not null,
+   digitador VARCHAR(15) default user_name() NOT NULL,
+   fecha DATETIME default getdate () NOT NULL,
    constraint PK_EMPLEADO primary key nonclustered (EMPLEADOID)
 )
 go
@@ -537,7 +542,7 @@ go
 /* Table: EMPLEADO_VENDEDOR                                     */
 /*==============================================================*/
 create table EMPLEADO_VENDEDOR (
-   EMPLEADO_VENDEDORID  int                  not null,
+   EMPLEADO_VENDEDORID  int         identity(1,1)          not null,
    SUCURSALID           int                  not null,
    EMPLEADOVENDEDOR_NOMBRE varchar(100)         not null,
    EMPLEADOVENDEDOR_APELLIDO varchar(100)         not null,
@@ -548,6 +553,8 @@ create table EMPLEADO_VENDEDOR (
    EMPLEADOVENDEDOR_FECHAINGRESO datetime             not null,
    EMPLEADOVENDEDOR_SALARIOMENSUAL bigint               not null,
    COMISION             bigint               not null,
+   digitador VARCHAR(15) default user_name() NOT NULL,
+   fecha DATETIME default getdate () NOT NULL,
    constraint PK_EMPLEADO_VENDEDOR primary key nonclustered (EMPLEADO_VENDEDORID)
 )
 go
@@ -564,11 +571,13 @@ go
 /* Table: GERENTE_CLIENTE                                       */
 /*==============================================================*/
 create table GERENTE_CLIENTE (
-   GERENTE_CLIENTEID    int                  not null,
+   GERENTE_CLIENTEID    int        identity(1,1)           not null,
    CLIENTEID            int                  null,
    GERENTECLIENTE_NOMBRE varchar(100)         not null,
    GERENTECLIENTE_DOCUMENTO bigint               not null,
    GERENTECLIENTE_TELEFONOMOVIL bigint               not null,
+   digitador VARCHAR(15) default user_name() NOT NULL,
+   fecha DATETIME default getdate () NOT NULL,
    constraint PK_GERENTE_CLIENTE primary key nonclustered (GERENTE_CLIENTEID)
 )
 go
@@ -585,11 +594,13 @@ go
 /* Table: GERENTE_PROVEEDOR                                     */
 /*==============================================================*/
 create table GERENTE_PROVEEDOR (
-   GERENTE_PROVEEDORID  int                  not null,
+   GERENTE_PROVEEDORID  int         identity(1,1)          not null,
    PROVEEDORID          int                  null,
    GERENTEPROVEEDOR_NOMBRE varchar(100)         not null,
    GERENTEPROVEEDOR_DOCUMENTO bigint               not null,
    GERENTEPROVEEDOR_TELEFONO bigint               not null,
+   digitador VARCHAR(15) default user_name() NOT NULL,
+   fecha DATETIME default getdate () NOT NULL,
    constraint PK_GERENTE_PROVEEDOR primary key nonclustered (GERENTE_PROVEEDORID)
 )
 go
@@ -606,12 +617,14 @@ go
 /* Table: PRODUCTO                                              */
 /*==============================================================*/
 create table PRODUCTO (
-   PRODUCTOID           int                  not null,
+   PRODUCTOID           int         identity(1,1)          not null,
    PROVEEDORID          int                  not null,
    PRODUCTO_NOMBRE      varchar(100)         not null,
    PRODUCTO_PRECIOCOMPRA bigint               not null,
    PRODUCTO_PRECIOVENTA bigint               not null,
    PRODUCTO_FECHAADQUISICION datetime             not null,
+   digitador VARCHAR(15) default user_name() NOT NULL,
+   fecha DATETIME default getdate () NOT NULL,
    constraint PK_PRODUCTO primary key nonclustered (PRODUCTOID)
 )
 go
@@ -628,13 +641,15 @@ go
 /* Table: PROVEEDOR                                             */
 /*==============================================================*/
 create table PROVEEDOR (
-   PROVEEDORID          int                  not null,
+   PROVEEDORID          int        identity(1,1)           not null,
    GERENTE_PROVEEDORID  int                  not null,
    SUCURSALID           int                  not null,
    PROVEEDOR_NOMBRE     varchar(100)         not null,
    PROVEEDOR_NIT        bigint               not null,
    PROVEEDOR_NUMEROCENTROLLAMADAS bigint               not null,
    PROVEEDOR_DIRECCION  varchar(100)         not null,
+   digitador VARCHAR(15) default user_name() NOT NULL,
+   fecha DATETIME default getdate () NOT NULL,
    constraint PK_PROVEEDOR primary key nonclustered (PROVEEDORID)
 )
 go
@@ -659,9 +674,11 @@ go
 /* Table: SUCURSAL                                              */
 /*==============================================================*/
 create table SUCURSAL (
-   SUCURSALID           int                  not null,
+   SUCURSALID           int       identity(1,1)            not null,
    CIUDADID             int                  not null,
    SUCURSAL_NOMBRE      varchar(100)         not null,
+   digitador VARCHAR(15) default user_name() NOT NULL,
+   fecha DATETIME default getdate () NOT NULL,
    constraint PK_SUCURSAL primary key nonclustered (SUCURSALID)
 )
 go
@@ -789,4 +806,319 @@ alter table VENDER
    add constraint FK_VENDER_VENDER2_EMPLEADO foreign key (EMPLEADO_VENDEDORID)
       references EMPLEADO_VENDEDOR (EMPLEADO_VENDEDORID)
 go
+
+
+
+CREATE VIEW VISTA_CARGO_Edit
+AS
+    SELECT
+        CARGOID,
+        DEPARTAMENTOID,
+        CARGO_NOMBRE,
+        SALARIOMENSUAL
+    FROM CARGO
+
+CREATE VIEW VISTA_CARGO_View
+AS
+    SELECT *
+    FROM CARGO
+    WHERE digitador = user_name()
+
+	CREATE VIEW VISTA_CIUDAD_Edit
+AS
+    SELECT
+        CIUDADID,
+        SUCURSALID,
+        CIUDAD_NOMBRE
+    FROM CIUDAD
+
+CREATE VIEW VISTA_CIUDAD_View
+AS
+    SELECT *
+    FROM CIUDAD
+    WHERE digitador = user_name()
+
+	CREATE VIEW VISTA_CLIENTE_Edit
+AS
+    SELECT
+        CLIENTEID,
+        GERENTE_CLIENTEID,
+        SUCURSALID,
+		EMPLEADO_VENDEDORID,
+		CLIENTE_NOMBRE,
+		CLIENTE_NIT,
+		CLIENTE_DIRECCION,
+		CLIENTE_CORREO,
+		CLIENTE_TELEFONOMOVIL
+    FROM CLIENTE
+
+CREATE VIEW VISTA_CLIENTE_View
+AS
+    SELECT *
+    FROM CLIENTE
+    WHERE digitador = user_name()
+
+	CREATE VIEW VISTA_DEPARTAMENTO_Edit
+AS
+    SELECT
+        DEPARTAMENTOID,
+        DEPARTAMENTO_NOMBRE
+    FROM DEPARTAMENTO
+
+CREATE VIEW VISTA_DEPARTAMENTO_View
+AS
+    SELECT *
+    FROM DEPARTAMENTO
+    WHERE digitador = user_name()
+
+CREATE VIEW VISTA_EMPLEADO_Edit
+AS
+    SELECT
+        EMPLEADOID,
+        CARGOID,
+        SUCURSALID,
+		EMPLEADO_NOMBRE,
+		EMPLEADO_APELLIDO,
+		EMPLEADO_TELEFONOMOVIL,
+		EMPLEADO_DIRECCION,
+		EMPLEADO_GENERO,
+		EMPLEADO_CORREO
+		EMPLEADO_FECHAINGRESO,
+		EMPLEADO_SALARIOMENSUAL
+    FROM EMPLEADO
+
+CREATE VIEW VISTA_EMPLEADO_View
+AS
+    SELECT *
+    FROM EMPLEADO
+    WHERE digitador = user_name()
+
+CREATE VIEW VISTA_EMPLEADO_VENDEDOR_Edit
+AS
+    SELECT
+        EMPLEADO_VENDEDORID,
+        SUCURSALID,
+        EMPLEADOVENDEDOR_NOMBRE,
+		EMPLEADOVENDEDOR_APELLIDO,
+		EMPLEADOVENDEDOR_TELEFONOMOVIL,
+		EMPLEADOVENDEDOR_DIRECCION,
+		EMPLEADOVENDEDOR_GENERO,
+		EMPLEADOVENDEDOR_CORREO,
+		EMPLEADOVENDEDOR_FECHAINGRESO
+		EMPLEADOVENDEDOR_SALARIOMENSUAL,
+		COMISION
+    FROM EMPLEADO_VENDEDOR
+
+CREATE VIEW VISTA_EMPLEADO_VENDEDOR_View
+AS
+    SELECT *
+    FROM EMPLEADO_VENDEDOR
+    WHERE digitador = user_name()
+
+CREATE VIEW VISTA_GERENTE_CLIENTE_Edit
+AS
+    SELECT
+        GERENTE_CLIENTEID,
+        CLIENTEID,
+        GERENTECLIENTE_NOMBRE,
+		GERENTECLIENTE_DOCUMENTO,
+		GERENTECLIENTE_TELEFONOMOVIL
+    FROM GERENTE_CLIENTE
+
+CREATE VIEW VISTA_GERENTE_CLIENTE_View
+AS
+    SELECT *
+    FROM GERENTE_CLIENTE
+    WHERE digitador = user_name()
+
+CREATE VIEW VISTA_GERENTE_PROVEEDOR_Edit
+AS
+    SELECT
+        GERENTE_PROVEEDORID,
+        PROVEEDORID,
+        GERENTEPROVEEDOR_NOMBRE,
+		GERENTEPROVEEDOR_DOCUMENTO,
+		GERENTEPROVEEDOR_TELEFONO
+    FROM GERENTE_PROVEEDOR
+
+CREATE VIEW VISTA_GERENTE_PROVEEDOR_View
+AS
+    SELECT *
+    FROM GERENTE_PROVEEDOR
+    WHERE digitador = user_name()
+
+
+CREATE VIEW VISTA_GERENTE_PROVEEDOR_Edit
+AS
+    SELECT
+        GERENTE_PROVEEDORID,
+        PROVEEDORID,
+        GERENTEPROVEEDOR_NOMBRE,
+		GERENTEPROVEEDOR_DOCUMENTO,
+		GERENTEPROVEEDOR_TELEFONO
+    FROM GERENTE_PROVEEDOR
+
+CREATE VIEW VISTA_GERENTE_PROVEEDOR_View
+AS
+    SELECT *
+    FROM GERENTE_PROVEEDOR
+    WHERE digitador = user_name()
+
+CREATE VIEW VISTA_PRODUCTO_Edit
+AS
+    SELECT
+        PRODUCTOID,
+        PROVEEDORID,
+        PRODUCTO_NOMBRE,
+		PRODUCTO_PRECIOCOMPRA,
+		PRODUCTO_PRECIOVENTA,
+		PRODUCTO_FECHAADQUISICION
+    FROM PRODUCTO
+
+CREATE VIEW VISTA_PRODUCTO_View
+AS
+    SELECT *
+    FROM PRODUCTO
+    WHERE digitador = user_name()
+
+CREATE VIEW VISTA_PRODUCTO_Edit
+AS
+    SELECT
+        PRODUCTOID,
+        PROVEEDORID,
+        PRODUCTO_NOMBRE,
+		PRODUCTO_PRECIOCOMPRA,
+		PRODUCTO_PRECIOVENTA,
+		PRODUCTO_FECHAADQUISICION
+    FROM PRODUCTO
+
+CREATE VIEW VISTA_PRODUCTO_View
+AS
+    SELECT *
+    FROM PRODUCTO
+    WHERE digitador = user_name()
+
+CREATE VIEW VISTA_PROVEEDOR_Edit
+AS
+    SELECT
+        PROVEEDORID,
+        GERENTE_PROVEEDORID,
+        SUCURSALID,
+		PROVEEDOR_NOMBRE,
+		PROVEEDOR_NIT,
+		PROVEEDOR_NUMEROCENTROLLAMADAS,
+		PROVEEDOR_DIRECCION
+    FROM PROVEEDOR
+
+CREATE VIEW VISTA_PROVEEDOR_View
+AS
+    SELECT *
+    FROM PROVEEDOR
+    WHERE digitador = user_name()
+
+CREATE VIEW VISTA_SUCURSAL_Edit
+AS
+    SELECT
+        SUCURSALID,
+        CIUDADID,
+        SUCURSAL_NOMBRE
+    FROM SUCURSAL
+
+CREATE VIEW VISTA_SUCURSAL_View
+AS
+    SELECT *
+    FROM SUCURSAL
+    WHERE digitador = user_name()
+
+GRANT SELECT ON VISTA_Producto_View TO maarojasga
+GRANT SELECT ON VISTA_Producto_View TO negarzonc
+GRANT SELECT ON VISTA_Producto_View TO dabonilla
+GRANT INSERT ON VISTA_Producto_Edit TO maarojasga
+GRANT INSERT ON VISTA_Producto_Edit TO negarzonc
+GRANT INSERT ON VISTA_Producto_Edit TO dabonilla
+
+GRANT SELECT ON VISTA_Proveedor_View TO maarojasga
+GRANT SELECT ON VISTA_Proveedor_View TO negarzonc
+GRANT SELECT ON VISTA_Proveedor_View TO dabonilla
+GRANT INSERT ON VISTA_Proveedor_Edit TO maarojasga
+GRANT INSERT ON VISTA_Proveedor_Edit TO negarzonc
+GRANT INSERT ON VISTA_Proveedor_Edit TO dabonilla
+
+GRANT SELECT ON VISTA_sucursal_View TO maarojasga
+GRANT SELECT ON VISTA_sucursal_View TO negarzonc
+GRANT SELECT ON VISTA_sucursal_View TO dabonilla
+GRANT INSERT ON VISTA_sucursal_Edit TO maarojasga
+GRANT INSERT ON VISTA_sucursal_Edit TO negarzonc
+GRANT INSERT ON VISTA_sucursal_Edit TO dabonilla
+
+GRANT SELECT ON VISTA_GERENTE_PROVEEDOR_View TO maarojasga
+GRANT SELECT ON VISTA_GERENTE_PROVEEDOR_View TO negarzonc
+GRANT SELECT ON VISTA_GERENTE_PROVEEDOR_View TO dabonilla
+GRANT INSERT ON VISTA_GERENTE_PROVEEDOR_Edit TO maarojasga
+GRANT INSERT ON VISTA_GERENTE_PROVEEDOR_Edit TO negarzonc
+GRANT INSERT ON VISTA_GERENTE_PROVEEDOR_Edit TO dabonilla
+
+GRANT SELECT ON VISTA_GERENTE_PROVEEDOR_View TO maarojasga
+GRANT SELECT ON VISTA_GERENTE_PROVEEDOR_View TO negarzonc
+GRANT SELECT ON VISTA_GERENTE_PROVEEDOR_View TO dabonilla
+GRANT INSERT ON VISTA_GERENTE_PROVEEDOR_Edit TO maarojasga
+GRANT INSERT ON VISTA_GERENTE_PROVEEDOR_Edit TO negarzonc
+GRANT INSERT ON VISTA_GERENTE_PROVEEDOR_Edit TO dabonilla
+
+GRANT SELECT ON VISTA_DEPARTAMENTO_View TO maarojasga
+GRANT SELECT ON VISTA_DEPARTAMENTO_View TO negarzonc
+GRANT SELECT ON VISTA_DEPARTAMENTO_View TO dabonilla
+GRANT INSERT ON VISTA_DEPARTAMENTO_Edit TO maarojasga
+GRANT INSERT ON VISTA_DEPARTAMENTO_Edit TO negarzonc
+GRANT INSERT ON VISTA_DEPARTAMENTO_Edit TO dabonilla
+
+GRANT SELECT ON VISTA_DEPARTAMENTO_View TO maarojasga
+GRANT SELECT ON VISTA_DEPARTAMENTO_View TO negarzonc
+GRANT SELECT ON VISTA_DEPARTAMENTO_View TO dabonilla
+GRANT INSERT ON VISTA_DEPARTAMENTO_Edit TO maarojasga
+GRANT INSERT ON VISTA_DEPARTAMENTO_Edit TO negarzonc
+GRANT INSERT ON VISTA_DEPARTAMENTO_Edit TO dabonilla
+
+GRANT SELECT ON VISTA_CLIENTE_View TO maarojasga
+GRANT SELECT ON VISTA_CLIENTE_View TO negarzonc
+GRANT SELECT ON VISTA_CLIENTE_View TO dabonilla
+GRANT INSERT ON VISTA_CLIENTE_Edit TO maarojasga
+GRANT INSERT ON VISTA_CLIENTE_Edit TO negarzonc
+GRANT INSERT ON VISTA_CLIENTE_Edit TO dabonilla
+
+GRANT SELECT ON VISTA_EMPLEADO_VENDEDOR_View TO maarojasga
+GRANT SELECT ON VISTA_EMPLEADO_VENDEDOR_View TO negarzonc
+GRANT SELECT ON VISTA_EMPLEADO_VENDEDOR_View TO dabonilla
+GRANT INSERT ON VISTA_EMPLEADO_VENDEDOR_Edit TO maarojasga
+GRANT INSERT ON VISTA_EMPLEADO_VENDEDOR_Edit TO negarzonc
+GRANT INSERT ON VISTA_EMPLEADO_VENDEDOR_Edit TO dabonilla
+
+GRANT SELECT ON VISTA_EMPLEADO_View TO maarojasga
+GRANT SELECT ON VISTA_EMPLEADO_View TO negarzonc
+GRANT SELECT ON VISTA_EMPLEADO_View TO dabonilla
+GRANT INSERT ON VISTA_EMPLEADO_Edit TO maarojasga
+GRANT INSERT ON VISTA_EMPLEADO_Edit TO negarzonc
+GRANT INSERT ON VISTA_EMPLEADO_Edit TO dabonilla
+
+GRANT SELECT ON VISTA_GERENTE_CLIENTE_View TO maarojasga
+GRANT SELECT ON VISTA_GERENTE_CLIENTE_View TO negarzonc
+GRANT SELECT ON VISTA_GERENTE_CLIENTE_View TO dabonilla
+GRANT INSERT ON VISTA_GERENTE_CLIENTE_Edit TO maarojasga
+GRANT INSERT ON VISTA_GERENTE_CLIENTE_Edit TO negarzonc
+GRANT INSERT ON VISTA_GERENTE_CLIENTE_Edit TO dabonilla
+
+GRANT SELECT ON VISTA_CIUDAD_View TO maarojasga
+GRANT SELECT ON VISTA_CIUDAD_View TO negarzonc
+GRANT SELECT ON VISTA_CIUDAD_View TO dabonilla
+GRANT INSERT ON VISTA_CIUDAD_Edit TO maarojasga
+GRANT INSERT ON VISTA_CIUDAD_Edit TO negarzonc
+GRANT INSERT ON VISTA_CIUDAD_Edit TO dabonilla
+
+GRANT SELECT ON VISTA_CARGO_View TO maarojasga
+GRANT SELECT ON VISTA_CARGO_View TO negarzonc
+GRANT SELECT ON VISTA_CARGO_View TO dabonilla
+GRANT INSERT ON VISTA_CARGO_Edit TO maarojasga
+GRANT INSERT ON VISTA_CARGO_Edit TO negarzonc
+GRANT INSERT ON VISTA_CARGO_Edit TO dabonilla
+
 
