@@ -18,9 +18,9 @@ INSERT INTO maarojasga.VISTA_Proveedor_Edit VALUES (0127, 17894, 'Juan Perez', 5
 
 
 /*ASE SAP-CLIENTE VÁLIDO*/
-INSERT INTO maarojasga.VISTA_Cliente_Edit VALUES (101478626, 'Brandon López', 'Cr 4 #2a -45', 'BOGOTÁ', null, null, 'Zapatos', 'no', 'John Contreras', 1047625)
-INSERT INTO maarojasga.VISTA_Cliente_Edit VALUES (104789630, 'Andrés Rincón', 'Cr 147 #41b -14', 'BOGOTÁ', 'a.rincon.10@gmail.com', null, 'Camisas', 'si', 'Alejandro Roa', 3547891)
-INSERT INTO maarojasga.VISTA_Cliente_Edit VALUES (478159620, 'Sebastian Bach', 'Cr 223 #33c -10', 'BOGOTÁ', null, null, 'Tapetes', 'no', 'Daniel Rojas', 7854213)
+INSERT INTO negarzonc.VISTA_Cliente_Edit VALUES (101478626, 'Brandon López', 'Cr 4 #2a -45', 'BOGOTÁ', null, null, 'Zapatos', 'no', 'John Contreras', 1047625)
+INSERT INTO negarzonc.VISTA_Cliente_Edit VALUES (104789630, 'Andrés Rincón', 'Cr 147 #41b -14', 'BOGOTÁ', 'a.rincon.10@gmail.com', null, 'Camisas', 'si', 'Alejandro Roa', 3547891)
+INSERT INTO negarzonc.VISTA_Cliente_Edit VALUES (478159620, 'Sebastian Bach', 'Cr 223 #33c -10', 'BOGOTÁ', null, null, 'Tapetes', 'no', 'Daniel Rojas', 7854213)
 /*ASE SAP-CLIENTE NO VÁLIDO*/
 INSERT INTO maarojasga.VISTA_Cliente_Edit VALUES (0, 101478626, 'Brandon López', 'Cr 189 #21a -45', 'BOGOTÁ', null, null, 'Zapatos', 'no', 'John Contreras', 1047620)
 
@@ -31,6 +31,3 @@ INSERT INTO maarojasga.VISTA_Producto_Edit VALUES ('Zapatos', 35, 38000, 62000, 
 INSERT INTO maarojasga.VISTA_Producto_Edit VALUES ('Medias', 120, 12000, 39780, 2147, 'Gomosos SAS', 002, '10/07/2020')
 /*ASE SAP-PRODUCTO NO VÁLIDO*/
 INSERT INTO maarojasga.VISTA_Producto_Edit VALUES (002,'Camisas', 20, 50000, 120000, 121356, 'Camisas del Oriente', 003, '10/07/2020')
-
-
-
