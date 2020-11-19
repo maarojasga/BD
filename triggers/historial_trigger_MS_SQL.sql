@@ -1,4 +1,4 @@
-CREATE TRIGGER historia_empleado_insert ON EMPLEADO
+CREATE OR ALTER TRIGGER historia_empleado_insert ON EMPLEADO
 FOR INSERT AS 
     DECLARE @fecha DATETIME
     DECLARE @id int
@@ -22,7 +22,7 @@ VALUES
     (@id, @fecha , @nombreEmpleado , @cargoEmpleado)
 GO
 
-CREATE TRIGGER historia_empleado_vendedor_insert ON EMPLEADO_VENDEDOR
+CREATE OR ALTER TRIGGER historia_empleado_vendedor_insert ON EMPLEADO_VENDEDOR
 FOR INSERT AS 
     DECLARE @fecha DATETIME
     DECLARE @id int
@@ -45,7 +45,7 @@ VALUES
     (@id, @fecha, @nombreEmpleado, @cargoEmpleado)
 GO
 
-CREATE TRIGGER historia_empleado_update ON EMPLEADO
+CREATE OR ALTER TRIGGER historia_empleado_update ON EMPLEADO
 FOR UPDATE AS 
     DECLARE @fecha DATETIME
     DECLARE @id int
@@ -56,7 +56,7 @@ FOR UPDATE AS
     WHERE HISTORIA_ID_EMPLEADO= @id
 GO
 
-CREATE TRIGGER historia_empleado_vendedor_update ON EMPLEADO_VENDEDOR
+CREATE OR ALTER TRIGGER historia_empleado_vendedor_update ON EMPLEADO_VENDEDOR
 FOR UPDATE AS 
     DECLARE @fecha DATETIME
     DECLARE @id int
@@ -67,7 +67,7 @@ FOR UPDATE AS
     WHERE HISTORIA_ID_EMPLEADOVENDEDOR = @id
 GO
 
-CREATE TRIGGER historia_empleado_delete ON EMPLEADO
+CREATE OR ALTER TRIGGER historia_empleado_delete ON EMPLEADO
 FOR DELETE AS 
     DECLARE @fecha DATETIME
     DECLARE @id int
@@ -78,7 +78,7 @@ FOR DELETE AS
     WHERE HISTORIA_ID_EMPLEADOVENDEDOR = @id
 GO
 
-CREATE TRIGGER historia_empleado_vendedor_delete ON EMPLEADO_VENDEDOR
+CREATE OR ALTER TRIGGER historia_empleado_vendedor_delete ON EMPLEADO_VENDEDOR
 FOR DELETE AS 
     DECLARE @fecha DATETIME
     DECLARE @id int
