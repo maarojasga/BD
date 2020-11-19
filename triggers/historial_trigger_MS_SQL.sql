@@ -1,98 +1,89 @@
-CREATE TRIGGER historia_empleado_insert ON empleado
+CREATE TRIGGER historia_empleado_insert ON EMPLEADO
 FOR INSERT AS 
     DECLARE @fecha DATETIME
     DECLARE @id int
-    DECLARE @documento BIGINT
     DECLARE @nombreEmpleado VARCHAR(100)
     DECLARE @cargoEmpleado VARCHAR(100)
-    SELECT @id=(SELECT id_empleado
+    SELECT @id=(SELECT EMPLEADOID
     FROM inserted)
     SELECT @fecha=GETDATE()
-    SELECT @documento = (SELECT empleado_documento
+    SELECT @nombreEmpleado = (SELECT EMPLEADO_NOMBRE
     FROM inserted)
-    SELECT @nombreEmpleado = (SELECT empleado_nombreEmpleado
-    FROM inserted)
-    SELECT @cargoEmpleado = (SELECT empleado_cargoEmpleado
+    SELECT @cargoEmpleado = (SELECT CARGOID
     FROM inserted)
     INSERT historia_empleado
     (
     HISTORIA_EMPLEADO_ID_EMPLEADO,
     HISTORIA_EMPLEADO_FECHAINGRESO,
-    HISTORIA_EMPLEADO_DOCUMENTOEMPLEADO,
     HISTORIA_EMPLEADO_NOMBREEMPLEADO,
     HISTORIA_EMPLEADO_CARGOEMPLEADO
     )
 VALUES
-    (@id, @fecha, @documento , @nombreEmpleado , @cargoEmpleado)
+    (@id, @fecha , @nombreEmpleado , @cargoEmpleado)
 GO
 
-CREATE TRIGGER historia_empleado_vendedor_insert ON empleado_vendedor
+CREATE TRIGGER historia_empleado_vendedor_insert ON EMPLEADO_VENDEDOR
 FOR INSERT AS 
     DECLARE @fecha DATETIME
     DECLARE @id int
-    DECLARE @documento BIGINT
     DECLARE @nombreEmpleado VARCHAR(100)
     DECLARE @cargoEmpleado VARCHAR(100)
-    SELECT @id=(SELECT id_empleado
+    SELECT @id=(SELECT EMPLEADO_VENDEDORID
     FROM inserted)
     SELECT @fecha=GETDATE()
-    SELECT @documento = (SELECT empleado_documento
+    SELECT @nombreEmpleado = (SELECT EMPLEADOVENDEDOR_NOMBRE
     FROM inserted)
-    SELECT @nombreEmpleado = (SELECT empleado_nombreEmpleado
-    FROM inserted)
-    SELECT @cargoEmpleado = (SELECT empleado_cargoEmpleado
-    FROM inserted)
+    SELECT @cargoEmpleado = 'VENDEDOR'
     INSERT historia_empleado
     (
     HISTORIA_EMPLEADO_ID_EMPLEADO_VENDEDOR,
     HISTORIA_EMPLEADO_FECHAINGRESO,
-    HISTORIA_EMPLEADO_DOCUMENTOEMPLEADO,
     HISTORIA_EMPLEADO_NOMBREEMPLEADO,
     HISTORIA_EMPLEADO_CARGOEMPLEADO
     )
 VALUES
-    (@id, @fecha, @documento, @nombreEmpleado, @cargoEmpleado)
+    (@id, @fecha, @nombreEmpleado, @cargoEmpleado)
 GO
 
-CREATE TRIGGER historia_empleado_update ON empleado
+CREATE TRIGGER historia_empleado_update ON EMPLEADO
 FOR UPDATE AS 
     DECLARE @fecha DATETIME
     DECLARE @id int
     SELECT @fecha=GETDATE()
-    SELECT @id=(SELECT id_empleado
+    SELECT @id=(SELECT EMPLEADOID
     FROM inserted)
     UPDATE historia_empleado SET HISTORIA_EMPLEADO_FECHACAMBIODECARGO=@fecha
     WHERE HISTORIA_EMPLEADO_ID_EMPLEADO= @id
 GO
 
-CREATE TRIGGER historia_empleado_vendedor_update ON empleado_vendedor
+CREATE TRIGGER historia_empleado_vendedor_update ON EMPLEADO_VENDEDOR
 FOR UPDATE AS 
     DECLARE @fecha DATETIME
     DECLARE @id int
     SELECT @fecha=GETDATE()
-    SELECT @id=(SELECT id_empleado
+    SELECT @id=(SELECT EMPLEADO_VENDEDORID
     FROM inserted)
     UPDATE historia_empleado SET HISTORIA_EMPLEADO_FECHACAMBIODECARGO=@fecha
     WHERE HISTORIA_EMPLEADO_ID_EMPLEADOVENDEDOR = @id
 GO
 
-CREATE TRIGGER historia_empleado_update ON empleado
+CREATE TRIGGER historia_empleado_delete ON EMPLEADO
 FOR DELETE AS 
     DECLARE @fecha DATETIME
     DECLARE @id int
     SELECT @fecha=GETDATE()
-    SELECT @id=(SELECT id_empleado
+    SELECT @id=(SELECT EMPLEADOID
     FROM inserted)
     UPDATE historia_empleado SET HISTORIA_EMPLEADO_FECHARETIRO=@fecha
     WHERE HISTORIA_EMPLEADO_ID_EMPLEADOVENDEDOR = @id
 GO
 
-CREATE TRIGGER historia_empleado_vendedor_update ON empleado_vendedor
+CREATE TRIGGER historia_empleado_vendedor_delete ON EMPLEADO_VENDEDOR
 FOR DELETE AS 
     DECLARE @fecha DATETIME
     DECLARE @id int
     SELECT @fecha=GETDATE()
-    SELECT @id=(SELECT id_empleado
+    SELECT @id=(SELECT EMPLEADO_VENDEDORID
     FROM inserted)
     UPDATE historia_empleado SET HISTORIA_EMPLEADO_FECHARETIRO=@fecha
     WHERE HISTORIA_EMPLEADO_ID_EMPLEADOVENDEDOR = @id
