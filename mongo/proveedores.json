@@ -1,13 +1,113 @@
 [
     {
-        "nombre_proveedor": "",
+        "nombre_proveedor": "Alejandro Garzón",
         "identifacion": 123456,
         "productos_id": [
             "12"
         ],
-        "direccion": "",
-        "correo": "",
-        "telefono": 123456,
-        "ciudad": ""
+        "direccion": "cr 187 #21",
+        "correo": "alejo.jime@gmail.com",
+        "telefono": 3135204682,
+        "ciudad": "Medellín"
+    },
+    {
+        "nombre_proveedor": "Luisa Nájar",
+        "identifacion": 223456,
+        "productos_id": [
+            "12"
+        ],
+        "direccion": "cr 2 #12a 12",
+        "correo": "najar.lui@hotmail.com",
+        "telefono": 21475201,
+        "ciudad": "Bogotá"
+    },
+    {
+        "nombre_proveedor": "Nelsón Rincón",
+        "identifacion": 323456,
+        "productos_id": [
+            "12"
+        ],
+        "direccion": "cll 52c #19",
+        "correo": "nelsiton12145@gmail.com",
+        "telefono": 213645789,
+        "ciudad": "Cali"
+    },
+    {
+        "nombre_proveedor": "Sandra Ortíz",
+        "identifacion": 423456,
+        "productos_id": [
+            "12"
+        ],
+        "direccion": "diagonal 13 #19c",
+        "correo": "sandra.ortiz@hotmail.com",
+        "telefono": 3114789501,
+        "ciudad": "Bogotá"
+    },
+    {
+        "nombre_proveedor": "Juan Sarmiento",
+        "identifacion": 523456,
+        "productos_id": [
+            "12"
+        ],
+        "direccion": "cr 53 # 127 a",
+        "correo": "sar.juan@gmail.com",
+        "telefono": 5264578,
+        "ciudad": "Medellín"
+    },
+    {
+        "nombre_proveedor": "Diego Rodríguez",
+        "identifacion": 623456,
+        "productos_id": [
+            "12"
+        ],
+        "direccion": "cr 12 #132a",
+        "correo": "rodri.d1992@gmail.com",
+        "telefono": 3154789652,
+        "ciudad": "Bogotá"
+    },
+    {
+        "nombre_proveedor": "Nicolás Suárez",
+        "identifacion": 723456,
+        "productos_id": [
+            "12"
+        ],
+        "direccion": "cr 67 #161 b",
+        "correo": "nico.sua.17@gmail.com",
+        "telefono": 3214567895,
+        "ciudad": "Bogotá"
+    },
+    {
+        "nombre_proveedor": "Rodolfo Peña",
+        "identifacion": 823456,
+        "productos_id": [
+            "12"
+        ],
+        "direccion": "cll 78 sur #12a",
+        "correo": "rodolfopena78@hotmail.com",
+        "telefono": 3214567895,
+        "ciudad": "Bogotá"
+    },
+    {
+        "nombre_proveedor": "Enrique Rojas",
+        "identifacion": 923456,
+        "productos_id": [
+            "12"
+        ],
+        "direccion": "cr 3 #21 -10",
+        "correo": "serviciosyotros.enrique@gmail.com",
+        "telefono": 5147896,
+        "ciudad": "Bogotá"
+    },
+    {
+        "nombre_proveedor": "Carlos Carrillo",
+        "identifacion": 113456,
+        "productos_id": [
+            "12"
+        ],
+        "direccion": "cr 12 # 98 a",
+        "correo": "cc.101415@gmail.com",
+        "telefono": 3114578962,
+        "ciudad": "Bogotá"
     }
+
 ]
