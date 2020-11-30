@@ -42,5 +42,115 @@
             ""
         ],
         "cantidad": 29
+    },
+    {
+        "Nombre": "Conversor analógico",
+        "precio_venta": 16500,
+        "precio_proveedor": 10000,
+        "id_proveedor": "",
+        "caracteristicas": [
+            "",
+            ""
+        ],
+        "cantidad": 14
+    },
+    {
+        "Nombre": "Conector Plug",
+        "precio_venta": 600,
+        "precio_proveedor": 200,
+        "id_proveedor": "",
+        "caracteristicas": [
+            "",
+            ""
+        ],
+        "cantidad": 1620
+    },
+    {
+        "Nombre": "Conector de poder AC",
+        "precio_venta": 5800,
+        "precio_proveedor": 2000,
+        "id_proveedor": "",
+        "caracteristicas": [
+            "",
+            ""
+        ],
+        "cantidad": 47
+    },
+    {
+        "Nombre": "Interruptor basculante",
+        "precio_venta": 1200,
+        "precio_proveedor": 700,
+        "id_proveedor": "",
+        "caracteristicas": [
+            "",
+            ""
+        ],
+        "cantidad": 130
+    },
+    {
+        "Nombre": "Sensor encoder",
+        "precio_venta": 5800,
+        "precio_proveedor": 3200,
+        "id_proveedor": "",
+        "caracteristicas": [
+            "",
+            ""
+        ],
+        "cantidad": 61
+    },
+    {
+        "Nombre": "Rollo de cable alambre",
+        "precio_venta": 30700,
+        "precio_proveedor": 17000,
+        "id_proveedor": "",
+        "caracteristicas": [
+            "",
+            ""
+        ],
+        "cantidad": 22
+    },
+    {
+        "Nombre": "Microchip dspic33f",
+        "precio_venta": 27400,
+        "precio_proveedor": 16200,
+        "id_proveedor": "",
+        "caracteristicas": [
+            "",
+            ""
+        ],
+        "cantidad": 15
+    },
+    {
+        "Nombre": "Sensor táctil capacitivo",
+        "precio_venta": 5200,
+        "precio_proveedor": 2700,
+        "id_proveedor": "",
+        "caracteristicas": [
+            "",
+            ""
+        ],
+        "cantidad": 49
+    },
+    {
+        "Nombre": "Controlador led",
+        "precio_venta": 26300,
+        "precio_proveedor": 16000,
+        "id_proveedor": "",
+        "caracteristicas": [
+            "",
+            ""
+        ],
+        "cantidad": 32
+    },
+    {
+        "Nombre": "Interruptor de encendido y apagado",
+        "precio_venta": 20600,
+        "precio_proveedor": 12000,
+        "id_proveedor": "",
+        "caracteristicas": [
+            "",
+            ""
+        ],
+        "cantidad": 13
     }
 ]
