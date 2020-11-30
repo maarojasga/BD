@@ -1,0 +1,6 @@
+🙊 clientes: NADA
+🙊 info_empresa: NADA
+🙊 proveedores: Nada
+🙊 registros_proveedores: insertar id_proveedor, (id_producto y cantidad arreglo) .
+productos: Proveedor id, cuando se inserta un producto se inserta el id en el proveedor []
+registros_usuarios: id_comprador, (id_producto y cantidad, arreglo)

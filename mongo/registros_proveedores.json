@@ -3,12 +3,7 @@
         "fecha": "",
         "precio": 123,
         "proveedor_id": "id",
-        "productos_adquiridos": [
-            {
-                "id": "ids",
-                "cantidad": 2,
-                "precio": 1111
-            }
-        ]
+        "producto_id": "ids",
+        "cantidad": 2
     }
 ]

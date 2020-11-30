@@ -10,5 +10,16 @@
                 "precio": 2
             }
         ]
+    },
+    {
+        "fecha": "",
+        "commprador_id": "id",
+        "precio": 123,
+        "productos_adquiridos": [
+            {
+                "id": "ids",
+                "cantidad": 2
+            }
+        ]
     }
 ]
