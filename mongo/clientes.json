@@ -28,5 +28,305 @@
         "puntos": 0,
         "correo": "",
         "identificacion": 10012413243
+    },
+    {
+        "nombre": "Francisco Gomez Torres",
+        "telefono": 7547525,
+        "direccion": "Calle 45 A sur",
+        "historial_transacciones": [
+            {
+                "_id": "00001",
+                "nombre": "Arduino",
+                "valor": 80000
+            }
+        ],
+        "puntos": 2,
+        "correo": "frat@hotmai.com",
+        "identificacion": 1000245852
+    },
+    {
+        "nombre_entidad": "Gamma empresas",
+        "telefono": 78541521,
+        "direccion": "Cra 66 B Occidente",
+        "historial_transacciones": [
+            {
+                "_id": "00002",
+                "nombre": "Arduino",
+                "valor": 80000
+            }
+        ],
+        "puntos": 4,
+        "correo": "Gamma@hotmail.com",
+        "identificacion": 100004152
+    },
+    {
+        "nombre": "Laura Valenzuela Parra",
+        "telefono": 7545845,
+        "direccion": "Cra. 12 N 5",
+        "historial_transacciones": [
+            {
+                "_id": "00003",
+                "nombre": "Raspberry",
+                "valor": "180000"
+            }
+        ],
+        "puntos": 6,
+        "correo": "lau78@hotmail.com",
+        "identificacion": 100025145
+    },
+    {
+        "nombre_entidad": "Soler SAS",
+        "telefono": 1241243,
+        "direccion": "Calle 14 BNorte",
+        "historial_transacciones": [
+            {
+                "_id": "00004",
+                "nombre": "Raspberry",
+                "valor": "180000"
+            }
+        ],
+        "puntos": 1,
+        "correo": "sole12@hotmail.com",
+        "identificacion": 10012413243
+    },
+    {
+        "nombre": "Sergio Garcia Montenegro",
+        "telefono": 7854521,
+        "direccion": "Calle 12 A norte",
+        "historial_transacciones": [
+            {
+                "_id": "00005",
+                "nombre": "",
+                "valor": ""
+            }
+        ],
+        "puntos": 4,
+        "correo": "Gars4@hotmail.com",
+        "identificacion": 1000369852
+    },
+    {
+        "nombre_entidad": "",
+        "telefono": 1241243,
+        "direccion": "",
+        "historial_transacciones": [
+            {
+                "_id": "00006",
+                "nombre": "",
+                "valor": ""
+            }
+        ],
+        "puntos": 0,
+        "correo": "",
+        "identificacion": 10012413243
+    },
+    {
+        "nombre": "Felipe Mosquera Porras",
+        "telefono": 7854851,
+        "direccion": "Cra 45 B sur",
+        "historial_transacciones": [
+            {
+                "_id": "00007",
+                "nombre": "",
+                "valor": ""
+            }
+        ],
+        "puntos": 5,
+        "correo": "Felipe45@hotmail.com",
+        "identificacion": 1000254512
+    },
+    {
+        "nombre": "Paola Zuñiga Lopez",
+        "telefono": 7854521,
+        "direccion": "Calle 32 C Norte",
+        "historial_transacciones": [
+            {
+                "_id": "00008",
+                "nombre": "",
+                "valor": ""
+            }
+        ],
+        "puntos": 2,
+        "correo": "pao23@hotmail.com",
+        "identificacion": 1001542151
+    },
+    {
+        "nombre": "Milena Arango Suarez",
+        "telefono": 7548421,
+        "direccion": "Cra 5 A Sur",
+        "historial_transacciones": [
+            {
+                "_id": "00009",
+                "nombre": "",
+                "valor": ""
+            }
+        ],
+        "puntos": 3,
+        "correo": "mile3@homail.com",
+        "identificacion": 1000368478
+    },
+    {
+        "nombre": "Daniel Maldonado Perez",
+        "telefono": 7854512,
+        "direccion": "Cra 74 C Norte",
+        "historial_transacciones": [
+            {
+                "_id": "00010",
+                "nombre": "",
+                "valor": ""
+            }
+        ],
+        "puntos": 7,
+        "correo": "Danie44@hotmail.com",
+        "identificacion": 1000254854
+    },
+    {
+        "nombre": "Jennifer Gomez Sarmiento",
+        "telefono": 7854152,
+        "direccion": "Cra 12 C Norte",
+        "historial_transacciones": [
+            {
+                "_id": "00011",
+                "nombre": "",
+                "valor": ""
+            }
+        ],
+        "puntos": 4,
+        "correo": "jgomez1@hotmail.com",
+        "identificacion": 1011514254
+    },
+    {
+        "nombre": "Juan David Perez Soler",
+        "telefono": 7852541,
+        "direccion": "Cra 12 B Norte",
+        "historial_transacciones": [
+            {
+                "_id": "00012",
+                "nombre": "",
+                "valor": ""
+            }
+        ],
+        "puntos": 4,
+        "correo": "juanda@hotmail.com",
+        "identificacion": 1000254854
+    },
+    {
+        "nombre": "Daniel Meidna Martinez",
+        "telefono": 7541452,
+        "direccion": "Calle 11 A Sur",
+        "historial_transacciones": [
+            {
+                "_id": "00013",
+                "nombre": "",
+                "valor": ""
+            }
+        ],
+        "puntos": 11,
+        "correo": "Medina11@hotmail.com",
+        "identificacion": 1001451451
+    },
+    {
+        "nombre": "Jessica Murcia Bonilla",
+        "telefono": 785415214,
+        "direccion": "Calle 57 A Sur",
+        "historial_transacciones": [
+            {
+                "_id": "00014",
+                "nombre": "",
+                "valor": ""
+            }
+        ],
+        "puntos": 2,
+        "correo": "Murc44@hotmail.com",
+        "identificacion": 1000145268
+    },
+    {
+        "nombre": "Cecilia Rodriguez Perez",
+        "telefono": 7547841,
+        "direccion": "Cra 10 A Norte",
+        "historial_transacciones": [
+            {
+                "_id": "00015",
+                "nombre": "",
+                "valor": ""
+            }
+        ],
+        "puntos": 0,
+        "correo": "Cecic1@hotmail.com",
+        "identificacion": 1000285541
+    },
+    {
+        "nombre_entidad": "Circuitos Vasquez",
+        "telefono": 7547841,
+        "direccion": "Calle 25 A Sur",
+        "historial_transacciones": [
+            {
+                "_id": "00016",
+                "nombre": "",
+                "valor": ""
+            }
+        ],
+        "puntos": 6,
+        "correo": "",
+        "identificacion": 1000251451
+    },
+    {
+        "nombre_entidad": "J&J Tecnologias",
+        "telefono": 78541451,
+        "direccion": "Calle 54 A Sur",
+        "historial_transacciones": [
+            {
+                "_id": "00017",
+                "nombre": "",
+                "valor": ""
+            }
+        ],
+        "puntos": 5,
+        "correo": "",
+        "identificacion": 1000251451
+    },
+    {
+        "nombre": "Marta Garcia Pardo",
+        "telefono": 78451421,
+        "direccion": "Cra 21 D Norte",
+        "historial_transacciones": [
+            {
+                "_id": "00018",
+                "nombre": "",
+                "valor": ""
+            }
+        ],
+        "puntos": 6,
+        "correo": "Matu11@hotmail.com",
+        "identificacion": 1000154512
+    },
+    {
+        "nombre": "Felipe Pardo Montez",
+        "telefono": 75514511,
+        "direccion": "Calle 15 A Norte",
+        "historial_transacciones": [
+            {
+                "_id": "00019",
+                "nombre": "",
+                "valor": ""
+            }
+        ],
+        "puntos": 5,
+        "correo": "pipe12@hotmail.com",
+        "identificacion": 1000451542
+    },
+    {
+        "nombre": "Santiago Muñoz Contador",
+        "telefono": 78548451,
+        "direccion": "Calle 12 C Norte",
+        "historial_transacciones": [
+            {
+                "_id": "00020",
+                "nombre": "",
+                "valor": ""
+            }
+        ],
+        "puntos": 1,
+        "correo": "santi11@hotmail.com",
+        "identificacion": 1000451254
     }
 ]
