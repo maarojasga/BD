@@ -1,7 +1,7 @@
 [
     {
         "nombre_proveedor": "Alejandro Garzón",
-        "identifacion": 123456,
+        "identificacion": 123456,
         "productos_id": [
             "12"
         ],
@@ -12,7 +12,7 @@
     },
     {
         "nombre_proveedor": "Luisa Nájar",
-        "identifacion": 223456,
+        "identificacion": 223456,
         "productos_id": [
             "12"
         ],
@@ -23,7 +23,7 @@
     },
     {
         "nombre_proveedor": "Nelsón Rincón",
-        "identifacion": 323456,
+        "identificacion": 323456,
         "productos_id": [
             "12"
         ],
@@ -34,7 +34,7 @@
     },
     {
         "nombre_proveedor": "Sandra Ortíz",
-        "identifacion": 423456,
+        "identificacion": 423456,
         "productos_id": [
             "12"
         ],
@@ -45,7 +45,7 @@
     },
     {
         "nombre_proveedor": "Juan Sarmiento",
-        "identifacion": 523456,
+        "identificacion": 523456,
         "productos_id": [
             "12"
         ],
@@ -56,7 +56,7 @@
     },
     {
         "nombre_proveedor": "Diego Rodríguez",
-        "identifacion": 623456,
+        "identificacion": 623456,
         "productos_id": [
             "12"
         ],
@@ -67,7 +67,7 @@
     },
     {
         "nombre_proveedor": "Nicolás Suárez",
-        "identifacion": 723456,
+        "identificacion": 723456,
         "productos_id": [
             "12"
         ],
@@ -78,7 +78,7 @@
     },
     {
         "nombre_proveedor": "Rodolfo Peña",
-        "identifacion": 823456,
+        "identificacion": 823456,
         "productos_id": [
             "12"
         ],
@@ -89,7 +89,7 @@
     },
     {
         "nombre_proveedor": "Enrique Rojas",
-        "identifacion": 923456,
+        "identificacion": 923456,
         "productos_id": [
             "12"
         ],
@@ -100,7 +100,7 @@
     },
     {
         "nombre_proveedor": "Carlos Carrillo",
-        "identifacion": 113456,
+        "identificacion": 113456,
         "productos_id": [
             "12"
         ],
