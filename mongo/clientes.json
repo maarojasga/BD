@@ -3,7 +3,30 @@
         "nombre": "",
         "telefono": 1241243,
         "direccion": "",
+        "historial_transacciones": [
+            {
+                "_id": "123334",
+                "nombre": "",
+                "valor": ""
+            }
+        ],
         "puntos": 0,
-        "correo": ""
+        "correo": "",
+        "identificacion": 10012413243
+    },
+    {
+        "nombre_entidad": "",
+        "telefono": 1241243,
+        "direccion": "",
+        "historial_transacciones": [
+            {
+                "_id": "123334",
+                "nombre": "",
+                "valor": ""
+            }
+        ],
+        "puntos": 0,
+        "correo": "",
+        "identificacion": 10012413243
     }
 ]

@@ -1,0 +1,13 @@
+[
+    {
+        "nombre_proveedor": "",
+        "identifacion": 123456,
+        "productos_id": [
+            "12"
+        ],
+        "direccion": "",
+        "correo": "",
+        "telefono": 123456,
+        "ciudad": ""
+    }
+]

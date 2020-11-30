@@ -1,9 +1,9 @@
 [
     {
         "Nombre": "Arduino",
-        "esta_disponible": true,
         "precio_venta": 80000,
         "precio_proveedor": 60000,
+        "id_proveedor": "",
         "caracteristicas": [
             "",
             ""
@@ -12,9 +12,9 @@
     },
     {
         "Nombre": "Raspberry",
-        "esta_disponible": true,
         "precio_venta": 180000,
         "precio_proveedor": 150000,
+        "id_proveedor": "",
         "caracteristicas": [
             "",
             ""
@@ -23,9 +23,9 @@
     },
     {
         "Nombre": "Servomotor",
-        "esta_disponible": true,
         "precio_venta": 18000,
         "precio_proveedor": 10000,
+        "id_proveedor": "",
         "caracteristicas": [
             "",
             ""
@@ -34,9 +34,9 @@
     },
     {
         "Nombre": "Puente H",
-        "esta_disponible": true,
         "precio_venta": 8000,
         "precio_proveedor": 5000,
+        "id_proveedor": "",
         "caracteristicas": [
             "",
             ""
