@@ -34,3 +34,5 @@ db.system.js.save({
 db.loadServerScripts();
 
 insertar_productos("Arduino", 999999, 888888, "5fc5b7c4113cef0c4ceb8f7c", ["Arr", "E"], 190, 'MicroControlador');
+insertar_productos("Arduino", 999999, 888888, "5fc5b7c4113cef0c4ceb8f7c", ["Arr", "E"], 190, 'MicroControlador');
+insertar_productos("Arduino", 999999, 888888, "5fc5b7c4113cef0c4ceb8f7c", ["Arr", "E"], 190, 'MicroControlador');
