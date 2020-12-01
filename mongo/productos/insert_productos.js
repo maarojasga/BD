@@ -33,6 +33,6 @@ db.system.js.save({
 
 db.loadServerScripts();
 
-insertar_productos("Arduino", 999999, 888888, "5fc5b7c4113cef0c4ceb8f7c", ["Arr", "E"], 190, 'MicroControlador');
-insertar_productos("Arduino", 999999, 888888, "5fc5b7c4113cef0c4ceb8f7c", ["Arr", "E"], 190, 'MicroControlador');
-insertar_productos("Arduino", 999999, 888888, "5fc5b7c4113cef0c4ceb8f7c", ["Arr", "E"], 190, 'MicroControlador');
+insertar_productos("Arduino", 80000, 60000, "5fc5b7c4113cef0c4ceb8f7c", ["Blanco", "Mediano"], 190, 'MicroControlador');
+insertar_productos("Raspberry", 180000, 150000, "5fc5b7c4113cef0c4ceb8f7c", ["Azul", "Rojo"], 120, 'Placa reducida');
+insertar_productos("Servomotor", 18000, 1000, "5fc5b7c4113cef0c4ceb8f7c", ["Fuerza", "Voltaje"], 110, 'Motor');
