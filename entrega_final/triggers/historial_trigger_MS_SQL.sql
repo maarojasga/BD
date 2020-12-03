@@ -1,26 +1,4 @@
-CREATE OR ALTER TRIGGER historia_empleado_insert ON EMPLEADO
-FOR INSERT AS 
-    DECLARE @fecha DATETIME
-    DECLARE @id int
-    DECLARE @nombreEmpleado VARCHAR(100)
-    DECLARE @cargoEmpleado INT
-    SELECT @id=(SELECT EMPLEADOID
-    FROM inserted)
-    SELECT @fecha=GETDATE()
-    SELECT @nombreEmpleado = (SELECT EMPLEADO_NOMBRE
-    FROM inserted)
-    SELECT @cargoEmpleado = (SELECT CARGOID
-    FROM inserted)
-    INSERT HISTORIAEMPLEADO
-    (
-    HISTORIA_ID_EMPLEADO,
-    HISTORIA_FECHAINGRESO,
-    HISTORIA_NOMBREEMPLEADO,
-    HISTORIA_CARGOEMPLEADO
-    )
-VALUES
-    (@id, @fecha , @nombreEmpleado , @cargoEmpleado)
-GO
+
 
 CREATE OR ALTER TRIGGER historia_empleado_vendedor_insert ON EMPLEADO_VENDEDOR
 FOR INSERT AS 

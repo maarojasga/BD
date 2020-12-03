@@ -953,7 +953,7 @@ create table EMPLEADOS
    EMPLEADO_DOCUMENTO bigint not null,
    EMPLEADO_NOMBRE varchar(100) not null,
    EMPLEADO_CELULAR bigint not null,
-   EMPLEADO_CORREO bigint not null,
+   EMPLEADO_CORREO varchar(100) not null,
    EMPLEADO_GENERO varchar(100) null,
    EMPLEADO_EDAD int not null
       constraint CKC_EMPLEADO_EDAD_EMPLEADO check (EMPLEADO_EDAD between 18 and 99),

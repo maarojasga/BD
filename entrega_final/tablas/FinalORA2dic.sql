@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      ORACLE Version 10g                           */
-/* Created on:     3/12/2020 1:24:23 a. m.                      */
+/* Created on:     3/12/2020 1:24:23 a.ï¿½m.                      */
 /*==============================================================*/
 
 
@@ -954,7 +954,7 @@ create table EMPLEADOS  (
    EMPLEADO_DOCUMENTO   INTEGER                         not null,
    EMPLEADO_NOMBRE      VARCHAR2(100)                   not null,
    EMPLEADO_CELULAR     INTEGER                         not null,
-   EMPLEADO_CORREO      INTEGER                         not null,
+   EMPLEADO_CORREO      VARCHAR2(100)                         not null,
    EMPLEADO_GENERO      VARCHAR2(100),
    EMPLEADO_EDAD        INTEGER                         not null
       constraint CKC_EMPLEADO_EDAD_EMPLEADO check (EMPLEADO_EDAD between 18 and 99),
