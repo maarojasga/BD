@@ -1,16 +1,16 @@
 /*==============================================================*/
-/* View_Edit: ASISTENCIA_CAPACITACIONES                                             */
+/* VIEW_EDIT: ASISTENCIA_CAPACITACIONES                                             */
 /*==============================================================*/
-CREATE view VISTA_ASISTENCIA_CAPACITACIONES_Edit AS SELECT 
+CREATE VIEW VISTA_ASISTENCIA_CAPACITACIONES_EDIT AS SELECT 
     ASISTENCIA_CAPACITACIONES_ID,
     CAPACITACION_ID,
     ASISTENCIA_CAPACITACIONES_SI_N
                                     FROM ASISTENCIA_CAPACITACIONES;
 
 /*==============================================================*/
-/* View_View:ASISTENCIA_CAPACITACIONES                                             */
+/* VIEW_VIEW:ASISTENCIA_CAPACITACIONES                                             */
 /*==============================================================*/
-CREATE OR replace view VISTA_ASISTENCIA_CAPACITACIONES_View 
+CREATE OR replace VIEW VISTA_ASISTENCIA_CAPACITACIONES_VIEW 
 (
    ASISTENCIA_CAPACITACIONES_ID,
    CAPACITACION_ID,
@@ -30,31 +30,31 @@ WHERE digitador = USER;
 /*==============================================================*/
 /* Permisos                                                     */
 /*==============================================================*/
-GRANT SELECT ON VISTA_ASISTENCIA_CAPACITACIONES_View TO negarzonc;
-GRANT INSERT ON VISTA_ASISTENCIA_CAPACITACIONES_Edit TO negarzonc;
-GRANT SELECT ON VISTA_ASISTENCIA_CAPACITACIONES_Edit TO negarzonc;
+GRANT SELECT ON VISTA_ASISTENCIA_CAPACITACIONES_VIEW TO negarzonc;
+GRANT INSERT ON VISTA_ASISTENCIA_CAPACITACIONES_EDIT TO negarzonc;
+GRANT SELECT ON VISTA_ASISTENCIA_CAPACITACIONES_EDIT TO negarzonc;
 
-GRANT SELECT ON VISTA_ASISTENCIA_CAPACITACIONES_View TO dabonilla;
-GRANT INSERT ON VISTA_ASISTENCIA_CAPACITACIONES_Edit TO dabonilla;
-GRANT SELECT ON VISTA_ASISTENCIA_CAPACITACIONES_Edit TO dabonilla;
+GRANT SELECT ON VISTA_ASISTENCIA_CAPACITACIONES_VIEW TO dabonilla;
+GRANT INSERT ON VISTA_ASISTENCIA_CAPACITACIONES_EDIT TO dabonilla;
+GRANT SELECT ON VISTA_ASISTENCIA_CAPACITACIONES_EDIT TO dabonilla;
 
-GRANT SELECT ON VISTA_ASISTENCIA_CAPACITACIONES_View TO dsilvamo;
-GRANT INSERT ON VISTA_ASISTENCIA_CAPACITACIONES_Edit TO dsilvamo;
-GRANT SELECT ON VISTA_ASISTENCIA_CAPACITACIONES_Edit TO dsilvamo;
+GRANT SELECT ON VISTA_ASISTENCIA_CAPACITACIONES_VIEW TO dsilvamo;
+GRANT INSERT ON VISTA_ASISTENCIA_CAPACITACIONES_EDIT TO dsilvamo;
+GRANT SELECT ON VISTA_ASISTENCIA_CAPACITACIONES_EDIT TO dsilvamo;
 
 /*==============================================================*/
-/* View_Edit: BODEGAS                                           */
+/* VIEW_EDIT: BODEGAS                                           */
 /*==============================================================*/
-CREATE view VISTA_BODEGAS_Edit AS SELECT 
+CREATE VIEW VISTA_BODEGAS_EDIT AS SELECT 
     BODEGA_ID,
     SUCURSAL_ID,
     BODEGA_CANTIDAD
                                     FROM BODEGAS;
 
 /*==============================================================*/
-/* View_View: BODEGAS                                             */
+/* VIEW_VIEW: BODEGAS                                             */
 /*==============================================================*/
-CREATE OR replace view VISTA_BODEGAS_View 
+CREATE OR replace VIEW VISTA_BODEGAS_VIEW 
 (
    BODEGA_ID,
    SUCURSAL_ID,
@@ -74,22 +74,22 @@ WHERE digitador = USER;
 /*==============================================================*/
 /* Permisos                                                     */
 /*==============================================================*/
-GRANT SELECT ON VISTA_BODEGAS_View TO negarzonc;
-GRANT INSERT ON VISTA_BODEGAS_Edit TO negarzonc;
-GRANT SELECT ON VISTA_BODEGAS_Edit TO negarzonc;
+GRANT SELECT ON VISTA_BODEGAS_VIEW TO negarzonc;
+GRANT INSERT ON VISTA_BODEGAS_EDIT TO negarzonc;
+GRANT SELECT ON VISTA_BODEGAS_EDIT TO negarzonc;
 
-GRANT SELECT ON VISTA_BODEGAS_View TO dabonilla;
-GRANT INSERT ON VISTA_BODEGAS_Edit TO dabonilla;
-GRANT SELECT ON VISTA_BODEGAS_Edit TO dabonilla;
+GRANT SELECT ON VISTA_BODEGAS_VIEW TO dabonilla;
+GRANT INSERT ON VISTA_BODEGAS_EDIT TO dabonilla;
+GRANT SELECT ON VISTA_BODEGAS_EDIT TO dabonilla;
 
-GRANT SELECT ON VISTA_BODEGAS_View TO dsilvamo;
-GRANT INSERT ON VISTA_BODEGAS_Edit TO dsilvamo;
-GRANT SELECT ON VISTA_BODEGAS_Edit TO dsilvamo;
+GRANT SELECT ON VISTA_BODEGAS_VIEW TO dsilvamo;
+GRANT INSERT ON VISTA_BODEGAS_EDIT TO dsilvamo;
+GRANT SELECT ON VISTA_BODEGAS_EDIT TO dsilvamo;
 
 /*==============================================================*/
-/* View_Edit: CANDIDATOS                                           */
+/* VIEW_EDIT: CANDIDATOS                                           */
 /*==============================================================*/
-CREATE view VISTA_CANDIDATOS_Edit AS SELECT 
+CREATE VIEW VISTA_CANDIDATOS_EDIT AS SELECT 
     CANDIDATO_ID,
     VACANTE_ID,
     CANDIDATO_NOMBRE,
@@ -102,9 +102,9 @@ CREATE view VISTA_CANDIDATOS_Edit AS SELECT
                                     FROM CANDIDATOS;
 
 /*==============================================================*/
-/* View_View: CANDIDATOS                                             */
+/* VIEW_VIEW: CANDIDATOS                                             */
 /*==============================================================*/
-CREATE OR replace view VISTA_CANDIDATOS_View 
+CREATE OR replace VIEW VISTA_CANDIDATOS_VIEW 
 (
     CANDIDATO_ID,
     VACANTE_ID,
@@ -136,23 +136,23 @@ WHERE digitador = USER;
 /*==============================================================*/
 /* Permisos                                                     */
 /*==============================================================*/
-GRANT SELECT ON VISTA_CANDIDATOS_View TO negarzonc;
-GRANT INSERT ON VISTA_CANDIDATOS_Edit TO negarzonc;
-GRANT SELECT ON VISTA_CANDIDATOS_Edit TO negarzonc;
+GRANT SELECT ON VISTA_CANDIDATOS_VIEW TO negarzonc;
+GRANT INSERT ON VISTA_CANDIDATOS_EDIT TO negarzonc;
+GRANT SELECT ON VISTA_CANDIDATOS_EDIT TO negarzonc;
 
-GRANT SELECT ON VISTA_CANDIDATOS_View TO dabonilla;
-GRANT INSERT ON VISTA_CANDIDATOS_Edit TO dabonilla;
-GRANT SELECT ON VISTA_CANDIDATOS_Edit TO dabonilla;
+GRANT SELECT ON VISTA_CANDIDATOS_VIEW TO dabonilla;
+GRANT INSERT ON VISTA_CANDIDATOS_EDIT TO dabonilla;
+GRANT SELECT ON VISTA_CANDIDATOS_EDIT TO dabonilla;
 
-GRANT SELECT ON VISTA_CANDIDATOS_View TO dsilvamo;
-GRANT INSERT ON VISTA_CANDIDATOS_Edit TO dsilvamo;
-GRANT SELECT ON VISTA_CANDIDATOS_Edit TO dsilvamo;
+GRANT SELECT ON VISTA_CANDIDATOS_VIEW TO dsilvamo;
+GRANT INSERT ON VISTA_CANDIDATOS_EDIT TO dsilvamo;
+GRANT SELECT ON VISTA_CANDIDATOS_EDIT TO dsilvamo;
 
 
 /*==============================================================*/
-/* View_Edit: CAPACITACIONES                                           */
+/* VIEW_EDIT: CAPACITACIONES                                           */
 /*==============================================================*/
-CREATE view VISTA_CAPACITACIONES_Edit AS SELECT 
+CREATE VIEW VISTA_CAPACITACIONES_EDIT AS SELECT 
     CAPACITACION_ID,
     EMPLEADO_ID,
     CAPACITACION_NOMBRE_TIPO,
@@ -161,9 +161,9 @@ CREATE view VISTA_CAPACITACIONES_Edit AS SELECT
                                     FROM CAPACITACIONES;
 
 /*==============================================================*/
-/* View_View: CAPACITACIONES                                            */
+/* VIEW_VIEW: CAPACITACIONES                                            */
 /*==============================================================*/
-CREATE OR replace view VISTA_CAPACITACIONES_View 
+CREATE OR replace VIEW VISTA_CAPACITACIONES_VIEW 
 (
     CAPACITACION_ID,
     EMPLEADO_ID,
@@ -187,23 +187,23 @@ WHERE digitador = USER;
 /*==============================================================*/
 /* Permisos                                                     */
 /*==============================================================*/
-GRANT SELECT ON VISTA_CAPACITACIONES_View TO negarzonc;
-GRANT INSERT ON VISTA_CAPACITACIONES_Edit TO negarzonc;
-GRANT SELECT ON VISTA_CAPACITACIONES_Edit TO negarzonc;
+GRANT SELECT ON VISTA_CAPACITACIONES_VIEW TO negarzonc;
+GRANT INSERT ON VISTA_CAPACITACIONES_EDIT TO negarzonc;
+GRANT SELECT ON VISTA_CAPACITACIONES_EDIT TO negarzonc;
 
-GRANT SELECT ON VISTA_CAPACITACIONES_View TO dabonilla;
-GRANT INSERT ON VISTA_CAPACITACIONES_Edit TO dabonilla;
-GRANT SELECT ON VISTA_CAPACITACIONES_Edit TO dabonilla;
+GRANT SELECT ON VISTA_CAPACITACIONES_VIEW TO dabonilla;
+GRANT INSERT ON VISTA_CAPACITACIONES_EDIT TO dabonilla;
+GRANT SELECT ON VISTA_CAPACITACIONES_EDIT TO dabonilla;
 
-GRANT SELECT ON VISTA_CAPACITACIONES_View TO dsilvamo;
-GRANT INSERT ON VISTA_CAPACITACIONES_Edit TO dsilvamo;
-GRANT SELECT ON VISTA_CAPACITACIONES_Edit TO dsilvamo;
+GRANT SELECT ON VISTA_CAPACITACIONES_VIEW TO dsilvamo;
+GRANT INSERT ON VISTA_CAPACITACIONES_EDIT TO dsilvamo;
+GRANT SELECT ON VISTA_CAPACITACIONES_EDIT TO dsilvamo;
 
 
 /*==============================================================*/
-/* View_Edit: CARGOS                                           */
+/* VIEW_EDIT: CARGOS                                           */
 /*==============================================================*/
-CREATE view VISTA_CARGOS_Edit AS SELECT 
+CREATE VIEW VISTA_CARGOS_EDIT AS SELECT 
     CARGO_ID,
     DEPARTAMENTO_ID,
     CARGO_NOMBRE,
@@ -212,9 +212,9 @@ CREATE view VISTA_CARGOS_Edit AS SELECT
                                     FROM CARGOS;
 
 /*==============================================================*/
-/* View_View: CARGOS                                            */
+/* VIEW_VIEW: CARGOS                                            */
 /*==============================================================*/
-CREATE OR replace view VISTA_CARGOS_View 
+CREATE OR replace VIEW VISTA_CARGOS_VIEW 
 (
     CARGO_ID,
     DEPARTAMENTO_ID,
@@ -238,32 +238,32 @@ WHERE digitador = USER;
 /*==============================================================*/
 /* Permisos                                                     */
 /*==============================================================*/
-GRANT SELECT ON VISTA_CARGOS_View TO negarzonc;
-GRANT INSERT ON VISTA_CARGOS_Edit TO negarzonc;
-GRANT SELECT ON VISTA_CARGOS_Edit TO negarzonc;
+GRANT SELECT ON VISTA_CARGOS_VIEW TO negarzonc;
+GRANT INSERT ON VISTA_CARGOS_EDIT TO negarzonc;
+GRANT SELECT ON VISTA_CARGOS_EDIT TO negarzonc;
 
-GRANT SELECT ON VISTA_CARGOS_View TO dabonilla;
-GRANT INSERT ON VISTA_CARGOS_Edit TO dabonilla;
-GRANT SELECT ON VISTA_CARGOS_Edit TO dabonilla;
+GRANT SELECT ON VISTA_CARGOS_VIEW TO dabonilla;
+GRANT INSERT ON VISTA_CARGOS_EDIT TO dabonilla;
+GRANT SELECT ON VISTA_CARGOS_EDIT TO dabonilla;
 
-GRANT SELECT ON VISTA_CARGOS_View TO dsilvamo;
-GRANT INSERT ON VISTA_CARGOS_Edit TO dsilvamo;
-GRANT SELECT ON VISTA_CARGOS_Edit TO dsilvamo;
+GRANT SELECT ON VISTA_CARGOS_VIEW TO dsilvamo;
+GRANT INSERT ON VISTA_CARGOS_EDIT TO dsilvamo;
+GRANT SELECT ON VISTA_CARGOS_EDIT TO dsilvamo;
 
 
 /*==============================================================*/
-/* View_Edit: CIUDADES                                           */
+/* VIEW_EDIT: CIUDADES                                           */
 /*==============================================================*/
-CREATE view VISTA_CIUDADES_Edit AS SELECT 
+CREATE VIEW VISTA_CIUDADES_EDIT AS SELECT 
     CIUDAD_ID,
     PAIS_ID,
     CIUDAD_NOMBRE
                                     FROM CIUDADES;
 
 /*==============================================================*/
-/* View_View: CIUDADES                                             */
+/* VIEW_VIEW: CIUDADES                                             */
 /*==============================================================*/
-CREATE OR replace view VISTA_CIUDADES_View 
+CREATE OR replace VIEW VISTA_CIUDADES_VIEW 
 (
    CIUDAD_ID,
    PAIS_ID,
@@ -283,23 +283,23 @@ WHERE digitador = USER;
 /*==============================================================*/
 /* Permisos                                                     */
 /*==============================================================*/
-GRANT SELECT ON VISTA_ASISTENCIA_CIUDADES_View TO negarzonc;
-GRANT INSERT ON VISTA_ASISTENCIA_CIUDADES_Edit TO negarzonc;
-GRANT SELECT ON VISTA_ASISTENCIA_CIUDADES_Edit TO negarzonc;
+GRANT SELECT ON VISTA_ASISTENCIA_CIUDADES_VIEW TO negarzonc;
+GRANT INSERT ON VISTA_ASISTENCIA_CIUDADES_EDIT TO negarzonc;
+GRANT SELECT ON VISTA_ASISTENCIA_CIUDADES_EDIT TO negarzonc;
 
-GRANT SELECT ON VISTA_ASISTENCIA_CIUDADES_View TO dabonilla;
-GRANT INSERT ON VISTA_ASISTENCIA_CIUDADES_Edit TO dabonilla;
-GRANT SELECT ON VISTA_ASISTENCIA_CIUDADES_Edit TO dabonilla;
+GRANT SELECT ON VISTA_ASISTENCIA_CIUDADES_VIEW TO dabonilla;
+GRANT INSERT ON VISTA_ASISTENCIA_CIUDADES_EDIT TO dabonilla;
+GRANT SELECT ON VISTA_ASISTENCIA_CIUDADES_EDIT TO dabonilla;
 
-GRANT SELECT ON VISTA_ASISTENCIA_CIUDADES_View TO dsilvamo;
-GRANT INSERT ON VISTA_ASISTENCIA_CIUDADES_Edit TO dsilvamo;
-GRANT SELECT ON VISTA_ASISTENCIA_CIUDADES_Edit TO dsilvamo;
+GRANT SELECT ON VISTA_ASISTENCIA_CIUDADES_VIEW TO dsilvamo;
+GRANT INSERT ON VISTA_ASISTENCIA_CIUDADES_EDIT TO dsilvamo;
+GRANT SELECT ON VISTA_ASISTENCIA_CIUDADES_EDIT TO dsilvamo;
 
 
 /*==============================================================*/
-/* View_Edit: CLIENTES                                            */
+/* VIEW_EDIT: CLIENTES                                            */
 /*==============================================================*/
-CREATE view VISTA_CLIENTES_Edit AS SELECT 
+CREATE VIEW VISTA_CLIENTES_EDIT AS SELECT 
     CLIENTE_ID,
     CLIENTE_NIT
     CLIENTE_NOMBRE,
@@ -310,9 +310,9 @@ CREATE view VISTA_CLIENTES_Edit AS SELECT
                                     FROM CLIENTES ;
 
 /*==============================================================*/
-/* View_View: CLIENTES                                              */
+/* VIEW_VIEW: CLIENTES                                              */
 /*==============================================================*/
-CREATE OR replace view VISTA_CLIENTES_View 
+CREATE OR replace VIEW VISTA_CLIENTES_VIEW 
 (
    CLIENTE_ID,
     CLIENTE_NIT
@@ -340,23 +340,23 @@ WHERE digitador = USER;
 /*==============================================================*/
 /* Permisos                                                     */
 /*==============================================================*/
-GRANT SELECT ON VISTA_CLIENTES_View TO negarzonc;
-GRANT INSERT ON VISTA_CLIENTES_Edit TO negarzonc;
-GRANT SELECT ON VISTA_CLIENTES_Edit TO negarzonc;
+GRANT SELECT ON VISTA_CLIENTES_VIEW TO negarzonc;
+GRANT INSERT ON VISTA_CLIENTES_EDIT TO negarzonc;
+GRANT SELECT ON VISTA_CLIENTES_EDIT TO negarzonc;
 
-GRANT SELECT ON VISTA_CLIENTES_View TO dabonilla;
-GRANT INSERT ON VISTA_CLIENTES_Edit TO dabonilla;
-GRANT SELECT ON VISTA_CLIENTES_Edit TO dabonilla;
+GRANT SELECT ON VISTA_CLIENTES_VIEW TO dabonilla;
+GRANT INSERT ON VISTA_CLIENTES_EDIT TO dabonilla;
+GRANT SELECT ON VISTA_CLIENTES_EDIT TO dabonilla;
 
-GRANT SELECT ON VISTA_CLIENTES_View TO dsilvamo;
-GRANT INSERT ON VISTA_CLIENTES_Edit TO dsilvamo;
-GRANT SELECT ON VISTA_CLIENTES_Edit TO dsilvamo;
+GRANT SELECT ON VISTA_CLIENTES_VIEW TO dsilvamo;
+GRANT INSERT ON VISTA_CLIENTES_EDIT TO dsilvamo;
+GRANT SELECT ON VISTA_CLIENTES_EDIT TO dsilvamo;
 
 
 /*==============================================================*/
-/* View_Edit: CLIENTE_GERENTE                                            */
+/* VIEW_EDIT: CLIENTE_GERENTE                                            */
 /*==============================================================*/
-CREATE view VISTA_CLIENTE_GERENTE_Edit AS SELECT 
+CREATE VIEW VISTA_CLIENTE_GERENTE_EDIT AS SELECT 
     CLIENTE_GERENTE_ID,
     CLIENTE_ID,
     CLIENTE_GERENTE_NOMBRE,
@@ -366,9 +366,9 @@ CREATE view VISTA_CLIENTE_GERENTE_Edit AS SELECT
                                     FROM CLIENTE_GERENTE;
 
 /*==============================================================*/
-/* View_View: CLIENTE_GERENTE                                              */
+/* VIEW_VIEW: CLIENTE_GERENTE                                              */
 /*==============================================================*/
-CREATE OR replace view VISTA_CLIENTE_GERENTE_View 
+CREATE OR replace VIEW VISTA_CLIENTE_GERENTE_VIEW 
 (
    CLIENTE_GERENTE_ID,
     CLIENTE_ID,
@@ -394,23 +394,23 @@ WHERE digitador = USER;
 /*==============================================================*/
 /* Permisos                                                     */
 /*==============================================================*/
-GRANT SELECT ON VISTA_CLIENTE_GERENTE_View TO negarzonc;
-GRANT INSERT ON VISTA_CLIENTE_GERENTE_Edit TO negarzonc;
-GRANT SELECT ON VISTA_CLIENTE_GERENTE_Edit TO negarzonc;
+GRANT SELECT ON VISTA_CLIENTE_GERENTE_VIEW TO negarzonc;
+GRANT INSERT ON VISTA_CLIENTE_GERENTE_EDIT TO negarzonc;
+GRANT SELECT ON VISTA_CLIENTE_GERENTE_EDIT TO negarzonc;
 
-GRANT SELECT ON VISTA_CLIENTE_GERENTE_View TO dabonilla;
-GRANT INSERT ON VISTA_CLIENTE_GERENTE_Edit TO dabonilla;
-GRANT SELECT ON VISTA_CLIENTE_GERENTE_Edit TO dabonilla;
+GRANT SELECT ON VISTA_CLIENTE_GERENTE_VIEW TO dabonilla;
+GRANT INSERT ON VISTA_CLIENTE_GERENTE_EDIT TO dabonilla;
+GRANT SELECT ON VISTA_CLIENTE_GERENTE_EDIT TO dabonilla;
 
-GRANT SELECT ON VISTA_CLIENTE_GERENTE_View TO dsilvamo;
-GRANT INSERT ON VISTA_CLIENTE_GERENTE_Edit TO dsilvamo;
-GRANT SELECT ON VISTA_CLIENTE_GERENTE_Edit TO dsilvamo;
+GRANT SELECT ON VISTA_CLIENTE_GERENTE_VIEW TO dsilvamo;
+GRANT INSERT ON VISTA_CLIENTE_GERENTE_EDIT TO dsilvamo;
+GRANT SELECT ON VISTA_CLIENTE_GERENTE_EDIT TO dsilvamo;
 
 
 /*==============================================================*/
-/* View_Edit: DEPARTAMENTOS                                            */
+/* VIEW_EDIT: DEPARTAMENTOS                                            */
 /*==============================================================*/
-CREATE view VISTA_DEPARTAMENTOS_Edit AS SELECT 
+CREATE VIEW VISTA_DEPARTAMENTOS_EDIT AS SELECT 
     DEPARTAMENTO_ID,
     SUCURSAL_ID,
     DIRECTOR_DEPARTAMENTO_ID,
@@ -418,9 +418,9 @@ CREATE view VISTA_DEPARTAMENTOS_Edit AS SELECT
                                     FROM DEPARTAMENTOS;
 
 /*==============================================================*/
-/* View_View: DEPARTAMENTOS                                              */
+/* VIEW_VIEW: DEPARTAMENTOS                                              */
 /*==============================================================*/
-CREATE OR replace view VISTA_DEPARTAMENTOS_View 
+CREATE OR replace VIEW VISTA_DEPARTAMENTOS_VIEW 
 (
    DEPARTAMENTO_ID,
     SUCURSAL_ID,
@@ -442,22 +442,22 @@ WHERE digitador = USER;
 /*==============================================================*/
 /* Permisos                                                     */
 /*==============================================================*/
-GRANT SELECT ON VISTA_DEPARTAMENTOS_View TO negarzonc;
-GRANT INSERT ON VISTA_DEPARTAMENTOS_Edit TO negarzonc;
-GRANT SELECT ON VISTA_DEPARTAMENTOS_Edit TO negarzonc;
+GRANT SELECT ON VISTA_DEPARTAMENTOS_VIEW TO negarzonc;
+GRANT INSERT ON VISTA_DEPARTAMENTOS_EDIT TO negarzonc;
+GRANT SELECT ON VISTA_DEPARTAMENTOS_EDIT TO negarzonc;
 
-GRANT SELECT ON VISTA_DEPARTAMENTOS_View TO dabonilla;
-GRANT INSERT ON VISTA_DEPARTAMENTOS_Edit TO dabonilla;
-GRANT SELECT ON VISTA_DEPARTAMENTOS_Edit TO dabonilla;
+GRANT SELECT ON VISTA_DEPARTAMENTOS_VIEW TO dabonilla;
+GRANT INSERT ON VISTA_DEPARTAMENTOS_EDIT TO dabonilla;
+GRANT SELECT ON VISTA_DEPARTAMENTOS_EDIT TO dabonilla;
 
-GRANT SELECT ON VISTA_DEPARTAMENTOS_View TO dsilvamo;
-GRANT INSERT ON VISTA_DEPARTAMENTOS_Edit TO dsilvamo;
-GRANT SELECT ON VISTA_DEPARTAMENTOS_Edit TO dsilvamo;
+GRANT SELECT ON VISTA_DEPARTAMENTOS_VIEW TO dsilvamo;
+GRANT INSERT ON VISTA_DEPARTAMENTOS_EDIT TO dsilvamo;
+GRANT SELECT ON VISTA_DEPARTAMENTOS_EDIT TO dsilvamo;
 
 /*==============================================================*/
-/* View_Edit: DIRECTOR_DEPARTAMENTO                                            */
+/* VIEW_EDIT: DIRECTOR_DEPARTAMENTO                                            */
 /*==============================================================*/
-CREATE view VISTA_DIRECTOR_DEPARTAMENTO_Edit AS SELECT 
+CREATE VIEW VISTA_DIRECTOR_DEPARTAMENTO_EDIT AS SELECT 
     DIRECTOR_DEPARTAMENTO_ID,
     DIRECTOR_SUCURSAL_ID,
     DIRECTOR_DEPARTAMENTO_NOMBRE,
@@ -474,9 +474,9 @@ CREATE view VISTA_DIRECTOR_DEPARTAMENTO_Edit AS SELECT
                                     FROM DIRECTOR_DEPARTAMENTO;
 
 /*==============================================================*/
-/* View_View: DIRECTOR_DEPARTAMENTO                                              */
+/* VIEW_VIEW: DIRECTOR_DEPARTAMENTO                                              */
 /*==============================================================*/
-CREATE OR replace view VISTA_DIRECTOR_DEPARTAMENTO_View 
+CREATE OR replace VIEW VISTA_DIRECTOR_DEPARTAMENTO_VIEW 
 (
    DIRECTOR_DEPARTAMENTO_ID,
     DIRECTOR_SUCURSAL_ID,
@@ -516,24 +516,24 @@ WHERE digitador = USER;
 /*==============================================================*/
 /* Permisos                                                     */
 /*==============================================================*/
-GRANT SELECT ON VISTA_DIRECTOR_DEPARTAMENTO_View TO negarzonc;
-GRANT INSERT ON VISTA_DIRECTOR_DEPARTAMENTO_Edit TO negarzonc;
-GRANT SELECT ON VISTA_DIRECTOR_DEPARTAMENTO_Edit TO negarzonc;
+GRANT SELECT ON VISTA_DIRECTOR_DEPARTAMENTO_VIEW TO negarzonc;
+GRANT INSERT ON VISTA_DIRECTOR_DEPARTAMENTO_EDIT TO negarzonc;
+GRANT SELECT ON VISTA_DIRECTOR_DEPARTAMENTO_EDIT TO negarzonc;
 
-GRANT SELECT ON VISTA_DIRECTOR_DEPARTAMENTO_View TO dabonilla;
-GRANT INSERT ON VISTA_DIRECTOR_DEPARTAMENTO_Edit TO dabonilla;
-GRANT SELECT ON VISTA_DIRECTOR_DEPARTAMENTO_Edit TO dabonilla;
+GRANT SELECT ON VISTA_DIRECTOR_DEPARTAMENTO_VIEW TO dabonilla;
+GRANT INSERT ON VISTA_DIRECTOR_DEPARTAMENTO_EDIT TO dabonilla;
+GRANT SELECT ON VISTA_DIRECTOR_DEPARTAMENTO_EDIT TO dabonilla;
 
-GRANT SELECT ON VISTA_DIRECTOR_DEPARTAMENTO_View TO dsilvamo;
-GRANT INSERT ON VISTA_DIRECTOR_DEPARTAMENTO_Edit TO dsilvamo;
-GRANT SELECT ON VISTA_DIRECTOR_DEPARTAMENTO_Edit TO dsilvamo;
+GRANT SELECT ON VISTA_DIRECTOR_DEPARTAMENTO_VIEW TO dsilvamo;
+GRANT INSERT ON VISTA_DIRECTOR_DEPARTAMENTO_EDIT TO dsilvamo;
+GRANT SELECT ON VISTA_DIRECTOR_DEPARTAMENTO_EDIT TO dsilvamo;
 
 
 
 /*==============================================================*/
-/* View_Edit: DIRECTOR_SUCURSAL                                            */
+/* VIEW_EDIT: DIRECTOR_SUCURSAL                                            */
 /*==============================================================*/
-CREATE view VISTA_DIRECTOR_SUCURSAL_Edit AS SELECT 
+CREATE VIEW VISTA_DIRECTOR_SUCURSAL_EDIT AS SELECT 
     DIRECTOR_SUCURSAL_ID,
     EMPRESA_SUBGERENTE_ID,
     DIRECTOR_SUCURSAL_NOMBRE,
@@ -550,9 +550,9 @@ CREATE view VISTA_DIRECTOR_SUCURSAL_Edit AS SELECT
                                     FROM DIRECTOR_SUCURSAL;
 
 /*==============================================================*/
-/* View_View: DIRECTOR_SUCURSAL                                              */
+/* VIEW_VIEW: DIRECTOR_SUCURSAL                                              */
 /*==============================================================*/
-CREATE OR replace view VISTA_DIRECTOR_SUCURSAL_View 
+CREATE OR replace VIEW VISTA_DIRECTOR_SUCURSAL_VIEW 
 (
    DIRECTOR_SUCURSAL_ID,
     EMPRESA_SUBGERENTE_ID,
@@ -592,23 +592,23 @@ WHERE digitador = USER;
 /*==============================================================*/
 /* Permisos                                                     */
 /*==============================================================*/
-GRANT SELECT ON VISTA_DIRECTOR_SUCURSAL_View TO negarzonc;
-GRANT INSERT ON VISTA_DIRECTOR_SUCURSAL_Edit TO negarzonc;
-GRANT SELECT ON VISTA_DIRECTOR_SUCURSAL_Edit TO negarzonc;
+GRANT SELECT ON VISTA_DIRECTOR_SUCURSAL_VIEW TO negarzonc;
+GRANT INSERT ON VISTA_DIRECTOR_SUCURSAL_EDIT TO negarzonc;
+GRANT SELECT ON VISTA_DIRECTOR_SUCURSAL_EDIT TO negarzonc;
 
-GRANT SELECT ON VISTA_DIRECTOR_SUCURSAL_View TO dabonilla;
-GRANT INSERT ON VISTA_DIRECTOR_SUCURSAL_Edit TO dabonilla;
-GRANT SELECT ON VISTA_DIRECTOR_SUCURSAL_Edit TO dabonilla;
+GRANT SELECT ON VISTA_DIRECTOR_SUCURSAL_VIEW TO dabonilla;
+GRANT INSERT ON VISTA_DIRECTOR_SUCURSAL_EDIT TO dabonilla;
+GRANT SELECT ON VISTA_DIRECTOR_SUCURSAL_EDIT TO dabonilla;
 
-GRANT SELECT ON VISTA_DIRECTOR_SUCURSAL_View TO dsilvamo;
-GRANT INSERT ON VISTA_DIRECTOR_SUCURSAL_Edit TO dsilvamo;
-GRANT SELECT ON VISTA_DIRECTOR_SUCURSAL_Edit TO dsilvamo;
+GRANT SELECT ON VISTA_DIRECTOR_SUCURSAL_VIEW TO dsilvamo;
+GRANT INSERT ON VISTA_DIRECTOR_SUCURSAL_EDIT TO dsilvamo;
+GRANT SELECT ON VISTA_DIRECTOR_SUCURSAL_EDIT TO dsilvamo;
 
 
 /*==============================================================*/
-/* View_Edit: EMPLEADOS                                            */
+/* VIEW_EDIT: EMPLEADOS                                            */
 /*==============================================================*/
-CREATE view VISTA_EMPLEADOS_Edit AS SELECT 
+CREATE VIEW VISTA_EMPLEADOS_EDIT AS SELECT 
     EMPLEADO_ID,
     CARGO_ID,
     EMPLEADO_DOCUMENTO,
@@ -627,9 +627,9 @@ CREATE view VISTA_EMPLEADOS_Edit AS SELECT
                                     FROM EMPLEADOS;
 
 /*==============================================================*/
-/* View_View: EMPLEADOS                                              */
+/* VIEW_VIEW: EMPLEADOS                                              */
 /*==============================================================*/
-CREATE OR replace view VISTA_EMPLEADOS_View 
+CREATE OR replace VIEW VISTA_EMPLEADOS_VIEW 
 (
    EMPLEADO_ID,
     CARGO_ID,
@@ -671,24 +671,24 @@ WHERE digitador = USER;
 /*==============================================================*/
 /* Permisos                                                     */
 /*==============================================================*/
-GRANT SELECT ON VISTA_EMPLEADOS_View TO negarzonc;
-GRANT INSERT ON VISTA_EMPLEADOS_Edit TO negarzonc;
-GRANT SELECT ON VISTA_EMPLEADOS_Edit TO negarzonc;
+GRANT SELECT ON VISTA_EMPLEADOS_VIEW TO negarzonc;
+GRANT INSERT ON VISTA_EMPLEADOS_EDIT TO negarzonc;
+GRANT SELECT ON VISTA_EMPLEADOS_EDIT TO negarzonc;
 
-GRANT SELECT ON VISTA_EMPLEADOS_View TO dabonilla;
-GRANT INSERT ON VISTA_EMPLEADOS_Edit TO dabonilla;
-GRANT SELECT ON VISTA_EMPLEADOS_Edit TO dabonilla;
+GRANT SELECT ON VISTA_EMPLEADOS_VIEW TO dabonilla;
+GRANT INSERT ON VISTA_EMPLEADOS_EDIT TO dabonilla;
+GRANT SELECT ON VISTA_EMPLEADOS_EDIT TO dabonilla;
 
-GRANT SELECT ON VISTA_EMPLEADOS_View TO dsilvamo;
-GRANT INSERT ON VISTA_EMPLEADOS_Edit TO dsilvamo;
-GRANT SELECT ON VISTA_EMPLEADOS_Edit TO dsilvamo;
+GRANT SELECT ON VISTA_EMPLEADOS_VIEW TO dsilvamo;
+GRANT INSERT ON VISTA_EMPLEADOS_EDIT TO dsilvamo;
+GRANT SELECT ON VISTA_EMPLEADOS_EDIT TO dsilvamo;
 
 
 
 /*==============================================================*/
-/* View_Edit: EMPRESA                                            */
+/* VIEW_EDIT: EMPRESA                                            */
 /*==============================================================*/
-CREATE view VISTA_EMPRESA_Edit AS SELECT 
+CREATE VIEW VISTA_EMPRESA_EDIT AS SELECT 
     EMPRESA_ID,
     EMPRESA_NOMBRE,
     EMPRESA_DIRECCION,
@@ -697,9 +697,9 @@ CREATE view VISTA_EMPRESA_Edit AS SELECT
                                     FROM EMPRESA;
 
 /*==============================================================*/
-/* View_View: EMPRESA                                              */
+/* VIEW_VIEW: EMPRESA                                              */
 /*==============================================================*/
-CREATE OR replace view VISTA_EMPRESA_View 
+CREATE OR replace VIEW VISTA_EMPRESA_VIEW 
 (
    EMPRESA_ID,
     EMPRESA_NOMBRE,
@@ -721,23 +721,23 @@ WHERE digitador = USER;
 /*==============================================================*/
 /* Permisos                                                     */
 /*==============================================================*/
-GRANT SELECT ON VISTA_EMPRESA_View TO negarzonc;
-GRANT INSERT ON VISTA_EMPRESA_Edit TO negarzonc;
-GRANT SELECT ON VISTA_EMPRESA_Edit TO negarzonc;
+GRANT SELECT ON VISTA_EMPRESA_VIEW TO negarzonc;
+GRANT INSERT ON VISTA_EMPRESA_EDIT TO negarzonc;
+GRANT SELECT ON VISTA_EMPRESA_EDIT TO negarzonc;
 
-GRANT SELECT ON VISTA_EMPRESA_View TO dabonilla;
-GRANT INSERT ON VISTA_EMPRESA_Edit TO dabonilla;
-GRANT SELECT ON VISTA_EMPRESA_Edit TO dabonilla;
+GRANT SELECT ON VISTA_EMPRESA_VIEW TO dabonilla;
+GRANT INSERT ON VISTA_EMPRESA_EDIT TO dabonilla;
+GRANT SELECT ON VISTA_EMPRESA_EDIT TO dabonilla;
 
-GRANT SELECT ON VISTA_EMPRESA_View TO dsilvamo;
-GRANT INSERT ON VISTA_EMPRESA_Edit TO dsilvamo;
-GRANT SELECT ON VISTA_EMPRESA_Edit TO dsilvamo;
+GRANT SELECT ON VISTA_EMPRESA_VIEW TO dsilvamo;
+GRANT INSERT ON VISTA_EMPRESA_EDIT TO dsilvamo;
+GRANT SELECT ON VISTA_EMPRESA_EDIT TO dsilvamo;
 
 
 /*==============================================================*/
-/* View_Edit: EMPRESA_GERENTE                                            */
+/* VIEW_EDIT: EMPRESA_GERENTE                                            */
 /*==============================================================*/
-CREATE view VISTA_EMPRESA_GERENTE_Edit AS SELECT 
+CREATE VIEW VISTA_EMPRESA_GERENTE_EDIT AS SELECT 
     EMPRESA_GERENTE_ID,
     EMPRESA_ID,
     EMPRESA_GERENTE_NOMBRE,
@@ -755,9 +755,9 @@ CREATE view VISTA_EMPRESA_GERENTE_Edit AS SELECT
                                     FROM EMPRESA_GERENTE;
 
 /*==============================================================*/
-/* View_View: EMPRESA_GERENTE                                              */
+/* VIEW_VIEW: EMPRESA_GERENTE                                              */
 /*==============================================================*/
-CREATE OR replace view VISTA_EMPRESA_GERENTE_View 
+CREATE OR replace VIEW VISTA_EMPRESA_GERENTE_VIEW 
 (
    EMPRESA_GERENTE_ID,
     EMPRESA_ID,
@@ -797,23 +797,23 @@ WHERE digitador = USER;
 /*==============================================================*/
 /* Permisos                                                     */
 /*==============================================================*/
-GRANT SELECT ON VISTA_EMPRESA_GERENTE_View TO negarzonc;
-GRANT INSERT ON VISTA_EMPRESA_GERENTE_Edit TO negarzonc;
-GRANT SELECT ON VISTA_EMPRESA_GERENTE_Edit TO negarzonc;
+GRANT SELECT ON VISTA_EMPRESA_GERENTE_VIEW TO negarzonc;
+GRANT INSERT ON VISTA_EMPRESA_GERENTE_EDIT TO negarzonc;
+GRANT SELECT ON VISTA_EMPRESA_GERENTE_EDIT TO negarzonc;
 
-GRANT SELECT ON VISTA_EMPRESA_GERENTE_View TO dabonilla;
-GRANT INSERT ON VISTA_EMPRESA_GERENTE_Edit TO dabonilla;
-GRANT SELECT ON VISTA_EMPRESA_GERENTE_Edit TO dabonilla;
+GRANT SELECT ON VISTA_EMPRESA_GERENTE_VIEW TO dabonilla;
+GRANT INSERT ON VISTA_EMPRESA_GERENTE_EDIT TO dabonilla;
+GRANT SELECT ON VISTA_EMPRESA_GERENTE_EDIT TO dabonilla;
 
-GRANT SELECT ON VISTA_EMPRESA_GERENTE_View TO dsilvamo;
-GRANT INSERT ON VISTA_EMPRESA_GERENTE_Edit TO dsilvamo;
-GRANT SELECT ON VISTA_EMPRESA_GERENTE_Edit TO dsilvamo;
+GRANT SELECT ON VISTA_EMPRESA_GERENTE_VIEW TO dsilvamo;
+GRANT INSERT ON VISTA_EMPRESA_GERENTE_EDIT TO dsilvamo;
+GRANT SELECT ON VISTA_EMPRESA_GERENTE_EDIT TO dsilvamo;
 
 
 /*==============================================================*/
-/* View_Edit: EMPRESA_SUBGERENTE                                            */
+/* VIEW_EDIT: EMPRESA_SUBGERENTE                                            */
 /*==============================================================*/
-CREATE view VISTA_EMPRESA_SUBGERENTE_Edit AS SELECT 
+CREATE VIEW VISTA_EMPRESA_SUBGERENTE_EDIT AS SELECT 
     EMPRESA_SUBGERENTE_ID,
     EMPRESA_GERENTE_ID,
     EMPRESA_ID,
@@ -832,9 +832,9 @@ CREATE view VISTA_EMPRESA_SUBGERENTE_Edit AS SELECT
                                     FROM EMPRESA_SUBGERENTE;
 
 /*==============================================================*/
-/* View_View: EMPRESA_SUBGERENTE                                              */
+/* VIEW_VIEW: EMPRESA_SUBGERENTE                                              */
 /*==============================================================*/
-CREATE OR replace view VISTA_EMPRESA_SUBGERENTE_View 
+CREATE OR replace VIEW VISTA_EMPRESA_SUBGERENTE_VIEW 
 (
    EMPRESA_SUBGERENTE_ID,
     EMPRESA_GERENTE_ID,
@@ -876,23 +876,23 @@ WHERE digitador = USER;
 /*==============================================================*/
 /* Permisos                                                     */
 /*==============================================================*/
-GRANT SELECT ON VISTA_EMPRESA_SUBGERENTE_View TO negarzonc;
-GRANT INSERT ON VISTA_EMPRESA_SUBGERENTE_Edit TO negarzonc;
-GRANT SELECT ON VISTA_EMPRESA_SUBGERENTE_Edit TO negarzonc;
+GRANT SELECT ON VISTA_EMPRESA_SUBGERENTE_VIEW TO negarzonc;
+GRANT INSERT ON VISTA_EMPRESA_SUBGERENTE_EDIT TO negarzonc;
+GRANT SELECT ON VISTA_EMPRESA_SUBGERENTE_EDIT TO negarzonc;
 
-GRANT SELECT ON VISTA_EMPRESA_SUBGERENTE_View TO dabonilla;
-GRANT INSERT ON VISTA_EMPRESA_SUBGERENTE_Edit TO dabonilla;
-GRANT SELECT ON VISTA_EMPRESA_SUBGERENTE_Edit TO dabonilla;
+GRANT SELECT ON VISTA_EMPRESA_SUBGERENTE_VIEW TO dabonilla;
+GRANT INSERT ON VISTA_EMPRESA_SUBGERENTE_EDIT TO dabonilla;
+GRANT SELECT ON VISTA_EMPRESA_SUBGERENTE_EDIT TO dabonilla;
 
-GRANT SELECT ON VISTA_EMPRESA_SUBGERENTE_View TO dsilvamo;
-GRANT INSERT ON VISTA_EMPRESA_SUBGERENTE_Edit TO dsilvamo;
-GRANT SELECT ON VISTA_EMPRESA_SUBGERENTE_Edit TO dsilvamo;
+GRANT SELECT ON VISTA_EMPRESA_SUBGERENTE_VIEW TO dsilvamo;
+GRANT INSERT ON VISTA_EMPRESA_SUBGERENTE_EDIT TO dsilvamo;
+GRANT SELECT ON VISTA_EMPRESA_SUBGERENTE_EDIT TO dsilvamo;
 
 
 /*==============================================================*/
-/* View_Edit: HISTORIAL_TRABAJADORES                                            */
+/* VIEW_EDIT: HISTORIAL_TRABAJADORES                                            */
 /*==============================================================*/
-CREATE view VISTA_HISTORIAL_TRABAJADORES_Edit AS SELECT 
+CREATE VIEW VISTA_HISTORIAL_TRABAJADORES_EDIT AS SELECT 
     HISTORIA_TRABAJADORES_ID,
     HISTORIA_TRABAJADORES_FECHA_INGRESO,
     HISTORIA_TRABAJADORES_FECHA_RETIRO,
@@ -910,9 +910,9 @@ CREATE view VISTA_HISTORIAL_TRABAJADORES_Edit AS SELECT
                                     FROM HISTORIAL_TRABAJADORES;
 
 /*==============================================================*/
-/* View_View: HISTORIAL_TRABAJADORES                                              */
+/* VIEW_VIEW: HISTORIAL_TRABAJADORES                                              */
 /*==============================================================*/
-CREATE OR replace view VISTA_HISTORIAL_TRABAJADORES_View 
+CREATE OR replace VIEW VISTA_HISTORIAL_TRABAJADORES_VIEW 
 (
    HISTORIA_TRABAJADORES_ID,
     HISTORIA_TRABAJADORES_FECHA_INGRESO,
@@ -950,24 +950,24 @@ WHERE digitador = USER;
 /*==============================================================*/
 /* Permisos                                                     */
 /*==============================================================*/
-GRANT SELECT ON VISTA_HISTORIAL_TRABAJADORES_View TO negarzonc;
-GRANT INSERT ON VISTA_HISTORIAL_TRABAJADORES_Edit TO negarzonc;
-GRANT SELECT ON VISTA_HISTORIAL_TRABAJADORES_Edit TO negarzonc;
+GRANT SELECT ON VISTA_HISTORIAL_TRABAJADORES_VIEW TO negarzonc;
+GRANT INSERT ON VISTA_HISTORIAL_TRABAJADORES_EDIT TO negarzonc;
+GRANT SELECT ON VISTA_HISTORIAL_TRABAJADORES_EDIT TO negarzonc;
 
-GRANT SELECT ON VISTA_HISTORIAL_TRABAJADORES_View TO dabonilla;
-GRANT INSERT ON VISTA_HISTORIAL_TRABAJADORES_Edit TO dabonilla;
-GRANT SELECT ON VISTA_HISTORIAL_TRABAJADORES_Edit TO dabonilla;
+GRANT SELECT ON VISTA_HISTORIAL_TRABAJADORES_VIEW TO dabonilla;
+GRANT INSERT ON VISTA_HISTORIAL_TRABAJADORES_EDIT TO dabonilla;
+GRANT SELECT ON VISTA_HISTORIAL_TRABAJADORES_EDIT TO dabonilla;
 
-GRANT SELECT ON VISTA_HISTORIAL_TRABAJADORES_View TO dsilvamo;
-GRANT INSERT ON VISTA_HISTORIAL_TRABAJADORES_Edit TO dsilvamo;
-GRANT SELECT ON VISTA_HISTORIAL_TRABAJADORES_Edit TO dsilvamo;
+GRANT SELECT ON VISTA_HISTORIAL_TRABAJADORES_VIEW TO dsilvamo;
+GRANT INSERT ON VISTA_HISTORIAL_TRABAJADORES_EDIT TO dsilvamo;
+GRANT SELECT ON VISTA_HISTORIAL_TRABAJADORES_EDIT TO dsilvamo;
 
 
 
 /*==============================================================*/
-/* View_Edit: ORDENES                                            */
+/* VIEW_EDIT: ORDENES                                            */
 /*==============================================================*/
-CREATE view VISTA_ORDENES_Edit AS SELECT 
+CREATE VIEW VISTA_ORDENES_EDIT AS SELECT 
     ORDEN_ID,
     SUCURSAL_ID,
     VACANTE_ID,
@@ -980,9 +980,9 @@ CREATE view VISTA_ORDENES_Edit AS SELECT
                                     FROM ORDENES;
 
 /*==============================================================*/
-/* View_View: ORDENES                                              */
+/* VIEW_VIEW: ORDENES                                              */
 /*==============================================================*/
-CREATE OR replace view VISTA_ORDENES_View 
+CREATE OR replace VIEW VISTA_ORDENES_VIEW 
 (
    ORDEN_ID,
     SUCURSAL_ID,
@@ -1010,24 +1010,24 @@ WHERE digitador = USER;
 /*==============================================================*/
 /* Permisos                                                     */
 /*==============================================================*/
-GRANT SELECT ON VISTA_ORDENES_View TO negarzonc;
-GRANT INSERT ON VISTA_ORDENES_Edit TO negarzonc;
-GRANT SELECT ON VISTA_ORDENES_Edit TO negarzonc;
+GRANT SELECT ON VISTA_ORDENES_VIEW TO negarzonc;
+GRANT INSERT ON VISTA_ORDENES_EDIT TO negarzonc;
+GRANT SELECT ON VISTA_ORDENES_EDIT TO negarzonc;
 
-GRANT SELECT ON VISTA_ORDENES_View TO dabonilla;
-GRANT INSERT ON VISTA_ORDENES_Edit TO dabonilla;
-GRANT SELECT ON VISTA_ORDENES_Edit TO dabonilla;
+GRANT SELECT ON VISTA_ORDENES_VIEW TO dabonilla;
+GRANT INSERT ON VISTA_ORDENES_EDIT TO dabonilla;
+GRANT SELECT ON VISTA_ORDENES_EDIT TO dabonilla;
 
-GRANT SELECT ON VISTA_ORDENES_View TO dsilvamo;
-GRANT INSERT ON VISTA_ORDENES_Edit TO dsilvamo;
-GRANT SELECT ON VISTA_ORDENES_Edit TO dsilvamo;
+GRANT SELECT ON VISTA_ORDENES_VIEW TO dsilvamo;
+GRANT INSERT ON VISTA_ORDENES_EDIT TO dsilvamo;
+GRANT SELECT ON VISTA_ORDENES_EDIT TO dsilvamo;
 
 
 
 /*==============================================================*/
-/* View_Edit: ORDENES_ITEMS                                            */
+/* VIEW_EDIT: ORDENES_ITEMS                                            */
 /*==============================================================*/
-CREATE view VISTA_ORDENES_ITEMS_Edit AS SELECT 
+CREATE VIEW VISTA_ORDENES_ITEMS_EDIT AS SELECT 
     ORDEN_ITEM_ID,
     ORDEN_ID,
     PRODUCTO_ID,
@@ -1039,9 +1039,9 @@ CREATE view VISTA_ORDENES_ITEMS_Edit AS SELECT
                                     FROM ORDENES_ITEMS;
 
 /*==============================================================*/
-/* View_View: ORDENES_ITEMS                                              */
+/* VIEW_VIEW: ORDENES_ITEMS                                              */
 /*==============================================================*/
-CREATE OR replace view VISTA_ORDENES_ITEMS_View 
+CREATE OR replace VIEW VISTA_ORDENES_ITEMS_VIEW 
 (
    ORDEN_ITEM_ID,
     ORDEN_ID,
@@ -1067,23 +1067,23 @@ WHERE digitador = USER;
 /*==============================================================*/
 /* Permisos                                                     */
 /*==============================================================*/
-GRANT SELECT ON VISTA_ORDENES_ITEMS_View TO negarzonc;
-GRANT INSERT ON VISTA_ORDENES_ITEMS_Edit TO negarzonc;
-GRANT SELECT ON VISTA_ORDENES_ITEMS_Edit TO negarzonc;
+GRANT SELECT ON VISTA_ORDENES_ITEMS_VIEW TO negarzonc;
+GRANT INSERT ON VISTA_ORDENES_ITEMS_EDIT TO negarzonc;
+GRANT SELECT ON VISTA_ORDENES_ITEMS_EDIT TO negarzonc;
 
-GRANT SELECT ON VISTA_ORDENES_ITEMS_View TO dabonilla;
-GRANT INSERT ON VISTA_ORDENES_ITEMS_Edit TO dabonilla;
-GRANT SELECT ON VISTA_ORDENES_ITEMS_Edit TO dabonilla;
+GRANT SELECT ON VISTA_ORDENES_ITEMS_VIEW TO dabonilla;
+GRANT INSERT ON VISTA_ORDENES_ITEMS_EDIT TO dabonilla;
+GRANT SELECT ON VISTA_ORDENES_ITEMS_EDIT TO dabonilla;
 
-GRANT SELECT ON VISTA_ORDENES_ITEMS_View TO dsilvamo;
-GRANT INSERT ON VISTA_ORDENES_ITEMS_Edit TO dsilvamo;
-GRANT SELECT ON VISTA_ORDENES_ITEMS_Edit TO dsilvamo;
+GRANT SELECT ON VISTA_ORDENES_ITEMS_VIEW TO dsilvamo;
+GRANT INSERT ON VISTA_ORDENES_ITEMS_EDIT TO dsilvamo;
+GRANT SELECT ON VISTA_ORDENES_ITEMS_EDIT TO dsilvamo;
 
 
 /*==============================================================*/
-/* View_Edit: PAISES                                            */
+/* VIEW_EDIT: PAISES                                            */
 /*==============================================================*/
-CREATE view VISTA_PAISES_Edit AS SELECT 
+CREATE VIEW VISTA_PAISES_EDIT AS SELECT 
     PAIS_ID,
     EMPRESA_ID,
     PAIS_NOMBRE,
@@ -1093,9 +1093,9 @@ CREATE view VISTA_PAISES_Edit AS SELECT
                                     FROM PAISES;
 
 /*==============================================================*/
-/* View_View: PAISES                                              */
+/* VIEW_VIEW: PAISES                                              */
 /*==============================================================*/
-CREATE OR replace view VISTA_PAISES_View 
+CREATE OR replace VIEW VISTA_PAISES_VIEW 
 (
    PAIS_ID,
     EMPRESA_ID,
@@ -1117,24 +1117,24 @@ WHERE digitador = USER;
 /*==============================================================*/
 /* Permisos                                                     */
 /*==============================================================*/
-GRANT SELECT ON VISTA_PAISES_View TO negarzonc;
-GRANT INSERT ON VISTA_PAISES_Edit TO negarzonc;
-GRANT SELECT ON VISTA_PAISES_Edit TO negarzonc;
+GRANT SELECT ON VISTA_PAISES_VIEW TO negarzonc;
+GRANT INSERT ON VISTA_PAISES_EDIT TO negarzonc;
+GRANT SELECT ON VISTA_PAISES_EDIT TO negarzonc;
 
-GRANT SELECT ON VISTA_PAISES_View TO dabonilla;
-GRANT INSERT ON VISTA_PAISES_Edit TO dabonilla;
-GRANT SELECT ON VISTA_PAISES_Edit TO dabonilla;
+GRANT SELECT ON VISTA_PAISES_VIEW TO dabonilla;
+GRANT INSERT ON VISTA_PAISES_EDIT TO dabonilla;
+GRANT SELECT ON VISTA_PAISES_EDIT TO dabonilla;
 
-GRANT SELECT ON VISTA_PAISES_View TO dsilvamo;
-GRANT INSERT ON VISTA_PAISES_Edit TO dsilvamo;
-GRANT SELECT ON VISTA_PAISES_Edit TO dsilvamo;
+GRANT SELECT ON VISTA_PAISES_VIEW TO dsilvamo;
+GRANT INSERT ON VISTA_PAISES_EDIT TO dsilvamo;
+GRANT SELECT ON VISTA_PAISES_EDIT TO dsilvamo;
 
 
 
 /*==============================================================*/
-/* View_Edit: PREMIOS                                            */
+/* VIEW_EDIT: PREMIOS                                            */
 /*==============================================================*/
-CREATE view VISTA_PREMIOS_Edit AS SELECT 
+CREATE VIEW VISTA_PREMIOS_EDIT AS SELECT 
     PREMIO_ID,
     PREMIO_NOMBRE,
     PREMIO_VALOR
@@ -1143,9 +1143,9 @@ CREATE view VISTA_PREMIOS_Edit AS SELECT
                                     FROM PREMIOS;
 
 /*==============================================================*/
-/* View_View: PREMIOS                                              */
+/* VIEW_VIEW: PREMIOS                                              */
 /*==============================================================*/
-CREATE OR replace view VISTA_PREMIOS_View 
+CREATE OR replace VIEW VISTA_PREMIOS_VIEW 
 (
    PREMIO_ID,
     PREMIO_NOMBRE,
@@ -1165,24 +1165,24 @@ WHERE digitador = USER;
 /*==============================================================*/
 /* Permisos                                                     */
 /*==============================================================*/
-GRANT SELECT ON VISTA_PREMIOS_View TO negarzonc;
-GRANT INSERT ON VISTA_PREMIOS_Edit TO negarzonc;
-GRANT SELECT ON VISTA_PREMIOS_Edit TO negarzonc;
+GRANT SELECT ON VISTA_PREMIOS_VIEW TO negarzonc;
+GRANT INSERT ON VISTA_PREMIOS_EDIT TO negarzonc;
+GRANT SELECT ON VISTA_PREMIOS_EDIT TO negarzonc;
 
-GRANT SELECT ON VISTA_PREMIOS_View TO dabonilla;
-GRANT INSERT ON VISTA_PREMIOS_Edit TO dabonilla;
-GRANT SELECT ON VISTA_PREMIOS_Edit TO dabonilla;
+GRANT SELECT ON VISTA_PREMIOS_VIEW TO dabonilla;
+GRANT INSERT ON VISTA_PREMIOS_EDIT TO dabonilla;
+GRANT SELECT ON VISTA_PREMIOS_EDIT TO dabonilla;
 
-GRANT SELECT ON VISTA_PREMIOS_View TO dsilvamo;
-GRANT INSERT ON VISTA_PREMIOS_Edit TO dsilvamo;
-GRANT SELECT ON VISTA_PREMIOS_Edit TO dsilvamo;
+GRANT SELECT ON VISTA_PREMIOS_VIEW TO dsilvamo;
+GRANT INSERT ON VISTA_PREMIOS_EDIT TO dsilvamo;
+GRANT SELECT ON VISTA_PREMIOS_EDIT TO dsilvamo;
 
 
 
 /*==============================================================*/
-/* View_Edit: PRODUCTOS                                            */
+/* VIEW_EDIT: PRODUCTOS                                            */
 /*==============================================================*/
-CREATE view VISTA_PRODUCTOS_Edit AS SELECT 
+CREATE VIEW VISTA_PRODUCTOS_EDIT AS SELECT 
     PRODUCTO_ID,
     BODEGA_ID,
     PROVEEDOR_ID,
@@ -1194,9 +1194,9 @@ CREATE view VISTA_PRODUCTOS_Edit AS SELECT
                                     FROM PRODUCTOS;
 
 /*==============================================================*/
-/* View_View: PRODUCTOS                                              */
+/* VIEW_VIEW: PRODUCTOS                                              */
 /*==============================================================*/
-CREATE OR replace view VISTA_PRODUCTOS_View 
+CREATE OR replace VIEW VISTA_PRODUCTOS_VIEW 
 (
    PRODUCTO_ID,
     BODEGA_ID,
@@ -1222,23 +1222,23 @@ WHERE digitador = USER;
 /*==============================================================*/
 /* Permisos                                                     */
 /*==============================================================*/
-GRANT SELECT ON VISTA_PRODUCTOS_View TO negarzonc;
-GRANT INSERT ON VISTA_PRODUCTOS_Edit TO negarzonc;
-GRANT SELECT ON VISTA_PRODUCTOS_Edit TO negarzonc;
+GRANT SELECT ON VISTA_PRODUCTOS_VIEW TO negarzonc;
+GRANT INSERT ON VISTA_PRODUCTOS_EDIT TO negarzonc;
+GRANT SELECT ON VISTA_PRODUCTOS_EDIT TO negarzonc;
 
-GRANT SELECT ON VISTA_PRODUCTOS_View TO dabonilla;
-GRANT INSERT ON VISTA_PRODUCTOS_Edit TO dabonilla;
-GRANT SELECT ON VISTA_PRODUCTOS_Edit TO dabonilla;
+GRANT SELECT ON VISTA_PRODUCTOS_VIEW TO dabonilla;
+GRANT INSERT ON VISTA_PRODUCTOS_EDIT TO dabonilla;
+GRANT SELECT ON VISTA_PRODUCTOS_EDIT TO dabonilla;
 
-GRANT SELECT ON VISTA_PRODUCTOS_View TO dsilvamo;
-GRANT INSERT ON VISTA_PRODUCTOS_Edit TO dsilvamo;
-GRANT SELECT ON VISTA_PRODUCTOS_Edit TO dsilvamo;
+GRANT SELECT ON VISTA_PRODUCTOS_VIEW TO dsilvamo;
+GRANT INSERT ON VISTA_PRODUCTOS_EDIT TO dsilvamo;
+GRANT SELECT ON VISTA_PRODUCTOS_EDIT TO dsilvamo;
 
 
 /*==============================================================*/
-/* View_Edit: PROVEEDORES                                            */
+/* VIEW_EDIT: PROVEEDORES                                            */
 /*==============================================================*/
-CREATE view VISTA_PROVEEDORES_Edit AS SELECT 
+CREATE VIEW VISTA_PROVEEDORES_EDIT AS SELECT 
     PROVEEDOR_ID,
     PROVEEDOR_NIT,
     PROVEEDOR_NOMBRE,
@@ -1251,9 +1251,9 @@ CREATE view VISTA_PROVEEDORES_Edit AS SELECT
                                     FROM PROVEEDORES;
 
 /*==============================================================*/
-/* View_View: PROVEEDORES                                              */
+/* VIEW_VIEW: PROVEEDORES                                              */
 /*==============================================================*/
-CREATE OR replace view VISTA_PROVEEDORES_View 
+CREATE OR replace VIEW VISTA_PROVEEDORES_VIEW 
 (
    PROVEEDOR_ID,
     PROVEEDOR_NIT,
@@ -1281,24 +1281,24 @@ WHERE digitador = USER;
 /*==============================================================*/
 /* Permisos                                                     */
 /*==============================================================*/
-GRANT SELECT ON VISTA_PROVEEDORES_View TO negarzonc;
-GRANT INSERT ON VISTA_PROVEEDORES_Edit TO negarzonc;
-GRANT SELECT ON VISTA_PROVEEDORES_Edit TO negarzonc;
+GRANT SELECT ON VISTA_PROVEEDORES_VIEW TO negarzonc;
+GRANT INSERT ON VISTA_PROVEEDORES_EDIT TO negarzonc;
+GRANT SELECT ON VISTA_PROVEEDORES_EDIT TO negarzonc;
 
-GRANT SELECT ON VISTA_PROVEEDORES_View TO dabonilla;
-GRANT INSERT ON VISTA_PROVEEDORES_Edit TO dabonilla;
-GRANT SELECT ON VISTA_PROVEEDORES_Edit TO dabonilla;
+GRANT SELECT ON VISTA_PROVEEDORES_VIEW TO dabonilla;
+GRANT INSERT ON VISTA_PROVEEDORES_EDIT TO dabonilla;
+GRANT SELECT ON VISTA_PROVEEDORES_EDIT TO dabonilla;
 
-GRANT SELECT ON VISTA_PROVEEDORES_View TO dsilvamo;
-GRANT INSERT ON VISTA_PROVEEDORES_Edit TO dsilvamo;
-GRANT SELECT ON VISTA_PROVEEDORES_Edit TO dsilvamo;
+GRANT SELECT ON VISTA_PROVEEDORES_VIEW TO dsilvamo;
+GRANT INSERT ON VISTA_PROVEEDORES_EDIT TO dsilvamo;
+GRANT SELECT ON VISTA_PROVEEDORES_EDIT TO dsilvamo;
 
 
 
 /*==============================================================*/
-/* View_Edit: PROVEEDOR_GERENTE                                            */
+/* VIEW_EDIT: PROVEEDOR_GERENTE                                            */
 /*==============================================================*/
-CREATE view VISTA_PROVEEDOR_GERENTE_Edit AS SELECT 
+CREATE VIEW VISTA_PROVEEDOR_GERENTE_EDIT AS SELECT 
     PROVEEDOR_GERENTE_ID,
     PROVEEDOR_ID,
     PROVEEDOR_GERENTE_NOMBRE,
@@ -1310,9 +1310,9 @@ CREATE view VISTA_PROVEEDOR_GERENTE_Edit AS SELECT
                                     FROM PROVEEDOR_GERENTE;
 
 /*==============================================================*/
-/* View_View: PROVEEDOR_GERENTE                                              */
+/* VIEW_VIEW: PROVEEDOR_GERENTE                                              */
 /*==============================================================*/
-CREATE OR replace view VISTA_PROVEEDOR_GERENTE_View 
+CREATE OR replace VIEW VISTA_PROVEEDOR_GERENTE_VIEW 
 (
    PROVEEDOR_GERENTE_ID,
     PROVEEDOR_ID,
@@ -1338,24 +1338,24 @@ WHERE digitador = USER;
 /*==============================================================*/
 /* Permisos                                                     */
 /*==============================================================*/
-GRANT SELECT ON VISTA_PROVEEDOR_GERENTE_View TO negarzonc;
-GRANT INSERT ON VISTA_PROVEEDOR_GERENTE_Edit TO negarzonc;
-GRANT SELECT ON VISTA_PROVEEDOR_GERENTE_Edit TO negarzonc;
+GRANT SELECT ON VISTA_PROVEEDOR_GERENTE_VIEW TO negarzonc;
+GRANT INSERT ON VISTA_PROVEEDOR_GERENTE_EDIT TO negarzonc;
+GRANT SELECT ON VISTA_PROVEEDOR_GERENTE_EDIT TO negarzonc;
 
-GRANT SELECT ON VISTA_PROVEEDOR_GERENTE_View TO dabonilla;
-GRANT INSERT ON VISTA_PROVEEDOR_GERENTE_Edit TO dabonilla;
-GRANT SELECT ON VISTA_PROVEEDOR_GERENTE_Edit TO dabonilla;
+GRANT SELECT ON VISTA_PROVEEDOR_GERENTE_VIEW TO dabonilla;
+GRANT INSERT ON VISTA_PROVEEDOR_GERENTE_EDIT TO dabonilla;
+GRANT SELECT ON VISTA_PROVEEDOR_GERENTE_EDIT TO dabonilla;
 
-GRANT SELECT ON VISTA_PROVEEDOR_GERENTE_View TO dsilvamo;
-GRANT INSERT ON VISTA_PROVEEDOR_GERENTE_Edit TO dsilvamo;
-GRANT SELECT ON VISTA_PROVEEDOR_GERENTE_Edit TO dsilvamo;
+GRANT SELECT ON VISTA_PROVEEDOR_GERENTE_VIEW TO dsilvamo;
+GRANT INSERT ON VISTA_PROVEEDOR_GERENTE_EDIT TO dsilvamo;
+GRANT SELECT ON VISTA_PROVEEDOR_GERENTE_EDIT TO dsilvamo;
 
 
 
 /*==============================================================*/
-/* View_Edit: SUCURSALES                                            */
+/* VIEW_EDIT: SUCURSALES                                            */
 /*==============================================================*/
-CREATE view VISTA_SUCURSALES_Edit AS SELECT 
+CREATE VIEW VISTA_SUCURSALES_EDIT AS SELECT 
     SUCURSAL_ID,
     CIUDAD_ID,
     DIRECTOR_SUCURSAL_ID,
@@ -1367,9 +1367,9 @@ CREATE view VISTA_SUCURSALES_Edit AS SELECT
                                     FROM SUCURSALES;
 
 /*==============================================================*/
-/* View_View: SUCURSALES                                              */
+/* VIEW_VIEW: SUCURSALES                                              */
 /*==============================================================*/
-CREATE OR replace view VISTA_SUCURSALES_View 
+CREATE OR replace VIEW VISTA_SUCURSALES_VIEW 
 (
    SUCURSAL_ID,
     CIUDAD_ID,
@@ -1395,24 +1395,24 @@ WHERE digitador = USER;
 /*==============================================================*/
 /* Permisos                                                     */
 /*==============================================================*/
-GRANT SELECT ON VISTA_SUCURSALES_View TO negarzonc;
-GRANT INSERT ON VISTA_SUCURSALES_Edit TO negarzonc;
-GRANT SELECT ON VISTA_SUCURSALES_Edit TO negarzonc;
+GRANT SELECT ON VISTA_SUCURSALES_VIEW TO negarzonc;
+GRANT INSERT ON VISTA_SUCURSALES_EDIT TO negarzonc;
+GRANT SELECT ON VISTA_SUCURSALES_EDIT TO negarzonc;
 
-GRANT SELECT ON VISTA_SUCURSALES_View TO dabonilla;
-GRANT INSERT ON VISTA_SUCURSALES_Edit TO dabonilla;
-GRANT SELECT ON VISTA_SUCURSALES_Edit TO dabonilla;
+GRANT SELECT ON VISTA_SUCURSALES_VIEW TO dabonilla;
+GRANT INSERT ON VISTA_SUCURSALES_EDIT TO dabonilla;
+GRANT SELECT ON VISTA_SUCURSALES_EDIT TO dabonilla;
 
-GRANT SELECT ON VISTA_SUCURSALES_View TO dsilvamo;
-GRANT INSERT ON VISTA_SUCURSALES_Edit TO dsilvamo;
-GRANT SELECT ON VISTA_SUCURSALES_Edit TO dsilvamo;
+GRANT SELECT ON VISTA_SUCURSALES_VIEW TO dsilvamo;
+GRANT INSERT ON VISTA_SUCURSALES_EDIT TO dsilvamo;
+GRANT SELECT ON VISTA_SUCURSALES_EDIT TO dsilvamo;
 
 
 
 /*==============================================================*/
-/* View_Edit: VACANTES                                            */
+/* VIEW_EDIT: VACANTES                                            */
 /*==============================================================*/
-CREATE view VISTA_VACANTES_Edit AS SELECT 
+CREATE VIEW VISTA_VACANTES_EDIT AS SELECT 
     VACANTE_ID,
     CARGO_ID,
     VACANTE_NUMERO
@@ -1421,9 +1421,9 @@ CREATE view VISTA_VACANTES_Edit AS SELECT
                                     FROM VACANTES;
 
 /*==============================================================*/
-/* View_View: VACANTES                                              */
+/* VIEW_VIEW: VACANTES                                              */
 /*==============================================================*/
-CREATE OR replace view VISTA_VACANTES_View 
+CREATE OR replace VIEW VISTA_VACANTES_VIEW 
 (
    VACANTE_ID,
     CARGO_ID,
@@ -1443,17 +1443,17 @@ WHERE digitador = USER;
 /*==============================================================*/
 /* Permisos                                                     */
 /*==============================================================*/
-GRANT SELECT ON VISTA_VACANTES_View TO negarzonc;
-GRANT INSERT ON VISTA_VACANTES_Edit TO negarzonc;
-GRANT SELECT ON VISTA_VACANTES_Edit TO negarzonc;
+GRANT SELECT ON VISTA_VACANTES_VIEW TO negarzonc;
+GRANT INSERT ON VISTA_VACANTES_EDIT TO negarzonc;
+GRANT SELECT ON VISTA_VACANTES_EDIT TO negarzonc;
 
-GRANT SELECT ON VISTA_VACANTES_View TO dabonilla;
-GRANT INSERT ON VISTA_VACANTES_Edit TO dabonilla;
-GRANT SELECT ON VISTA_VACANTES_Edit TO dabonilla;
+GRANT SELECT ON VISTA_VACANTES_VIEW TO dabonilla;
+GRANT INSERT ON VISTA_VACANTES_EDIT TO dabonilla;
+GRANT SELECT ON VISTA_VACANTES_EDIT TO dabonilla;
 
-GRANT SELECT ON VISTA_VACANTES_View TO dsilvamo;
-GRANT INSERT ON VISTA_VACANTES_Edit TO dsilvamo;
-GRANT SELECT ON VISTA_VACANTES_Edit TO dsilvamo;
+GRANT SELECT ON VISTA_VACANTES_VIEW TO dsilvamo;
+GRANT INSERT ON VISTA_VACANTES_EDIT TO dsilvamo;
+GRANT SELECT ON VISTA_VACANTES_EDIT TO dsilvamo;
 
 /*==============================================================*/
 /* Table: VENDEDORES                                            */
@@ -1478,9 +1478,9 @@ create table VENDEDORES  (
 )
 
 /*==============================================================*/
-/* View_Edit: VENDEDORES                                            */
+/* VIEW_EDIT: VENDEDORES                                            */
 /*==============================================================*/
-CREATE view VISTA_VENDEDORES_Edit AS SELECT 
+CREATE VIEW VISTA_VENDEDORES_EDIT AS SELECT 
     VENDEDOR_ID,
     SUCURSAL_ID,
     VENDEDOR_DOCUMENTO,
@@ -1499,9 +1499,9 @@ CREATE view VISTA_VENDEDORES_Edit AS SELECT
                                     FROM VENDEDORES;
 
 /*==============================================================*/
-/* View_View: VENDEDORES                                              */
+/* VIEW_VIEW: VENDEDORES                                              */
 /*==============================================================*/
-CREATE OR replace view VISTA_VENDEDORES_View 
+CREATE OR replace VIEW VISTA_VENDEDORES_VIEW 
 (
    VENDEDOR_ID,
     SUCURSAL_ID,
@@ -1541,14 +1541,111 @@ WHERE digitador = USER;
 /*==============================================================*/
 /* Permisos                                                     */
 /*==============================================================*/
-GRANT SELECT ON VISTA_VENDEDORES_View TO negarzonc;
-GRANT INSERT ON VISTA_VENDEDORES_Edit TO negarzonc;
-GRANT SELECT ON VISTA_VENDEDORES_Edit TO negarzonc;
+GRANT SELECT ON VISTA_VENDEDORES_VIEW TO negarzonc;
+GRANT INSERT ON VISTA_VENDEDORES_EDIT TO negarzonc;
+GRANT SELECT ON VISTA_VENDEDORES_EDIT TO negarzonc;
 
-GRANT SELECT ON VISTA_VENDEDORES_View TO dabonilla;
-GRANT INSERT ON VISTA_VENDEDORES_Edit TO dabonilla;
-GRANT SELECT ON VISTA_VENDEDORES_Edit TO dabonilla;
+GRANT SELECT ON VISTA_VENDEDORES_VIEW TO dabonilla;
+GRANT INSERT ON VISTA_VENDEDORES_EDIT TO dabonilla;
+GRANT SELECT ON VISTA_VENDEDORES_EDIT TO dabonilla;
 
-GRANT SELECT ON VISTA_VENDEDORES_View TO dsilvamo;
-GRANT INSERT ON VISTA_VENDEDORES_Edit TO dsilvamo;
-GRANT SELECT ON VISTA_VENDEDORES_Edit TO dsilvamo;
+GRANT SELECT ON VISTA_VENDEDORES_VIEW TO dsilvamo;
+GRANT INSERT ON VISTA_VENDEDORES_EDIT TO dsilvamo;
+GRANT SELECT ON VISTA_VENDEDORES_EDIT TO dsilvamo;
+
+/*==============================================================*/
+/* View: PUBLICA_CLIENTES                                           */
+/*==============================================================*/
+CREATE OR replace view VISTA_PUBLICA_CLIENTES_View 
+(
+   SUCURSAL_ID,
+   CLIENTE_NOMBRE,
+   CLIENTE_CENTRO_LLAMADAS,
+   CLIENTE_CORREO
+)
+AS SELECT 
+   SUCURSAL_ID,
+   CLIENTE_NOMBRE,
+   CLIENTE_CENTRO_LLAMADAS,
+   CLIENTE_CORREO
+FROM CLIENTES
+
+/*==============================================================*/
+/* View: PUBLICA_PROVEEDORES                                           */
+/*==============================================================*/
+CREATE OR replace view VISTA_PUBLICA_PROVEEDORES_View 
+(
+   SUCURSAL_ID,
+   PROVEEDOR_NOMBRE,
+   PROVEEDOR_CENTRO_LLAMADAS,
+   PROVEEDOR_CORREO
+)
+AS SELECT 
+   SUCURSAL_ID,
+   PROVEEDOR_NOMBRE,
+   PROVEEDOR_CENTRO_LLAMADAS,
+   PROVEEDOR_CORREO
+FROM PROVEEDORES
+
+/*==============================================================*/
+/* View: PUBLICA_EMPLEADO                                           */
+/*==============================================================*/
+CREATE OR replace view VISTA_PUBLICA_EMPLEADO_View 
+(
+   CARGO_ID,
+   EMPLEADO_NOMBRE,
+   EMPLEADO_CELULAR,
+   EMPLEADO_CORREO,
+   EMPLEADO_CARGO
+)
+AS SELECT 
+   CARGO_ID,
+   EMPLEADO_NOMBRE,
+   EMPLEADO_CELULAR,
+   EMPLEADO_CORREO,
+   EMPLEADO_CARGO
+FROM EMPLEADO
+
+/*==============================================================*/
+/* View: PUBLICA_VENDEDORES                                           */
+/*==============================================================*/
+CREATE OR replace view VISTA_PUBLICA_VENDEDORES_View 
+(
+   SUCURSAL_ID,
+   VENDEDOR_NOMBRE,
+   VENDEDOR_CELULAR,
+   VENDEDOR_CORREO,
+)
+AS SELECT 
+   SUCURSAL_ID,
+   VENDEDOR_NOMBRE,
+   VENDEDOR_CELULAR,
+   VENDEDOR_CORREO,
+FROM VENDEDORES
+
+/*==============================================================*/
+/* View: REGISTRO_HISTORICO                                           */
+/*==============================================================*/
+CREATE OR replace view VISTA_REGISTRO_HISTORICO_View 
+(
+   REGISTRO_HISTORICO_USUARIO,
+   REGISTRO_HISTORICO_FECHA,
+   REGISTRO_HISTORICO_MENSAJE,
+)
+AS SELECT 
+   REGISTRO_HISTORICO_USUARIO,
+   REGISTRO_HISTORICO_FECHA,
+   REGISTRO_HISTORICO_MENSAJE,
+FROM REGISTRO_HISTORICO
+
+
+
+
+/*==============================================================*/
+/* Permisos                                                     */
+/*==============================================================*/
+GRANT SELECT ON VISTA_PUBLICA_CLIENTES_View TO PUBLIC;
+GRANT SELECT ON VISTA_PUBLICA_PROVEDORES_View TO PUBLIC;
+GRANT SELECT ON VISTA_PUBLICA_EMPLEADO_View TO PUBLIC;
+GRANT SELECT ON VISTA_PUBLICA_VENDEDORES_View TO PUBLIC;
+GRANT SELECT ON VISTA_PUBLICA_REGISTRO_HISTORICO_View TO PUBLIC;

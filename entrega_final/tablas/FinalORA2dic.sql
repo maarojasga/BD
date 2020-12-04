@@ -1379,6 +1379,17 @@ create index ATENDIDA_POR_FK on VENDEDORES (
 )
 /
 
+/*==============================================================*/
+/* Table: REGISTRO_HISTORICO                                    */
+/*==============================================================*/
+create table REGISTRO_HISTORICO_USUARIO
+(
+   REGISTRO_HISTORICO_USUARIO VARCHAR(15) default USER   not null,
+   REGISTRO_HISTORICO_FECHA DATETIME fecha DATE default sysdate not null,
+   REGISTRO_HISTORICO_MENSAJE VARCHAR(100) NOT NULL
+)
+/
+
 alter table ASISTENCIA_CAPACITACIONES
    add constraint FK_ASISTENC_CONTROL_A_CAPACITA foreign key (CAPACITACION_ID)
       references CAPACITACIONES (CAPACITACION_ID)
