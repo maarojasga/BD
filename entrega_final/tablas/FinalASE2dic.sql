@@ -815,6 +815,7 @@ create table CARGOS (
    CARGO_NOMBRE         varchar(100)                   not null,
    CARGO_SALARIO_MAX    bigint                         not null,
    CARGO_SALARIO_MIN    bigint                         not null,
+   JEFE_INMEDIATO_ID    big int                        not null,
    digitador VARCHAR(15) default user_name() NOT NULL,
    fecha DATETIME default getdate () NOT NULL,
    constraint PK_CARGOS primary key nonclustered (CARGO_ID)
@@ -1014,6 +1015,7 @@ create table EMPLEADOS (
    EMPLEADO_CARGO       bigint                         not null,
    EMPLEADO_SALARIO_FIJO bigint                         not null,
    EMPLEADO_CONTRATO_INDEFINIDO_BOOL bit                            not null,
+   EMPLEADO_DEPARTAMENTO_ID,
    EMPLEADO_REINGRESO_BOOL bit                            not null,
    digitador VARCHAR(15) default user_name() NOT NULL,
    fecha DATETIME default getdate () NOT NULL,
