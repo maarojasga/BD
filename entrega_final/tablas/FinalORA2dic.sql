@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      ORACLE Version 10g                           */
-/* Created on:     3/12/2020 1:24:23 a.�m.                      */
+/* Created on:     3/12/2020 9:16:12 p. m.                      */
 /*==============================================================*/
 
 
@@ -699,8 +699,8 @@ create table ASISTENCIA_CAPACITACIONES  (
    ASISTENCIA_CAPACITACIONES_ID INTEGER                         not null,
    CAPACITACION_ID      INTEGER,
    ASISTENCIA_CAPACITACIONES_SI_N SMALLINT                        not null,
-   digitador VARCHAR(15) default USER                    NOT NULL,
-   fecha DATE default sysdate                            NOT NULL,
+   digitador VARCHAR(15) default USER                    not null,
+   fecha DATE default sysdate                            not null,
    constraint PK_ASISTENCIA_CAPACITACIONES primary key (ASISTENCIA_CAPACITACIONES_ID)
 )
 /
@@ -720,8 +720,8 @@ create table BODEGAS  (
    BODEGA_ID            INTEGER                         not null,
    SUCURSAL_ID          INTEGER                         not null,
    BODEGA_CANTIDAD      INTEGER                         not null,
-   digitador VARCHAR(15) default USER                    NOT NULL,
-   fecha DATE default sysdate                            NOT NULL,
+   digitador VARCHAR(15) default USER                    not null,
+   fecha DATE default sysdate                            not null,
    constraint PK_BODEGAS primary key (BODEGA_ID)
 )
 /
@@ -749,8 +749,8 @@ create table CANDIDATOS  (
    CANDIDATO_GENERO     VARCHAR2(100),
    CANDIDATO_PORCENTAJE_VALORACIO INTEGER                         not null
       constraint CKC_CANDIDATO_PORCENT_CANDIDAT check (CANDIDATO_PORCENTAJE_VALORACIO between 0 and 100),
-      digitador VARCHAR(15) default USER                    NOT NULL,
-   fecha DATE default sysdate                            NOT NULL,
+      digitador VARCHAR(15) default USER                    not null,
+   fecha DATE default sysdate                            not null,
    constraint PK_CANDIDATOS primary key (CANDIDATO_ID)
 )
 /
@@ -772,8 +772,8 @@ create table CAPACITACIONES  (
    CAPACITACION_NOMBRE_TIPO VARCHAR2(100)                   not null,
    CAPACITACION_FECHA   DATE                            not null,
    CAPACITACION_DESCRIPCION VARCHAR2(1000)                  not null,
-   digitador VARCHAR(15) default USER                    NOT NULL,
-   fecha DATE default sysdate                            NOT NULL,
+   digitador VARCHAR(15) default USER                    not null,
+   fecha DATE default sysdate                            not null,
    constraint PK_CAPACITACIONES primary key (CAPACITACION_ID)
 )
 /
@@ -795,8 +795,8 @@ create table CARGOS  (
    CARGO_NOMBRE         VARCHAR2(100)                   not null,
    CARGO_SALARIO_MAX    INTEGER                         not null,
    CARGO_SALARIO_MIN    INTEGER                         not null,
-   digitador VARCHAR(15) default USER                    NOT NULL,
-   fecha DATE default sysdate                            NOT NULL,
+   digitador VARCHAR(15) default USER                    not null,
+   fecha DATE default sysdate                            not null,
    constraint PK_CARGOS primary key (CARGO_ID)
 )
 /
@@ -816,8 +816,8 @@ create table CIUDADES  (
    CIUDAD_ID            INTEGER                         not null,
    PAIS_ID              INTEGER,
    CIUDAD_NOMBRE        VARCHAR2(100)                   not null,
-   digitador VARCHAR(15) default USER                    NOT NULL,
-   fecha DATE default sysdate                            NOT NULL,
+   digitador VARCHAR(15) default USER                    not null,
+   fecha DATE default sysdate                            not null,
    constraint PK_CIUDADES primary key (CIUDAD_ID)
 )
 /
@@ -841,8 +841,8 @@ create table CLIENTES  (
    CLIENTE_DIRECCION    VARCHAR2(100)                   not null,
    CLIENTE_NORMAS_BOOL  SMALLINT                        not null,
    CLIENTE_CORREO       VARCHAR2(100)                   not null,
-   digitador VARCHAR(15) default USER                    NOT NULL,
-   fecha DATE default sysdate                            NOT NULL,
+   digitador VARCHAR(15) default USER                    not null,
+   fecha DATE default sysdate                            not null,
    constraint PK_CLIENTES primary key (CLIENTE_ID)
 )
 /
@@ -857,8 +857,8 @@ create table CLIENTE_GERENTE  (
    CLIENTE_GERENTE_DOCUMENTO INTEGER                         not null,
    CLIENTE_GERENTE_CELULAR INTEGER                         not null,
    CLIENTE_GERENTE_CORREO VARCHAR2(100)                   not null,
-   digitador VARCHAR(15) default USER                    NOT NULL,
-   fecha DATE default sysdate                            NOT NULL,
+   digitador VARCHAR(15) default USER                    not null,
+   fecha DATE default sysdate                            not null,
    constraint PK_CLIENTE_GERENTE primary key (CLIENTE_GERENTE_ID)
 )
 /
@@ -879,8 +879,8 @@ create table DEPARTAMENTOS  (
    SUCURSAL_ID          INTEGER,
    DIRECTOR_DEPARTAMENTO_ID INTEGER,
    DEPARTAMENTO_NOMBRE  VARCHAR2(100)                   not null,
-   digitador VARCHAR(15) default USER                    NOT NULL,
-   fecha DATE default sysdate                            NOT NULL,
+   digitador VARCHAR(15) default USER                    not null,
+   fecha DATE default sysdate                            not null,
    constraint PK_DEPARTAMENTOS primary key (DEPARTAMENTO_ID)
 )
 /
@@ -908,20 +908,20 @@ create table DIRECTOR_DEPARTAMENTO  (
    DIRECTOR_DEPARTAMENTO_ID INTEGER                         not null,
    DIRECTOR_SUCURSAL_ID INTEGER,
    DIRECTOR_DEPARTAMENTO_NOMBRE VARCHAR2(100)                   not null,
-   DIRECTOR_DEPARTAMENTO_DOCUMENTO INTEGER                         not null,
+   DIRECTOR_DEPARTAMENTO_DOCUMENT INTEGER                         not null,
    DIRECTOR_DEPARTAMENTO_CELULAR INTEGER                         not null,
    DIRECTOR_DEPARTAMENTO_CORREO VARCHAR2(100)                   not null,
    DIRECTOR_DEPARTAMENTO_GENERO VARCHAR2(100),
    DIRECTOR_DEPARTAMENTO_EDAD INTEGER                         not null
       constraint CKC_DIRECTOR_DEPARTAM_DIRECTO2 check (DIRECTOR_DEPARTAMENTO_EDAD between 18 and 99),
-   DIRECTOR_DEPARTAMENTO_SEGURIDAD_SOCIAL_BOOL SMALLINT                        not null,
-   DIRECTOR_DEPARTAMENTO_POLIZA_VIGENTE_BOOL SMALLINT                        not null,
-   DIRECTOR_DEPARTAMENTO_SALARIO_FIJO INTEGER                         not null
+   DIRECTOR_DEPARTAMENTO_SEGURIDA SMALLINT                        not null,
+   DIRECTOR_DEPARTAMENTO_POLIZA_V SMALLINT                        not null,
+   DIRECTOR_DEPARTAMENTO_SALARIO_ INTEGER                         not null
       constraint CKC_DIRECTOR_DEPARTAM_DIRECTOR check (DIRECTOR_DEPARTAMENTO_SALARIO_ between 3500000 and 3999999),
-   DIRECTOR_DEPARTAMENTO_CONTRATO_INDEFINIDO_BOOL SMALLINT                        not null,
-   DIRECTOR_DEPARTAMENTO_REINGRESO_BOOL SMALLINT                        not null,
-   digitador VARCHAR(15) default USER                    NOT NULL,
-   fecha DATE default sysdate                            NOT NULL,
+   DIRECTOR_DEPARTAMENTO_CONTRATO SMALLINT                        not null,
+   DIRECTOR_DEPARTAMENTO_REINGRES SMALLINT                        not null,
+   digitador VARCHAR(15) default USER                    not null,
+   fecha DATE default sysdate                            not null,
    constraint PK_DIRECTOR_DEPARTAMENTO primary key (DIRECTOR_DEPARTAMENTO_ID)
 )
 /
@@ -947,14 +947,14 @@ create table DIRECTOR_SUCURSAL  (
    DIRECTOR_SUCURSAL_GENERO VARCHAR2(100),
    DIRECTOR_SUCURSAL_EDAD INTEGER                         not null
       constraint CKC_DIRECTOR_SUCURSAL_DIRECTO2 check (DIRECTOR_SUCURSAL_EDAD between 18 and 99),
-   DIRECTOR_SUCURSAL_SEGURIDAD_SOCIAL_BOOL SMALLINT                        not null,
-   DIRECTOR_SUCURSAL_POLIZA_VIGENTE_BOOL SMALLINT                        not null,
+   DIRECTOR_SUCURSAL_SEGURIDAD_SO SMALLINT                        not null,
+   DIRECTOR_SUCURSAL_POLIZA_VIGEN SMALLINT                        not null,
    DIRECTOR_SUCURSAL_SALARIO_FIJO INTEGER                         not null
       constraint CKC_DIRECTOR_SUCURSAL_DIRECTOR check (DIRECTOR_SUCURSAL_SALARIO_FIJO between 4000000 and 4999999),
-   DIRECTOR_SUCURSAL_CONTRATO_INDEFINIDO_BOOL SMALLINT                        not null,
-   DIRECTOR_SUCURSAL_REINGRESO_BOOL SMALLINT                        not null,
-   digitador VARCHAR(15) default USER                    NOT NULL,
-   fecha DATE default sysdate                            NOT NULL,
+   DIRECTOR_SUCURSAL_CONTRATO_IND SMALLINT                        not null,
+   DIRECTOR_SUCURSAL_REINGRESO_BO SMALLINT                        not null,
+   digitador VARCHAR(15) default USER                    not null,
+   fecha DATE default sysdate                            not null,
    constraint PK_DIRECTOR_SUCURSAL primary key (DIRECTOR_SUCURSAL_ID)
 )
 /
@@ -976,7 +976,7 @@ create table EMPLEADOS  (
    EMPLEADO_DOCUMENTO   INTEGER                         not null,
    EMPLEADO_NOMBRE      VARCHAR2(100)                   not null,
    EMPLEADO_CELULAR     INTEGER                         not null,
-   EMPLEADO_CORREO      VARCHAR2(100)                         not null,
+   EMPLEADO_CORREO      INTEGER                         not null,
    EMPLEADO_GENERO      VARCHAR2(100),
    EMPLEADO_EDAD        INTEGER                         not null
       constraint CKC_EMPLEADO_EDAD_EMPLEADO check (EMPLEADO_EDAD between 18 and 99),
@@ -984,10 +984,10 @@ create table EMPLEADOS  (
    EMPLEADO_POLIZA_VIGENTE_BOOL SMALLINT                        not null,
    EMPLEADO_CARGO       INTEGER                         not null,
    EMPLEADO_SALARIO_FIJO INTEGER                         not null,
-   EMPLEADO_CONTRATO_INDEFINIDO_BOOL SMALLINT                        not null,
+   EMPLEADO_CONTRATO_INDEFINIDO_B SMALLINT                        not null,
    EMPLEADO_REINGRESO_BOOL SMALLINT                        not null,
-   digitador VARCHAR(15) default USER                    NOT NULL,
-   fecha DATE default sysdate                            NOT NULL,
+   digitador VARCHAR(15) default USER                    not null,
+   fecha DATE default sysdate                            not null,
    constraint PK_EMPLEADOS primary key (EMPLEADO_ID)
 )
 /
@@ -1008,8 +1008,8 @@ create table EMPRESA  (
    EMPRESA_NOMBRE       VARCHAR2(100)                   not null,
    EMPRESA_DIRECCION    VARCHAR2(100)                   not null,
    EMPRESA_CENTRO_LLAMADAS INTEGER                         not null,
-   digitador VARCHAR(15) default USER                    NOT NULL,
-   fecha DATE default sysdate                            NOT NULL,
+   digitador VARCHAR(15) default USER                    not null,
+   fecha DATE default sysdate                            not null,
    constraint PK_EMPRESA primary key (EMPRESA_ID)
 )
 /
@@ -1027,14 +1027,14 @@ create table EMPRESA_GERENTE  (
    EMPRESA_GERENTE_EDAD INTEGER                         not null
       constraint CKC_EMPRESA_GERENTE_E_EMPRESA_ check (EMPRESA_GERENTE_EDAD between 18 and 99),
    EMPRESA_GERENTE_GENERO VARCHAR2(100),
-   EMPRESA_GERENTE_SEGURIDAD_SOCIAL_BOOL SMALLINT                        not null,
-   EMPRESA_GERENTE_POLIZA_VIGENTE_BOOL SMALLINT                        not null,
-   EMPRESA_GERENTE_CONTRATO_INDEFINIDO_BOOL SMALLINT                        not null,
+   EMPRESA_GERENTE_SEGURIDAD_SOCI SMALLINT                        not null,
+   EMPRESA_GERENTE_POLIZA_VIGENTE SMALLINT                        not null,
+   EMPRESA_GERENTE_CONTRATO_INDEF SMALLINT                        not null,
    EMPRESA_GERENTE_SALARIO_FIJO INTEGER                         not null
       constraint CKC_EMPRESA_GERENTE_S_EMPRESA_ check (EMPRESA_GERENTE_SALARIO_FIJO between 6000000 and 8000000),
    EMPRESA_GERENTE_REINGRESO_BOOL SMALLINT                        not null,
-   digitador VARCHAR(15) default USER                    NOT NULL,
-   fecha DATE default sysdate                            NOT NULL,
+   digitador VARCHAR(15) default USER                    not null,
+   fecha DATE default sysdate                            not null,
    constraint PK_EMPRESA_GERENTE primary key (EMPRESA_GERENTE_ID)
 )
 /
@@ -1061,14 +1061,14 @@ create table EMPRESA_SUBGERENTE  (
    EMPRESA_SUBGERENTE_EDAD INTEGER                         not null
       constraint CKC_EMPRESA_SUBGERENT_EMPRESA2 check (EMPRESA_SUBGERENTE_EDAD between 18 and 99),
    EMPRESA_SUBGERENTE_GENERO VARCHAR2(100),
-   EMPRESA_SUBGERENTE_SEGURIDAD_SOCIAL_BOOL SMALLINT                        not null,
-   EMPRESA_SUBGERENTE_POLIZA_VIGENTE_BOOL SMALLINT                        not null,
-   EMPRESA_SUBGERENTE_CONTRATO_INDEFINIDO_BOOL SMALLINT                        not null,
-   EMPRESA_SUBGERENTE_SALARIO_FIJO INTEGER                         not null
+   EMPRESA_SUBGERENTE_SEGURIDAD_S SMALLINT                        not null,
+   EMPRESA_SUBGERENTE_POLIZA_VIGE SMALLINT                        not null,
+   EMPRESA_SUBGERENTE_CONTRATO_IN SMALLINT                        not null,
+   EMPRESA_SUBGERENTE_SALARIO_FIJ INTEGER                         not null
       constraint CKC_EMPRESA_SUBGERENT_EMPRESA_ check (EMPRESA_SUBGERENTE_SALARIO_FIJ between 5000000 and 5999999),
-   EMPRESA_SUBGERENTE_REINGRESO_BOOL SMALLINT                        not null,
-   digitador VARCHAR(15) default USER                    NOT NULL,
-   fecha DATE default sysdate                            NOT NULL,
+   EMPRESA_SUBGERENTE_REINGRESO_B SMALLINT                        not null,
+   digitador VARCHAR(15) default USER                    not null,
+   fecha DATE default sysdate                            not null,
    constraint PK_EMPRESA_SUBGERENTE primary key (EMPRESA_SUBGERENTE_ID)
 )
 /
@@ -1094,19 +1094,19 @@ create index REEMPLAZO_GERENTE_FK on EMPRESA_SUBGERENTE (
 /*==============================================================*/
 create table HISTORIAL_TRABAJADORES  (
    HISTORIA_TRABAJADORES_ID INTEGER                         not null,
-   HISTORIA_TRABAJADORES_FECHA_INGRESO DATE                            not null,
-   HISTORIA_TRABAJADORES_FECHA_RETIRO DATE                            not null,
-   HISTORIA_TRABAJADORES_ID_EMPLEADO INTEGER                         not null,
-   HISTORIA_TRABAJADORES_ID_EMPLEADO_VENDEDOR INTEGER                         not null,
-   HISTORIA_TRABAJADORES_DOCUMENTO INTEGER                         not null,
+   HISTORIA_TRABAJADORES_FECHA_IN DATE                            not null,
+   HISTORIA_TRABAJADORES_FECHA_RE DATE                            not null,
+   HISTORIA_TRABAJADORES_ID_EMPLE INTEGER                         not null,
+   HISTORIA_TRABAJADORES_ID_EMPL2 INTEGER                         not null,
+   HISTORIA_TRABAJADORES_DOCUMENT INTEGER                         not null,
    HISTORIA_TRABAJADORES_NOMBRE VARCHAR2(100)                   not null,
    HISTORIA_TRABAJADORES_CARGO VARCHAR2(100)                   not null,
-   HISTORIA_TRABAJADORES_FECHA_CAMBIO_CARGO DATE                            not null,
-   HISTORIA_TRABAJADORES_FECHA_REINGRESO DATE                            not null,
+   HISTORIA_TRABAJADORES_FECHA_CA DATE                            not null,
+   HISTORIA_TRABAJADORES_FECHA_R2 DATE                            not null,
    HISTORIA_TRABAJADORES_CORREO VARCHAR2(100)                   not null,
    HISTORIA_TRABAJADORES_CELULAR INTEGER                         not null,
-   digitador VARCHAR(15) default USER                    NOT NULL,
-   fecha DATE default sysdate                            NOT NULL,
+   digitador VARCHAR(15) default USER                    not null,
+   fecha DATE default sysdate                            not null,
    constraint PK_HISTORIAL_TRABAJADORES primary key (HISTORIA_TRABAJADORES_ID)
 )
 /
@@ -1123,8 +1123,8 @@ create table ORDENES  (
       constraint CKC_ORDEN_ESTADO_ORDENES check (ORDEN_ESTADO between 1 and 4),
    ORDEN_FECHA_SOLICITUD DATE                            not null,
    ORDEN_FECHA_ENTREGA  DATE                            not null,
-   digitador VARCHAR(15) default USER                    NOT NULL,
-   fecha DATE default sysdate                            NOT NULL,
+   digitador VARCHAR(15) default USER                    not null,
+   fecha DATE default sysdate                            not null,
    constraint PK_ORDENES primary key (ORDEN_ID)
 )
 /
@@ -1163,8 +1163,8 @@ create table ORDENES_ITEMS  (
    ORDEN_ITEM_CANTIDAD  INTEGER                         not null,
    ORDEN_ITEM_PRECIO_TOTAL INTEGER                         not null,
    ORDEN_ITEM_DESCUENTO_BOOL SMALLINT                        not null,
-   digitador VARCHAR(15) default USER                    NOT NULL,
-   fecha DATE default sysdate                            NOT NULL,
+   digitador VARCHAR(15) default USER                    not null,
+   fecha DATE default sysdate                            not null,
    constraint PK_ORDENES_ITEMS primary key (ORDEN_ITEM_ID)
 )
 /
@@ -1193,8 +1193,8 @@ create table PAISES  (
    EMPRESA_ID           INTEGER,
    PAIS_NOMBRE          VARCHAR2(100)                   not null,
    PAIS_PREFIJO         INTEGER                         not null,
-   digitador VARCHAR(15) default USER                    NOT NULL,
-   fecha DATE default sysdate                            NOT NULL,
+   digitador VARCHAR(15) default USER                    not null,
+   fecha DATE default sysdate                            not null,
    constraint PK_PAISES primary key (PAIS_ID)
 )
 /
@@ -1214,8 +1214,8 @@ create table PREMIOS  (
    PREMIO_ID            INTEGER                         not null,
    PREMIO_NOMBRE        VARCHAR2(100)                   not null,
    PREMIO_VALOR         INTEGER                         not null,
-   digitador VARCHAR(15) default USER                    NOT NULL,
-   fecha DATE default sysdate                            NOT NULL,
+   digitador VARCHAR(15) default USER                    not null,
+   fecha DATE default sysdate                            not null,
    constraint PK_PREMIOS primary key (PREMIO_ID)
 )
 /
@@ -1230,8 +1230,8 @@ create table PRODUCTOS  (
    PRODUCTO_NOMBRE      VARCHAR2(100)                   not null,
    PRODUCTO_PRECIO_ADQUISICION INTEGER                         not null,
    PRODUCTO_PRECIO_VENTA INTEGER                         not null,
-   digitador VARCHAR(15) default USER                    NOT NULL,
-   fecha DATE default sysdate                            NOT NULL,
+   digitador VARCHAR(15) default USER                    not null,
+   fecha DATE default sysdate                            not null,
    constraint PK_PRODUCTOS primary key (PRODUCTO_ID)
 )
 /
@@ -1263,8 +1263,8 @@ create table PROVEEDORES  (
    PROVEEDOR_DIRECCION  VARCHAR2(100)                   not null,
    PROVEEDOR_NORMAS_BOOL SMALLINT                        not null,
    PROVEEDOR_CORREO     VARCHAR2(100)                   not null,
-   digitador VARCHAR(15) default USER                    NOT NULL,
-   fecha DATE default sysdate                            NOT NULL,
+   digitador VARCHAR(15) default USER                    not null,
+   fecha DATE default sysdate                            not null,
    constraint PK_PROVEEDORES primary key (PROVEEDOR_ID)
 )
 /
@@ -1279,8 +1279,8 @@ create table PROVEEDOR_GERENTE  (
    PROVEEDOR_GERENTE_DOCUMENTO INTEGER                         not null,
    PROVEEDOR_GERENTE_CELULAR INTEGER                         not null,
    PROVEEDOR_GERENTE_CORREO VARCHAR2(100)                   not null,
-   digitador VARCHAR(15) default USER                    NOT NULL,
-   fecha DATE default sysdate                            NOT NULL,
+   digitador VARCHAR(15) default USER                    not null,
+   fecha DATE default sysdate                            not null,
    constraint PK_PROVEEDOR_GERENTE primary key (PROVEEDOR_GERENTE_ID)
 )
 /
@@ -1303,8 +1303,8 @@ create table SUCURSALES  (
    SUCURSAL_NOMBRE      VARCHAR2(100)                   not null,
    SUCURSAL_CENTRO_LLAMADAS INTEGER                         not null,
    SUCURSAL_DIRECCION   VARCHAR2(100)                   not null,
-   digitador VARCHAR(15) default USER                    NOT NULL,
-   fecha DATE default sysdate                            NOT NULL,
+   digitador VARCHAR(15) default USER                    not null,
+   fecha DATE default sysdate                            not null,
    constraint PK_SUCURSALES primary key (SUCURSAL_ID)
 )
 /
@@ -1332,8 +1332,8 @@ create table VACANTES  (
    VACANTE_ID           INTEGER                         not null,
    CARGO_ID             INTEGER,
    VACANTE_NUMERO       INTEGER                         not null,
-   digitador VARCHAR(15) default USER                    NOT NULL,
-   fecha DATE default sysdate                            NOT NULL,
+   digitador VARCHAR(15) default USER                    not null,
+   fecha DATE default sysdate                            not null,
    constraint PK_VACANTES primary key (VACANTE_ID)
 )
 /
@@ -1362,11 +1362,11 @@ create table VENDEDORES  (
    VENDEDOR_SEGURIDAD_SOCIAL_BOOL SMALLINT                        not null,
    VENDEDOR_POLIZA_VIGENTE_BOOL SMALLINT                        not null,
    VENDEDOR_SALARIO_FIJO INTEGER                         not null,
-   VENDEDOR_CONTRATO_INDEFINIDO_BOOL SMALLINT                        not null,
+   VENDEDOR_CONTRATO_INDEFINIDO_B SMALLINT                        not null,
    VENDEDOR_REINGRESO_BOOL SMALLINT                        not null,
    VENDEDOR_COMISION    INTEGER                         not null,
-   digitador VARCHAR(15) default USER                    NOT NULL,
-   fecha DATE default sysdate                            NOT NULL,
+   digitador VARCHAR(15) default USER                    not null,
+   fecha DATE default sysdate                            not null,
    constraint PK_VENDEDORES primary key (VENDEDOR_ID)
 )
 /
@@ -2064,4 +2064,6 @@ exception
        raise_application_error(errno, errmsg);
 end;
 /
+
+
 
