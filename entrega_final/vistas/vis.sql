@@ -458,4 +458,8 @@ AS
     SELECT *
     FROM VENDEDORES
     WHERE VENDEDOR_digitador = user_name()
+<<<<<<< HEAD
 GO
+=======
+GO
+>>>>>>> b612e52229e2a7f362900062956c79f8e799813d
