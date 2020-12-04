@@ -30,11 +30,6 @@ VALUES
     GO
 
 
-
-
-
-
-
 CREATE OR ALTER TRIGGER historia_empleado_insert ON EMPLEADOS
 FOR UPDATE AS 
     INSERT INTO REGISTRO_HISTORICO
@@ -64,12 +59,7 @@ FOR UPDATE AS
 VALUES
     ('UPDATE EN CLIENTES')
     GO
-
-
-
-
-
-
+    
 
 CREATE OR ALTER TRIGGER historia_empleado_insert ON EMPLEADOS
 FOR INSERT AS 
