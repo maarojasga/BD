@@ -835,6 +835,7 @@ create index CONTIENE_CIUDADES_FK on CIUDADES (
 /*==============================================================*/
 create table CLIENTES  (
    CLIENTE_ID           INTEGER                         not null,
+   SUCURSAL_ID          INTEGER                          null,
    CLIENTE_NIT          INTEGER                         not null,
    CLIENTE_NOMBRE       VARCHAR2(100)                   not null,
    CLIENTE_CENTRO_LLAMADAS INTEGER                         not null,
