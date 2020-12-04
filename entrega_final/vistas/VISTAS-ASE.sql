@@ -440,7 +440,9 @@ AS
    HISTORIA_TRABAJADORES_FECHA_CAMBIO_CARGO,
    HISTORIA_TRABAJADORES_FECHA_REINGRESO,
    HISTORIA_TRABAJADORES_CORREO,
-   HISTORIA_TRABAJADORES_CELULAR
+   HISTORIA_TRABAJADORES_CELULAR,
+   HISTORIA_TRABAJADORES_REINGRESO_BOOL,
+   HISTORIA_TRABAJADORES_RETIRO_BOOL
 
     FROM HISTORIAL_TRABAJADORES
 
@@ -719,8 +721,8 @@ AS
     SELECT *
     FROM VENDEDORES
     WHERE digitador = user_name()
-    
-    
+
+
 /*==============================================================*/
 /* VISTA PÚBLICA CLIENTES                                       */
 /*==============================================================*/
