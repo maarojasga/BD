@@ -653,7 +653,7 @@ go
 /*==============================================================*/
 create table ASISTENCIA_CAPACITACIONES
 (
-   ASISTENCIA_CAPACITACIONES_ID bigint not null,
+   ASISTENCIA_CAPACITACIONES_ID bigint not null identity(1,1),
    CAPACITACION_ID bigint null,
    ASISTENCIA_CAPACITACIONES_SI_NO_BOOL bit not null,
    ASISTENCIA_CAPACITACIONES_digitador VARCHAR(15) default user_name() NOT NULL,
@@ -677,7 +677,7 @@ go
 /*==============================================================*/
 create table BODEGAS
 (
-   BODEGA_ID bigint not null,
+   BODEGA_ID bigint not null identity(1,1),
    SUCURSAL_ID bigint not null,
    BODEGA_CANTIDAD bigint not null,
    BODEGA_digitador VARCHAR(15) default user_name() NOT NULL,
@@ -701,7 +701,7 @@ go
 /*==============================================================*/
 create table CANDIDATOS
 (
-   CANDIDATO_ID bigint not null,
+   CANDIDATO_ID bigint not null identity(1,1),
    VACANTE_ID bigint null,
    CANDIDATO_NOMBRE varchar(100) not null,
    CANDIDATO_DOCUMENTO bigint not null,
@@ -733,7 +733,7 @@ go
 /*==============================================================*/
 create table CAPACITACIONES
 (
-   CAPACITACION_ID bigint not null,
+   CAPACITACION_ID bigint not null identity(1,1),
    EMPLEADO_ID bigint null,
    CAPACITACION_NOMBRE_TIPO varchar(100) not null,
    CAPACITACION_FECHA datetime not null,
@@ -759,7 +759,7 @@ go
 /*==============================================================*/
 create table CARGOS
 (
-   CARGO_ID bigint not null,
+   CARGO_ID bigint not null identity(1,1),
    DEPARTAMENTO_ID bigint null,
    CARGO_NOMBRE varchar(100) not null,
    CARGO_SALARIO_MAX bigint not null,
@@ -785,7 +785,7 @@ go
 /*==============================================================*/
 create table CIUDADES
 (
-   CIUDAD_ID bigint not null,
+   CIUDAD_ID bigint not null identity(1,1),
    PAIS_ID bigint null,
    CIUDAD_NOMBRE varchar(100) not null,
    CIUDAD_digitador VARCHAR(15) default user_name() NOT NULL,
@@ -809,7 +809,7 @@ go
 /*==============================================================*/
 create table CLIENTES
 (
-   CLIENTE_ID bigint not null,
+   CLIENTE_ID bigint not null identity(1,1),
    CLIENTE_NIT bigint not null,
    CLIENTE_NOMBRE varchar(100) not null,
    CLIENTE_CENTRO_LLAMADAS bigint not null,
@@ -827,7 +827,7 @@ go
 /*==============================================================*/
 create table CLIENTE_GERENTE
 (
-   CLIENTE_GERENTE_ID bigint not null,
+   CLIENTE_GERENTE_ID bigint not null identity(1,1),
    CLIENTE_ID bigint null,
    CLIENTE_GERENTE_NOMBRE varchar(100) not null,
    CLIENTE_GERENTE_DOCUMENTO bigint not null,
@@ -854,7 +854,7 @@ go
 /*==============================================================*/
 create table DEPARTAMENTOS
 (
-   DEPARTAMENTO_ID bigint not null,
+   DEPARTAMENTO_ID bigint not null identity(1,1),
    SUCURSAL_ID bigint null,
    DIRECTOR_DEPARTAMENTO_ID bigint null,
    DEPARTAMENTO_NOMBRE varchar(100) not null,
@@ -889,7 +889,7 @@ go
 /*==============================================================*/
 create table DIRECTOR_DEPARTAMENTO
 (
-   DIRECTOR_DEPARTAMENTO_ID bigint not null,
+   DIRECTOR_DEPARTAMENTO_ID bigint not null identity(1,1),
    DIRECTOR_SUCURSAL_ID bigint null,
    DIRECTOR_DEPARTAMENTO_NOMBRE varchar(100) not null,
    DIRECTOR_DEPARTAMENTO_DOCUMENTO bigint not null,
@@ -925,7 +925,7 @@ go
 /*==============================================================*/
 create table DIRECTOR_SUCURSAL
 (
-   DIRECTOR_SUCURSAL_ID bigint not null,
+   DIRECTOR_SUCURSAL_ID bigint not null identity(1,1),
    EMPRESA_SUBGERENTE_ID bigint null,
    DIRECTOR_SUCURSAL_NOMBRE varchar(100) not null,
    DIRECTOR_SUCURSAL_DOCUMENTO bigint not null,
@@ -961,7 +961,7 @@ go
 /*==============================================================*/
 create table EMPLEADOS
 (
-   EMPLEADO_ID bigint not null,
+   EMPLEADO_ID bigint not null identity(1,1),
    CARGO_ID bigint null,
    EMPLEADO_DOCUMENTO bigint not null,
    EMPLEADO_NOMBRE varchar(100) not null,
@@ -997,7 +997,7 @@ go
 /*==============================================================*/
 create table EMPRESA
 (
-   EMPRESA_ID bigint not null,
+   EMPRESA_ID bigint not null identity(1,1),
    EMPRESA_NOMBRE varchar(100) not null,
    EMPRESA_DIRECCION varchar(100) not null,
    EMPRESA_CENTRO_LLAMADAS bigint not null,
@@ -1012,7 +1012,7 @@ go
 /*==============================================================*/
 create table EMPRESA_GERENTE
 (
-   EMPRESA_GERENTE_ID bigint not null,
+   EMPRESA_GERENTE_ID bigint not null identity(1,1),
    EMPRESA_ID bigint null,
    EMPRESA_GERENTE_NOMBRE varchar(100) not null,
    EMPRESA_GERENTE_DOCUMENTO bigint not null,
@@ -1048,7 +1048,7 @@ go
 /*==============================================================*/
 create table EMPRESA_SUBGERENTE
 (
-   EMPRESA_SUBGERENTE_ID bigint not null,
+   EMPRESA_SUBGERENTE_ID bigint not null identity(1,1),
    EMPRESA_GERENTE_ID bigint null,
    EMPRESA_ID bigint null,
    EMPRESA_SUBGERENTE_NOMBRE varchar(100) not null,
@@ -1095,7 +1095,7 @@ go
 /*==============================================================*/
 create table HISTORIAL_TRABAJADORES
 (
-   HISTORIA_TRABAJADORES_ID bigint not null,
+   HISTORIA_TRABAJADORES_ID bigint not null identity(1,1),
    HISTORIA_TRABAJADORES_FECHA_INGRESO datetime not null,
    HISTORIA_TRABAJADORES_FECHA_RETIRO datetime not null,
    HISTORIA_TRABAJADORES_ID_EMPLEADO bigint not null,
@@ -1118,7 +1118,7 @@ go
 /*==============================================================*/
 create table ORDENES
 (
-   ORDEN_ID bigint not null,
+   ORDEN_ID bigint not null identity(1,1),
    SUCURSAL_ID bigint not null,
    VENDEDOR_ID bigint not null,
    CLIENTE_ID bigint null,
@@ -1167,7 +1167,7 @@ go
 /*==============================================================*/
 create table ORDENES_ITEMS
 (
-   ORDEN_ITEM_ID bigint not null,
+   ORDEN_ITEM_ID bigint not null identity(1,1),
    ORDEN_ID bigint null,
    PRODUCTO_ID bigint null,
    ORDEN_ITEM_CANTIDAD bigint not null,
@@ -1204,7 +1204,7 @@ go
 /*==============================================================*/
 create table PAISES
 (
-   PAIS_ID bigint not null,
+   PAIS_ID bigint not null identity(1,1),
    EMPRESA_ID bigint null,
    PAIS_NOMBRE varchar(100) not null,
    PAIS_PREFIJO int not null,
@@ -1229,7 +1229,7 @@ go
 /*==============================================================*/
 create table PREMIOS
 (
-   PREMIO_ID bigint not null,
+   PREMIO_ID bigint not null identity(1,1),
    PREMIO_NOMBRE varchar(100) not null,
    PREMIO_VALOR bigint not null,
    PREMIO_digitador VARCHAR(15) default user_name() NOT NULL,
@@ -1243,7 +1243,7 @@ go
 /*==============================================================*/
 create table PRODUCTOS
 (
-   PRODUCTO_ID bigint not null,
+   PRODUCTO_ID bigint not null identity(1,1),
    BODEGA_ID bigint null,
    PROVEEDOR_ID bigint null,
    PRODUCTO_NOMBRE varchar(100) not null,
@@ -1280,7 +1280,7 @@ go
 /*==============================================================*/
 create table PROVEEDORES
 (
-   PROVEEDOR_ID bigint not null,
+   PROVEEDOR_ID bigint not null identity(1,1),
    PROVEEDOR_NIT bigint not null,
    PROVEEDOR_NOMBRE varchar(100) not null,
    PROVEEDOR_CENTRO_LLAMADAS bigint not null,
@@ -1298,7 +1298,7 @@ go
 /*==============================================================*/
 create table PROVEEDOR_GERENTE
 (
-   PROVEEDOR_GERENTE_ID bigint not null,
+   PROVEEDOR_GERENTE_ID bigint not null identity(1,1),
    PROVEEDOR_ID bigint null,
    PROVEEDOR_GERENTE_NOMBRE varchar(100) not null,
    PROVEEDOR_GERENTE_DOCUMENTO bigint not null,
@@ -1325,7 +1325,7 @@ go
 /*==============================================================*/
 create table SUCURSALES
 (
-   SUCURSAL_ID bigint not null,
+   SUCURSAL_ID bigint not null identity(1,1),
    CIUDAD_ID bigint null,
    DIRECTOR_SUCURSAL_ID bigint null,
    CLIENTE_ID bigint null,
@@ -1364,7 +1364,7 @@ go
 /*==============================================================*/
 create table VACANTES
 (
-   VACANTE_ID bigint not null,
+   VACANTE_ID bigint not null identity(1,1),
    CARGO_ID bigint null,
    VACANTE_NUMERO bigint not null,
    VACANTE_digitador VARCHAR(15) default user_name() NOT NULL,
@@ -1388,7 +1388,7 @@ go
 /*==============================================================*/
 create table VENDEDORES
 (
-   VENDEDOR_ID bigint not null,
+   VENDEDOR_ID bigint not null identity(1,1),
    SUCURSAL_ID bigint null,
    VENDEDOR_DOCUMENTO bigint not null,
    VENDEDOR_NOMBRE varchar(100) not null,
