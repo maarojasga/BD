@@ -779,3 +779,27 @@ AS
    VENDEDOR_CORREO
      
 FROM VENDEDORES
+
+/*==============================================================*/
+/* PERMISOS                                                     */
+/*==============================================================*/
+
+GRANT SELECT ON VISTA_Empleado_View TO negarzonc
+GRANT INSERT ON VISTA_Empleado_Edit TO negarzonc
+GRANT SELECT ON VISTA_Empleado_Edit TO negarzonc
+GRANT SELECT ON VISTA_Empleado_View TO dsilvamo
+GRANT INSERT ON VISTA_Empleado_Edit TO dsilvamo
+GRANT SELECT ON VISTA_Empleado_Edit TO dsilvamo
+GRANT SELECT ON VISTA_Empleado_View TO dabonilla
+GRANT INSERT ON VISTA_Empleado_Edit TO dabonilla
+GRANT SELECT ON VISTA_Empleado_Edit TO dabonilla
+
+GRANT SELECT ON VISTA_Empleado_View TO negarzonc
+GRANT INSERT ON VISTA_Empleado_Edit TO negarzonc
+GRANT SELECT ON VISTA_Empleado_Edit TO negarzonc
+GRANT SELECT ON VISTA_Empleado_View TO dsilvamo
+GRANT INSERT ON VISTA_Empleado_Edit TO dsilvamo
+GRANT SELECT ON VISTA_Empleado_Edit TO dsilvamo
+GRANT SELECT ON VISTA_Empleado_View TO dabonilla
+GRANT INSERT ON VISTA_Empleado_Edit TO dabonilla
+GRANT SELECT ON VISTA_Empleado_Edit TO dabonilla
