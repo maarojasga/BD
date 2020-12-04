@@ -38,7 +38,9 @@ la tabla recién creada y que excluya las columnas digitador y fecha */
 create VIEW VISTA_BODEGAS_EDIT
 AS
     SELECT
+   BODEGA_ID,
    SUCURSAL_ID,
+   PRODUCTO_ID,
    BODEGA_CANTIDAD
 
 FROM BODEGAS
@@ -468,7 +470,6 @@ AS
    VENDEDOR_ID,
    CLIENTE_ID,
    ORDEN_ESTADO,
-   ORDEN_FECHA_SOLICITUD,
    ORDEN_FECHA_ENTREGA
 
     FROM ORDENES
@@ -543,6 +544,8 @@ la tabla recién creada y que excluya las columnas digitador y fecha */
 create VIEW VISTA_PREMIOS_EDIT
 AS
     SELECT
+   EMPLEADO_ID,
+   VENDEDOR_ID,
    PREMIO_NOMBRE,
    PREMIO_VALOR
 
@@ -566,7 +569,6 @@ la tabla recién creada y que excluya las columnas digitador y fecha */
 create VIEW VISTA_PRODUCTOS_EDIT
 AS 
     SELECT
-   BODEGA_ID,
    PROVEEDOR_ID,
    PRODUCTO_NOMBRE,
    PRODUCTO_PRECIO_ADQUISICION,

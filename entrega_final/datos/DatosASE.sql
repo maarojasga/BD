@@ -1,3 +1,24 @@
+SELECT * FROM EMPRESA
+SELECT * FROM PAISES
+SELECT * FROM CIUDADES
+SELECT * FROM EMPRESA_GERENTE
+SELECT * FROM EMPRESA_SUBGERENTE
+SELECT * FROM DIRECTOR_SUCURSAL
+SELECT * FROM DIRECTOR_DEPARTAMENTO
+SELECT * FROM SUCURSALES
+SELECT * FROM DEPARTAMENTOS
+SELECT * FROM CARGOS
+SELECT * FROM VACANTES
+SELECT * FROM CANDIDATOS
+SELECT * FROM EMPLEADOS
+SELECT * FROM CAPACITACIONES
+SELECT * FROM VENDEDORES
+SELECT * FROM PROVEEDORES
+SELECT * FROM PROVEEDOR_GERENTE
+SELECT * FROM CLIENTES
+SELECT * FROM CLIENTE_GERENTE
+SELECT * FROM BODEGAS
+
 insert into VISTA_EMPRESA_EDIT values ('VENTAS COLOMBIA SAS', 'CR 45 # 187', 5253697)
 
 insert into VISTA_PAISES_EDIT values (1, 'Afganistán', 93)
@@ -244,4 +265,49 @@ insert into VISTA_PAISES_EDIT values (1, 'Yemen', 967)
 insert into VISTA_PAISES_EDIT values (1, 'Yugoslavia', 381)
 insert into VISTA_PAISES_EDIT values (1, 'Zaire', 243)
 insert into VISTA_PAISES_EDIT values (1, 'Zambia', 260)
-insert into VISTA_PAISES_EDIT values (1, 'Zimbawe', 26 )
+insert into VISTA_PAISES_EDIT values (1, 'Zimbawe', 26 ) 
+
+
+insert into VISTA_CIUDADES_EDIT values (45, 'Bogotá')
+insert into VISTA_CIUDADES_EDIT values (42, 'Santiago de Chile')
+insert into VISTA_CIUDADES_EDIT values (11, 'Buenos Aires')
+insert into VISTA_CIUDADES_EDIT values (168, 'Lima')
+insert into VISTA_CIUDADES_EDIT values (54, 'Quito')
+insert into VISTA_CIUDADES_EDIT values (237, 'Caracas')
+
+
+insert into VISTA_EMPRESA_GERENTE_EDIT values ( 1, 'Alejandro', 11111111, 3123548112, 'maarojasga@una', 25,  'Masc',1,  1, 1, 7000000, 0)
+
+insert into VISTA_EMPRESA_SUBGERENTE_EDIT values ( 1, 1, 'Alejandro', 11111111, 3123548112, 'maarojasga@una', 25,  'Masc',1,  1, 1, 5000000, 0)
+insert into VISTA_DIRECTOR_SUCURSAL_EDIT values ( 2, 'Alejandro', 11111111, 3123548112, 'maarojasga@una', 'Masc', 25 , 1, 1, 4000000, 0, 0)
+insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 1, 'Alejandro', 11111111, 3123548112, 'maarojasga@una', 'Masc', 25 , 1, 1, 3500000, 0, 0)
+
+insert into VISTA_SUCURSALES_EDIT values ( 1, 1, 'PRAD0', 11111111, 'CR 6 #192SSASD')
+insert into VISTA_DEPARTAMENTOS_EDIT values ( 1, 1,'RECURSOS HUMANOS')
+
+
+insert into VISTA_CARGOS_EDIT values ( 1, 'Reclutador', 3499999, 2400000)
+
+insert into VISTA_VACANTES_EDIT values ( 1, 1)
+
+insert into VISTA_CANDIDATOS_EDIT values ( 1, 'Ale', 1514815151, 'pepito@gmial.com', 31251323, 18, 'fem', 80)
+
+insert into VISTA_EMPLEADOS_EDIT values ( 1, 1514815151, 'arx', 4144144, 'correo', 'fem', 18, 1 ,1, 1 , 245555555, 1, 1)
+
+insert into VISTA_CAPACITACIONES_EDIT values ( 1, 'Segur', '12/20/14 *DÍA-MES-AÑO', 'Soy una descripción')
+
+insert into VISTA_ASISTENCIA_CAPACITACIONES_EDIT values ( 1, 1)
+
+insert into VISTA_VENDEDORES_EDIT values ( 1, 11012155454, 'RAÚL', 2515551, 'SOY UN CORREO', 'SOY UN GENERO', 18, 1, 1, 2000000, 1, 0, 100000)
+
+insert into VISTA_PROVEEDORES_EDIT values ( 1, 11012155454, 'RAÚL', 2515551, 'SOY UNA DIRECCIÓN', 1, 'SOY UN CORRE0')
+
+
+insert into VISTA_PROVEEDOR_GERENTE_EDIT values ( 1, 'RAFA', 11012155454, 2515551, 'SOY UN CORRE0')
+
+insert into VISTA_CLIENTES_EDIT values ( 1, 15115515, 'RAFA', 11012155454, 'SOY UNA DIRECCION', 1, 'SOY UN CORRE0')
+
+insert into VISTA_CLIENTE_GERENTE_EDIT values ( 1,'RAFA', 11012155454, 155544144,'SOY UN CORRE0')
+
+insert into VISTA_BODEGAS_EDIT values ( 1, 12, 1)
+insert into VISTA_PRODUCTOS_EDIT values ( 1, 'ARROZ', 1000, 10000)

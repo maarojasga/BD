@@ -696,6 +696,13 @@ if exists (select 1
    drop table VENDEDORES
 go
 
+if exists(select 1
+            from  sysobjects
+            where id = object_id('REGISTRO_HISTORICO')
+            and   type = 'U')
+      drop table REGISTRO_HISTORICO
+go
+
 /*==============================================================*/
 /* Table: ASISTENCIA_CAPACITACIONES                             */
 /*==============================================================*/
@@ -721,8 +728,9 @@ go
 /* Table: BODEGAS                                               */
 /*==============================================================*/
 create table BODEGAS (
-   BODEGA_ID            NUMERIC IDENTITY,
+   BODEGA_ID            bigint                         not null,
    SUCURSAL_ID          bigint                         not null,
+   PRODUCTO_ID          bigint                         not null,
    BODEGA_CANTIDAD      bigint                         not null,
    digitador VARCHAR(15) default user_name() NOT NULL,
    fecha DATETIME default getdate () NOT NULL,
@@ -735,6 +743,14 @@ go
 /*==============================================================*/
 create index TIENEN_FK on BODEGAS (
 SUCURSAL_ID ASC
+)
+go
+
+/*==============================================================*/
+/* Index: ALMACENA_FK                                             */
+/*==============================================================*/
+create index ALMACENA_FK on BODEGAS (
+PRODUCTO_ID ASC
 )
 go
 
@@ -989,7 +1005,7 @@ create table EMPLEADOS (
    EMPLEADO_DOCUMENTO   bigint                         not null,
    EMPLEADO_NOMBRE      varchar(100)                   not null,
    EMPLEADO_CELULAR     bigint                         not null,
-   EMPLEADO_CORREO      bigint                         not null,
+   EMPLEADO_CORREO      varchar(100)                         not null,
    EMPLEADO_GENERO      varchar(100)                   null,
    EMPLEADO_EDAD        int                            not null
       constraint CKC_EMPLEADO_EDAD_EMPLEADO check (EMPLEADO_EDAD between 18 and 99),
@@ -1134,9 +1150,9 @@ create table ORDENES (
    SUCURSAL_ID          bigint                         not null,
    VENDEDOR_ID          bigint                         not null,
    CLIENTE_ID           bigint                         null,
-   ORDEN_ESTADO         int                            not null
+   ORDEN_ESTADO         int   default 1                not null
       constraint CKC_ORDEN_ESTADO_ORDENES check (ORDEN_ESTADO between 1 and 4),
-   ORDEN_FECHA_SOLICITUD date                           not null,
+   ORDEN_FECHA_SOLICITUD date  default getdate () NOT NULL,
    ORDEN_FECHA_ENTREGA  date                           not null,
    digitador VARCHAR(15) default user_name() NOT NULL,
    fecha DATETIME default getdate () NOT NULL,
@@ -1227,6 +1243,8 @@ go
 /*==============================================================*/
 create table PREMIOS (
    PREMIO_ID            NUMERIC IDENTITY,
+   EMPLEADO_ID           bigint  null,
+   VENDEDOR_ID           bigint  null,
    PREMIO_NOMBRE        varchar(100)                   not null,
    PREMIO_VALOR         bigint                         not null,
    digitador VARCHAR(15) default user_name() NOT NULL,
@@ -1241,7 +1259,6 @@ go
 create table PRODUCTOS (
    PRODUCTO_ID          NUMERIC IDENTITY,
    PROVEEDOR_ID         bigint                         null,
-   BODEGA_ID            bigint                         null,
    PRODUCTO_NOMBRE      varchar(100)                   not null,
    PRODUCTO_PRECIO_ADQUISICION bigint                         not null,
    PRODUCTO_PRECIO_VENTA bigint                         not null,
@@ -1251,13 +1268,6 @@ create table PRODUCTOS (
 )
 go
 
-/*==============================================================*/
-/* Index: ALMACENA_FK                                           */
-/*==============================================================*/
-create index ALMACENA_FK on PRODUCTOS (
-BODEGA_ID ASC
-)
-go
 
 /*==============================================================*/
 /* Index: PROVEE_PRODUCTOS_FK                                   */
@@ -1412,155 +1422,5 @@ create table REGISTRO_HISTORICO
    REGISTRO_HISTORICO_FECHA DATETIME default getdate () NOT NULL,
    REGISTRO_HISTORICO_MENSAJE VARCHAR(100) NOT NULL
 )
-go
-
-alter table ASISTENCIA_CAPACITACIONES
-   add constraint FK_ASISTENC_CONTROL_A_CAPACITA foreign key (CAPACITACION_ID)
-      references CAPACITACIONES (CAPACITACION_ID)
-go
-
-alter table BODEGAS
-   add constraint FK_BODEGAS_TIENEN_SUCURSAL foreign key (SUCURSAL_ID)
-      references SUCURSALES (SUCURSAL_ID)
-go
-
-alter table CANDIDATOS
-   add constraint FK_CANDIDAT_TIENE_CAN_VACANTES foreign key (VACANTE_ID)
-      references VACANTES (VACANTE_ID)
-go
-
-alter table CAPACITACIONES
-   add constraint FK_CAPACITA_RECIBEN_C_EMPLEADO foreign key (EMPLEADO_ID)
-      references EMPLEADOS (EMPLEADO_ID)
-go
-
-alter table CARGOS
-   add constraint FK_CARGOS_DIVIDE_EN_DEPARTAM foreign key (DEPARTAMENTO_ID)
-      references DEPARTAMENTOS (DEPARTAMENTO_ID)
-go
-
-alter table CIUDADES
-   add constraint FK_CIUDADES_CONTIENE__PAISES foreign key (PAIS_ID)
-      references PAISES (PAIS_ID)
-go
-
-alter table CLIENTES
-   add constraint FK_CLIENTES_UBICACION_SUCURSAL foreign key (SUCURSAL_ID)
-      references SUCURSALES (SUCURSAL_ID)
-go
-
-alter table CLIENTE_GERENTE
-   add constraint FK_CLIENTE__REPRESENT_CLIENTES foreign key (CLIENTE_ID)
-      references CLIENTES (CLIENTE_ID)
-go
-
-alter table DEPARTAMENTOS
-   add constraint FK_DEPARTAM_DIRIGE_DE_DIRECTOR foreign key (DIRECTOR_DEPARTAMENTO_ID)
-      references DIRECTOR_DEPARTAMENTO (DIRECTOR_DEPARTAMENTO_ID)
-go
-
-alter table DEPARTAMENTOS
-   add constraint FK_DEPARTAM_DIVIDE_EN_SUCURSAL foreign key (SUCURSAL_ID)
-      references SUCURSALES (SUCURSAL_ID)
-go
-
-alter table DIRECTOR_DEPARTAMENTO
-   add constraint FK_DIRECTOR_JEFE_DIR__DIRECTOR foreign key (DIRECTOR_SUCURSAL_ID)
-      references DIRECTOR_SUCURSAL (DIRECTOR_SUCURSAL_ID)
-go
-
-alter table DIRECTOR_SUCURSAL
-   add constraint FK_DIRECTOR_JEFE_DIRE_EMPRESA_ foreign key (EMPRESA_SUBGERENTE_ID)
-      references EMPRESA_SUBGERENTE (EMPRESA_SUBGERENTE_ID)
-go
-
-alter table EMPLEADOS
-   add constraint FK_EMPLEADO_OCUPADOS__CARGOS foreign key (CARGO_ID)
-      references CARGOS (CARGO_ID)
-go
-
-alter table EMPRESA_GERENTE
-   add constraint FK_EMPRESA__DIRIGIDA__EMPRESA foreign key (EMPRESA_ID)
-      references EMPRESA (EMPRESA_ID)
-go
-
-alter table EMPRESA_SUBGERENTE
-   add constraint FK_EMPRESA__JEFE_SUBG_EMPRESA_ foreign key (EMPRESA_GERENTE_ID)
-      references EMPRESA_GERENTE (EMPRESA_GERENTE_ID)
-go
-
-alter table EMPRESA_SUBGERENTE
-   add constraint FK_EMPRESA__REEMPLAZO_EMPRESA foreign key (EMPRESA_ID)
-      references EMPRESA (EMPRESA_ID)
-go
-
-alter table ORDENES
-   add constraint FK_ORDENES_GENERA_VENDEDOR foreign key (VENDEDOR_ID)
-      references VENDEDORES (VENDEDOR_ID)
-go
-
-alter table ORDENES
-   add constraint FK_ORDENES_LUGAR_VEN_SUCURSAL foreign key (SUCURSAL_ID)
-      references SUCURSALES (SUCURSAL_ID)
-go
-
-alter table ORDENES
-   add constraint FK_ORDENES_PIDEN_CLIENTES foreign key (CLIENTE_ID)
-      references CLIENTES (CLIENTE_ID)
-go
-
-alter table ORDENES_ITEMS
-   add constraint FK_ORDENES__PASO_ORDE_ORDENES foreign key (ORDEN_ID)
-      references ORDENES (ORDEN_ID)
-go
-
-alter table ORDENES_ITEMS
-   add constraint FK_ORDENES__RELACIONA_PRODUCTO foreign key (PRODUCTO_ID)
-      references PRODUCTOS (PRODUCTO_ID)
-go
-
-alter table PAISES
-   add constraint FK_PAISES_ESTA_PRES_EMPRESA foreign key (EMPRESA_ID)
-      references EMPRESA (EMPRESA_ID)
-go
-
-alter table PRODUCTOS
-   add constraint FK_PRODUCTO_ALMACENA_BODEGAS foreign key (BODEGA_ID)
-      references BODEGAS (BODEGA_ID)
-go
-
-alter table PRODUCTOS
-   add constraint FK_PRODUCTO_PROVEE_PR_PROVEEDO foreign key (PROVEEDOR_ID)
-      references PROVEEDORES (PROVEEDOR_ID)
-go
-
-alter table PROVEEDORES
-   add constraint FK_PROVEEDO_UBICACION_SUCURSAL foreign key (SUCURSAL_ID)
-      references SUCURSALES (SUCURSAL_ID)
-go
-
-alter table PROVEEDOR_GERENTE
-   add constraint FK_PROVEEDO_REPRESENT_PROVEEDO foreign key (PROVEEDOR_ID)
-      references PROVEEDORES (PROVEEDOR_ID)
-go
-
-alter table SUCURSALES
-   add constraint FK_SUCURSAL_CONTIENE__CIUDADES foreign key (CIUDAD_ID)
-      references CIUDADES (CIUDAD_ID)
-go
-
-alter table SUCURSALES
-   add constraint FK_SUCURSAL_DIRIGE_SU_DIRECTOR foreign key (DIRECTOR_SUCURSAL_ID)
-      references DIRECTOR_SUCURSAL (DIRECTOR_SUCURSAL_ID)
-go
-
-alter table VACANTES
-   add constraint FK_VACANTES_CARGOS_DI_CARGOS foreign key (CARGO_ID)
-      references CARGOS (CARGO_ID)
-go
-
-alter table VENDEDORES
-   add constraint FK_VENDEDOR_ATENDIDA__SUCURSAL foreign key (SUCURSAL_ID)
-      references SUCURSALES (SUCURSAL_ID)
 go
 
