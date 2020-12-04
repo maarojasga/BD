@@ -292,10 +292,23 @@ insert into VISTA_DIRECTOR_SUCURSAL_EDIT values ( 3, 'Roberto Reina', 54020711, 
 insert into VISTA_DIRECTOR_SUCURSAL_EDIT values ( 4, 'Sandra Martínez', 54486071, 3124567891, 'sandra.martinez@ventascolombia.co', 'Femenino', 27, 1, 1, 4000000, 0, 0)
 insert into VISTA_DIRECTOR_SUCURSAL_EDIT values ( 5, 'Reinaldo Díaz', 51666475, 3112003541, 'reinaldo.diaz@ventascolombia.co', 'Masculino', 22, 1, 1, 4000000, 0, 0)
 
+/* SÓLO HAY 5 DIRECTORES DE DEPARTAMENTO, 1 DEPARTAMENTO */
+insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 1, 'Cecilia Gutierrez', 84945694, 3123548112, 'cecilia.gutierrez@ventascolombia.co', 'Masc', 25 , 1, 1, 3500000, 0, 0)
+insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 1, 'Fernando Rincón', 70436506, 3123548112, 'fernando.rincon@ventascolombia.co', 'Masc', 25 , 1, 1, 3500000, 0, 0)
+insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 1, 'Beatriz Contreras', 87452985, 3123548112, 'beatriz.contreras@ventascolombia.co', 'Masc', 25 , 1, 1, 3500000, 0, 0)
+insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 1, 'Cristian Peña', 98713237, 3123548112, 'cristian.pena@ventascolombia.co', 'Masc', 25 , 1, 1, 3500000, 0, 0)
+insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 1, 'Joaquin Villa', 66876465, 3123548112, 'joaquin.villa@ventascolombia.co', 'Masc', 25 , 1, 1, 3500000, 0, 0)
+insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 1, 'Hugo Llano', 91876068, 3123548112, 'hugo.llano@ventascolombia.co', 'Masc', 25 , 1, 1, 3500000, 0, 0)
+insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 1, 'Armando Casas', 74121308, 3123548112, 'armando.casas@ventascolombia.co', 'Masc', 25 , 1, 1, 3500000, 0, 0)
+insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 1, 'Teresa Niño', 61573473, 3123548112, 'teresa.niño@ventascolombia.co', 'Masc', 25 , 1, 1, 3500000, 0, 0)
+insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 1, 'Rigoberto Sanchez', 59108725, 3123548112, 'rigoberto.sanchez@ventascolombia.co', 'Masc', 25 , 1, 1, 3500000, 0, 0)
+insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 1, 'John Salinas', 73637750, 3123548112, 'john.salinas@ventascolombia.co', 'Masc', 25 , 1, 1, 3500000, 0, 0)
+insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 1, 'Juan Quiñones', 87607977, 3123548112, 'juan.quinones@ventascolombia.co', 'Masc', 25 , 1, 1, 3500000, 0, 0)
+insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 1, 'Sofía Vélez', 80764675, 3123548112, 'sofia.velez@ventascolombia.co', 'Masc', 25 , 1, 1, 3500000, 0, 0)
+insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 1, 'Patricia Fernández', 83749913, 3123548112, 'patricia.fernandez@ventascolombia.co', 'Masc', 25 , 1, 1, 3500000, 0, 0)
+insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 1, 'Mario Yepes', 52089830, 3123548112, 'mario.yepes@ventascolombia.co', 'Masc', 25 , 1, 1, 3500000, 0, 0)
+insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 1, 'Johan Morales', 76601416, 3123548112, 'johan.morales@ventascolombia.co', 'Masc', 25 , 1, 1, 3500000, 0, 0)
 
-
-
-insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 1, 'Alejandro', 11111111, 3123548112, 'maarojasga@una', 'Masc', 25 , 1, 1, 3500000, 0, 0)
 
 insert into VISTA_SUCURSALES_EDIT values ( 1, 1, 'PRAD0', 11111111, 'CR 6 #192SSASD')
 insert into VISTA_DEPARTAMENTOS_EDIT values ( 1, 1,'RECURSOS HUMANOS')

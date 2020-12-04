@@ -815,7 +815,7 @@ create table CARGOS (
    CARGO_NOMBRE         varchar(100)                   not null,
    CARGO_SALARIO_MAX    bigint                         not null,
    CARGO_SALARIO_MIN    bigint                         not null,
-   JEFE_INMEDIATO_ID    big int                        not null,
+   CARGO_JEFE_INMEDIATO_ID    big int                        not null,
    digitador VARCHAR(15) default user_name() NOT NULL,
    fecha DATETIME default getdate () NOT NULL,
    constraint PK_CARGOS primary key nonclustered (CARGO_ID)
