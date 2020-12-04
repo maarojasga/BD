@@ -13,7 +13,7 @@ enunciado del problema e incluya las columnas digitador y fecha */
 CREATE TABLE Empresa
 (
     empresaID NUMERIC IDENTITY,
-    tiendaID BIGINT not null,
+    tiendaID int null,
     empleadoID BIGINT NULL,
     nombreEmpresa VARCHAR(50),
     NIT BIGINT NULL,
