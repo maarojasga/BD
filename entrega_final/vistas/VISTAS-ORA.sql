@@ -1552,3 +1552,100 @@ GRANT SELECT ON VISTA_VENDEDORES_EDIT TO dabonilla;
 GRANT SELECT ON VISTA_VENDEDORES_VIEW TO dsilvamo;
 GRANT INSERT ON VISTA_VENDEDORES_EDIT TO dsilvamo;
 GRANT SELECT ON VISTA_VENDEDORES_EDIT TO dsilvamo;
+
+/*==============================================================*/
+/* View: PUBLICA_CLIENTES                                           */
+/*==============================================================*/
+CREATE OR replace view VISTA_PUBLICA_CLIENTES_View 
+(
+   SUCURSAL_ID,
+   CLIENTE_NOMBRE,
+   CLIENTE_CENTRO_LLAMADAS,
+   CLIENTE_CORREO
+)
+AS SELECT 
+   SUCURSAL_ID,
+   CLIENTE_NOMBRE,
+   CLIENTE_CENTRO_LLAMADAS,
+   CLIENTE_CORREO
+FROM CLIENTES
+
+/*==============================================================*/
+/* View: PUBLICA_PROVEEDORES                                           */
+/*==============================================================*/
+CREATE OR replace view VISTA_PUBLICA_PROVEEDORES_View 
+(
+   SUCURSAL_ID,
+   PROVEEDOR_NOMBRE,
+   PROVEEDOR_CENTRO_LLAMADAS,
+   PROVEEDOR_CORREO
+)
+AS SELECT 
+   SUCURSAL_ID,
+   PROVEEDOR_NOMBRE,
+   PROVEEDOR_CENTRO_LLAMADAS,
+   PROVEEDOR_CORREO
+FROM PROVEEDORES
+
+/*==============================================================*/
+/* View: PUBLICA_EMPLEADO                                           */
+/*==============================================================*/
+CREATE OR replace view VISTA_PUBLICA_EMPLEADO_View 
+(
+   CARGO_ID,
+   EMPLEADO_NOMBRE,
+   EMPLEADO_CELULAR,
+   EMPLEADO_CORREO,
+   EMPLEADO_CARGO
+)
+AS SELECT 
+   CARGO_ID,
+   EMPLEADO_NOMBRE,
+   EMPLEADO_CELULAR,
+   EMPLEADO_CORREO,
+   EMPLEADO_CARGO
+FROM EMPLEADO
+
+/*==============================================================*/
+/* View: PUBLICA_VENDEDORES                                           */
+/*==============================================================*/
+CREATE OR replace view VISTA_PUBLICA_VENDEDORES_View 
+(
+   SUCURSAL_ID,
+   VENDEDOR_NOMBRE,
+   VENDEDOR_CELULAR,
+   VENDEDOR_CORREO,
+)
+AS SELECT 
+   SUCURSAL_ID,
+   VENDEDOR_NOMBRE,
+   VENDEDOR_CELULAR,
+   VENDEDOR_CORREO,
+FROM VENDEDORES
+
+/*==============================================================*/
+/* View: REGISTRO_HISTORICO                                           */
+/*==============================================================*/
+CREATE OR replace view VISTA_REGISTRO_HISTORICO_View 
+(
+   REGISTRO_HISTORICO_USUARIO,
+   REGISTRO_HISTORICO_FECHA,
+   REGISTRO_HISTORICO_MENSAJE,
+)
+AS SELECT 
+   REGISTRO_HISTORICO_USUARIO,
+   REGISTRO_HISTORICO_FECHA,
+   REGISTRO_HISTORICO_MENSAJE,
+FROM REGISTRO_HISTORICO
+
+
+
+
+/*==============================================================*/
+/* Permisos                                                     */
+/*==============================================================*/
+GRANT SELECT ON VISTA_PUBLICA_CLIENTES_View TO PUBLIC;
+GRANT SELECT ON VISTA_PUBLICA_PROVEDORES_View TO PUBLIC;
+GRANT SELECT ON VISTA_PUBLICA_EMPLEADO_View TO PUBLIC;
+GRANT SELECT ON VISTA_PUBLICA_VENDEDORES_View TO PUBLIC;
+GRANT SELECT ON VISTA_PUBLICA_REGISTRO_HISTORICO_View TO PUBLIC;
