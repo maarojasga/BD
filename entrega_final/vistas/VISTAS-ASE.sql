@@ -719,3 +719,61 @@ AS
     SELECT *
     FROM VENDEDORES
     WHERE digitador = user_name()
+    
+    
+/*==============================================================*/
+/* VISTA PÚBLICA CLIENTES                                       */
+/*==============================================================*/
+
+select * VISTA_PUBLICA_CLIENTES_VIEW
+AS
+    SELECT 
+         SUCURSAL_ID,
+         CLIENTE_NOMBRE,
+         CLIENTE_CENTRO_LLAMADAS,
+         CLIENTE_CORREO 
+
+    FROM CLIENTES
+
+/*==============================================================*/
+/* VISTA PÚBLICA PROVEEDORES                                       */
+/*==============================================================*/
+
+select * VISTA_PUBLICA_PROVEEDORES_VIEW
+AS
+    SELECT 
+   SUCURSAL_ID,
+   PROVEEDOR_NOMBRE,
+   PROVEEDOR_CENTRO_LLAMADAS,
+   PROVEEDOR_CORREO
+         
+    FROM PROVEEDORES
+
+/*==============================================================*/
+/* VISTA PÚBLICA EMPLEADOS                                      */
+/*==============================================================*/
+
+select * VISTA_PUBLICA_EMPLEADOS_VIEW
+AS
+    SELECT 
+   CARGO_ID,
+   EMPLEADO_NOMBRE,
+   EMPLEADO_CELULAR,
+   EMPLEADO_CORREO,
+   EMPLEADO_CARGO
+     
+    FROM EMPLEADOS
+
+/*==============================================================*/
+/* VISTA PÚBLICA VENDEDORES                                     */
+/*==============================================================*/
+
+select * VISTA_PUBLICA_VENDEDORES_VIEW
+AS
+    SELECT 
+   SUCURSAL_ID,
+   VENDEDOR_NOMBRE,
+   VENDEDOR_CELULAR,
+   VENDEDOR_CORREO
+     
+FROM VENDEDORES
