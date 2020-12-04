@@ -22,10 +22,10 @@ create table Cliente
     constraint PK_nucliente primary key(clienteID)
 );
 create sequence numeroCliente minvalue 1 start with 1;
-/* Crear la vista VISTA_Cliente_Edit que muestre las columnas que usted definió en
+/* Crear la vista VISTA_Cliente_EDIT que muestre las columnas que usted definió en
 la tabla recién creada y que excluya las columnas digitador y fecha */
 
-CREATE view VISTA_Cliente_Edit AS SELECT clienteID,
+CREATE VIEW VISTA_Cliente_EDIT AS SELECT clienteID,
                                     NIT,
                                     Nombre,
                                     Dirección,
@@ -37,10 +37,10 @@ CREATE view VISTA_Cliente_Edit AS SELECT clienteID,
                                     Cedula
                                     FROM Cliente;
 
-/* Crear la VISTA_Cliente_View, que muestre todas las columnas de la tabla
+/* Crear la VISTA_Cliente_VIEW, que muestre todas las columnas de la tabla
 recién creada y que incluya un filtro por usuario */
 
-CREATE OR replace view VISTA_Cliente_View 
+CREATE OR replace VIEW VISTA_Cliente_VIEW 
 (
     clienteID,
     NIT,
@@ -75,22 +75,22 @@ WHERE digitador = USER;
 
 /* Permitir acceso a los compañeros de grupo */
 
-GRANT SELECT ON VISTA_Cliente_View TO negarzonc;
-GRANT INSERT ON VISTA_Cliente_Edit TO negarzonc;
-GRANT SELECT ON VISTA_Cliente_Edit TO negarzonc;
+GRANT SELECT ON VISTA_Cliente_VIEW TO negarzonc;
+GRANT INSERT ON VISTA_Cliente_EDIT TO negarzonc;
+GRANT SELECT ON VISTA_Cliente_EDIT TO negarzonc;
 
-GRANT SELECT ON VISTA_Cliente_View TO dabonilla;
-GRANT INSERT ON VISTA_Cliente_Edit TO dabonilla;
-GRANT SELECT ON VISTA_Cliente_Edit TO dabonilla;
+GRANT SELECT ON VISTA_Cliente_VIEW TO dabonilla;
+GRANT INSERT ON VISTA_Cliente_EDIT TO dabonilla;
+GRANT SELECT ON VISTA_Cliente_EDIT TO dabonilla;
 
-GRANT SELECT ON VISTA_Cliente_View TO maarojasga;
-GRANT INSERT ON VISTA_Cliente_Edit TO maarojasga;
-GRANT SELECT ON VISTA_Cliente_Edit TO maarojasga;
+GRANT SELECT ON VISTA_Cliente_VIEW TO maarojasga;
+GRANT INSERT ON VISTA_Cliente_EDIT TO maarojasga;
+GRANT SELECT ON VISTA_Cliente_EDIT TO maarojasga;
 
 
 /*INSERTAR DATOS*/
 
-insert into cuenta_del_compañero.VISTA_Cliente_Edit
+insert into cuenta_del_compañero.VISTA_Cliente_EDIT
 values (
 numeroCliente.nextval,
 122541,
@@ -105,7 +105,7 @@ numeroCliente.nextval,
 41125147,
 );
 
-insert into cuenta_del_compañero.VISTA_Cliente_Edit
+insert into cuenta_del_compañero.VISTA_Cliente_EDIT
 values (
 numeroCliente.nextval,
 425154,
@@ -120,7 +120,7 @@ numeroCliente.nextval,
 47454856
 );
 
-insert into cuenta_del_compañero.VISTA_Cliente_Edit
+insert into cuenta_del_compañero.VISTA_Cliente_EDIT
 values (
 numeroCliente.nextval,
 14582,
@@ -137,7 +137,7 @@ numeroCliente.nextval,
 
 /*Inseretar con un error*/
 
-insert into cuenta_del_compañero.VISTA_Cliente_Edit
+insert into cuenta_del_compañero.VISTA_Cliente_EDIT
 values (
 1,     /*No se puede repetir numero en la llave primaria*/
 14582,
@@ -171,10 +171,10 @@ constraint PK_nuproducto primary key(productoID)
 
 create sequence numeroProducto minvalue 1 start with 1;
 
-/* Crear la vista VISTA_Producto_Edit que muestre las columnas que usted definió en
+/* Crear la vista VISTA_Producto_EDIT que muestre las columnas que usted definió en
 la tabla recién creada y que excluya las columnas digitador y fecha */
 
-CREATE view VISTA_Producto_Edit AS SELECT productoID,
+CREATE VIEW VISTA_Producto_EDIT AS SELECT productoID,
                                     nombre,
                                     cantidad,
                                     precioCompra,
@@ -185,10 +185,10 @@ CREATE view VISTA_Producto_Edit AS SELECT productoID,
                                     fechaAdquisición
                                     FROM Producto;
 
-/* Crear la VISTA_Producto_View, que muestre todas las columnas de la tabla
+/* Crear la VISTA_Producto_VIEW, que muestre todas las columnas de la tabla
 recién creada y que incluya un filtro por usuario */
 
-CREATE OR replace view VISTA_Producto_View 
+CREATE OR replace VIEW VISTA_Producto_VIEW 
 (
     productoID,
     nombre,
@@ -219,21 +219,21 @@ WHERE digitador = USER;
 
 /* Permitir acceso a los compañeros de grupo */
 
-GRANT SELECT ON VISTA_Producto_View TO negarzonc;
-GRANT INSERT ON VISTA_Producto_Edit TO negarzonc;
-GRANT SELECT ON VISTA_Producto_Edit TO negarzonc;
+GRANT SELECT ON VISTA_Producto_VIEW TO negarzonc;
+GRANT INSERT ON VISTA_Producto_EDIT TO negarzonc;
+GRANT SELECT ON VISTA_Producto_EDIT TO negarzonc;
 
-GRANT SELECT ON VISTA_Producto_View TO ;
-GRANT INSERT ON VISTA_Producto_Edit TO ;
-GRANT SELECT ON VISTA_Producto_Edit TO ;
+GRANT SELECT ON VISTA_Producto_VIEW TO ;
+GRANT INSERT ON VISTA_Producto_EDIT TO ;
+GRANT SELECT ON VISTA_Producto_EDIT TO ;
 
-GRANT SELECT ON VISTA_Producto_View TO maarojasga;
-GRANT INSERT ON VISTA_Producto_Edit TO maarojasga;
-GRANT SELECT ON VISTA_Producto_Edit TO maarojasga;
+GRANT SELECT ON VISTA_Producto_VIEW TO maarojasga;
+GRANT INSERT ON VISTA_Producto_EDIT TO maarojasga;
+GRANT SELECT ON VISTA_Producto_EDIT TO maarojasga;
 
 /*INSERTAR DATOS*/
 
-insert into cuenta_del_compañero.VISTA_Producto_Edit
+insert into cuenta_del_compañero.VISTA_Producto_EDIT
 values (
 numeroProducto.nextval,
 'Llantas',
@@ -246,7 +246,7 @@ numeroProducto.nextval,
 '10/20/2019'
 );
 
-insert into cuenta_del_compañero.VISTA_Producto_Edit
+insert into cuenta_del_compañero.VISTA_Producto_EDIT
 values (
 numeroProducto.nextval,
 'pilas',
@@ -259,7 +259,7 @@ numeroProducto.nextval,
 '01/06/2019'
 );
 
-insert into cuenta_del_compañero.VISTA_Producto_Edit
+insert into cuenta_del_compañero.VISTA_Producto_EDIT
 values (
 numeroProducto.nextval,
 'Tapabocas',
@@ -272,7 +272,7 @@ numeroProducto.nextval,
 '03/20/2020'
 );
 /* insertar con error*/
-insert into cuenta_del_compañero.VISTA_Producto_Edit
+insert into cuenta_del_compañero.VISTA_Producto_EDIT
 values (
 1,    /*llave primaria*/
 'Llantas',
@@ -306,10 +306,10 @@ CREATE TABLE Proveedor
     fecha DATE default sysdate NOT NULL
 );
 
-/* Crear la vista VISTA_Proveedor_Edit que muestre las columnas que usted definió en
+/* Crear la vista VISTA_Proveedor_EDIT que muestre las columnas que usted definió en
 la tabla recién creada y que excluya las columnas digitador y fecha */
 
-CREATE view VISTA_Proveedor_Edit
+CREATE VIEW VISTA_Proveedor_EDIT
 AS
     SELECT productoID,
         vendedorID,
@@ -324,10 +324,10 @@ AS
         telefonoGerente
     FROM provedorr;
 
-/* Crear la VISTA_Proveedor_View, que muestre todas las columnas de la tabla
+/* Crear la VISTA_Proveedor_VIEW, que muestre todas las columnas de la tabla
 recién creada y que incluya un filtro por usuario */
 
-CREATE  OR REPLACE view VISTA_Proveedor_View
+CREATE  OR REPLACE VIEW VISTA_Proveedor_VIEW
  AS SELECT 
     vendedorID  ,
     proveedorID ,
@@ -345,9 +345,9 @@ CREATE  OR REPLACE view VISTA_Proveedor_View
     FROM Proveedor
     WHERE digitador = USER;
 
-/* Añadir datos a su tabla NOMBRE_DE_LA_TABLA usando la VISTA_Proveedor_Edit */
+/* Añadir datos a su tabla NOMBRE_DE_LA_TABLA usando la VISTA_Proveedor_EDIT */
 
-INSERT INTO VISTA_Proveedor_Edit
+INSERT INTO VISTA_Proveedor_EDIT
 VALUES (10245101, 
         10003541,
         10002141,
@@ -362,29 +362,29 @@ VALUES (10245101,
         );
 
 /* Permitir que sus compañeros de grupo únicamente puedan a añadir datos
-a su tabla Empleado utilizando la VISTA_Proveedor_Edit */
+a su tabla Empleado utilizando la VISTA_Proveedor_EDIT */
 /* Permitir a sus compañeros de grupo, ver los datos que ellos añadieron
-a su tabla Empleado utilizando la vista VISTA_Proveedor_View */
+a su tabla Empleado utilizando la vista VISTA_Proveedor_VIEW */
 /* Permitir a sus compañeros de grupo, ver los datos que todos añadieron
-a su tabla Empleado utilizando la VISTA_Proveedor_Edit */
+a su tabla Empleado utilizando la VISTA_Proveedor_EDIT */
 
 
 
-GRANT SELECT ON VISTA_Proveedor_View TO negarzonc;
-GRANT INSERT ON VISTA_Proveedor_Edit TO negarzonc;
-GRANT SELECT ON VISTA_Proveedor_Edit TO negarzonc;
+GRANT SELECT ON VISTA_Proveedor_VIEW TO negarzonc;
+GRANT INSERT ON VISTA_Proveedor_EDIT TO negarzonc;
+GRANT SELECT ON VISTA_Proveedor_EDIT TO negarzonc;
 
-GRANT SELECT ON VISTA_Proveedor_View TO dsilvamo;
-GRANT INSERT ON VISTA_Proveedor_Edit TO dsilvamo;
-GRANT SELECT ON VISTA_Proveedor_Edit TO dsilvamo;
+GRANT SELECT ON VISTA_Proveedor_VIEW TO dsilvamo;
+GRANT INSERT ON VISTA_Proveedor_EDIT TO dsilvamo;
+GRANT SELECT ON VISTA_Proveedor_EDIT TO dsilvamo;
 
-GRANT SELECT ON VISTA_Proveedor_View TO maarojasga;
-GRANT INSERT ON VISTA_Proveedor_EditTO maarojasga;
-GRANT SELECT ON VISTA_Proveedor_Edit TO maarojasga;
+GRANT SELECT ON VISTA_Proveedor_VIEW TO maarojasga;
+GRANT INSERT ON VISTA_Proveedor_EDITTO maarojasga;
+GRANT SELECT ON VISTA_Proveedor_EDIT TO maarojasga;
 
 /* Los compañeros de su grupos tienen que añadir datos a su tabla
-NOMBRE_DE_LA_TABLA, usando la vista cuenta.VISTA_Provedor_Edit */
-INSERT INTO cuenta_del_compañero.VISTA_Proveedor_Edit
+NOMBRE_DE_LA_TABLA, usando la vista cuenta.VISTA_Provedor_EDIT */
+INSERT INTO cuenta_del_compañero.VISTA_Proveedor_EDIT
  VALUES (10245101, 
         10003541,
         10002141,
@@ -398,8 +398,8 @@ INSERT INTO cuenta_del_compañero.VISTA_Proveedor_Edit
         7541458,
         );
 /* Ver los datos que cada uno ingresó a la tabla NOMBRE_DE_LA_TABLA
-utilizando la vista cuenta.VISTA_Provedor_View */
-SELECT * FROM cuenta_del_compañero.VISTA_Proveedor_View;
+utilizando la vista cuenta.VISTA_Provedor_VIEW */
+SELECT * FROM cuenta_del_compañero.VISTA_Proveedor_VIEW;
 
 
 
@@ -428,10 +428,10 @@ CREATE TABLE Empleados
     digitador VARCHAR(15) default USER NOT NULL,
     fecha DATE default sysdate NOT NULL
 );
-/* Crear la vista VISTA_Empleados_Edit, que muestre las columnas que usted definió en
+/* Crear la vista VISTA_Empleados_EDIT, que muestre las columnas que usted definió en
 la tabla recién creada y que excluya las columnas digitador y fecha */
 
-CREATE view VISTA_Empleados_Edit AS SELECT
+CREATE VIEW VISTA_Empleados_EDIT AS SELECT
         empleadoID ,
         nombresApellidos ,
         telefono ,
@@ -450,11 +450,11 @@ CREATE view VISTA_Empleados_Edit AS SELECT
         telefonoCliente
     FROM empleados;
 
-/* Crear la vista VISTA_Empleados_View, que muestre todas las columnas de la tabla
+/* Crear la vista VISTA_Empleados_VIEW, que muestre todas las columnas de la tabla
 recién creada y que incluya un filtro por usuario */
 
 
-CREATE OR replace view VISTA_Empleados_View AS SELECT 
+CREATE OR replace VIEW VISTA_Empleados_VIEW AS SELECT 
        empleadoID ,
         nombresApellidos ,
         telefono ,
@@ -475,9 +475,9 @@ CREATE OR replace view VISTA_Empleados_View AS SELECT
         to_char (fecha, 'dd-mm-yyyy" "hh24:mi:ss') FROM Provedor
     WHERE digitador = USER;
 
-/* Añadir datos a su tabla NOMBRE_DE_LA_TABLA usando la VISTA_Empleados_Edit */
+/* Añadir datos a su tabla NOMBRE_DE_LA_TABLA usando la VISTA_Empleados_EDIT */
 
-INSERT INTO VISTA_Empleados_Edit
+INSERT INTO VISTA_Empleados_EDIT
  VALUES (20045101, 
         'Leonardo Pardo Marquez',
         7485412,
@@ -497,28 +497,28 @@ INSERT INTO VISTA_Empleados_Edit
 
 
 /* Permitir que sus compañeros de grupo únicamente puedan a añadir datos
-a su tabla Empleado utilizando la vista VISTA_Empleados_Edit */
+a su tabla Empleado utilizando la vista VISTA_Empleados_EDIT */
 /* Permitir a sus compañeros de grupo, ver los datos que ellos añadieron
-a su tabla Empleado utilizando la vista VISTA_Empleados_View */
+a su tabla Empleado utilizando la vista VISTA_Empleados_VIEW */
 /* Permitir a sus compañeros de grupo, ver los datos que todos añadieron
-a su tabla Empleado utilizando la vista VISTA_Empleados_Edit */
+a su tabla Empleado utilizando la vista VISTA_Empleados_EDIT */
 
 
-GRANT SELECT ON VISTA_Empleados_View TO negarzonc;
-GRANT INSERT ON VISTA_Empleados_Edit TO negarzonc;
-GRANT SELECT ON VISTA_Empleados_Edit TO negarzonc;
+GRANT SELECT ON VISTA_Empleados_VIEW TO negarzonc;
+GRANT INSERT ON VISTA_Empleados_EDIT TO negarzonc;
+GRANT SELECT ON VISTA_Empleados_EDIT TO negarzonc;
 
-GRANT SELECT ON VISTA_Empleados_View TO dsilvamo;
-GRANT INSERT ON VISTA_Empleados_Edit TO dsilvamo;
-GRANT SELECT ON VISTA_Empleados_Edit TO dsilvamo;
+GRANT SELECT ON VISTA_Empleados_VIEW TO dsilvamo;
+GRANT INSERT ON VISTA_Empleados_EDIT TO dsilvamo;
+GRANT SELECT ON VISTA_Empleados_EDIT TO dsilvamo;
 
-GRANT SELECT ON VISTA_Empleados_View TO maarojasga;
-GRANT INSERT ON VISTA_Empleados_Edit TO maarojasga;
-GRANT SELECT ON VISTA_Empleados_Edit TO maarojasga;
+GRANT SELECT ON VISTA_Empleados_VIEW TO maarojasga;
+GRANT INSERT ON VISTA_Empleados_EDIT TO maarojasga;
+GRANT SELECT ON VISTA_Empleados_EDIT TO maarojasga;
 
 /* Los compañeros de su grupos tienen que añadir datos a su tabla
-NOMBRE_DE_LA_TABLA, usando la vista cuenta.VISTA_Provedor_Edit */
-INSERT INTO cuenta_del_compañero.VISTA_Empleados_Edit
+NOMBRE_DE_LA_TABLA, usando la vista cuenta.VISTA_Provedor_EDIT */
+INSERT INTO cuenta_del_compañero.VISTA_Empleados_EDIT
  VALUES (20045101, 
         'Leonardo Pardo Marquez',
         7485412,
@@ -536,5 +536,5 @@ INSERT INTO cuenta_del_compañero.VISTA_Empleados_Edit
         31235845,
         );
 /* Ver los datos que cada uno ingresó a la tabla NOMBRE_DE_LA_TABLA
-utilizando la vista cuenta.VISTA_Provedor_View */
-SELECT * FROM cuenta_del_compañero.VISTA_Proveedor_View;
+utilizando la vista cuenta.VISTA_Provedor_VIEW */
+SELECT * FROM cuenta_del_compañero.VISTA_Proveedor_VIEW;

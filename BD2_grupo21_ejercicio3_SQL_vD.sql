@@ -24,7 +24,7 @@ CREATE TABLE Proveedor
 /* Crear la vista VISTA_1, que muestre las columnas que usted definió en
 la tabla recién creada y que excluya las columnas digitador y fecha */
 
-CREATE VIEW VISTA_Proveedor_Edit
+CREATE VIEW VISTA_Proveedor_EDIT
 AS
     SELECT
         productoID,
@@ -42,7 +42,7 @@ AS
 
 /* Crear la vista VISTA_2, que muestre todas las columnas de la tabla
 recién creada y que incluya un filtro por usuario */
-CREATE VIEW VISTA_Proveedor_View
+CREATE VIEW VISTA_Proveedor_VIEW
 AS
     SELECT *
     FROM Proveedor
@@ -75,7 +75,7 @@ CREATE TABLE Empleado
 /* Crear la vista VISTA_1, que muestre las columnas que usted definió en
 la tabla recién creada y que excluya las columnas digitador y fecha */
 
-CREATE VIEW VISTA_Empleado_Edit
+CREATE VIEW VISTA_Empleado_EDIT
 AS
     SELECT
         empleadoID,
@@ -98,7 +98,7 @@ AS
 
 /* Crear la vista VISTA_2, que muestre todas las columnas de la tabla
 recién creada y que incluya un filtro por usuario */
-CREATE VIEW VISTA_Empleado_View
+CREATE VIEW VISTA_Empleado_VIEW
 AS
     SELECT *
     FROM Empleado
@@ -126,7 +126,7 @@ CREATE TABLE Cliente
 /* Crear la vista VISTA_1, que muestre las columnas que usted definió en
 la tabla recién creada y que excluya las columnas digitador y fecha */
 
-CREATE VIEW VISTA_Cliente_Edit
+CREATE VIEW VISTA_Cliente_EDIT
 AS
     SELECT
         numeroCliente,
@@ -143,7 +143,7 @@ AS
     FROM Cliente
 
 /* */
-CREATE VIEW VISTA_Cliente_View
+CREATE VIEW VISTA_Cliente_VIEW
 AS
     SELECT *
     FROM Cliente
@@ -188,10 +188,10 @@ CREATE TABLE Producto
     constraint  PK_JJ primary key   (productoID)
 )
 
-/* Crear la vista VISTA_Producto_Edit, que muestre las columnas que usted definió en
+/* Crear la vista VISTA_Producto_EDIT, que muestre las columnas que usted definió en
 la tabla recién creada y que excluya las columnas digitador y fecha */
 
-CREATE VIEW VISTA_Producto_Edit
+CREATE VIEW VISTA_Producto_EDIT
 AS
     SELECT
         nombre,
@@ -205,10 +205,10 @@ AS
 
     FROM Producto
 
-/* Crear la vista VISTA_Producto_View, que muestre todas las columnas de la tabla
+/* Crear la vista VISTA_Producto_VIEW, que muestre todas las columnas de la tabla
 recién creada y que incluya un filtro por usuario */
 
-CREATE VIEW VISTA_Producto_View
+CREATE VIEW VISTA_Producto_VIEW
 AS
     SELECT *
     FROM Producto
@@ -218,126 +218,126 @@ AS
 
 /* Permitir acceso a los compañeros de grupo */
 
-GRANT SELECT ON VISTA_Proveedor_View TO maarojasga
-GRANT SELECT ON VISTA_Proveedor_View TO dsilvamo
-GRANT SELECT ON VISTA_Proveedor_View TO dabonilla
-GRANT INSERT ON VISTA_Proveedor_Edit TO maarojasga
-GRANT INSERT ON VISTA_Proveedor_Edit TO dsilvamo
-GRANT INSERT ON VISTA_Proveedor_Edit TO dabonilla
+GRANT SELECT ON VISTA_Proveedor_VIEW TO maarojasga
+GRANT SELECT ON VISTA_Proveedor_VIEW TO dsilvamo
+GRANT SELECT ON VISTA_Proveedor_VIEW TO dabonilla
+GRANT INSERT ON VISTA_Proveedor_EDIT TO maarojasga
+GRANT INSERT ON VISTA_Proveedor_EDIT TO dsilvamo
+GRANT INSERT ON VISTA_Proveedor_EDIT TO dabonilla
 
-GRANT SELECT ON VISTA_empleado_View TO maarojasga
-GRANT SELECT ON VISTA_empleado_View TO dsilvamo
-GRANT SELECT ON VISTA_empleado_View TO dabonilla
-GRANT INSERT ON VISTA_empleado_Edit TO maarojasga
-GRANT INSERT ON VISTA_empleado_Edit TO dsilvamo
-GRANT INSERT ON VISTA_empleado_Edit TO dabonilla
+GRANT SELECT ON VISTA_empleado_VIEW TO maarojasga
+GRANT SELECT ON VISTA_empleado_VIEW TO dsilvamo
+GRANT SELECT ON VISTA_empleado_VIEW TO dabonilla
+GRANT INSERT ON VISTA_empleado_EDIT TO maarojasga
+GRANT INSERT ON VISTA_empleado_EDIT TO dsilvamo
+GRANT INSERT ON VISTA_empleado_EDIT TO dabonilla
 
-GRANT SELECT ON VISTA_Cliente_View TO maarojasga
-GRANT SELECT ON VISTA_Cliente_View TO dsilvamoa
-GRANT SELECT ON VISTA_Cliente_View TO dabonilla
-GRANT INSERT ON VISTA_Cliente_Edit TO maarojasga
-GRANT INSERT ON VISTA_Cliente_Edit TO dsilvamo
-GRANT INSERT ON VISTA_Cliente_Edit TO dabonilla
+GRANT SELECT ON VISTA_Cliente_VIEW TO maarojasga
+GRANT SELECT ON VISTA_Cliente_VIEW TO dsilvamoa
+GRANT SELECT ON VISTA_Cliente_VIEW TO dabonilla
+GRANT INSERT ON VISTA_Cliente_EDIT TO maarojasga
+GRANT INSERT ON VISTA_Cliente_EDIT TO dsilvamo
+GRANT INSERT ON VISTA_Cliente_EDIT TO dabonilla
 
-GRANT SELECT ON VISTA_Producto_View TO maarojasga
-GRANT SELECT ON VISTA_Producto_View TO dsilvamo
-GRANT SELECT ON VISTA_Producto_View TO dabonilla
-GRANT INSERT ON VISTA_Producto_Edit TO maarojasga
-GRANT INSERT ON VISTA_Producto_Edit TO dsilvamo
-GRANT INSERT ON VISTA_Producto_Edit TO dabonilla
+GRANT SELECT ON VISTA_Producto_VIEW TO maarojasga
+GRANT SELECT ON VISTA_Producto_VIEW TO dsilvamo
+GRANT SELECT ON VISTA_Producto_VIEW TO dabonilla
+GRANT INSERT ON VISTA_Producto_EDIT TO maarojasga
+GRANT INSERT ON VISTA_Producto_EDIT TO dsilvamo
+GRANT INSERT ON VISTA_Producto_EDIT TO dabonilla
 
 /*///////////////////////////////*/
-INSERT INTO VISTA_Proveedor_Edit
+INSERT INTO VISTA_Proveedor_EDIT
 VALUES(
         0, 0, 0, 'Luis Hernando', 112321245, 3132324456, 7864212, 'Cra 98 # 12 R 21-2', 'Jose', 1209786453, 1223423453
 );
 
-INSERT INTO VISTA_Proveedor_Edit
+INSERT INTO VISTA_Proveedor_EDIT
 VALUES(
         1, 1, 1, 'Jose Ignazio', 112321245, 3132324456, 7864212, 'Cra 98 # 12 R 21-2', 'Jose', 1209786453, 1223423453
 );
 
-INSERT INTO VISTA_Proveedor_Edit
+INSERT INTO VISTA_Proveedor_EDIT
 VALUES(
         2, 2, 2, 'Ana Galingo', 112321245, 3132324456, 7864212, 'Cra 98 # 12 R 21-2', 'Jose', 1209786453, 1223423453
 );
 
-INSERT INTO VISTA_Proveedor_Edit
+INSERT INTO VISTA_Proveedor_EDIT
 VALUES(
         1, 1, 1, 'Luis Hernando', 112321245, 3132324456, 7864212, 'Cra 98 # 12 R 21-2', 'Jose', 1209786453, 1223423453
 );
 
 
 /*///////////////////////////////*/
-INSERT INTO negarzonc.VISTA_Empleado_Edit
+INSERT INTO negarzonc.VISTA_Empleado_EDIT
 VALUES(
         0, 'Jose', 'Ignazio', 3002238754, 98352673, 'Trans 23 # 91 -2', 'Masculino', 'jose@jose.com', '02/05/2020', 'gerencia', 'presidente', 8000000, 12000000, 12512, 'asd',305486235
 );
-INSERT INTO negarzonc.VISTA_Empleado_Edit
+INSERT INTO negarzonc.VISTA_Empleado_EDIT
 VALUES(
         0, 'Jose', 'Ignazio', 3002238754, 98352673, 'Trans 23 # 91 -2', 'Masculino', 'jose@jose.com', '02/05/2020', 'gerencia', 'presidente', 8000000, 12000000, 12512, 'asd',305486235
 );
-INSERT INTO negarzonc.VISTA_Empleado_Edit
+INSERT INTO negarzonc.VISTA_Empleado_EDIT
 VALUES(
         0, 'Jose', 'Ignazio', 3002238754, 98352673, 'Trans 23 # 91 -2', 'Masculino', 'jose@jose.com', '02/05/2020', 'gerencia', 'presidente', 8000000, 12000000, 12512, 'asd',305486235
 );
-INSERT INTO negarzonc.VISTA_Empleado_Edit
+INSERT INTO negarzonc.VISTA_Empleado_EDIT
 VALUES(
         0, 'Jose', 'Ignazio', 3002238754, 98352673, 'Trans 23 # 91 -2', 'Masculino', 'jose@jose.com', '02/05/2020', 'gerencia', 'presidente', 8000000, 12000000, 12512, 'asd',305486235
 );
 
 /*///////////////////////////////*/
 
-INSERT INTO VISTA_Cliente_Edit
+INSERT INTO VISTA_Cliente_EDIT
 VALUES(
         0, 6843561210, 'Luis Hernando','Cra 98 # 12 R 21-2', 'Bogota', 'lh@gmail.com', 8752541, 'zapatos', 'no', 'Jose', 896512354
 );
 
-INSERT INTO VISTA_Cliente_Edit
+INSERT INTO VISTA_Cliente_EDIT
 VALUES(
         1, 4897465132, 'Luis Garcia','Tras 98 # 12 R 21-2', 'Bogota', 'lh@gmail.com', 8752541, 'zapatos', 'no', 'Jose', 896512354
 );
 
-INSERT INTO VISTA_Cliente_Edit
+INSERT INTO VISTA_Cliente_EDIT
 VALUES(
         2, 310684, 'Maria Gonzales','Cra 98 # 85 R 21-2', 'Bogota', 'lh@gmail.com', 8752541, 'zapatos', 'no', 'Jose', 896512354
 );
 
-INSERT INTO VISTA_Cliente_Edit
+INSERT INTO VISTA_Cliente_EDIT
 VALUES(
         2, 69845132, 'Luis Hernando','Cra 98 # 12 R 21-2', 'Bogota', 'lh@gmail.com', 8752541, 'zapatos', 'no', 'Jose', 896512354
 );
 
 /*///////////////////////////////*/
 
-INSERT INTO VISTA_Producto_Edit
+INSERT INTO VISTA_Producto_EDIT
 VALUES(
         0, 'Zapatos', 2, 12000, 50000, 0, 'NA',2, '20/05/2019'
 );
 
-INSERT INTO VISTA_Producto_Edit
+INSERT INTO VISTA_Producto_EDIT
 VALUES(
         3, 'Camisas', 2, 12000, 50000, 0, 'NA',2, '20/05/2019'
 );
 
-INSERT INTO VISTA_Producto_Edit
+INSERT INTO VISTA_Producto_EDIT
 VALUES(
         2, 'Zapatos', 2, 12000, 50000, 0, 'NA',2, '20/05/2019'
 );
 
-INSERT INTO VISTA_Producto_Edit
+INSERT INTO VISTA_Producto_EDIT
 VALUES(
         0, 'Zapatos', 2, 12000, 50000, 0, 'NA',2, '20/05/2019'
 );
 
-SELECT * FROM VISTA_Cliente_View;
-SELECT * FROM VISTA_Producto_View;
-SELECT * FROM VISTA_Empleado_View;
-SELECT * FROM VISTA_Producto_View;
+SELECT * FROM VISTA_Cliente_VIEW;
+SELECT * FROM VISTA_Producto_VIEW;
+SELECT * FROM VISTA_Empleado_VIEW;
+SELECT * FROM VISTA_Producto_VIEW;
 
 /*///////////////////////////////*/
 
-SELECT * FROM negarzonc.VISTA_Empleado_Edit
-SELECT * FROM negarzonc.VISTA_Proveedores_Edit
-SELECT * FROM negarzonc.VISTA_Cliente_Edit
-SELECT * FROM negarzonc.VISTA_Producto_Edit
+SELECT * FROM negarzonc.VISTA_Empleado_EDIT
+SELECT * FROM negarzonc.VISTA_Proveedores_EDIT
+SELECT * FROM negarzonc.VISTA_Cliente_EDIT
+SELECT * FROM negarzonc.VISTA_Producto_EDIT
