@@ -1395,6 +1395,17 @@ SUCURSAL_ID ASC
 )
 go
 
+/*==============================================================*/
+/* Table: REGISTRO_HISTORICO                                    */
+/*==============================================================*/
+create table REGISTRO_HISTORICO_USUARIO
+(
+   REGISTRO_HISTORICO_USUARIO VARCHAR(15) default user_name() NOT NULL,
+   REGISTRO_HISTORICO_FECHA DATETIME default getdate () NOT NULL,
+   REGISTRO_HISTORICO_MENSAJE VARCHAR(100) NOT NULL
+)
+go
+
 alter table ASISTENCIA_CAPACITACIONES
    add constraint FK_ASISTENC_CONTROL_A_CAPACITA foreign key (CAPACITACION_ID)
       references CAPACITACIONES (CAPACITACION_ID)
