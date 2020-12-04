@@ -724,7 +724,7 @@ AS
 
 
 /*==============================================================*/
-/* VISTA PÚBLICA CLIENTES                                       */
+/* VISTA: PÚBLICA CLIENTES                                       */
 /*==============================================================*/
 
 select * VISTA_PUBLICA_CLIENTES_VIEW
@@ -738,7 +738,7 @@ AS
     FROM CLIENTES
 
 /*==============================================================*/
-/* VISTA PÚBLICA PROVEEDORES                                       */
+/* VISTA: PÚBLICA PROVEEDORES                                       */
 /*==============================================================*/
 
 select * VISTA_PUBLICA_PROVEEDORES_VIEW
@@ -752,7 +752,7 @@ AS
     FROM PROVEEDORES
 
 /*==============================================================*/
-/* VISTA PÚBLICA EMPLEADOS                                      */
+/* VISTA: PÚBLICA EMPLEADOS                                      */
 /*==============================================================*/
 
 select * VISTA_PUBLICA_EMPLEADOS_VIEW
@@ -767,7 +767,7 @@ AS
     FROM EMPLEADOS
 
 /*==============================================================*/
-/* VISTA PÚBLICA VENDEDORES                                     */
+/* VISTA: PÚBLICA VENDEDORES                                     */
 /*==============================================================*/
 
 select * VISTA_PUBLICA_VENDEDORES_VIEW
@@ -779,6 +779,18 @@ AS
    VENDEDOR_CORREO
      
 FROM VENDEDORES
+
+/*==============================================================*/
+/* VISTA: REGISTRO_HISTORICO                                    */
+/*==============================================================*/
+
+select * VISTA_REGISTRO_HISTORICO_VIEW
+AS
+   REGISTRO_HISTORICO_USUARIO,
+   REGISTRO_HISTORICO_FECHA,
+   REGISTRO_HISTORICO_MENSAJE
+
+    FROM REGISTRO_HISTORICO
 
 /*==============================================================*/
 /* PERMISOS                                                     */
@@ -1048,19 +1060,14 @@ GRANT SELECT ON VISTA_VENDEDORES_Edit TO dabonilla
 /* PERMISOS PÚBLICOS                                            */
 /*==============================================================*/
 
-GRANT SELECT ON VISTA_PUBLICA_CLIENTES_View TO negarzonc
-GRANT INSERT ON VISTA_PUBLICA_CLIENTES_Edit TO negarzonc
-GRANT SELECT ON VISTA_PUBLICA_CLIENTES_Edit TO negarzonc
+GRANT SELECT ON VISTA_PUBLICA_CLIENTES_View TO PUBLIC
 
-GRANT SELECT ON VISTA_PUBLICA_PROVEEDORES_View TO negarzonc
-GRANT INSERT ON VISTA_PUBLICA_PROVEEDORES_Edit TO negarzonc
-GRANT SELECT ON VISTA_PUBLICA_PROVEEDORES_Edit TO negarzonc
+GRANT SELECT ON VISTA_PUBLICA_PROVEEDORES_View TO PUBLIC
 
-GRANT SELECT ON VISTA_PUBLICA_EMPLEADOS_View TO negarzonc
-GRANT INSERT ON VISTA_PUBLICA_EMPLEADOS_Edit TO negarzonc
-GRANT SELECT ON VISTA_PUBLICA_EMPLEADOS_Edit TO negarzonc
+GRANT SELECT ON VISTA_PUBLICA_EMPLEADOS_View TO PUBLIC
 
-GRANT SELECT ON VISTA_PUBLICA_VENDEDORES_View TO negarzonc
-GRANT INSERT ON VISTA_PUBLICA_VENDEDORES_Edit TO negarzonc
-GRANT SELECT ON VISTA_PUBLICA_VENDEDORES_Edit TO negarzonc
+GRANT SELECT ON VISTA_PUBLICA_VENDEDORES_View TO PUBLIC
+
+GRANT SELECT ON VISTA_REGISTRO_HISTORICO_View TO PUBLIC
+
 
