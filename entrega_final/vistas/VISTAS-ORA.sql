@@ -1,1459 +1,1350 @@
 /*==============================================================*/
-/* View_Edit: ASISTENCIA_CAPACITACIONES                                             */
+/* DBMS name:      ORACLE Version 10g                           */
+/* Created on:     3/12/2020 1:24:23 a.�m.                      */
 /*==============================================================*/
-CREATE view VISTA_ASISTENCIA_CAPACITACIONES_Edit AS SELECT 
-    ASISTENCIA_CAPACITACIONES_ID,
-    CAPACITACION_ID,
-    ASISTENCIA_CAPACITACIONES_SI_N
-                                    FROM ASISTENCIA_CAPACITACIONES;
+
+
+
+-- Type package declaration
+create or replace package PDTypes  
+as
+    TYPE ref_cursor IS REF CURSOR;
+end;
+
+-- Integrity package declaration
+create or replace package IntegrityPackage AS
+ procedure InitNestLevel;
+ function GetNestLevel return number;
+ procedure NextNestLevel;
+ procedure PreviousNestLevel;
+ end IntegrityPackage;
+/
+
+-- Integrity package definition
+create or replace package body IntegrityPackage AS
+ NestLevel number;
+
+-- Procedure to initialize the trigger nest level
+ procedure InitNestLevel is
+ begin
+ NestLevel := 0;
+ end;
+
+
+-- Function to return the trigger nest level
+ function GetNestLevel return number is
+ begin
+ if NestLevel is null then
+     NestLevel := 0;
+ end if;
+ return(NestLevel);
+ end;
+
+-- Procedure to increase the trigger nest level
+ procedure NextNestLevel is
+ begin
+ if NestLevel is null then
+     NestLevel := 0;
+ end if;
+ NestLevel := NestLevel + 1;
+ end;
+
+-- Procedure to decrease the trigger nest level
+ procedure PreviousNestLevel is
+ begin
+ NestLevel := NestLevel - 1;
+ end;
+
+ end IntegrityPackage;
+/
+
+
+drop trigger TIB_ASISTENCIA_CAPACITACIONES
+/
+
+drop trigger TIB_BODEGAS
+/
+
+drop trigger TIB_CANDIDATOS
+/
+
+drop trigger TIB_CAPACITACIONES
+/
+
+drop trigger TIB_CARGOS
+/
+
+drop trigger TIB_CIUDADES
+/
+
+drop trigger TIB_CLIENTES
+/
+
+drop trigger TIB_CLIENTE_GERENTE
+/
+
+drop trigger TIB_DEPARTAMENTOS
+/
+
+drop trigger TIB_DIRECTOR_DEPARTAMENTO
+/
+
+drop trigger TIB_DIRECTOR_SUCURSAL
+/
+
+drop trigger TIB_EMPLEADOS
+/
+
+drop trigger TIB_EMPRESA
+/
+
+drop trigger TIB_EMPRESA_GERENTE
+/
+
+drop trigger TIB_EMPRESA_SUBGERENTE
+/
+
+drop trigger TIB_HISTORIAL_TRABAJADORES
+/
+
+drop trigger TIB_ORDENES
+/
+
+drop trigger TIB_ORDENES_ITEMS
+/
+
+drop trigger TIB_PAISES
+/
+
+drop trigger TIB_PREMIOS
+/
+
+drop trigger TIB_PRODUCTOS
+/
+
+drop trigger TIB_PROVEEDORES
+/
+
+drop trigger TIB_PROVEEDOR_GERENTE
+/
+
+drop trigger TIB_SUCURSALES
+/
+
+drop trigger TIB_VACANTES
+/
+
+drop trigger TIB_VENDEDORES
+/
+
+alter table ASISTENCIA_CAPACITACIONES
+   drop constraint FK_ASISTENC_CONTROL_A_CAPACITA
+/
+
+alter table BODEGAS
+   drop constraint FK_BODEGAS_TIENEN_SUCURSAL
+/
+
+alter table CANDIDATOS
+   drop constraint FK_CANDIDAT_TIENE_CAN_VACANTES
+/
+
+alter table CAPACITACIONES
+   drop constraint FK_CAPACITA_RECIBEN_C_EMPLEADO
+/
+
+alter table CARGOS
+   drop constraint FK_CARGOS_DIVIDE_EN_DEPARTAM
+/
+
+alter table CIUDADES
+   drop constraint FK_CIUDADES_CONTIENE__PAISES
+/
+
+alter table CLIENTE_GERENTE
+   drop constraint FK_CLIENTE__REPRESENT_CLIENTES
+/
+
+alter table DEPARTAMENTOS
+   drop constraint FK_DEPARTAM_DIRIGE_DE_DIRECTOR
+/
+
+alter table DEPARTAMENTOS
+   drop constraint FK_DEPARTAM_DIVIDE_EN_SUCURSAL
+/
+
+alter table DIRECTOR_DEPARTAMENTO
+   drop constraint FK_DIRECTOR_JEFE_DIR__DIRECTOR
+/
+
+alter table DIRECTOR_SUCURSAL
+   drop constraint FK_DIRECTOR_JEFE_DIRE_EMPRESA_
+/
+
+alter table EMPLEADOS
+   drop constraint FK_EMPLEADO_OCUPADOS__CARGOS
+/
+
+alter table EMPRESA_GERENTE
+   drop constraint FK_EMPRESA__DIRIGIDA__EMPRESA
+/
+
+alter table EMPRESA_SUBGERENTE
+   drop constraint FK_EMPRESA__JEFE_SUBG_EMPRESA_
+/
+
+alter table EMPRESA_SUBGERENTE
+   drop constraint FK_EMPRESA__REEMPLAZO_EMPRESA
+/
+
+alter table ORDENES
+   drop constraint FK_ORDENES_GENERA_VENDEDOR
+/
+
+alter table ORDENES
+   drop constraint FK_ORDENES_LUGAR_VEN_SUCURSAL
+/
+
+alter table ORDENES
+   drop constraint FK_ORDENES_PIDEN_CLIENTES
+/
+
+alter table ORDENES_ITEMS
+   drop constraint FK_ORDENES__PASO_ORDE_ORDENES
+/
+
+alter table ORDENES_ITEMS
+   drop constraint FK_ORDENES__RELACIONA_PRODUCTO
+/
+
+alter table PAISES
+   drop constraint FK_PAISES_ESTA_PRES_EMPRESA
+/
+
+alter table PRODUCTOS
+   drop constraint FK_PRODUCTO_ALMACENA_BODEGAS
+/
+
+alter table PRODUCTOS
+   drop constraint FK_PRODUCTO_PROVEE_PR_PROVEEDO
+/
+
+alter table PROVEEDOR_GERENTE
+   drop constraint FK_PROVEEDO_REPRESENT_PROVEEDO
+/
+
+alter table SUCURSALES
+   drop constraint FK_SUCURSAL_CONTIENE__CIUDADES
+/
+
+alter table SUCURSALES
+   drop constraint FK_SUCURSAL_DIRIGE_SU_DIRECTOR
+/
+
+alter table VACANTES
+   drop constraint FK_VACANTES_CARGOS_DI_CARGOS
+/
+
+alter table VENDEDORES
+   drop constraint FK_VENDEDOR_ATENDIDA__SUCURSAL
+/
+
+drop index CONTROL_ASISTENCIA_FK
+/
+
+drop table ASISTENCIA_CAPACITACIONES cascade constraints
+/
+
+drop index TIENEN_FK
+/
+
+drop table BODEGAS cascade constraints
+/
+
+drop index TIENE_CANDIDATOS_FK
+/
+
+drop table CANDIDATOS cascade constraints
+/
+
+drop index RECIBEN_CAPACITACIONES_FK
+/
+
+drop table CAPACITACIONES cascade constraints
+/
+
+drop index DIVIDE_EN_CARGOS_FK
+/
+
+drop table CARGOS cascade constraints
+/
+
+drop index CONTIENE_CIUDADES_FK
+/
+
+drop table CIUDADES cascade constraints
+/
+
+drop table CLIENTES cascade constraints
+/
+
+drop index REPRESENTA_CLIENTE_FK
+/
+
+drop table CLIENTE_GERENTE cascade constraints
+/
+
+drop index DIRIGE_DEPARTAMENTO_FK
+/
+
+drop index DIVIDE_EN_DEPARTAMENTOS_FK
+/
+
+drop table DEPARTAMENTOS cascade constraints
+/
+
+drop index JEFE_DIR_DEPARTAMENTO_FK
+/
+
+drop table DIRECTOR_DEPARTAMENTO cascade constraints
+/
+
+drop index JEFE_DIRECTOR_SUCURSAL_FK
+/
+
+drop table DIRECTOR_SUCURSAL cascade constraints
+/
+
+drop index OCUPADOS_POR_FK
+/
+
+drop table EMPLEADOS cascade constraints
+/
+
+drop table EMPRESA cascade constraints
+/
+
+drop index DIRIGIDA_POR_FK
+/
+
+drop table EMPRESA_GERENTE cascade constraints
+/
+
+drop index REEMPLAZO_GERENTE_FK
+/
+
+drop index JEFE_SUBGERENTE_FK
+/
+
+drop table EMPRESA_SUBGERENTE cascade constraints
+/
+
+drop table HISTORIAL_TRABAJADORES cascade constraints
+/
+
+drop index PIDEN_FK
+/
+
+drop index GENERA_FK
+/
+
+drop index LUGAR_VENTA_FK
+/
+
+drop table ORDENES cascade constraints
+/
+
+drop index RELACIONAN_PRODUCTOS_FK
+/
+
+drop index PASO_ORDENES_ITEMS_FK
+/
+
+drop table ORDENES_ITEMS cascade constraints
+/
+
+drop index ESTA_PRESENTE_FK
+/
+
+drop table PAISES cascade constraints
+/
+
+drop table PREMIOS cascade constraints
+/
+
+drop index PROVEE_PRODUCTOS_FK
+/
+
+drop index ALMACENA_FK
+/
+
+drop table PRODUCTOS cascade constraints
+/
+
+drop table PROVEEDORES cascade constraints
+/
+
+drop index REPRESENTA_PROVEEDOR_FK
+/
+
+drop table PROVEEDOR_GERENTE cascade constraints
+/
+
+drop index DIRIGE_SUCURSAL_FK
+/
+
+drop index CONTIENE_SUCURSALES_FK
+/
+
+drop table SUCURSALES cascade constraints
+/
+
+drop index CARGOS_DISPONIBLES_FK
+/
+
+drop table VACANTES cascade constraints
+/
+
+drop index ATENDIDA_POR_FK
+/
+
+drop table VENDEDORES cascade constraints
+/
+
+drop sequence SECUENCIA_ASISTENCIA_CAPACITAC
+/
+
+drop sequence SECUENCIA_BODEGAS
+/
+
+drop sequence SECUENCIA_CANDIDATOS
+/
+
+drop sequence SECUENCIA_CAPACITACION
+/
+
+drop sequence SECUENCIA_CARGOS
+/
+
+drop sequence SECUENCIA_CIUDADES
+/
+
+drop sequence SECUENCIA_CLIENTES
+/
+
+drop sequence SECUENCIA_CLIENTE_GERENTE
+/
+
+drop sequence SECUENCIA_DEPARTAMENTOS
+/
+
+drop sequence SECUENCIA_DIRECTOR_DEPARTAMENT
+/
+
+drop sequence SECUENCIA_DIRECTOR_SUCURSAL
+/
+
+drop sequence SECUENCIA_EMPLEADOS
+/
+
+drop sequence SECUENCIA_EMPRESA
+/
+
+drop sequence SECUENCIA_EMPRESA_GERENTE
+/
+
+drop sequence SECUENCIA_EMPRESA_SUBGERENTE
+/
+
+drop sequence SECUENCIA_HISTORIA_TRABAJADORE
+/
+
+drop sequence SECUENCIA_ORDENES
+/
+
+drop sequence SECUENCIA_ORDEN_ITEM
+/
+
+drop sequence SECUENCIA_PAISES
+/
+
+drop sequence SECUENCIA_PREMIOS
+/
+
+drop sequence SECUENCIA_PRODUCTOS
+/
+
+drop sequence SECUENCIA_PROVEEDORES
+/
+
+drop sequence SECUENCIA_PROVEEDOR_GERENTE
+/
+
+drop sequence SECUENCIA_SUCURSALES
+/
+
+drop sequence SECUENCIA_TODAS
+/
+
+drop sequence SECUENCIA_VACANTES
+/
+
+drop sequence SECUENCIA_VENDEDORES
+/
+
+drop sequence SEQUENCE_7
+/
+
+create sequence SECUENCIA_ASISTENCIA_CAPACITAC
+increment by 1
+ nomaxvalue
+nocycle
+order
+/
+
+create sequence SECUENCIA_BODEGAS
+increment by 1
+ nomaxvalue
+nocycle
+order
+/
+
+create sequence SECUENCIA_CANDIDATOS
+increment by 1
+ nomaxvalue
+nocycle
+order
+/
+
+create sequence SECUENCIA_CAPACITACION
+increment by 1
+ nomaxvalue
+nocycle
+order
+/
+
+create sequence SECUENCIA_CARGOS
+increment by 1
+ nomaxvalue
+nocycle
+order
+/
+
+create sequence SECUENCIA_CIUDADES
+increment by 1
+ nomaxvalue
+nocycle
+order
+/
+
+create sequence SECUENCIA_CLIENTES
+increment by 1
+ nomaxvalue
+
+nocycle
+order
+/
+
+create sequence SECUENCIA_CLIENTE_GERENTE
+increment by 1
+ nomaxvalue
+
+nocycle
+order
+/
+
+create sequence SECUENCIA_DEPARTAMENTOS
+increment by 1
+ nomaxvalue
+nocycle
+noorder
+/
+
+create sequence SECUENCIA_DIRECTOR_DEPARTAMENT
+increment by 1
+ nomaxvalue
+nocycle
+order
+/
+
+create sequence SECUENCIA_DIRECTOR_SUCURSAL
+increment by 1
+ nomaxvalue
+nocycle
+order
+/
+
+create sequence SECUENCIA_EMPLEADOS
+increment by 1
+ nomaxvalue
+nocycle
+order
+/
+
+create sequence SECUENCIA_EMPRESA
+increment by 1
+ nomaxvalue
+nocycle
+order
+/
+
+create sequence SECUENCIA_EMPRESA_GERENTE
+increment by 1
+ nomaxvalue
+nocycle
+order
+/
+
+create sequence SECUENCIA_EMPRESA_SUBGERENTE
+increment by 1
+ nomaxvalue
+nocycle
+order
+/
+
+create sequence SECUENCIA_HISTORIA_TRABAJADORE
+increment by 1
+ nomaxvalue
+nocycle
+order
+/
+
+create sequence SECUENCIA_ORDENES
+increment by 1
+ nomaxvalue
+nocycle
+order
+/
+
+create sequence SECUENCIA_ORDEN_ITEM
+increment by 1
+ nomaxvalue
+
+nocycle
+order
+/
+
+create sequence SECUENCIA_PAISES
+increment by 1
+ nomaxvalue
+nocycle
+order
+/
+
+create sequence SECUENCIA_PREMIOS
+increment by 1
+ nomaxvalue
+nocycle
+order
+/
+
+create sequence SECUENCIA_PRODUCTOS
+increment by 1
+ nomaxvalue
+nocycle
+order
+/
+
+create sequence SECUENCIA_PROVEEDORES
+increment by 1
+ nomaxvalue
+
+nocycle
+order
+/
+
+create sequence SECUENCIA_PROVEEDOR_GERENTE
+increment by 1
+ nomaxvalue
+
+nocycle
+order
+/
+
+create sequence SECUENCIA_SUCURSALES
+increment by 1
+ nomaxvalue
+nocycle
+order
+/
+
+create sequence SECUENCIA_TODAS
+increment by 1
+ nomaxvalue
+nocycle
+order
+/
+
+create sequence SECUENCIA_VACANTES
+increment by 1
+ nomaxvalue
+nocycle
+order
+/
+
+create sequence SECUENCIA_VENDEDORES
+increment by 1
+ nomaxvalue
+nocycle
+order
+/
+
+create sequence SEQUENCE_7
+/
 
 /*==============================================================*/
-/* View_View:ASISTENCIA_CAPACITACIONES                                             */
+/* Table: ASISTENCIA_CAPACITACIONES                             */
 /*==============================================================*/
-CREATE OR replace view VISTA_ASISTENCIA_CAPACITACIONES_View 
-(
-   ASISTENCIA_CAPACITACIONES_ID,
-   CAPACITACION_ID,
-   ASISTENCIA_CAPACITACIONES_SI_N,
-   digitador,
-   fecha
+create table ASISTENCIA_CAPACITACIONES  (
+   ASISTENCIA_CAPACITACIONES_ID INTEGER                         not null,
+   CAPACITACION_ID      INTEGER,
+   ASISTENCIA_CAPACITACIONES_SI_N SMALLINT                        not null,
+   digitador VARCHAR(15) default USER                    NOT NULL,
+   fecha DATE default sysdate                            NOT NULL,
+   constraint PK_ASISTENCIA_CAPACITACIONES primary key (ASISTENCIA_CAPACITACIONES_ID)
 )
-AS SELECT 
-   ASISTENCIA_CAPACITACIONES_ID,
-   CAPACITACION_ID,
-   ASISTENCIA_CAPACITACIONES_SI_N,
-   digitador,
-   to_char(fecha, 'dd-mm-yyyy" "hh24:mi:ss')
-FROM ASISTENCIA_CAPACITACIONES
-WHERE digitador = USER;
+/
 
 /*==============================================================*/
-/* Permisos                                                     */
+/* Index: CONTROL_ASISTENCIA_FK                                 */
 /*==============================================================*/
-GRANT SELECT ON VISTA_ASISTENCIA_CAPACITACIONES_View TO negarzonc;
-GRANT INSERT ON VISTA_ASISTENCIA_CAPACITACIONES_Edit TO negarzonc;
-GRANT SELECT ON VISTA_ASISTENCIA_CAPACITACIONES_Edit TO negarzonc;
-
-GRANT SELECT ON VISTA_ASISTENCIA_CAPACITACIONES_View TO dabonilla;
-GRANT INSERT ON VISTA_ASISTENCIA_CAPACITACIONES_Edit TO dabonilla;
-GRANT SELECT ON VISTA_ASISTENCIA_CAPACITACIONES_Edit TO dabonilla;
-
-GRANT SELECT ON VISTA_ASISTENCIA_CAPACITACIONES_View TO dsilvamo;
-GRANT INSERT ON VISTA_ASISTENCIA_CAPACITACIONES_Edit TO dsilvamo;
-GRANT SELECT ON VISTA_ASISTENCIA_CAPACITACIONES_Edit TO dsilvamo;
-
-/*==============================================================*/
-/* View_Edit: BODEGAS                                           */
-/*==============================================================*/
-CREATE view VISTA_BODEGAS_Edit AS SELECT 
-    BODEGA_ID,
-    SUCURSAL_ID,
-    BODEGA_CANTIDAD
-                                    FROM BODEGAS;
-
-/*==============================================================*/
-/* View_View: BODEGAS                                             */
-/*==============================================================*/
-CREATE OR replace view VISTA_BODEGAS_View 
-(
-   BODEGA_ID,
-   SUCURSAL_ID,
-   BODEGA_CANTIDAD,
-   digitador,
-   fecha
+create index CONTROL_ASISTENCIA_FK on ASISTENCIA_CAPACITACIONES (
+   CAPACITACION_ID ASC
 )
-AS SELECT 
-   BODEGA_ID,
-   SUCURSAL_ID,
-   BODEGA_CANTIDAD,
-   digitador,
-   to_char(fecha, 'dd-mm-yyyy" "hh24:mi:ss')
-FROM BODEGAS
-WHERE digitador = USER;
+/
 
 /*==============================================================*/
-/* Permisos                                                     */
+/* Table: BODEGAS                                               */
 /*==============================================================*/
-GRANT SELECT ON VISTA_BODEGAS_View TO negarzonc;
-GRANT INSERT ON VISTA_BODEGAS_Edit TO negarzonc;
-GRANT SELECT ON VISTA_BODEGAS_Edit TO negarzonc;
-
-GRANT SELECT ON VISTA_BODEGAS_View TO dabonilla;
-GRANT INSERT ON VISTA_BODEGAS_Edit TO dabonilla;
-GRANT SELECT ON VISTA_BODEGAS_Edit TO dabonilla;
-
-GRANT SELECT ON VISTA_BODEGAS_View TO dsilvamo;
-GRANT INSERT ON VISTA_BODEGAS_Edit TO dsilvamo;
-GRANT SELECT ON VISTA_BODEGAS_Edit TO dsilvamo;
-
-/*==============================================================*/
-/* View_Edit: CANDIDATOS                                           */
-/*==============================================================*/
-CREATE view VISTA_CANDIDATOS_Edit AS SELECT 
-    CANDIDATO_ID,
-    VACANTE_ID,
-    CANDIDATO_NOMBRE,
-    CANDIDATO_DOCUMENTO,
-    CANDIDATO_CORREO,
-    CANDIDATO_CELULAR,
-    CANDIDATO_EDAD,
-    CANDIDATO_GENERO,
-    CANDIDATO_PORCENTAJE_VALORACIO
-                                    FROM CANDIDATOS;
-
-/*==============================================================*/
-/* View_View: CANDIDATOS                                             */
-/*==============================================================*/
-CREATE OR replace view VISTA_CANDIDATOS_View 
-(
-    CANDIDATO_ID,
-    VACANTE_ID,
-    CANDIDATO_NOMBRE,
-    CANDIDATO_DOCUMENTO,
-    CANDIDATO_CORREO,
-    CANDIDATO_CELULAR,
-    CANDIDATO_EDAD,
-    CANDIDATO_GENERO,
-    CANDIDATO_PORCENTAJE_VALORACIO,
-    digitador,
-    fecha
+create table BODEGAS  (
+   BODEGA_ID            INTEGER                         not null,
+   SUCURSAL_ID          INTEGER                         not null,
+   BODEGA_CANTIDAD      INTEGER                         not null,
+   digitador VARCHAR(15) default USER                    NOT NULL,
+   fecha DATE default sysdate                            NOT NULL,
+   constraint PK_BODEGAS primary key (BODEGA_ID)
 )
-AS SELECT 
-    CANDIDATO_ID,
-    VACANTE_ID,
-    CANDIDATO_NOMBRE,
-    CANDIDATO_DOCUMENTO,
-    CANDIDATO_CORREO,
-    CANDIDATO_CELULAR,
-    CANDIDATO_EDAD,
-    CANDIDATO_GENERO,
-    CANDIDATO_PORCENTAJE_VALORACIO,
-   digitador,
-   to_char(fecha, 'dd-mm-yyyy" "hh24:mi:ss')
-FROM CANDIDATOS
-WHERE digitador = USER;
+/
 
 /*==============================================================*/
-/* Permisos                                                     */
+/* Index: TIENEN_FK                                             */
 /*==============================================================*/
-GRANT SELECT ON VISTA_CANDIDATOS_View TO negarzonc;
-GRANT INSERT ON VISTA_CANDIDATOS_Edit TO negarzonc;
-GRANT SELECT ON VISTA_CANDIDATOS_Edit TO negarzonc;
-
-GRANT SELECT ON VISTA_CANDIDATOS_View TO dabonilla;
-GRANT INSERT ON VISTA_CANDIDATOS_Edit TO dabonilla;
-GRANT SELECT ON VISTA_CANDIDATOS_Edit TO dabonilla;
-
-GRANT SELECT ON VISTA_CANDIDATOS_View TO dsilvamo;
-GRANT INSERT ON VISTA_CANDIDATOS_Edit TO dsilvamo;
-GRANT SELECT ON VISTA_CANDIDATOS_Edit TO dsilvamo;
-
-
-/*==============================================================*/
-/* View_Edit: CAPACITACIONES                                           */
-/*==============================================================*/
-CREATE view VISTA_CAPACITACIONES_Edit AS SELECT 
-    CAPACITACION_ID,
-    EMPLEADO_ID,
-    CAPACITACION_NOMBRE_TIPO,
-    CAPACITACION_FECHA,
-    CAPACITACION_DESCRIPCION
-                                    FROM CAPACITACIONES;
-
-/*==============================================================*/
-/* View_View: CAPACITACIONES                                            */
-/*==============================================================*/
-CREATE OR replace view VISTA_CAPACITACIONES_View 
-(
-    CAPACITACION_ID,
-    EMPLEADO_ID,
-    CAPACITACION_NOMBRE_TIPO,
-    CAPACITACION_FECHA,
-    CAPACITACION_DESCRIPCION,
-   digitador,
-   fecha
+create index TIENEN_FK on BODEGAS (
+   SUCURSAL_ID ASC
 )
-AS SELECT 
-    CAPACITACION_ID,
-    EMPLEADO_ID,
-    CAPACITACION_NOMBRE_TIPO,
-    CAPACITACION_FECHA,
-    CAPACITACION_DESCRIPCION,
-   digitador,
-   to_char(fecha, 'dd-mm-yyyy" "hh24:mi:ss')
-FROM CAPACITACIONES
-WHERE digitador = USER;
+/
 
 /*==============================================================*/
-/* Permisos                                                     */
+/* Table: CANDIDATOS                                            */
 /*==============================================================*/
-GRANT SELECT ON VISTA_CAPACITACIONES_View TO negarzonc;
-GRANT INSERT ON VISTA_CAPACITACIONES_Edit TO negarzonc;
-GRANT SELECT ON VISTA_CAPACITACIONES_Edit TO negarzonc;
-
-GRANT SELECT ON VISTA_CAPACITACIONES_View TO dabonilla;
-GRANT INSERT ON VISTA_CAPACITACIONES_Edit TO dabonilla;
-GRANT SELECT ON VISTA_CAPACITACIONES_Edit TO dabonilla;
-
-GRANT SELECT ON VISTA_CAPACITACIONES_View TO dsilvamo;
-GRANT INSERT ON VISTA_CAPACITACIONES_Edit TO dsilvamo;
-GRANT SELECT ON VISTA_CAPACITACIONES_Edit TO dsilvamo;
-
-
-/*==============================================================*/
-/* View_Edit: CARGOS                                           */
-/*==============================================================*/
-CREATE view VISTA_CARGOS_Edit AS SELECT 
-    CARGO_ID,
-    DEPARTAMENTO_ID,
-    CARGO_NOMBRE,
-    CARGO_SALARIO_MAX,
-    CARGO_SALARIO_MIN
-                                    FROM CARGOS;
-
-/*==============================================================*/
-/* View_View: CARGOS                                            */
-/*==============================================================*/
-CREATE OR replace view VISTA_CARGOS_View 
-(
-    CARGO_ID,
-    DEPARTAMENTO_ID,
-    CARGO_NOMBRE,
-    CARGO_SALARIO_MAX,
-    CARGO_SALARIO_MIN,
-   digitador,
-   fecha
+create table CANDIDATOS  (
+   CANDIDATO_ID         INTEGER                         not null,
+   VACANTE_ID           INTEGER,
+   CANDIDATO_NOMBRE     VARCHAR2(100)                   not null,
+   CANDIDATO_DOCUMENTO  INTEGER                         not null,
+   CANDIDATO_CORREO     VARCHAR2(100)                   not null,
+   CANDIDATO_CELULAR    INTEGER                         not null,
+   CANDIDATO_EDAD       INTEGER                         not null
+      constraint CKC_CANDIDATO_EDAD_CANDIDAT check (CANDIDATO_EDAD between 18 and 99),
+   CANDIDATO_GENERO     VARCHAR2(100),
+   CANDIDATO_PORCENTAJE_VALORACIO INTEGER                         not null
+      constraint CKC_CANDIDATO_PORCENT_CANDIDAT check (CANDIDATO_PORCENTAJE_VALORACIO between 0 and 100),
+      digitador VARCHAR(15) default USER                    NOT NULL,
+   fecha DATE default sysdate                            NOT NULL,
+   constraint PK_CANDIDATOS primary key (CANDIDATO_ID)
 )
-AS SELECT 
-    CARGO_ID,
-    DEPARTAMENTO_ID,
-    CARGO_NOMBRE,
-    CARGO_SALARIO_MAX,
-    CARGO_SALARIO_MIN,
-   digitador,
-   to_char(fecha, 'dd-mm-yyyy" "hh24:mi:ss')
-FROM CARGOS
-WHERE digitador = USER;
+/
 
 /*==============================================================*/
-/* Permisos                                                     */
+/* Index: TIENE_CANDIDATOS_FK                                   */
 /*==============================================================*/
-GRANT SELECT ON VISTA_CARGOS_View TO negarzonc;
-GRANT INSERT ON VISTA_CARGOS_Edit TO negarzonc;
-GRANT SELECT ON VISTA_CARGOS_Edit TO negarzonc;
-
-GRANT SELECT ON VISTA_CARGOS_View TO dabonilla;
-GRANT INSERT ON VISTA_CARGOS_Edit TO dabonilla;
-GRANT SELECT ON VISTA_CARGOS_Edit TO dabonilla;
-
-GRANT SELECT ON VISTA_CARGOS_View TO dsilvamo;
-GRANT INSERT ON VISTA_CARGOS_Edit TO dsilvamo;
-GRANT SELECT ON VISTA_CARGOS_Edit TO dsilvamo;
-
-
-/*==============================================================*/
-/* View_Edit: CIUDADES                                           */
-/*==============================================================*/
-CREATE view VISTA_CIUDADES_Edit AS SELECT 
-    CIUDAD_ID,
-    PAIS_ID,
-    CIUDAD_NOMBRE
-                                    FROM CIUDADES;
-
-/*==============================================================*/
-/* View_View: CIUDADES                                             */
-/*==============================================================*/
-CREATE OR replace view VISTA_CIUDADES_View 
-(
-   CIUDAD_ID,
-   PAIS_ID,
-   CIUDAD_NOMBRE,
-   digitador,
-   fecha
+create index TIENE_CANDIDATOS_FK on CANDIDATOS (
+   VACANTE_ID ASC
 )
-AS SELECT 
-    CIUDAD_ID,
-    PAIS_ID,
-    CIUDAD_NOMBRE,
-   digitador,
-   to_char(fecha, 'dd-mm-yyyy" "hh24:mi:ss')
-FROM CIUDADES
-WHERE digitador = USER;
+/
 
 /*==============================================================*/
-/* Permisos                                                     */
+/* Table: CAPACITACIONES                                        */
 /*==============================================================*/
-GRANT SELECT ON VISTA_ASISTENCIA_CIUDADES_View TO negarzonc;
-GRANT INSERT ON VISTA_ASISTENCIA_CIUDADES_Edit TO negarzonc;
-GRANT SELECT ON VISTA_ASISTENCIA_CIUDADES_Edit TO negarzonc;
-
-GRANT SELECT ON VISTA_ASISTENCIA_CIUDADES_View TO dabonilla;
-GRANT INSERT ON VISTA_ASISTENCIA_CIUDADES_Edit TO dabonilla;
-GRANT SELECT ON VISTA_ASISTENCIA_CIUDADES_Edit TO dabonilla;
-
-GRANT SELECT ON VISTA_ASISTENCIA_CIUDADES_View TO dsilvamo;
-GRANT INSERT ON VISTA_ASISTENCIA_CIUDADES_Edit TO dsilvamo;
-GRANT SELECT ON VISTA_ASISTENCIA_CIUDADES_Edit TO dsilvamo;
-
-
-/*==============================================================*/
-/* View_Edit: CLIENTES                                            */
-/*==============================================================*/
-CREATE view VISTA_CLIENTES_Edit AS SELECT 
-    CLIENTE_ID,
-    CLIENTE_NIT
-    CLIENTE_NOMBRE,
-    CLIENTE_CENTRO_LLAMADAS,
-    CLIENTE_DIRECCION,
-    CLIENTE_NORMAS_BOOL,
-    CLIENTE_CORREO
-                                    FROM CLIENTES ;
-
-/*==============================================================*/
-/* View_View: CLIENTES                                              */
-/*==============================================================*/
-CREATE OR replace view VISTA_CLIENTES_View 
-(
-   CLIENTE_ID,
-    CLIENTE_NIT
-    CLIENTE_NOMBRE,
-    CLIENTE_CENTRO_LLAMADAS,
-    CLIENTE_DIRECCION,
-    CLIENTE_NORMAS_BOOL,
-    CLIENTE_CORREO,
-   digitador,
-   fecha
+create table CAPACITACIONES  (
+   CAPACITACION_ID      INTEGER                         not null,
+   EMPLEADO_ID          INTEGER,
+   CAPACITACION_NOMBRE_TIPO VARCHAR2(100)                   not null,
+   CAPACITACION_FECHA   DATE                            not null,
+   CAPACITACION_DESCRIPCION VARCHAR2(1000)                  not null,
+   digitador VARCHAR(15) default USER                    NOT NULL,
+   fecha DATE default sysdate                            NOT NULL,
+   constraint PK_CAPACITACIONES primary key (CAPACITACION_ID)
 )
-AS SELECT 
-    CLIENTE_ID,
-    CLIENTE_NIT,
-    CLIENTE_NOMBRE,
-    CLIENTE_CENTRO_LLAMADAS,
-    CLIENTE_DIRECCION,
-    CLIENTE_NORMAS_BOOL,
-    CLIENTE_CORREO,
-   digitador,
-   to_char(fecha, 'dd-mm-yyyy" "hh24:mi:ss')
-FROM CLIENTES 
-WHERE digitador = USER;
+/
 
 /*==============================================================*/
-/* Permisos                                                     */
+/* Index: RECIBEN_CAPACITACIONES_FK                             */
 /*==============================================================*/
-GRANT SELECT ON VISTA_CLIENTES_View TO negarzonc;
-GRANT INSERT ON VISTA_CLIENTES_Edit TO negarzonc;
-GRANT SELECT ON VISTA_CLIENTES_Edit TO negarzonc;
-
-GRANT SELECT ON VISTA_CLIENTES_View TO dabonilla;
-GRANT INSERT ON VISTA_CLIENTES_Edit TO dabonilla;
-GRANT SELECT ON VISTA_CLIENTES_Edit TO dabonilla;
-
-GRANT SELECT ON VISTA_CLIENTES_View TO dsilvamo;
-GRANT INSERT ON VISTA_CLIENTES_Edit TO dsilvamo;
-GRANT SELECT ON VISTA_CLIENTES_Edit TO dsilvamo;
-
-
-/*==============================================================*/
-/* View_Edit: CLIENTE_GERENTE                                            */
-/*==============================================================*/
-CREATE view VISTA_CLIENTE_GERENTE_Edit AS SELECT 
-    CLIENTE_GERENTE_ID,
-    CLIENTE_ID,
-    CLIENTE_GERENTE_NOMBRE,
-    CLIENTE_GERENTE_DOCUMENTO,
-    CLIENTE_GERENTE_CELULAR,
-    CLIENTE_GERENTE_CORREO
-                                    FROM CLIENTE_GERENTE;
-
-/*==============================================================*/
-/* View_View: CLIENTE_GERENTE                                              */
-/*==============================================================*/
-CREATE OR replace view VISTA_CLIENTE_GERENTE_View 
-(
-   CLIENTE_GERENTE_ID,
-    CLIENTE_ID,
-    CLIENTE_GERENTE_NOMBRE,
-    CLIENTE_GERENTE_DOCUMENTO,
-    CLIENTE_GERENTE_CELULAR,
-    CLIENTE_GERENTE_CORREO,
-   digitador,
-   fecha
+create index RECIBEN_CAPACITACIONES_FK on CAPACITACIONES (
+   EMPLEADO_ID ASC
 )
-AS SELECT 
-    CLIENTE_GERENTE_ID,
-    CLIENTE_ID,
-    CLIENTE_GERENTE_NOMBRE,
-    CLIENTE_GERENTE_DOCUMENTO,
-    CLIENTE_GERENTE_CELULAR,
-    CLIENTE_GERENTE_CORREO,
-   digitador,
-   to_char(fecha, 'dd-mm-yyyy" "hh24:mi:ss')
-FROM CLIENTE_GERENTE 
-WHERE digitador = USER;
+/
 
 /*==============================================================*/
-/* Permisos                                                     */
+/* Table: CARGOS                                                */
 /*==============================================================*/
-GRANT SELECT ON VISTA_CLIENTE_GERENTE_View TO negarzonc;
-GRANT INSERT ON VISTA_CLIENTE_GERENTE_Edit TO negarzonc;
-GRANT SELECT ON VISTA_CLIENTE_GERENTE_Edit TO negarzonc;
-
-GRANT SELECT ON VISTA_CLIENTE_GERENTE_View TO dabonilla;
-GRANT INSERT ON VISTA_CLIENTE_GERENTE_Edit TO dabonilla;
-GRANT SELECT ON VISTA_CLIENTE_GERENTE_Edit TO dabonilla;
-
-GRANT SELECT ON VISTA_CLIENTE_GERENTE_View TO dsilvamo;
-GRANT INSERT ON VISTA_CLIENTE_GERENTE_Edit TO dsilvamo;
-GRANT SELECT ON VISTA_CLIENTE_GERENTE_Edit TO dsilvamo;
-
-
-/*==============================================================*/
-/* View_Edit: DEPARTAMENTOS                                            */
-/*==============================================================*/
-CREATE view VISTA_DEPARTAMENTOS_Edit AS SELECT 
-    DEPARTAMENTO_ID,
-    SUCURSAL_ID,
-    DIRECTOR_DEPARTAMENTO_ID,
-    DEPARTAMENTO_NOMBRE
-                                    FROM DEPARTAMENTOS;
-
-/*==============================================================*/
-/* View_View: DEPARTAMENTOS                                              */
-/*==============================================================*/
-CREATE OR replace view VISTA_DEPARTAMENTOS_View 
-(
-   DEPARTAMENTO_ID,
-    SUCURSAL_ID,
-    DIRECTOR_DEPARTAMENTO_ID,
-    DEPARTAMENTO_NOMBRE,
-   digitador,
-   fecha
+create table CARGOS  (
+   CARGO_ID             INTEGER                         not null,
+   DEPARTAMENTO_ID      INTEGER,
+   CARGO_NOMBRE         VARCHAR2(100)                   not null,
+   CARGO_SALARIO_MAX    INTEGER                         not null,
+   CARGO_SALARIO_MIN    INTEGER                         not null,
+   digitador VARCHAR(15) default USER                    NOT NULL,
+   fecha DATE default sysdate                            NOT NULL,
+   constraint PK_CARGOS primary key (CARGO_ID)
 )
-AS SELECT 
-    DEPARTAMENTO_ID,
-    SUCURSAL_ID,
-    DIRECTOR_DEPARTAMENTO_ID,
-    DEPARTAMENTO_NOMBRE,
-   digitador,
-   to_char(fecha, 'dd-mm-yyyy" "hh24:mi:ss')
-FROM DEPARTAMENTOS 
-WHERE digitador = USER;
+/
 
 /*==============================================================*/
-/* Permisos                                                     */
+/* Index: DIVIDE_EN_CARGOS_FK                                   */
 /*==============================================================*/
-GRANT SELECT ON VISTA_DEPARTAMENTOS_View TO negarzonc;
-GRANT INSERT ON VISTA_DEPARTAMENTOS_Edit TO negarzonc;
-GRANT SELECT ON VISTA_DEPARTAMENTOS_Edit TO negarzonc;
-
-GRANT SELECT ON VISTA_DEPARTAMENTOS_View TO dabonilla;
-GRANT INSERT ON VISTA_DEPARTAMENTOS_Edit TO dabonilla;
-GRANT SELECT ON VISTA_DEPARTAMENTOS_Edit TO dabonilla;
-
-GRANT SELECT ON VISTA_DEPARTAMENTOS_View TO dsilvamo;
-GRANT INSERT ON VISTA_DEPARTAMENTOS_Edit TO dsilvamo;
-GRANT SELECT ON VISTA_DEPARTAMENTOS_Edit TO dsilvamo;
-
-/*==============================================================*/
-/* View_Edit: DIRECTOR_DEPARTAMENTO                                            */
-/*==============================================================*/
-CREATE view VISTA_DIRECTOR_DEPARTAMENTO_Edit AS SELECT 
-    DIRECTOR_DEPARTAMENTO_ID,
-    DIRECTOR_SUCURSAL_ID,
-    DIRECTOR_DEPARTAMENTO_NOMBRE,
-    DIRECTOR_DEPARTAMENTO_DOCUMENT,
-    DIRECTOR_DEPARTAMENTO_CELULAR,
-    DIRECTOR_DEPARTAMENTO_CORREO,
-    DIRECTOR_DEPARTAMENTO_GENERO,
-    DIRECTOR_DIRECTOR_DEPARTAMENTO_EDAD,
-    DIRECTOR_DEPARTAMENTO_SEGURIDAD_SOCIAL_BOOL,
-    DIRECTOR_DEPARTAMENTO_POLIZA_VIGENTE_BOOL,
-    DIRECTOR_DEPARTAMENTO_SALARIO_FIJO,
-    DIRECTOR_DEPARTAMENTO_CONTRATO_INDEFINIDO_BOOL,
-    DIRECTOR_DEPARTAMENTO_REINGRESO_BOOL
-                                    FROM DIRECTOR_DEPARTAMENTO;
-
-/*==============================================================*/
-/* View_View: DIRECTOR_DEPARTAMENTO                                              */
-/*==============================================================*/
-CREATE OR replace view VISTA_DIRECTOR_DEPARTAMENTO_View 
-(
-   DIRECTOR_DEPARTAMENTO_ID,
-    DIRECTOR_SUCURSAL_ID,
-    DIRECTOR_DEPARTAMENTO_NOMBRE,
-    DIRECTOR_DEPARTAMENTO_DOCUMENT,
-    DIRECTOR_DEPARTAMENTO_CELULAR,
-    DIRECTOR_DEPARTAMENTO_CORREO,
-    DIRECTOR_DEPARTAMENTO_GENERO,
-    DIRECTOR_DIRECTOR_DEPARTAMENTO_EDAD,
-    DIRECTOR_DEPARTAMENTO_SEGURIDAD_SOCIAL_BOOL,
-    DIRECTOR_DEPARTAMENTO_POLIZA_VIGENTE_BOOL,
-    DIRECTOR_DEPARTAMENTO_SALARIO_FIJO,
-    DIRECTOR_DEPARTAMENTO_CONTRATO_INDEFINIDO_BOOL,
-    DIRECTOR_DEPARTAMENTO_REINGRESO_BOOL,
-   digitador,
-   fecha
+create index DIVIDE_EN_CARGOS_FK on CARGOS (
+   DEPARTAMENTO_ID ASC
 )
-AS SELECT 
-    DIRECTOR_DEPARTAMENTO_ID,
-    DIRECTOR_SUCURSAL_ID,
-    DIRECTOR_DEPARTAMENTO_NOMBRE,
-    DIRECTOR_DEPARTAMENTO_DOCUMENT,
-    DIRECTOR_DEPARTAMENTO_CELULAR,
-    DIRECTOR_DEPARTAMENTO_CORREO,
-    DIRECTOR_DEPARTAMENTO_GENERO,
-    DIRECTOR_DIRECTOR_DEPARTAMENTO_EDAD,
-    DIRECTOR_DEPARTAMENTO_SEGURIDAD_SOCIAL_BOOL,
-    DIRECTOR_DEPARTAMENTO_POLIZA_VIGENTE_BOOL,
-    DIRECTOR_DEPARTAMENTO_SALARIO_FIJO,
-    DIRECTOR_DEPARTAMENTO_CONTRATO_INDEFINIDO_BOOL,
-    DIRECTOR_DEPARTAMENTO_REINGRESO_BOOL,
-   digitador,
-   to_char(fecha, 'dd-mm-yyyy" "hh24:mi:ss')
-FROM DIRECTOR_DEPARTAMENTO 
-WHERE digitador = USER;
+/
 
 /*==============================================================*/
-/* Permisos                                                     */
+/* Table: CIUDADES                                              */
 /*==============================================================*/
-GRANT SELECT ON VISTA_DIRECTOR_DEPARTAMENTO_View TO negarzonc;
-GRANT INSERT ON VISTA_DIRECTOR_DEPARTAMENTO_Edit TO negarzonc;
-GRANT SELECT ON VISTA_DIRECTOR_DEPARTAMENTO_Edit TO negarzonc;
-
-GRANT SELECT ON VISTA_DIRECTOR_DEPARTAMENTO_View TO dabonilla;
-GRANT INSERT ON VISTA_DIRECTOR_DEPARTAMENTO_Edit TO dabonilla;
-GRANT SELECT ON VISTA_DIRECTOR_DEPARTAMENTO_Edit TO dabonilla;
-
-GRANT SELECT ON VISTA_DIRECTOR_DEPARTAMENTO_View TO dsilvamo;
-GRANT INSERT ON VISTA_DIRECTOR_DEPARTAMENTO_Edit TO dsilvamo;
-GRANT SELECT ON VISTA_DIRECTOR_DEPARTAMENTO_Edit TO dsilvamo;
-
-
-
-/*==============================================================*/
-/* View_Edit: DIRECTOR_SUCURSAL                                            */
-/*==============================================================*/
-CREATE view VISTA_DIRECTOR_SUCURSAL_Edit AS SELECT 
-    DIRECTOR_SUCURSAL_ID,
-    EMPRESA_SUBGERENTE_ID,
-    DIRECTOR_SUCURSAL_NOMBRE,
-    DIRECTOR_SUCURSAL_DOCUMENTO,
-    DIRECTOR_SUCURSAL_CELULAR,
-    DIRECTOR_SUCURSAL_CORREO,
-    DIRECTOR_SUCURSAL_GENERO,
-    DIRECTOR_SUCURSAL_EDAD,
-    DIRECTOR_SUCURSAL_SEGURIDAD_SOCIAL_BOOL,
-    DIRECTOR_SUCURSAL_POLIZA_VIGENTE_BOOL,
-    DIRECTOR_SUCURSAL_SALARIO_FIJO,
-    DIRECTOR_SUCURSAL_CONTRATO_INDEFINIDO_BOOL,
-    DIRECTOR_SUCURSAL_REINGRESO_BOOL
-                                    FROM DIRECTOR_SUCURSAL;
-
-/*==============================================================*/
-/* View_View: DIRECTOR_SUCURSAL                                              */
-/*==============================================================*/
-CREATE OR replace view VISTA_DIRECTOR_SUCURSAL_View 
-(
-   DIRECTOR_SUCURSAL_ID,
-    EMPRESA_SUBGERENTE_ID,
-    DIRECTOR_SUCURSAL_NOMBRE,
-    DIRECTOR_SUCURSAL_DOCUMENTO,
-    DIRECTOR_SUCURSAL_CELULAR,
-    DIRECTOR_SUCURSAL_CORREO,
-    DIRECTOR_SUCURSAL_GENERO,
-    DIRECTOR_SUCURSAL_EDAD,
-    DIRECTOR_SUCURSAL_SEGURIDAD_SOCIAL_BOOL,
-    DIRECTOR_SUCURSAL_POLIZA_VIGENTE_BOOL,
-    DIRECTOR_SUCURSAL_SALARIO_FIJO,
-    DIRECTOR_SUCURSAL_CONTRATO_INDEFINIDO_BOOL,
-    DIRECTOR_SUCURSAL_REINGRESO_BOOL,
-   digitador,
-   fecha
+create table CIUDADES  (
+   CIUDAD_ID            INTEGER                         not null,
+   PAIS_ID              INTEGER,
+   CIUDAD_NOMBRE        VARCHAR2(100)                   not null,
+   digitador VARCHAR(15) default USER                    NOT NULL,
+   fecha DATE default sysdate                            NOT NULL,
+   constraint PK_CIUDADES primary key (CIUDAD_ID)
 )
-AS SELECT 
-    DIRECTOR_SUCURSAL_ID,
-    EMPRESA_SUBGERENTE_ID,
-    DIRECTOR_SUCURSAL_NOMBRE,
-    DIRECTOR_SUCURSAL_DOCUMENTO,
-    DIRECTOR_SUCURSAL_CELULAR,
-    DIRECTOR_SUCURSAL_CORREO,
-    DIRECTOR_SUCURSAL_GENERO,
-    DIRECTOR_SUCURSAL_EDAD,
-    DIRECTOR_SUCURSAL_SEGURIDAD_SOCIAL_BOOL,
-    DIRECTOR_SUCURSAL_POLIZA_VIGENTE_BOOL,
-    DIRECTOR_SUCURSAL_SALARIO_FIJO,
-    DIRECTOR_SUCURSAL_CONTRATO_INDEFINIDO_BOOL,
-    DIRECTOR_SUCURSAL_REINGRESO_BOOL,
-   digitador,
-   to_char(fecha, 'dd-mm-yyyy" "hh24:mi:ss')
-FROM DIRECTOR_SUCURSAL 
-WHERE digitador = USER;
+/
 
 /*==============================================================*/
-/* Permisos                                                     */
+/* Index: CONTIENE_CIUDADES_FK                                  */
 /*==============================================================*/
-GRANT SELECT ON VISTA_DIRECTOR_SUCURSAL_View TO negarzonc;
-GRANT INSERT ON VISTA_DIRECTOR_SUCURSAL_Edit TO negarzonc;
-GRANT SELECT ON VISTA_DIRECTOR_SUCURSAL_Edit TO negarzonc;
-
-GRANT SELECT ON VISTA_DIRECTOR_SUCURSAL_View TO dabonilla;
-GRANT INSERT ON VISTA_DIRECTOR_SUCURSAL_Edit TO dabonilla;
-GRANT SELECT ON VISTA_DIRECTOR_SUCURSAL_Edit TO dabonilla;
-
-GRANT SELECT ON VISTA_DIRECTOR_SUCURSAL_View TO dsilvamo;
-GRANT INSERT ON VISTA_DIRECTOR_SUCURSAL_Edit TO dsilvamo;
-GRANT SELECT ON VISTA_DIRECTOR_SUCURSAL_Edit TO dsilvamo;
-
-
-/*==============================================================*/
-/* View_Edit: EMPLEADOS                                            */
-/*==============================================================*/
-CREATE view VISTA_EMPLEADOS_Edit AS SELECT 
-    EMPLEADO_ID,
-    CARGO_ID,
-    EMPLEADO_DOCUMENTO,
-    EMPLEADO_NOMBRE,
-    EMPLEADO_CELULAR,
-    EMPLEADO_CORREO,
-    EMPLEADO_GENERO,
-    EMPLEADO_EDAD,
-    EMPLEADO_SEGURIDAD_SOCIAL_BOOL,
-    EMPLEADO_POLIZA_VIGENTE_BOOL,
-    EMPLEADO_CARGO,
-    EMPLEADO_SALARIO_FIJO,
-    EMPLEADO_CONTRATO_INDEFINIDO_BOOL,
-    EMPLEADO_REINGRESO_BOOL
-    
-                                    FROM EMPLEADOS;
-
-/*==============================================================*/
-/* View_View: EMPLEADOS                                              */
-/*==============================================================*/
-CREATE OR replace view VISTA_EMPLEADOS_View 
-(
-   EMPLEADO_ID,
-    CARGO_ID,
-    EMPLEADO_DOCUMENTO,
-    EMPLEADO_NOMBRE,
-    EMPLEADO_CELULAR,
-    EMPLEADO_CORREO,
-    EMPLEADO_GENERO,
-    EMPLEADO_EDAD,
-    EMPLEADO_SEGURIDAD_SOCIAL_BOOL,
-    EMPLEADO_POLIZA_VIGENTE_BOOL,
-    EMPLEADO_CARGO,
-    EMPLEADO_SALARIO_FIJO,
-    EMPLEADO_CONTRATO_INDEFINIDO_BOOL,
-    EMPLEADO_REINGRESO_BOOL,
-   digitador,
-   fecha
+create index CONTIENE_CIUDADES_FK on CIUDADES (
+   PAIS_ID ASC
 )
-AS SELECT 
-    EMPLEADO_ID,
-    CARGO_ID,
-    EMPLEADO_DOCUMENTO,
-    EMPLEADO_NOMBRE,
-    EMPLEADO_CELULAR,
-    EMPLEADO_CORREO,
-    EMPLEADO_GENERO,
-    EMPLEADO_EDAD,
-    EMPLEADO_SEGURIDAD_SOCIAL_BOOL,
-    EMPLEADO_POLIZA_VIGENTE_BOOL,
-    EMPLEADO_CARGO,
-    EMPLEADO_SALARIO_FIJO,
-    EMPLEADO_CONTRATO_INDEFINIDO_BOOL,
-    EMPLEADO_REINGRESO_BOOL,
-   digitador,
-   to_char(fecha, 'dd-mm-yyyy" "hh24:mi:ss')
-FROM EMPLEADOS 
-WHERE digitador = USER;
+/
 
 /*==============================================================*/
-/* Permisos                                                     */
+/* Table: CLIENTES                                              */
 /*==============================================================*/
-GRANT SELECT ON VISTA_EMPLEADOS_View TO negarzonc;
-GRANT INSERT ON VISTA_EMPLEADOS_Edit TO negarzonc;
-GRANT SELECT ON VISTA_EMPLEADOS_Edit TO negarzonc;
-
-GRANT SELECT ON VISTA_EMPLEADOS_View TO dabonilla;
-GRANT INSERT ON VISTA_EMPLEADOS_Edit TO dabonilla;
-GRANT SELECT ON VISTA_EMPLEADOS_Edit TO dabonilla;
-
-GRANT SELECT ON VISTA_EMPLEADOS_View TO dsilvamo;
-GRANT INSERT ON VISTA_EMPLEADOS_Edit TO dsilvamo;
-GRANT SELECT ON VISTA_EMPLEADOS_Edit TO dsilvamo;
-
-
-
-/*==============================================================*/
-/* View_Edit: EMPRESA                                            */
-/*==============================================================*/
-CREATE view VISTA_EMPRESA_Edit AS SELECT 
-    EMPRESA_ID,
-    EMPRESA_NOMBRE,
-    EMPRESA_DIRECCION,
-    EMPRESA_CENTRO_LLAMADAS
-    
-                                    FROM EMPRESA;
-
-/*==============================================================*/
-/* View_View: EMPRESA                                              */
-/*==============================================================*/
-CREATE OR replace view VISTA_EMPRESA_View 
-(
-   EMPRESA_ID,
-    EMPRESA_NOMBRE,
-    EMPRESA_DIRECCION,
-    EMPRESA_CENTRO_LLAMADAS,
-   digitador,
-   fecha
+create table CLIENTES  (
+   CLIENTE_ID           INTEGER                         not null,
+   CLIENTE_NIT          INTEGER                         not null,
+   CLIENTE_NOMBRE       VARCHAR2(100)                   not null,
+   CLIENTE_CENTRO_LLAMADAS INTEGER                         not null,
+   CLIENTE_DIRECCION    VARCHAR2(100)                   not null,
+   CLIENTE_NORMAS_BOOL  SMALLINT                        not null,
+   CLIENTE_CORREO       VARCHAR2(100)                   not null,
+   digitador VARCHAR(15) default USER                    NOT NULL,
+   fecha DATE default sysdate                            NOT NULL,
+   constraint PK_CLIENTES primary key (CLIENTE_ID)
 )
-AS SELECT 
-    EMPRESA_ID,
-    EMPRESA_NOMBRE,
-    EMPRESA_DIRECCION,
-    EMPRESA_CENTRO_LLAMADAS,
-   digitador,
-   to_char(fecha, 'dd-mm-yyyy" "hh24:mi:ss')
-FROM EMPRESA 
-WHERE digitador = USER;
+/
 
 /*==============================================================*/
-/* Permisos                                                     */
+/* Table: CLIENTE_GERENTE                                       */
 /*==============================================================*/
-GRANT SELECT ON VISTA_EMPRESA_View TO negarzonc;
-GRANT INSERT ON VISTA_EMPRESA_Edit TO negarzonc;
-GRANT SELECT ON VISTA_EMPRESA_Edit TO negarzonc;
-
-GRANT SELECT ON VISTA_EMPRESA_View TO dabonilla;
-GRANT INSERT ON VISTA_EMPRESA_Edit TO dabonilla;
-GRANT SELECT ON VISTA_EMPRESA_Edit TO dabonilla;
-
-GRANT SELECT ON VISTA_EMPRESA_View TO dsilvamo;
-GRANT INSERT ON VISTA_EMPRESA_Edit TO dsilvamo;
-GRANT SELECT ON VISTA_EMPRESA_Edit TO dsilvamo;
-
-
-/*==============================================================*/
-/* View_Edit: EMPRESA_GERENTE                                            */
-/*==============================================================*/
-CREATE view VISTA_EMPRESA_GERENTE_Edit AS SELECT 
-    EMPRESA_GERENTE_ID,
-    EMPRESA_ID,
-    EMPRESA_GERENTE_NOMBRE,
-    EMPRESA_GERENTE_DOCUMENTO,
-    EMPRESA_GERENTE_CELULAR,
-    EMPRESA_GERENTE_CORREO,
-    EMPRESA_GERENTE_EDAD,
-    EMPRESA_GERENTE_GENERO,
-    EMPRESA_GERENTE_SEGURIDAD_SOCIAL_BOOL,
-    EMPRESA_GERENTE_POLIZA_VIGENTE_BOOL,
-    EMPRESA_GERENTE_CONTRATO_INDEFINIDO_BOOL,
-    EMPRESA_GERENTE_SALARIO_FIJO,
-    EMPRESA_GERENTE_REINGRESO_BOOL
-    
-                                    FROM EMPRESA_GERENTE;
-
-/*==============================================================*/
-/* View_View: EMPRESA_GERENTE                                              */
-/*==============================================================*/
-CREATE OR replace view VISTA_EMPRESA_GERENTE_View 
-(
-   EMPRESA_GERENTE_ID,
-    EMPRESA_ID,
-    EMPRESA_GERENTE_NOMBRE,
-    EMPRESA_GERENTE_DOCUMENTO,
-    EMPRESA_GERENTE_CELULAR,
-    EMPRESA_GERENTE_CORREO,
-    EMPRESA_GERENTE_EDAD,
-    EMPRESA_GERENTE_GENERO,
-    EMPRESA_GERENTE_SEGURIDAD_SOCIAL_BOOL,
-    EMPRESA_GERENTE_POLIZA_VIGENTE_BOOL,
-    EMPRESA_GERENTE_CONTRATO_INDEFINIDO_BOOL,
-    EMPRESA_GERENTE_SALARIO_FIJO,
-    EMPRESA_GERENTE_REINGRESO_BOOL,
-   digitador,
-   fecha
+create table CLIENTE_GERENTE  (
+   CLIENTE_GERENTE_ID   INTEGER                         not null,
+   CLIENTE_ID           INTEGER,
+   CLIENTE_GERENTE_NOMBRE VARCHAR2(100)                   not null,
+   CLIENTE_GERENTE_DOCUMENTO INTEGER                         not null,
+   CLIENTE_GERENTE_CELULAR INTEGER                         not null,
+   CLIENTE_GERENTE_CORREO VARCHAR2(100)                   not null,
+   digitador VARCHAR(15) default USER                    NOT NULL,
+   fecha DATE default sysdate                            NOT NULL,
+   constraint PK_CLIENTE_GERENTE primary key (CLIENTE_GERENTE_ID)
 )
-AS SELECT 
-    EMPRESA_GERENTE_ID,
-    EMPRESA_ID,
-    EMPRESA_GERENTE_NOMBRE,
-    EMPRESA_GERENTE_DOCUMENTO,
-    EMPRESA_GERENTE_CELULAR,
-    EMPRESA_GERENTE_CORREO,
-    EMPRESA_GERENTE_EDAD,
-    EMPRESA_GERENTE_GENERO,
-    EMPRESA_GERENTE_SEGURIDAD_SOCIAL_BOOL,
-    EMPRESA_GERENTE_POLIZA_VIGENTE_BOOL,
-    EMPRESA_GERENTE_CONTRATO_INDEFINIDO_BOOL,
-    EMPRESA_GERENTE_SALARIO_FIJO,
-    EMPRESA_GERENTE_REINGRESO_BOOL,
-   digitador,
-   to_char(fecha, 'dd-mm-yyyy" "hh24:mi:ss')
-FROM EMPRESA_GERENTE 
-WHERE digitador = USER;
+/
 
 /*==============================================================*/
-/* Permisos                                                     */
+/* Index: REPRESENTA_CLIENTE_FK                                 */
 /*==============================================================*/
-GRANT SELECT ON VISTA_EMPRESA_GERENTE_View TO negarzonc;
-GRANT INSERT ON VISTA_EMPRESA_GERENTE_Edit TO negarzonc;
-GRANT SELECT ON VISTA_EMPRESA_GERENTE_Edit TO negarzonc;
-
-GRANT SELECT ON VISTA_EMPRESA_GERENTE_View TO dabonilla;
-GRANT INSERT ON VISTA_EMPRESA_GERENTE_Edit TO dabonilla;
-GRANT SELECT ON VISTA_EMPRESA_GERENTE_Edit TO dabonilla;
-
-GRANT SELECT ON VISTA_EMPRESA_GERENTE_View TO dsilvamo;
-GRANT INSERT ON VISTA_EMPRESA_GERENTE_Edit TO dsilvamo;
-GRANT SELECT ON VISTA_EMPRESA_GERENTE_Edit TO dsilvamo;
-
-
-/*==============================================================*/
-/* View_Edit: EMPRESA_SUBGERENTE                                            */
-/*==============================================================*/
-CREATE view VISTA_EMPRESA_SUBGERENTE_Edit AS SELECT 
-    EMPRESA_SUBGERENTE_ID,
-    EMPRESA_GERENTE_ID,
-    EMPRESA_ID,
-    EMPRESA_SUBGERENTE_NOMBRE,
-    EMPRESA_SUBGERENTE_DOCUMENTO,
-    EMPRESA_SUBGERENTE_CELULAR,
-    EMPRESA_SUBGERENTE_CORREO,
-    EMPRESA_SUBGERENTE_EDAD,
-    EMPRESA_SUBGERENTE_GENERO,
-    EMPRESA_SUBGERENTE_SEGURIDAD_SOCIAL_BOOL,
-    EMPRESA_SUBGERENTE_POLIZA_VIGENTE_BOOL,
-    EMPRESA_SUBGERENTE_CONTRATO_INDEFINIDO_BOOL,
-    EMPRESA_SUBGERENTE_SALARIO_FIJO,
-    EMPRESA_SUBGERENTE_REINGRESO_BOOL
-    
-                                    FROM EMPRESA_SUBGERENTE;
-
-/*==============================================================*/
-/* View_View: EMPRESA_SUBGERENTE                                              */
-/*==============================================================*/
-CREATE OR replace view VISTA_EMPRESA_SUBGERENTE_View 
-(
-   EMPRESA_SUBGERENTE_ID,
-    EMPRESA_GERENTE_ID,
-    EMPRESA_ID,
-    EMPRESA_SUBGERENTE_NOMBRE,
-    EMPRESA_SUBGERENTE_DOCUMENTO,
-    EMPRESA_SUBGERENTE_CELULAR,
-    EMPRESA_SUBGERENTE_CORREO,
-    EMPRESA_SUBGERENTE_EDAD,
-    EMPRESA_SUBGERENTE_GENERO,
-    EMPRESA_SUBGERENTE_SEGURIDAD_SOCIAL_BOOL,
-    EMPRESA_SUBGERENTE_POLIZA_VIGENTE_BOOL,
-    EMPRESA_SUBGERENTE_CONTRATO_INDEFINIDO_BOOL,
-    EMPRESA_SUBGERENTE_SALARIO_FIJO,
-    EMPRESA_SUBGERENTE_REINGRESO_BOOL,
-   digitador,
-   fecha
+create index REPRESENTA_CLIENTE_FK on CLIENTE_GERENTE (
+   CLIENTE_ID ASC
 )
-AS SELECT 
-    EMPRESA_SUBGERENTE_ID,
-    EMPRESA_GERENTE_ID,
-    EMPRESA_ID,
-    EMPRESA_SUBGERENTE_NOMBRE,
-    EMPRESA_SUBGERENTE_DOCUMENTO,
-    EMPRESA_SUBGERENTE_CELULAR,
-    EMPRESA_SUBGERENTE_CORREO,
-    EMPRESA_SUBGERENTE_EDAD,
-    EMPRESA_SUBGERENTE_GENERO,
-    EMPRESA_SUBGERENTE_SEGURIDAD_SOCIAL_BOOL,
-    EMPRESA_SUBGERENTE_POLIZA_VIGENTE_BOOL,
-    EMPRESA_SUBGERENTE_CONTRATO_INDEFINIDO_BOOL,
-    EMPRESA_SUBGERENTE_SALARIO_FIJO,
-    EMPRESA_SUBGERENTE_REINGRESO_BOOL,
-   digitador,
-   to_char(fecha, 'dd-mm-yyyy" "hh24:mi:ss')
-FROM EMPRESA_SUBGERENTE 
-WHERE digitador = USER;
+/
 
 /*==============================================================*/
-/* Permisos                                                     */
+/* Table: DEPARTAMENTOS                                         */
 /*==============================================================*/
-GRANT SELECT ON VISTA_EMPRESA_SUBGERENTE_View TO negarzonc;
-GRANT INSERT ON VISTA_EMPRESA_SUBGERENTE_Edit TO negarzonc;
-GRANT SELECT ON VISTA_EMPRESA_SUBGERENTE_Edit TO negarzonc;
-
-GRANT SELECT ON VISTA_EMPRESA_SUBGERENTE_View TO dabonilla;
-GRANT INSERT ON VISTA_EMPRESA_SUBGERENTE_Edit TO dabonilla;
-GRANT SELECT ON VISTA_EMPRESA_SUBGERENTE_Edit TO dabonilla;
-
-GRANT SELECT ON VISTA_EMPRESA_SUBGERENTE_View TO dsilvamo;
-GRANT INSERT ON VISTA_EMPRESA_SUBGERENTE_Edit TO dsilvamo;
-GRANT SELECT ON VISTA_EMPRESA_SUBGERENTE_Edit TO dsilvamo;
-
-
-/*==============================================================*/
-/* View_Edit: HISTORIAL_TRABAJADORES                                            */
-/*==============================================================*/
-CREATE view VISTA_HISTORIAL_TRABAJADORES_Edit AS SELECT 
-    HISTORIA_TRABAJADORES_ID,
-    HISTORIA_TRABAJADORES_FECHA_INGRESO,
-    HISTORIA_TRABAJADORES_FECHA_RETIRO,
-    HISTORIA_TRABAJADORES_ID_EMPLEADO,
-    HISTORIA_TRABAJADORES_ID_EMPLEADO_VENDEDOR,
-    HISTORIA_TRABAJADORES_DOCUMENTO,
-    HISTORIA_TRABAJADORES_NOMBRE,
-    HISTORIA_TRABAJADORES_CARGO,
-    HISTORIA_TRABAJADORES_FECHA_CAMBIO_CARGO,
-    HISTORIA_TRABAJADORES_FECHA_REINGRESO,
-    HISTORIA_TRABAJADORES_CORREO,
-    HISTORIA_TRABAJADORES_CELULAR
-
-    
-                                    FROM HISTORIAL_TRABAJADORES;
-
-/*==============================================================*/
-/* View_View: HISTORIAL_TRABAJADORES                                              */
-/*==============================================================*/
-CREATE OR replace view VISTA_HISTORIAL_TRABAJADORES_View 
-(
-   HISTORIA_TRABAJADORES_ID,
-    HISTORIA_TRABAJADORES_FECHA_INGRESO,
-    HISTORIA_TRABAJADORES_FECHA_RETIRO,
-    HISTORIA_TRABAJADORES_ID_EMPLEADO,
-    HISTORIA_TRABAJADORES_ID_EMPLEADO_VENDEDOR,
-    HISTORIA_TRABAJADORES_DOCUMENTO,
-    HISTORIA_TRABAJADORES_NOMBRE,
-    HISTORIA_TRABAJADORES_CARGO,
-    HISTORIA_TRABAJADORES_FECHA_CAMBIO_CARGO,
-    HISTORIA_TRABAJADORES_FECHA_REINGRESO,
-    HISTORIA_TRABAJADORES_CORREO,
-    HISTORIA_TRABAJADORES_CELULAR,
-   digitador,
-   fecha
+create table DEPARTAMENTOS  (
+   DEPARTAMENTO_ID      INTEGER                         not null,
+   SUCURSAL_ID          INTEGER,
+   DIRECTOR_DEPARTAMENTO_ID INTEGER,
+   DEPARTAMENTO_NOMBRE  VARCHAR2(100)                   not null,
+   digitador VARCHAR(15) default USER                    NOT NULL,
+   fecha DATE default sysdate                            NOT NULL,
+   constraint PK_DEPARTAMENTOS primary key (DEPARTAMENTO_ID)
 )
-AS SELECT 
-    HISTORIA_TRABAJADORES_ID,
-    HISTORIA_TRABAJADORES_FECHA_INGRESO,
-    HISTORIA_TRABAJADORES_FECHA_RETIRO,
-    HISTORIA_TRABAJADORES_ID_EMPLEADO,
-    HISTORIA_TRABAJADORES_ID_EMPLEADO_VENDEDOR,
-    HISTORIA_TRABAJADORES_DOCUMENTO,
-    HISTORIA_TRABAJADORES_NOMBRE,
-    HISTORIA_TRABAJADORES_CARGO,
-    HISTORIA_TRABAJADORES_FECHA_CAMBIO_CARGO,
-    HISTORIA_TRABAJADORES_FECHA_REINGRESO,
-    HISTORIA_TRABAJADORES_CORREO,
-    HISTORIA_TRABAJADORES_CELULAR,
-   digitador,
-   to_char(fecha, 'dd-mm-yyyy" "hh24:mi:ss')
-FROM HISTORIAL_TRABAJADORES 
-WHERE digitador = USER;
+/
 
 /*==============================================================*/
-/* Permisos                                                     */
+/* Index: DIVIDE_EN_DEPARTAMENTOS_FK                            */
 /*==============================================================*/
-GRANT SELECT ON VISTA_HISTORIAL_TRABAJADORES_View TO negarzonc;
-GRANT INSERT ON VISTA_HISTORIAL_TRABAJADORES_Edit TO negarzonc;
-GRANT SELECT ON VISTA_HISTORIAL_TRABAJADORES_Edit TO negarzonc;
-
-GRANT SELECT ON VISTA_HISTORIAL_TRABAJADORES_View TO dabonilla;
-GRANT INSERT ON VISTA_HISTORIAL_TRABAJADORES_Edit TO dabonilla;
-GRANT SELECT ON VISTA_HISTORIAL_TRABAJADORES_Edit TO dabonilla;
-
-GRANT SELECT ON VISTA_HISTORIAL_TRABAJADORES_View TO dsilvamo;
-GRANT INSERT ON VISTA_HISTORIAL_TRABAJADORES_Edit TO dsilvamo;
-GRANT SELECT ON VISTA_HISTORIAL_TRABAJADORES_Edit TO dsilvamo;
-
-
-
-/*==============================================================*/
-/* View_Edit: ORDENES                                            */
-/*==============================================================*/
-CREATE view VISTA_ORDENES_Edit AS SELECT 
-    ORDEN_ID,
-    SUCURSAL_ID,
-    VACANTE_ID,
-    CLIENTE_ID,
-    ORDEN_ESTADO,
-    ORDEN_FECHA_SOLICITUD
-    ORDEN_FECHA_ENTREGA
-
-    
-                                    FROM ORDENES;
-
-/*==============================================================*/
-/* View_View: ORDENES                                              */
-/*==============================================================*/
-CREATE OR replace view VISTA_ORDENES_View 
-(
-   ORDEN_ID,
-    SUCURSAL_ID,
-    VACANTE_ID,
-    CLIENTE_ID,
-    ORDEN_ESTADO,
-    ORDEN_FECHA_SOLICITUD
-    ORDEN_FECHA_ENTREGA,
-   digitador,
-   fecha
+create index DIVIDE_EN_DEPARTAMENTOS_FK on DEPARTAMENTOS (
+   SUCURSAL_ID ASC
 )
-AS SELECT 
-    ORDEN_ID,
-    SUCURSAL_ID,
-    VACANTE_ID,
-    CLIENTE_ID,
-    ORDEN_ESTADO,
-    ORDEN_FECHA_SOLICITUD
-    ORDEN_FECHA_ENTREGA,
-   digitador,
-   to_char(fecha, 'dd-mm-yyyy" "hh24:mi:ss')
-FROM ORDENES 
-WHERE digitador = USER;
+/
 
 /*==============================================================*/
-/* Permisos                                                     */
+/* Index: DIRIGE_DEPARTAMENTO_FK                                */
 /*==============================================================*/
-GRANT SELECT ON VISTA_ORDENES_View TO negarzonc;
-GRANT INSERT ON VISTA_ORDENES_Edit TO negarzonc;
-GRANT SELECT ON VISTA_ORDENES_Edit TO negarzonc;
-
-GRANT SELECT ON VISTA_ORDENES_View TO dabonilla;
-GRANT INSERT ON VISTA_ORDENES_Edit TO dabonilla;
-GRANT SELECT ON VISTA_ORDENES_Edit TO dabonilla;
-
-GRANT SELECT ON VISTA_ORDENES_View TO dsilvamo;
-GRANT INSERT ON VISTA_ORDENES_Edit TO dsilvamo;
-GRANT SELECT ON VISTA_ORDENES_Edit TO dsilvamo;
-
-
-
-/*==============================================================*/
-/* View_Edit: ORDENES_ITEMS                                            */
-/*==============================================================*/
-CREATE view VISTA_ORDENES_ITEMS_Edit AS SELECT 
-    ORDEN_ITEM_ID,
-    ORDEN_ID,
-    PRODUCTO_ID,
-    ORDEN_ITEM_CANTIDAD,
-    ORDEN_ITEM_PRECIO_TOTAL,
-    ORDEN_ITEM_DESCUENTO_BOOL
-
-    
-                                    FROM ORDENES_ITEMS;
-
-/*==============================================================*/
-/* View_View: ORDENES_ITEMS                                              */
-/*==============================================================*/
-CREATE OR replace view VISTA_ORDENES_ITEMS_View 
-(
-   ORDEN_ITEM_ID,
-    ORDEN_ID,
-    PRODUCTO_ID,
-    ORDEN_ITEM_CANTIDAD,
-    ORDEN_ITEM_PRECIO_TOTAL,
-    ORDEN_ITEM_DESCUENTO_BOOL,
-   digitador,
-   fecha
+create index DIRIGE_DEPARTAMENTO_FK on DEPARTAMENTOS (
+   DIRECTOR_DEPARTAMENTO_ID ASC
 )
-AS SELECT 
-    ORDEN_ITEM_ID,
-    ORDEN_ID,
-    PRODUCTO_ID,
-    ORDEN_ITEM_CANTIDAD,
-    ORDEN_ITEM_PRECIO_TOTAL,
-    ORDEN_ITEM_DESCUENTO_BOOL,
-   digitador,
-   to_char(fecha, 'dd-mm-yyyy" "hh24:mi:ss')
-FROM ORDENES_ITEMS 
-WHERE digitador = USER;
+/
 
 /*==============================================================*/
-/* Permisos                                                     */
+/* Table: DIRECTOR_DEPARTAMENTO                                 */
 /*==============================================================*/
-GRANT SELECT ON VISTA_ORDENES_ITEMS_View TO negarzonc;
-GRANT INSERT ON VISTA_ORDENES_ITEMS_Edit TO negarzonc;
-GRANT SELECT ON VISTA_ORDENES_ITEMS_Edit TO negarzonc;
-
-GRANT SELECT ON VISTA_ORDENES_ITEMS_View TO dabonilla;
-GRANT INSERT ON VISTA_ORDENES_ITEMS_Edit TO dabonilla;
-GRANT SELECT ON VISTA_ORDENES_ITEMS_Edit TO dabonilla;
-
-GRANT SELECT ON VISTA_ORDENES_ITEMS_View TO dsilvamo;
-GRANT INSERT ON VISTA_ORDENES_ITEMS_Edit TO dsilvamo;
-GRANT SELECT ON VISTA_ORDENES_ITEMS_Edit TO dsilvamo;
-
-
-/*==============================================================*/
-/* View_Edit: PAISES                                            */
-/*==============================================================*/
-CREATE view VISTA_PAISES_Edit AS SELECT 
-    PAIS_ID,
-    EMPRESA_ID,
-    PAIS_NOMBRE,
-    PAIS_PREFIJO
-
-    
-                                    FROM PAISES;
-
-/*==============================================================*/
-/* View_View: PAISES                                              */
-/*==============================================================*/
-CREATE OR replace view VISTA_PAISES_View 
-(
-   PAIS_ID,
-    EMPRESA_ID,
-    PAIS_NOMBRE,
-    PAIS_PREFIJO,
-   digitador,
-   fecha
+create table DIRECTOR_DEPARTAMENTO  (
+   DIRECTOR_DEPARTAMENTO_ID INTEGER                         not null,
+   DIRECTOR_SUCURSAL_ID INTEGER,
+   DIRECTOR_DEPARTAMENTO_NOMBRE VARCHAR2(100)                   not null,
+   DIRECTOR_DEPARTAMENTO_DOCUMENTO INTEGER                         not null,
+   DIRECTOR_DEPARTAMENTO_CELULAR INTEGER                         not null,
+   DIRECTOR_DEPARTAMENTO_CORREO VARCHAR2(100)                   not null,
+   DIRECTOR_DEPARTAMENTO_GENERO VARCHAR2(100),
+   DIRECTOR_DEPARTAMENTO_EDAD INTEGER                         not null
+      constraint CKC_DIRECTOR_DEPARTAM_DIRECTO2 check (DIRECTOR_DEPARTAMENTO_EDAD between 18 and 99),
+   DIRECTOR_DEPARTAMENTO_SEGURIDAD_SOCIAL_BOOL SMALLINT                        not null,
+   DIRECTOR_DEPARTAMENTO_POLIZA_VIGENTE_BOOL SMALLINT                        not null,
+   DIRECTOR_DEPARTAMENTO_SALARIO_FIJO INTEGER                         not null
+      constraint CKC_DIRECTOR_DEPARTAM_DIRECTOR check (DIRECTOR_DEPARTAMENTO_SALARIO_ between 3500000 and 3999999),
+   DIRECTOR_DEPARTAMENTO_CONTRATO_INDEFINIDO_BOOL SMALLINT                        not null,
+   DIRECTOR_DEPARTAMENTO_REINGRESO_BOOL SMALLINT                        not null,
+   digitador VARCHAR(15) default USER                    NOT NULL,
+   fecha DATE default sysdate                            NOT NULL,
+   constraint PK_DIRECTOR_DEPARTAMENTO primary key (DIRECTOR_DEPARTAMENTO_ID)
 )
-AS SELECT 
-   PAIS_ID,
-    EMPRESA_ID,
-    PAIS_NOMBRE,
-    PAIS_PREFIJO,
-   digitador,
-   to_char(fecha, 'dd-mm-yyyy" "hh24:mi:ss')
-FROM PAISES 
-WHERE digitador = USER;
+/
 
 /*==============================================================*/
-/* Permisos                                                     */
+/* Index: JEFE_DIR_DEPARTAMENTO_FK                              */
 /*==============================================================*/
-GRANT SELECT ON VISTA_PAISES_View TO negarzonc;
-GRANT INSERT ON VISTA_PAISES_Edit TO negarzonc;
-GRANT SELECT ON VISTA_PAISES_Edit TO negarzonc;
-
-GRANT SELECT ON VISTA_PAISES_View TO dabonilla;
-GRANT INSERT ON VISTA_PAISES_Edit TO dabonilla;
-GRANT SELECT ON VISTA_PAISES_Edit TO dabonilla;
-
-GRANT SELECT ON VISTA_PAISES_View TO dsilvamo;
-GRANT INSERT ON VISTA_PAISES_Edit TO dsilvamo;
-GRANT SELECT ON VISTA_PAISES_Edit TO dsilvamo;
-
-
-
-/*==============================================================*/
-/* View_Edit: PREMIOS                                            */
-/*==============================================================*/
-CREATE view VISTA_PREMIOS_Edit AS SELECT 
-    PREMIO_ID,
-    PREMIO_NOMBRE,
-    PREMIO_VALOR
-
-    
-                                    FROM PREMIOS;
-
-/*==============================================================*/
-/* View_View: PREMIOS                                              */
-/*==============================================================*/
-CREATE OR replace view VISTA_PREMIOS_View 
-(
-   PREMIO_ID,
-    PREMIO_NOMBRE,
-    PREMIO_VALOR,
-   digitador,
-   fecha
+create index JEFE_DIR_DEPARTAMENTO_FK on DIRECTOR_DEPARTAMENTO (
+   DIRECTOR_SUCURSAL_ID ASC
 )
-AS SELECT 
-   PREMIO_ID,
-    PREMIO_NOMBRE,
-    PREMIO_VALOR,
-   digitador,
-   to_char(fecha, 'dd-mm-yyyy" "hh24:mi:ss')
-FROM PREMIOS 
-WHERE digitador = USER;
+/
 
 /*==============================================================*/
-/* Permisos                                                     */
+/* Table: DIRECTOR_SUCURSAL                                     */
 /*==============================================================*/
-GRANT SELECT ON VISTA_PREMIOS_View TO negarzonc;
-GRANT INSERT ON VISTA_PREMIOS_Edit TO negarzonc;
-GRANT SELECT ON VISTA_PREMIOS_Edit TO negarzonc;
-
-GRANT SELECT ON VISTA_PREMIOS_View TO dabonilla;
-GRANT INSERT ON VISTA_PREMIOS_Edit TO dabonilla;
-GRANT SELECT ON VISTA_PREMIOS_Edit TO dabonilla;
-
-GRANT SELECT ON VISTA_PREMIOS_View TO dsilvamo;
-GRANT INSERT ON VISTA_PREMIOS_Edit TO dsilvamo;
-GRANT SELECT ON VISTA_PREMIOS_Edit TO dsilvamo;
-
-
-
-/*==============================================================*/
-/* View_Edit: PRODUCTOS                                            */
-/*==============================================================*/
-CREATE view VISTA_PRODUCTOS_Edit AS SELECT 
-    PRODUCTO_ID,
-    BODEGA_ID,
-    PROVEEDOR_ID,
-    PRODUCTO_NOMBRE,
-    PRODUCTO_PRECIO_ADQUISICION,
-    PRODUCTO_PRECIO_VENTA
-
-    
-                                    FROM PRODUCTOS;
-
-/*==============================================================*/
-/* View_View: PRODUCTOS                                              */
-/*==============================================================*/
-CREATE OR replace view VISTA_PRODUCTOS_View 
-(
-   PRODUCTO_ID,
-    BODEGA_ID,
-    PROVEEDOR_ID,
-    PRODUCTO_NOMBRE,
-    PRODUCTO_PRECIO_ADQUISICION,
-    PRODUCTO_PRECIO_VENTA,
-   digitador,
-   fecha
+create table DIRECTOR_SUCURSAL  (
+   DIRECTOR_SUCURSAL_ID INTEGER                         not null,
+   EMPRESA_SUBGERENTE_ID INTEGER,
+   DIRECTOR_SUCURSAL_NOMBRE VARCHAR2(100)                   not null,
+   DIRECTOR_SUCURSAL_DOCUMENTO INTEGER                         not null,
+   DIRECTOR_SUCURSAL_CELULAR INTEGER                         not null,
+   DIRECTOR_SUCURSAL_CORREO VARCHAR2(100)                   not null,
+   DIRECTOR_SUCURSAL_GENERO VARCHAR2(100),
+   DIRECTOR_SUCURSAL_EDAD INTEGER                         not null
+      constraint CKC_DIRECTOR_SUCURSAL_DIRECTO2 check (DIRECTOR_SUCURSAL_EDAD between 18 and 99),
+   DIRECTOR_SUCURSAL_SEGURIDAD_SOCIAL_BOOL SMALLINT                        not null,
+   DIRECTOR_SUCURSAL_POLIZA_VIGENTE_BOOL SMALLINT                        not null,
+   DIRECTOR_SUCURSAL_SALARIO_FIJO INTEGER                         not null
+      constraint CKC_DIRECTOR_SUCURSAL_DIRECTOR check (DIRECTOR_SUCURSAL_SALARIO_FIJO between 4000000 and 4999999),
+   DIRECTOR_SUCURSAL_CONTRATO_INDEFINIDO_BOOL SMALLINT                        not null,
+   DIRECTOR_SUCURSAL_REINGRESO_BOOL SMALLINT                        not null,
+   digitador VARCHAR(15) default USER                    NOT NULL,
+   fecha DATE default sysdate                            NOT NULL,
+   constraint PK_DIRECTOR_SUCURSAL primary key (DIRECTOR_SUCURSAL_ID)
 )
-AS SELECT 
-   PRODUCTO_ID,
-    BODEGA_ID,
-    PROVEEDOR_ID,
-    PRODUCTO_NOMBRE,
-    PRODUCTO_PRECIO_ADQUISICION,
-    PRODUCTO_PRECIO_VENTA,
-   digitador,
-   to_char(fecha, 'dd-mm-yyyy" "hh24:mi:ss')
-FROM PRODUCTOS 
-WHERE digitador = USER;
+/
 
 /*==============================================================*/
-/* Permisos                                                     */
+/* Index: JEFE_DIRECTOR_SUCURSAL_FK                             */
 /*==============================================================*/
-GRANT SELECT ON VISTA_PRODUCTOS_View TO negarzonc;
-GRANT INSERT ON VISTA_PRODUCTOS_Edit TO negarzonc;
-GRANT SELECT ON VISTA_PRODUCTOS_Edit TO negarzonc;
-
-GRANT SELECT ON VISTA_PRODUCTOS_View TO dabonilla;
-GRANT INSERT ON VISTA_PRODUCTOS_Edit TO dabonilla;
-GRANT SELECT ON VISTA_PRODUCTOS_Edit TO dabonilla;
-
-GRANT SELECT ON VISTA_PRODUCTOS_View TO dsilvamo;
-GRANT INSERT ON VISTA_PRODUCTOS_Edit TO dsilvamo;
-GRANT SELECT ON VISTA_PRODUCTOS_Edit TO dsilvamo;
-
-
-/*==============================================================*/
-/* View_Edit: PROVEEDORES                                            */
-/*==============================================================*/
-CREATE view VISTA_PROVEEDORES_Edit AS SELECT 
-    PROVEEDOR_ID,
-    PROVEEDOR_NIT,
-    PROVEEDOR_NOMBRE,
-    PROVEEDOR_CENTRO_LLAMADAS,
-    PROVEEDOR_DIRECCION,
-    PROVEEDOR_NORMAS_BOOL,
-    PROVEEDOR_CORREO
-
-    
-                                    FROM PROVEEDORES;
-
-/*==============================================================*/
-/* View_View: PROVEEDORES                                              */
-/*==============================================================*/
-CREATE OR replace view VISTA_PROVEEDORES_View 
-(
-   PROVEEDOR_ID,
-    PROVEEDOR_NIT,
-    PROVEEDOR_NOMBRE,
-    PROVEEDOR_CENTRO_LLAMADAS,
-    PROVEEDOR_DIRECCION,
-    PROVEEDOR_NORMAS_BOOL,
-    PROVEEDOR_CORREO,
-   digitador,
-   fecha
+create index JEFE_DIRECTOR_SUCURSAL_FK on DIRECTOR_SUCURSAL (
+   EMPRESA_SUBGERENTE_ID ASC
 )
-AS SELECT 
-   PROVEEDOR_ID,
-    PROVEEDOR_NIT,
-    PROVEEDOR_NOMBRE,
-    PROVEEDOR_CENTRO_LLAMADAS,
-    PROVEEDOR_DIRECCION,
-    PROVEEDOR_NORMAS_BOOL,
-    PROVEEDOR_CORREO,
-   digitador,
-   to_char(fecha, 'dd-mm-yyyy" "hh24:mi:ss')
-FROM PROVEEDORES 
-WHERE digitador = USER;
+/
 
 /*==============================================================*/
-/* Permisos                                                     */
+/* Table: EMPLEADOS                                             */
 /*==============================================================*/
-GRANT SELECT ON VISTA_PROVEEDORES_View TO negarzonc;
-GRANT INSERT ON VISTA_PROVEEDORES_Edit TO negarzonc;
-GRANT SELECT ON VISTA_PROVEEDORES_Edit TO negarzonc;
-
-GRANT SELECT ON VISTA_PROVEEDORES_View TO dabonilla;
-GRANT INSERT ON VISTA_PROVEEDORES_Edit TO dabonilla;
-GRANT SELECT ON VISTA_PROVEEDORES_Edit TO dabonilla;
-
-GRANT SELECT ON VISTA_PROVEEDORES_View TO dsilvamo;
-GRANT INSERT ON VISTA_PROVEEDORES_Edit TO dsilvamo;
-GRANT SELECT ON VISTA_PROVEEDORES_Edit TO dsilvamo;
-
-
-
-/*==============================================================*/
-/* View_Edit: PROVEEDOR_GERENTE                                            */
-/*==============================================================*/
-CREATE view VISTA_PROVEEDOR_GERENTE_Edit AS SELECT 
-    PROVEEDOR_GERENTE_ID,
-    PROVEEDOR_ID,
-    PROVEEDOR_GERENTE_NOMBRE,
-    PROVEEDOR_GERENTE_DOCUMENTO,
-    PROVEEDOR_GERENTE_CELULAR,
-    PROVEEDOR_GERENTE_CORREO
-
-    
-                                    FROM PROVEEDOR_GERENTE;
-
-/*==============================================================*/
-/* View_View: PROVEEDOR_GERENTE                                              */
-/*==============================================================*/
-CREATE OR replace view VISTA_PROVEEDOR_GERENTE_View 
-(
-   PROVEEDOR_GERENTE_ID,
-    PROVEEDOR_ID,
-    PROVEEDOR_GERENTE_NOMBRE,
-    PROVEEDOR_GERENTE_DOCUMENTO,
-    PROVEEDOR_GERENTE_CELULAR,
-    PROVEEDOR_GERENTE_CORREO,
-   digitador,
-   fecha
+create table EMPLEADOS  (
+   EMPLEADO_ID          INTEGER                         not null,
+   CARGO_ID             INTEGER,
+   EMPLEADO_DOCUMENTO   INTEGER                         not null,
+   EMPLEADO_NOMBRE      VARCHAR2(100)                   not null,
+   EMPLEADO_CELULAR     INTEGER                         not null,
+   EMPLEADO_CORREO      VARCHAR2(100)                         not null,
+   EMPLEADO_GENERO      VARCHAR2(100),
+   EMPLEADO_EDAD        INTEGER                         not null
+      constraint CKC_EMPLEADO_EDAD_EMPLEADO check (EMPLEADO_EDAD between 18 and 99),
+   EMPLEADO_SEGURIDAD_SOCIAL_BOOL SMALLINT                        not null,
+   EMPLEADO_POLIZA_VIGENTE_BOOL SMALLINT                        not null,
+   EMPLEADO_CARGO       INTEGER                         not null,
+   EMPLEADO_SALARIO_FIJO INTEGER                         not null,
+   EMPLEADO_CONTRATO_INDEFINIDO_BOOL SMALLINT                        not null,
+   EMPLEADO_REINGRESO_BOOL SMALLINT                        not null,
+   digitador VARCHAR(15) default USER                    NOT NULL,
+   fecha DATE default sysdate                            NOT NULL,
+   constraint PK_EMPLEADOS primary key (EMPLEADO_ID)
 )
-AS SELECT 
-   PROVEEDOR_GERENTE_ID,
-    PROVEEDOR_ID,
-    PROVEEDOR_GERENTE_NOMBRE,
-    PROVEEDOR_GERENTE_DOCUMENTO,
-    PROVEEDOR_GERENTE_CELULAR,
-    PROVEEDOR_GERENTE_CORREO,
-   digitador,
-   to_char(fecha, 'dd-mm-yyyy" "hh24:mi:ss')
-FROM PROVEEDOR_GERENTE 
-WHERE digitador = USER;
+/
 
 /*==============================================================*/
-/* Permisos                                                     */
+/* Index: OCUPADOS_POR_FK                                       */
 /*==============================================================*/
-GRANT SELECT ON VISTA_PROVEEDOR_GERENTE_View TO negarzonc;
-GRANT INSERT ON VISTA_PROVEEDOR_GERENTE_Edit TO negarzonc;
-GRANT SELECT ON VISTA_PROVEEDOR_GERENTE_Edit TO negarzonc;
-
-GRANT SELECT ON VISTA_PROVEEDOR_GERENTE_View TO dabonilla;
-GRANT INSERT ON VISTA_PROVEEDOR_GERENTE_Edit TO dabonilla;
-GRANT SELECT ON VISTA_PROVEEDOR_GERENTE_Edit TO dabonilla;
-
-GRANT SELECT ON VISTA_PROVEEDOR_GERENTE_View TO dsilvamo;
-GRANT INSERT ON VISTA_PROVEEDOR_GERENTE_Edit TO dsilvamo;
-GRANT SELECT ON VISTA_PROVEEDOR_GERENTE_Edit TO dsilvamo;
-
-
-
-/*==============================================================*/
-/* View_Edit: SUCURSALES                                            */
-/*==============================================================*/
-CREATE view VISTA_SUCURSALES_Edit AS SELECT 
-    SUCURSAL_ID,
-    CIUDAD_ID,
-    DIRECTOR_SUCURSAL_ID,
-    SUCURSAL_NOMBRE,
-    SUCURSAL_CENTRO_LLAMADAS,
-    SUCURSAL_DIRECCION
-
-    
-                                    FROM SUCURSALES;
-
-/*==============================================================*/
-/* View_View: SUCURSALES                                              */
-/*==============================================================*/
-CREATE OR replace view VISTA_SUCURSALES_View 
-(
-   SUCURSAL_ID,
-    CIUDAD_ID,
-    DIRECTOR_SUCURSAL_ID,
-    SUCURSAL_NOMBRE,
-    SUCURSAL_CENTRO_LLAMADAS,
-    SUCURSAL_DIRECCIO,
-   digitador,
-   fecha
+create index OCUPADOS_POR_FK on EMPLEADOS (
+   CARGO_ID ASC
 )
-AS SELECT 
-   SUCURSAL_ID,
-    CIUDAD_ID,
-    DIRECTOR_SUCURSAL_ID,
-    SUCURSAL_NOMBRE,
-    SUCURSAL_CENTRO_LLAMADAS,
-    SUCURSAL_DIRECCIO,
-   digitador,
-   to_char(fecha, 'dd-mm-yyyy" "hh24:mi:ss')
-FROM SUCURSALES 
-WHERE digitador = USER;
+/
 
 /*==============================================================*/
-/* Permisos                                                     */
+/* Table: EMPRESA                                               */
 /*==============================================================*/
-GRANT SELECT ON VISTA_SUCURSALES_View TO negarzonc;
-GRANT INSERT ON VISTA_SUCURSALES_Edit TO negarzonc;
-GRANT SELECT ON VISTA_SUCURSALES_Edit TO negarzonc;
-
-GRANT SELECT ON VISTA_SUCURSALES_View TO dabonilla;
-GRANT INSERT ON VISTA_SUCURSALES_Edit TO dabonilla;
-GRANT SELECT ON VISTA_SUCURSALES_Edit TO dabonilla;
-
-GRANT SELECT ON VISTA_SUCURSALES_View TO dsilvamo;
-GRANT INSERT ON VISTA_SUCURSALES_Edit TO dsilvamo;
-GRANT SELECT ON VISTA_SUCURSALES_Edit TO dsilvamo;
-
-
-
-/*==============================================================*/
-/* View_Edit: VACANTES                                            */
-/*==============================================================*/
-CREATE view VISTA_VACANTES_Edit AS SELECT 
-    VACANTE_ID,
-    CARGO_ID,
-    VACANTE_NUMERO
-
-    
-                                    FROM VACANTES;
-
-/*==============================================================*/
-/* View_View: VACANTES                                              */
-/*==============================================================*/
-CREATE OR replace view VISTA_VACANTES_View 
-(
-   VACANTE_ID,
-    CARGO_ID,
-    VACANTE_NUMERO,
-   digitador,
-   fecha
+create table EMPRESA  (
+   EMPRESA_ID           INTEGER                         not null,
+   EMPRESA_NOMBRE       VARCHAR2(100)                   not null,
+   EMPRESA_DIRECCION    VARCHAR2(100)                   not null,
+   EMPRESA_CENTRO_LLAMADAS INTEGER                         not null,
+   digitador VARCHAR(15) default USER                    NOT NULL,
+   fecha DATE default sysdate                            NOT NULL,
+   constraint PK_EMPRESA primary key (EMPRESA_ID)
 )
-AS SELECT 
-   VACANTE_ID,
-    CARGO_ID,
-    VACANTE_NUMERO,
-   digitador,
-   to_char(fecha, 'dd-mm-yyyy" "hh24:mi:ss')
-FROM VACANTES 
-WHERE digitador = USER;
+/
 
 /*==============================================================*/
-/* Permisos                                                     */
+/* Table: EMPRESA_GERENTE                                       */
 /*==============================================================*/
-GRANT SELECT ON VISTA_VACANTES_View TO negarzonc;
-GRANT INSERT ON VISTA_VACANTES_Edit TO negarzonc;
-GRANT SELECT ON VISTA_VACANTES_Edit TO negarzonc;
+create table EMPRESA_GERENTE  (
+   EMPRESA_GERENTE_ID   INTEGER                         not null,
+   EMPRESA_ID           INTEGER,
+   EMPRESA_GERENTE_NOMBRE VARCHAR2(100)                   not null,
+   EMPRESA_GERENTE_DOCUMENTO INTEGER                         not null,
+   EMPRESA_GERENTE_CELULAR INTEGER                         not null,
+   EMPRESA_GERENTE_CORREO VARCHAR2(100)                   not null,
+   EMPRESA_GERENTE_EDAD INTEGER                         not null
+      constraint CKC_EMPRESA_GERENTE_E_EMPRESA_ check (EMPRESA_GERENTE_EDAD between 18 and 99),
+   EMPRESA_GERENTE_GENERO VARCHAR2(100),
+   EMPRESA_GERENTE_SEGURIDAD_SOCIAL_BOOL SMALLINT                        not null,
+   EMPRESA_GERENTE_POLIZA_VIGENTE_BOOL SMALLINT                        not null,
+   EMPRESA_GERENTE_CONTRATO_INDEFINIDO_BOOL SMALLINT                        not null,
+   EMPRESA_GERENTE_SALARIO_FIJO INTEGER                         not null
+      constraint CKC_EMPRESA_GERENTE_S_EMPRESA_ check (EMPRESA_GERENTE_SALARIO_FIJO between 6000000 and 8000000),
+   EMPRESA_GERENTE_REINGRESO_BOOL SMALLINT                        not null,
+   digitador VARCHAR(15) default USER                    NOT NULL,
+   fecha DATE default sysdate                            NOT NULL,
+   constraint PK_EMPRESA_GERENTE primary key (EMPRESA_GERENTE_ID)
+)
+/
 
-GRANT SELECT ON VISTA_VACANTES_View TO dabonilla;
-GRANT INSERT ON VISTA_VACANTES_Edit TO dabonilla;
-GRANT SELECT ON VISTA_VACANTES_Edit TO dabonilla;
+/*==============================================================*/
+/* Index: DIRIGIDA_POR_FK                                       */
+/*==============================================================*/
+create index DIRIGIDA_POR_FK on EMPRESA_GERENTE (
+   EMPRESA_ID ASC
+)
+/
 
-GRANT SELECT ON VISTA_VACANTES_View TO dsilvamo;
-GRANT INSERT ON VISTA_VACANTES_Edit TO dsilvamo;
-GRANT SELECT ON VISTA_VACANTES_Edit TO dsilvamo;
+/*==============================================================*/
+/* Table: EMPRESA_SUBGERENTE                                    */
+/*==============================================================*/
+create table EMPRESA_SUBGERENTE  (
+   EMPRESA_SUBGERENTE_ID INTEGER                         not null,
+   EMPRESA_GERENTE_ID   INTEGER,
+   EMPRESA_ID           INTEGER,
+   EMPRESA_SUBGERENTE_NOMBRE VARCHAR2(100)                   not null,
+   EMPRESA_SUBGERENTE_DOCUMENTO INTEGER                         not null,
+   EMPRESA_SUBGERENTE_CELULAR INTEGER                         not null,
+   EMPRESA_SUBGERENTE_CORREO VARCHAR2(100)                   not null,
+   EMPRESA_SUBGERENTE_EDAD INTEGER                         not null
+      constraint CKC_EMPRESA_SUBGERENT_EMPRESA2 check (EMPRESA_SUBGERENTE_EDAD between 18 and 99),
+   EMPRESA_SUBGERENTE_GENERO VARCHAR2(100),
+   EMPRESA_SUBGERENTE_SEGURIDAD_SOCIAL_BOOL SMALLINT                        not null,
+   EMPRESA_SUBGERENTE_POLIZA_VIGENTE_BOOL SMALLINT                        not null,
+   EMPRESA_SUBGERENTE_CONTRATO_INDEFINIDO_BOOL SMALLINT                        not null,
+   EMPRESA_SUBGERENTE_SALARIO_FIJO INTEGER                         not null
+      constraint CKC_EMPRESA_SUBGERENT_EMPRESA_ check (EMPRESA_SUBGERENTE_SALARIO_FIJ between 5000000 and 5999999),
+   EMPRESA_SUBGERENTE_REINGRESO_BOOL SMALLINT                        not null,
+   digitador VARCHAR(15) default USER                    NOT NULL,
+   fecha DATE default sysdate                            NOT NULL,
+   constraint PK_EMPRESA_SUBGERENTE primary key (EMPRESA_SUBGERENTE_ID)
+)
+/
+
+/*==============================================================*/
+/* Index: JEFE_SUBGERENTE_FK                                    */
+/*==============================================================*/
+create index JEFE_SUBGERENTE_FK on EMPRESA_SUBGERENTE (
+   EMPRESA_GERENTE_ID ASC
+)
+/
+
+/*==============================================================*/
+/* Index: REEMPLAZO_GERENTE_FK                                  */
+/*==============================================================*/
+create index REEMPLAZO_GERENTE_FK on EMPRESA_SUBGERENTE (
+   EMPRESA_ID ASC
+)
+/
+
+/*==============================================================*/
+/* Table: HISTORIAL_TRABAJADORES                                */
+/*==============================================================*/
+create table HISTORIAL_TRABAJADORES  (
+   HISTORIA_TRABAJADORES_ID INTEGER                         not null,
+   HISTORIA_TRABAJADORES_FECHA_INGRESO DATE                            not null,
+   HISTORIA_TRABAJADORES_FECHA_RETIRO DATE                            not null,
+   HISTORIA_TRABAJADORES_ID_EMPLEADO INTEGER                         not null,
+   HISTORIA_TRABAJADORES_ID_EMPLEADO_VENDEDOR INTEGER                         not null,
+   HISTORIA_TRABAJADORES_DOCUMENTO INTEGER                         not null,
+   HISTORIA_TRABAJADORES_NOMBRE VARCHAR2(100)                   not null,
+   HISTORIA_TRABAJADORES_CARGO VARCHAR2(100)                   not null,
+   HISTORIA_TRABAJADORES_FECHA_CAMBIO_CARGO DATE                            not null,
+   HISTORIA_TRABAJADORES_FECHA_REINGRESO DATE                            not null,
+   HISTORIA_TRABAJADORES_CORREO VARCHAR2(100)                   not null,
+   HISTORIA_TRABAJADORES_CELULAR INTEGER                         not null,
+   digitador VARCHAR(15) default USER                    NOT NULL,
+   fecha DATE default sysdate                            NOT NULL,
+   constraint PK_HISTORIAL_TRABAJADORES primary key (HISTORIA_TRABAJADORES_ID)
+)
+/
+
+/*==============================================================*/
+/* Table: ORDENES                                               */
+/*==============================================================*/
+create table ORDENES  (
+   ORDEN_ID             INTEGER                         not null,
+   SUCURSAL_ID          INTEGER                         not null,
+   VENDEDOR_ID          INTEGER                         not null,
+   CLIENTE_ID           INTEGER,
+   ORDEN_ESTADO         INTEGER                         not null
+      constraint CKC_ORDEN_ESTADO_ORDENES check (ORDEN_ESTADO between 1 and 4),
+   ORDEN_FECHA_SOLICITUD DATE                            not null,
+   ORDEN_FECHA_ENTREGA  DATE                            not null,
+   digitador VARCHAR(15) default USER                    NOT NULL,
+   fecha DATE default sysdate                            NOT NULL,
+   constraint PK_ORDENES primary key (ORDEN_ID)
+)
+/
+
+/*==============================================================*/
+/* Index: LUGAR_VENTA_FK                                        */
+/*==============================================================*/
+create index LUGAR_VENTA_FK on ORDENES (
+   SUCURSAL_ID ASC
+)
+/
+
+/*==============================================================*/
+/* Index: GENERA_FK                                             */
+/*==============================================================*/
+create index GENERA_FK on ORDENES (
+   VENDEDOR_ID ASC
+)
+/
+
+/*==============================================================*/
+/* Index: PIDEN_FK                                              */
+/*==============================================================*/
+create index PIDEN_FK on ORDENES (
+   CLIENTE_ID ASC
+)
+/
+
+/*==============================================================*/
+/* Table: ORDENES_ITEMS                                         */
+/*==============================================================*/
+create table ORDENES_ITEMS  (
+   ORDEN_ITEM_ID        INTEGER                         not null,
+   ORDEN_ID             INTEGER,
+   PRODUCTO_ID          INTEGER,
+   ORDEN_ITEM_CANTIDAD  INTEGER                         not null,
+   ORDEN_ITEM_PRECIO_TOTAL INTEGER                         not null,
+   ORDEN_ITEM_DESCUENTO_BOOL SMALLINT                        not null,
+   digitador VARCHAR(15) default USER                    NOT NULL,
+   fecha DATE default sysdate                            NOT NULL,
+   constraint PK_ORDENES_ITEMS primary key (ORDEN_ITEM_ID)
+)
+/
+
+/*==============================================================*/
+/* Index: PASO_ORDENES_ITEMS_FK                                 */
+/*==============================================================*/
+create index PASO_ORDENES_ITEMS_FK on ORDENES_ITEMS (
+   ORDEN_ID ASC
+)
+/
+
+/*==============================================================*/
+/* Index: RELACIONAN_PRODUCTOS_FK                               */
+/*==============================================================*/
+create index RELACIONAN_PRODUCTOS_FK on ORDENES_ITEMS (
+   PRODUCTO_ID ASC
+)
+/
+
+/*==============================================================*/
+/* Table: PAISES                                                */
+/*==============================================================*/
+create table PAISES  (
+   PAIS_ID              INTEGER                         not null,
+   EMPRESA_ID           INTEGER,
+   PAIS_NOMBRE          VARCHAR2(100)                   not null,
+   PAIS_PREFIJO         INTEGER                         not null,
+   digitador VARCHAR(15) default USER                    NOT NULL,
+   fecha DATE default sysdate                            NOT NULL,
+   constraint PK_PAISES primary key (PAIS_ID)
+)
+/
+
+/*==============================================================*/
+/* Index: ESTA_PRESENTE_FK                                      */
+/*==============================================================*/
+create index ESTA_PRESENTE_FK on PAISES (
+   EMPRESA_ID ASC
+)
+/
+
+/*==============================================================*/
+/* Table: PREMIOS                                               */
+/*==============================================================*/
+create table PREMIOS  (
+   PREMIO_ID            INTEGER                         not null,
+   PREMIO_NOMBRE        VARCHAR2(100)                   not null,
+   PREMIO_VALOR         INTEGER                         not null,
+   digitador VARCHAR(15) default USER                    NOT NULL,
+   fecha DATE default sysdate                            NOT NULL,
+   constraint PK_PREMIOS primary key (PREMIO_ID)
+)
+/
+
+/*==============================================================*/
+/* Table: PRODUCTOS                                             */
+/*==============================================================*/
+create table PRODUCTOS  (
+   PRODUCTO_ID          INTEGER                         not null,
+   BODEGA_ID            INTEGER,
+   PROVEEDOR_ID         INTEGER,
+   PRODUCTO_NOMBRE      VARCHAR2(100)                   not null,
+   PRODUCTO_PRECIO_ADQUISICION INTEGER                         not null,
+   PRODUCTO_PRECIO_VENTA INTEGER                         not null,
+   digitador VARCHAR(15) default USER                    NOT NULL,
+   fecha DATE default sysdate                            NOT NULL,
+   constraint PK_PRODUCTOS primary key (PRODUCTO_ID)
+)
+/
+
+/*==============================================================*/
+/* Index: ALMACENA_FK                                           */
+/*==============================================================*/
+create index ALMACENA_FK on PRODUCTOS (
+   BODEGA_ID ASC
+)
+/
+
+/*==============================================================*/
+/* Index: PROVEE_PRODUCTOS_FK                                   */
+/*==============================================================*/
+create index PROVEE_PRODUCTOS_FK on PRODUCTOS (
+   PROVEEDOR_ID ASC
+)
+/
+
+/*==============================================================*/
+/* Table: PROVEEDORES                                           */
+/*==============================================================*/
+create table PROVEEDORES  (
+   PROVEEDOR_ID         INTEGER                         not null,
+   PROVEEDOR_NIT        INTEGER                         not null,
+   PROVEEDOR_NOMBRE     VARCHAR2(100)                   not null,
+   PROVEEDOR_CENTRO_LLAMADAS INTEGER                         not null,
+   PROVEEDOR_DIRECCION  VARCHAR2(100)                   not null,
+   PROVEEDOR_NORMAS_BOOL SMALLINT                        not null,
+   PROVEEDOR_CORREO     VARCHAR2(100)                   not null,
+   digitador VARCHAR(15) default USER                    NOT NULL,
+   fecha DATE default sysdate                            NOT NULL,
+   constraint PK_PROVEEDORES primary key (PROVEEDOR_ID)
+)
+/
+
+/*==============================================================*/
+/* Table: PROVEEDOR_GERENTE                                     */
+/*==============================================================*/
+create table PROVEEDOR_GERENTE  (
+   PROVEEDOR_GERENTE_ID INTEGER                         not null,
+   PROVEEDOR_ID         INTEGER,
+   PROVEEDOR_GERENTE_NOMBRE VARCHAR2(100)                   not null,
+   PROVEEDOR_GERENTE_DOCUMENTO INTEGER                         not null,
+   PROVEEDOR_GERENTE_CELULAR INTEGER                         not null,
+   PROVEEDOR_GERENTE_CORREO VARCHAR2(100)                   not null,
+   digitador VARCHAR(15) default USER                    NOT NULL,
+   fecha DATE default sysdate                            NOT NULL,
+   constraint PK_PROVEEDOR_GERENTE primary key (PROVEEDOR_GERENTE_ID)
+)
+/
+
+/*==============================================================*/
+/* Index: REPRESENTA_PROVEEDOR_FK                               */
+/*==============================================================*/
+create index REPRESENTA_PROVEEDOR_FK on PROVEEDOR_GERENTE (
+   PROVEEDOR_ID ASC
+)
+/
+
+/*==============================================================*/
+/* Table: SUCURSALES                                            */
+/*==============================================================*/
+create table SUCURSALES  (
+   SUCURSAL_ID          INTEGER                         not null,
+   CIUDAD_ID            INTEGER,
+   DIRECTOR_SUCURSAL_ID INTEGER,
+   SUCURSAL_NOMBRE      VARCHAR2(100)                   not null,
+   SUCURSAL_CENTRO_LLAMADAS INTEGER                         not null,
+   SUCURSAL_DIRECCION   VARCHAR2(100)                   not null,
+   digitador VARCHAR(15) default USER                    NOT NULL,
+   fecha DATE default sysdate                            NOT NULL,
+   constraint PK_SUCURSALES primary key (SUCURSAL_ID)
+)
+/
+
+/*==============================================================*/
+/* Index: CONTIENE_SUCURSALES_FK                                */
+/*==============================================================*/
+create index CONTIENE_SUCURSALES_FK on SUCURSALES (
+   CIUDAD_ID ASC
+)
+/
+
+/*==============================================================*/
+/* Index: DIRIGE_SUCURSAL_FK                                    */
+/*==============================================================*/
+create index DIRIGE_SUCURSAL_FK on SUCURSALES (
+   DIRECTOR_SUCURSAL_ID ASC
+)
+/
+
+/*==============================================================*/
+/* Table: VACANTES                                              */
+/*==============================================================*/
+create table VACANTES  (
+   VACANTE_ID           INTEGER                         not null,
+   CARGO_ID             INTEGER,
+   VACANTE_NUMERO       INTEGER                         not null,
+   digitador VARCHAR(15) default USER                    NOT NULL,
+   fecha DATE default sysdate                            NOT NULL,
+   constraint PK_VACANTES primary key (VACANTE_ID)
+)
+/
+
+/*==============================================================*/
+/* Index: CARGOS_DISPONIBLES_FK                                 */
+/*==============================================================*/
+create index CARGOS_DISPONIBLES_FK on VACANTES (
+   CARGO_ID ASC
+)
+/
 
 /*==============================================================*/
 /* Table: VENDEDORES                                            */
@@ -1474,81 +1365,702 @@ create table VENDEDORES  (
    VENDEDOR_CONTRATO_INDEFINIDO_BOOL SMALLINT                        not null,
    VENDEDOR_REINGRESO_BOOL SMALLINT                        not null,
    VENDEDOR_COMISION    INTEGER                         not null,
+   digitador VARCHAR(15) default USER                    NOT NULL,
+   fecha DATE default sysdate                            NOT NULL,
    constraint PK_VENDEDORES primary key (VENDEDOR_ID)
 )
+/
 
 /*==============================================================*/
-/* View_Edit: VENDEDORES                                            */
+/* Index: ATENDIDA_POR_FK                                       */
 /*==============================================================*/
-CREATE view VISTA_VENDEDORES_Edit AS SELECT 
-    VENDEDOR_ID,
-    SUCURSAL_ID,
-    VENDEDOR_DOCUMENTO,
-    VENDEDOR_NOMBRE,
-    VENDEDOR_CELULAR,
-    VENDEDOR_CORREO,
-    VENDEDOR_GENERO,
-    VENDEDOR_EDAD,
-    VENDEDOR_SEGURIDAD_SOCIAL_BOOL,
-    VENDEDOR_POLIZA_VIGENTE_BOOL,
-    VENDEDOR_SALARIO_FIJO,
-    VENDEDOR_CONTRATO_INDEFINIDO_BOOL,
-    VENDEDOR_COMISION
-
-    
-                                    FROM VENDEDORES;
-
-/*==============================================================*/
-/* View_View: VENDEDORES                                              */
-/*==============================================================*/
-CREATE OR replace view VISTA_VENDEDORES_View 
-(
-   VENDEDOR_ID,
-    SUCURSAL_ID,
-    VENDEDOR_DOCUMENTO,
-    VENDEDOR_NOMBRE,
-    VENDEDOR_CELULAR,
-    VENDEDOR_CORREO,
-    VENDEDOR_GENERO,
-    VENDEDOR_EDAD,
-    VENDEDOR_SEGURIDAD_SOCIAL_BOOL,
-    VENDEDOR_POLIZA_VIGENTE_BOOL,
-    VENDEDOR_SALARIO_FIJO,
-    VENDEDOR_CONTRATO_INDEFINIDO_BOOL,
-    VENDEDOR_COMISION,
-   digitador,
-   fecha
+create index ATENDIDA_POR_FK on VENDEDORES (
+   SUCURSAL_ID ASC
 )
-AS SELECT 
-   VENDEDOR_ID,
-    SUCURSAL_ID,
-    VENDEDOR_DOCUMENTO,
-    VENDEDOR_NOMBRE,
-    VENDEDOR_CELULAR,
-    VENDEDOR_CORREO,
-    VENDEDOR_GENERO,
-    VENDEDOR_EDAD,
-    VENDEDOR_SEGURIDAD_SOCIAL_BOOL,
-    VENDEDOR_POLIZA_VIGENTE_BOOL,
-    VENDEDOR_SALARIO_FIJO,
-    VENDEDOR_CONTRATO_INDEFINIDO_BOOL,
-    VENDEDOR_COMISION,
-   digitador,
-   to_char(fecha, 'dd-mm-yyyy" "hh24:mi:ss')
-FROM VENDEDORES 
-WHERE digitador = USER;
+/
 
-/*==============================================================*/
-/* Permisos                                                     */
-/*==============================================================*/
-GRANT SELECT ON VISTA_VENDEDORES_View TO negarzonc;
-GRANT INSERT ON VISTA_VENDEDORES_Edit TO negarzonc;
-GRANT SELECT ON VISTA_VENDEDORES_Edit TO negarzonc;
+alter table ASISTENCIA_CAPACITACIONES
+   add constraint FK_ASISTENC_CONTROL_A_CAPACITA foreign key (CAPACITACION_ID)
+      references CAPACITACIONES (CAPACITACION_ID)
+/
 
-GRANT SELECT ON VISTA_VENDEDORES_View TO dabonilla;
-GRANT INSERT ON VISTA_VENDEDORES_Edit TO dabonilla;
-GRANT SELECT ON VISTA_VENDEDORES_Edit TO dabonilla;
+alter table BODEGAS
+   add constraint FK_BODEGAS_TIENEN_SUCURSAL foreign key (SUCURSAL_ID)
+      references SUCURSALES (SUCURSAL_ID)
+/
 
-GRANT SELECT ON VISTA_VENDEDORES_View TO dsilvamo;
-GRANT INSERT ON VISTA_VENDEDORES_Edit TO dsilvamo;
-GRANT SELECT ON VISTA_VENDEDORES_Edit TO dsilvamo;
+alter table CANDIDATOS
+   add constraint FK_CANDIDAT_TIENE_CAN_VACANTES foreign key (VACANTE_ID)
+      references VACANTES (VACANTE_ID)
+/
+
+alter table CAPACITACIONES
+   add constraint FK_CAPACITA_RECIBEN_C_EMPLEADO foreign key (EMPLEADO_ID)
+      references EMPLEADOS (EMPLEADO_ID)
+/
+
+alter table CARGOS
+   add constraint FK_CARGOS_DIVIDE_EN_DEPARTAM foreign key (DEPARTAMENTO_ID)
+      references DEPARTAMENTOS (DEPARTAMENTO_ID)
+/
+
+alter table CIUDADES
+   add constraint FK_CIUDADES_CONTIENE__PAISES foreign key (PAIS_ID)
+      references PAISES (PAIS_ID)
+/
+
+alter table CLIENTE_GERENTE
+   add constraint FK_CLIENTE__REPRESENT_CLIENTES foreign key (CLIENTE_ID)
+      references CLIENTES (CLIENTE_ID)
+/
+
+alter table DEPARTAMENTOS
+   add constraint FK_DEPARTAM_DIRIGE_DE_DIRECTOR foreign key (DIRECTOR_DEPARTAMENTO_ID)
+      references DIRECTOR_DEPARTAMENTO (DIRECTOR_DEPARTAMENTO_ID)
+/
+
+alter table DEPARTAMENTOS
+   add constraint FK_DEPARTAM_DIVIDE_EN_SUCURSAL foreign key (SUCURSAL_ID)
+      references SUCURSALES (SUCURSAL_ID)
+/
+
+alter table DIRECTOR_DEPARTAMENTO
+   add constraint FK_DIRECTOR_JEFE_DIR__DIRECTOR foreign key (DIRECTOR_SUCURSAL_ID)
+      references DIRECTOR_SUCURSAL (DIRECTOR_SUCURSAL_ID)
+/
+
+alter table DIRECTOR_SUCURSAL
+   add constraint FK_DIRECTOR_JEFE_DIRE_EMPRESA_ foreign key (EMPRESA_SUBGERENTE_ID)
+      references EMPRESA_SUBGERENTE (EMPRESA_SUBGERENTE_ID)
+/
+
+alter table EMPLEADOS
+   add constraint FK_EMPLEADO_OCUPADOS__CARGOS foreign key (CARGO_ID)
+      references CARGOS (CARGO_ID)
+/
+
+alter table EMPRESA_GERENTE
+   add constraint FK_EMPRESA__DIRIGIDA__EMPRESA foreign key (EMPRESA_ID)
+      references EMPRESA (EMPRESA_ID)
+/
+
+alter table EMPRESA_SUBGERENTE
+   add constraint FK_EMPRESA__JEFE_SUBG_EMPRESA_ foreign key (EMPRESA_GERENTE_ID)
+      references EMPRESA_GERENTE (EMPRESA_GERENTE_ID)
+/
+
+alter table EMPRESA_SUBGERENTE
+   add constraint FK_EMPRESA__REEMPLAZO_EMPRESA foreign key (EMPRESA_ID)
+      references EMPRESA (EMPRESA_ID)
+/
+
+alter table ORDENES
+   add constraint FK_ORDENES_GENERA_VENDEDOR foreign key (VENDEDOR_ID)
+      references VENDEDORES (VENDEDOR_ID)
+/
+
+alter table ORDENES
+   add constraint FK_ORDENES_LUGAR_VEN_SUCURSAL foreign key (SUCURSAL_ID)
+      references SUCURSALES (SUCURSAL_ID)
+/
+
+alter table ORDENES
+   add constraint FK_ORDENES_PIDEN_CLIENTES foreign key (CLIENTE_ID)
+      references CLIENTES (CLIENTE_ID)
+/
+
+alter table ORDENES_ITEMS
+   add constraint FK_ORDENES__PASO_ORDE_ORDENES foreign key (ORDEN_ID)
+      references ORDENES (ORDEN_ID)
+/
+
+alter table ORDENES_ITEMS
+   add constraint FK_ORDENES__RELACIONA_PRODUCTO foreign key (PRODUCTO_ID)
+      references PRODUCTOS (PRODUCTO_ID)
+/
+
+alter table PAISES
+   add constraint FK_PAISES_ESTA_PRES_EMPRESA foreign key (EMPRESA_ID)
+      references EMPRESA (EMPRESA_ID)
+/
+
+alter table PRODUCTOS
+   add constraint FK_PRODUCTO_ALMACENA_BODEGAS foreign key (BODEGA_ID)
+      references BODEGAS (BODEGA_ID)
+/
+
+alter table PRODUCTOS
+   add constraint FK_PRODUCTO_PROVEE_PR_PROVEEDO foreign key (PROVEEDOR_ID)
+      references PROVEEDORES (PROVEEDOR_ID)
+/
+
+alter table PROVEEDOR_GERENTE
+   add constraint FK_PROVEEDO_REPRESENT_PROVEEDO foreign key (PROVEEDOR_ID)
+      references PROVEEDORES (PROVEEDOR_ID)
+/
+
+alter table SUCURSALES
+   add constraint FK_SUCURSAL_CONTIENE__CIUDADES foreign key (CIUDAD_ID)
+      references CIUDADES (CIUDAD_ID)
+/
+
+alter table SUCURSALES
+   add constraint FK_SUCURSAL_DIRIGE_SU_DIRECTOR foreign key (DIRECTOR_SUCURSAL_ID)
+      references DIRECTOR_SUCURSAL (DIRECTOR_SUCURSAL_ID)
+/
+
+alter table VACANTES
+   add constraint FK_VACANTES_CARGOS_DI_CARGOS foreign key (CARGO_ID)
+      references CARGOS (CARGO_ID)
+/
+
+alter table VENDEDORES
+   add constraint FK_VENDEDOR_ATENDIDA__SUCURSAL foreign key (SUCURSAL_ID)
+      references SUCURSALES (SUCURSAL_ID)
+/
+
+
+create trigger TIB_ASISTENCIA_CAPACITACIONES before insert
+on ASISTENCIA_CAPACITACIONES for each row
+declare
+    integrity_error  exception;
+    errno            integer;
+    errmsg           char(200);
+    dummy            integer;
+    found            boolean;
+
+begin
+    --  Column "ASISTENCIA_CAPACITACIONES_ID" uses sequence SECUENCIA_ASISTENCIA_CAPACITAC
+    select SECUENCIA_ASISTENCIA_CAPACITAC.NEXTVAL INTO :new.ASISTENCIA_CAPACITACIONES_ID from dual;
+
+--  Errors handling
+exception
+    when integrity_error then
+       raise_application_error(errno, errmsg);
+end;
+/
+
+
+create trigger TIB_BODEGAS before insert
+on BODEGAS for each row
+declare
+    integrity_error  exception;
+    errno            integer;
+    errmsg           char(200);
+    dummy            integer;
+    found            boolean;
+
+begin
+    --  Column "BODEGA_ID" uses sequence SECUENCIA_BODEGAS
+    select SECUENCIA_BODEGAS.NEXTVAL INTO :new.BODEGA_ID from dual;
+
+--  Errors handling
+exception
+    when integrity_error then
+       raise_application_error(errno, errmsg);
+end;
+/
+
+
+create trigger TIB_CANDIDATOS before insert
+on CANDIDATOS for each row
+declare
+    integrity_error  exception;
+    errno            integer;
+    errmsg           char(200);
+    dummy            integer;
+    found            boolean;
+
+begin
+    --  Column "CANDIDATO_ID" uses sequence SECUENCIA_CANDIDATOS
+    select SECUENCIA_CANDIDATOS.NEXTVAL INTO :new.CANDIDATO_ID from dual;
+
+--  Errors handling
+exception
+    when integrity_error then
+       raise_application_error(errno, errmsg);
+end;
+/
+
+
+create trigger TIB_CAPACITACIONES before insert
+on CAPACITACIONES for each row
+declare
+    integrity_error  exception;
+    errno            integer;
+    errmsg           char(200);
+    dummy            integer;
+    found            boolean;
+
+begin
+    --  Column "CAPACITACION_ID" uses sequence SECUENCIA_CAPACITACION
+    select SECUENCIA_CAPACITACION.NEXTVAL INTO :new.CAPACITACION_ID from dual;
+
+--  Errors handling
+exception
+    when integrity_error then
+       raise_application_error(errno, errmsg);
+end;
+/
+
+
+create trigger TIB_CARGOS before insert
+on CARGOS for each row
+declare
+    integrity_error  exception;
+    errno            integer;
+    errmsg           char(200);
+    dummy            integer;
+    found            boolean;
+
+begin
+    --  Column "CARGO_ID" uses sequence SECUENCIA_CARGOS
+    select SECUENCIA_CARGOS.NEXTVAL INTO :new.CARGO_ID from dual;
+
+--  Errors handling
+exception
+    when integrity_error then
+       raise_application_error(errno, errmsg);
+end;
+/
+
+
+create trigger TIB_CIUDADES before insert
+on CIUDADES for each row
+declare
+    integrity_error  exception;
+    errno            integer;
+    errmsg           char(200);
+    dummy            integer;
+    found            boolean;
+
+begin
+    --  Column "CIUDAD_ID" uses sequence SECUENCIA_CIUDADES
+    select SECUENCIA_CIUDADES.NEXTVAL INTO :new.CIUDAD_ID from dual;
+
+--  Errors handling
+exception
+    when integrity_error then
+       raise_application_error(errno, errmsg);
+end;
+/
+
+
+create trigger TIB_CLIENTES before insert
+on CLIENTES for each row
+declare
+    integrity_error  exception;
+    errno            integer;
+    errmsg           char(200);
+    dummy            integer;
+    found            boolean;
+
+begin
+    --  Column "CLIENTE_ID" uses sequence SECUENCIA_CLIENTES
+    select SECUENCIA_CLIENTES.NEXTVAL INTO :new.CLIENTE_ID from dual;
+
+--  Errors handling
+exception
+    when integrity_error then
+       raise_application_error(errno, errmsg);
+end;
+/
+
+
+create trigger TIB_CLIENTE_GERENTE before insert
+on CLIENTE_GERENTE for each row
+declare
+    integrity_error  exception;
+    errno            integer;
+    errmsg           char(200);
+    dummy            integer;
+    found            boolean;
+
+begin
+    --  Column "CLIENTE_GERENTE_ID" uses sequence SECUENCIA_CLIENTE_GERENTE
+    select SECUENCIA_CLIENTE_GERENTE.NEXTVAL INTO :new.CLIENTE_GERENTE_ID from dual;
+
+--  Errors handling
+exception
+    when integrity_error then
+       raise_application_error(errno, errmsg);
+end;
+/
+
+
+create trigger TIB_DEPARTAMENTOS before insert
+on DEPARTAMENTOS for each row
+declare
+    integrity_error  exception;
+    errno            integer;
+    errmsg           char(200);
+    dummy            integer;
+    found            boolean;
+
+begin
+    --  Column "DEPARTAMENTO_ID" uses sequence SECUENCIA_DEPARTAMENTOS
+    select SECUENCIA_DEPARTAMENTOS.NEXTVAL INTO :new.DEPARTAMENTO_ID from dual;
+
+--  Errors handling
+exception
+    when integrity_error then
+       raise_application_error(errno, errmsg);
+end;
+/
+
+
+create trigger TIB_DIRECTOR_DEPARTAMENTO before insert
+on DIRECTOR_DEPARTAMENTO for each row
+declare
+    integrity_error  exception;
+    errno            integer;
+    errmsg           char(200);
+    dummy            integer;
+    found            boolean;
+
+begin
+    --  Column "DIRECTOR_DEPARTAMENTO_ID" uses sequence SECUENCIA_DIRECTOR_DEPARTAMENT
+    select SECUENCIA_DIRECTOR_DEPARTAMENT.NEXTVAL INTO :new.DIRECTOR_DEPARTAMENTO_ID from dual;
+
+--  Errors handling
+exception
+    when integrity_error then
+       raise_application_error(errno, errmsg);
+end;
+/
+
+
+create trigger TIB_DIRECTOR_SUCURSAL before insert
+on DIRECTOR_SUCURSAL for each row
+declare
+    integrity_error  exception;
+    errno            integer;
+    errmsg           char(200);
+    dummy            integer;
+    found            boolean;
+
+begin
+    --  Column "DIRECTOR_SUCURSAL_ID" uses sequence SECUENCIA_DIRECTOR_SUCURSAL
+    select SECUENCIA_DIRECTOR_SUCURSAL.NEXTVAL INTO :new.DIRECTOR_SUCURSAL_ID from dual;
+
+--  Errors handling
+exception
+    when integrity_error then
+       raise_application_error(errno, errmsg);
+end;
+/
+
+
+create trigger TIB_EMPLEADOS before insert
+on EMPLEADOS for each row
+declare
+    integrity_error  exception;
+    errno            integer;
+    errmsg           char(200);
+    dummy            integer;
+    found            boolean;
+
+begin
+    --  Column "EMPLEADO_ID" uses sequence SECUENCIA_EMPLEADOS
+    select SECUENCIA_EMPLEADOS.NEXTVAL INTO :new.EMPLEADO_ID from dual;
+
+--  Errors handling
+exception
+    when integrity_error then
+       raise_application_error(errno, errmsg);
+end;
+/
+
+
+create trigger TIB_EMPRESA before insert
+on EMPRESA for each row
+declare
+    integrity_error  exception;
+    errno            integer;
+    errmsg           char(200);
+    dummy            integer;
+    found            boolean;
+
+begin
+    --  Column "EMPRESA_ID" uses sequence SECUENCIA_EMPRESA
+    select SECUENCIA_EMPRESA.NEXTVAL INTO :new.EMPRESA_ID from dual;
+
+--  Errors handling
+exception
+    when integrity_error then
+       raise_application_error(errno, errmsg);
+end;
+/
+
+
+create trigger TIB_EMPRESA_GERENTE before insert
+on EMPRESA_GERENTE for each row
+declare
+    integrity_error  exception;
+    errno            integer;
+    errmsg           char(200);
+    dummy            integer;
+    found            boolean;
+
+begin
+    --  Column "EMPRESA_GERENTE_ID" uses sequence SECUENCIA_EMPRESA_GERENTE
+    select SECUENCIA_EMPRESA_GERENTE.NEXTVAL INTO :new.EMPRESA_GERENTE_ID from dual;
+
+--  Errors handling
+exception
+    when integrity_error then
+       raise_application_error(errno, errmsg);
+end;
+/
+
+
+create trigger TIB_EMPRESA_SUBGERENTE before insert
+on EMPRESA_SUBGERENTE for each row
+declare
+    integrity_error  exception;
+    errno            integer;
+    errmsg           char(200);
+    dummy            integer;
+    found            boolean;
+
+begin
+    --  Column "EMPRESA_SUBGERENTE_ID" uses sequence SECUENCIA_EMPRESA_SUBGERENTE
+    select SECUENCIA_EMPRESA_SUBGERENTE.NEXTVAL INTO :new.EMPRESA_SUBGERENTE_ID from dual;
+
+--  Errors handling
+exception
+    when integrity_error then
+       raise_application_error(errno, errmsg);
+end;
+/
+
+
+create trigger TIB_HISTORIAL_TRABAJADORES before insert
+on HISTORIAL_TRABAJADORES for each row
+declare
+    integrity_error  exception;
+    errno            integer;
+    errmsg           char(200);
+    dummy            integer;
+    found            boolean;
+
+begin
+    --  Column "HISTORIA_TRABAJADORES_ID" uses sequence SECUENCIA_HISTORIA_TRABAJADORE
+    select SECUENCIA_HISTORIA_TRABAJADORE.NEXTVAL INTO :new.HISTORIA_TRABAJADORES_ID from dual;
+
+--  Errors handling
+exception
+    when integrity_error then
+       raise_application_error(errno, errmsg);
+end;
+/
+
+
+create trigger TIB_ORDENES before insert
+on ORDENES for each row
+declare
+    integrity_error  exception;
+    errno            integer;
+    errmsg           char(200);
+    dummy            integer;
+    found            boolean;
+
+begin
+    --  Column "ORDEN_ID" uses sequence SECUENCIA_ORDENES
+    select SECUENCIA_ORDENES.NEXTVAL INTO :new.ORDEN_ID from dual;
+
+--  Errors handling
+exception
+    when integrity_error then
+       raise_application_error(errno, errmsg);
+end;
+/
+
+
+create trigger TIB_ORDENES_ITEMS before insert
+on ORDENES_ITEMS for each row
+declare
+    integrity_error  exception;
+    errno            integer;
+    errmsg           char(200);
+    dummy            integer;
+    found            boolean;
+
+begin
+    --  Column "ORDEN_ITEM_ID" uses sequence SECUENCIA_ORDEN_ITEM
+    select SECUENCIA_ORDEN_ITEM.NEXTVAL INTO :new.ORDEN_ITEM_ID from dual;
+
+--  Errors handling
+exception
+    when integrity_error then
+       raise_application_error(errno, errmsg);
+end;
+/
+
+
+create trigger TIB_PAISES before insert
+on PAISES for each row
+declare
+    integrity_error  exception;
+    errno            integer;
+    errmsg           char(200);
+    dummy            integer;
+    found            boolean;
+
+begin
+    --  Column "PAIS_ID" uses sequence SECUENCIA_PAISES
+    select SECUENCIA_PAISES.NEXTVAL INTO :new.PAIS_ID from dual;
+
+--  Errors handling
+exception
+    when integrity_error then
+       raise_application_error(errno, errmsg);
+end;
+/
+
+
+create trigger TIB_PREMIOS before insert
+on PREMIOS for each row
+declare
+    integrity_error  exception;
+    errno            integer;
+    errmsg           char(200);
+    dummy            integer;
+    found            boolean;
+
+begin
+    --  Column "PREMIO_ID" uses sequence SECUENCIA_PREMIOS
+    select SECUENCIA_PREMIOS.NEXTVAL INTO :new.PREMIO_ID from dual;
+
+--  Errors handling
+exception
+    when integrity_error then
+       raise_application_error(errno, errmsg);
+end;
+/
+
+
+create trigger TIB_PRODUCTOS before insert
+on PRODUCTOS for each row
+declare
+    integrity_error  exception;
+    errno            integer;
+    errmsg           char(200);
+    dummy            integer;
+    found            boolean;
+
+begin
+    --  Column "PRODUCTO_ID" uses sequence SECUENCIA_PRODUCTOS
+    select SECUENCIA_PRODUCTOS.NEXTVAL INTO :new.PRODUCTO_ID from dual;
+
+--  Errors handling
+exception
+    when integrity_error then
+       raise_application_error(errno, errmsg);
+end;
+/
+
+
+create trigger TIB_PROVEEDORES before insert
+on PROVEEDORES for each row
+declare
+    integrity_error  exception;
+    errno            integer;
+    errmsg           char(200);
+    dummy            integer;
+    found            boolean;
+
+begin
+    --  Column "PROVEEDOR_ID" uses sequence SECUENCIA_PROVEEDORES
+    select SECUENCIA_PROVEEDORES.NEXTVAL INTO :new.PROVEEDOR_ID from dual;
+
+--  Errors handling
+exception
+    when integrity_error then
+       raise_application_error(errno, errmsg);
+end;
+/
+
+
+create trigger TIB_PROVEEDOR_GERENTE before insert
+on PROVEEDOR_GERENTE for each row
+declare
+    integrity_error  exception;
+    errno            integer;
+    errmsg           char(200);
+    dummy            integer;
+    found            boolean;
+
+begin
+    --  Column "PROVEEDOR_GERENTE_ID" uses sequence SECUENCIA_PROVEEDOR_GERENTE
+    select SECUENCIA_PROVEEDOR_GERENTE.NEXTVAL INTO :new.PROVEEDOR_GERENTE_ID from dual;
+
+--  Errors handling
+exception
+    when integrity_error then
+       raise_application_error(errno, errmsg);
+end;
+/
+
+
+create trigger TIB_SUCURSALES before insert
+on SUCURSALES for each row
+declare
+    integrity_error  exception;
+    errno            integer;
+    errmsg           char(200);
+    dummy            integer;
+    found            boolean;
+
+begin
+    --  Column "SUCURSAL_ID" uses sequence SECUENCIA_SUCURSALES
+    select SECUENCIA_SUCURSALES.NEXTVAL INTO :new.SUCURSAL_ID from dual;
+
+--  Errors handling
+exception
+    when integrity_error then
+       raise_application_error(errno, errmsg);
+end;
+/
+
+
+create trigger TIB_VACANTES before insert
+on VACANTES for each row
+declare
+    integrity_error  exception;
+    errno            integer;
+    errmsg           char(200);
+    dummy            integer;
+    found            boolean;
+
+begin
+    --  Column "VACANTE_ID" uses sequence SECUENCIA_VACANTES
+    select SECUENCIA_VACANTES.NEXTVAL INTO :new.VACANTE_ID from dual;
+
+--  Errors handling
+exception
+    when integrity_error then
+       raise_application_error(errno, errmsg);
+end;
+/
+
+
+create trigger TIB_VENDEDORES before insert
+on VENDEDORES for each row
+declare
+    integrity_error  exception;
+    errno            integer;
+    errmsg           char(200);
+    dummy            integer;
+    found            boolean;
+
+begin
+    --  Column "VENDEDOR_ID" uses sequence SECUENCIA_VENDEDORES
+    select SECUENCIA_VENDEDORES.NEXTVAL INTO :new.VENDEDOR_ID from dual;
+
+--  Errors handling
+exception
+    when integrity_error then
+       raise_application_error(errno, errmsg);
+end;
+/
