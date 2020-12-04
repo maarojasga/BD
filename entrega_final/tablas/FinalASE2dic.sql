@@ -683,9 +683,11 @@ go
 /*==============================================================*/
 create table ASISTENCIA_CAPACITACIONES
 (
-   ASISTENCIA_CAPACITACIONES_ID bigint not null,
+   ASISTENCIA_CAPACITACIONES_ID NUMERIC IDENTITY,
    CAPACITACION_ID bigint null,
    ASISTENCIA_CAPACITACIONES_SI_NO_BOOL bit not null,
+   digitador VARCHAR(15) default user_name() NOT NULL,
+   fecha DATETIME default getdate () NOT NULL,
    constraint PK_ASISTENCIA_CAPACITACIONES primary key (ASISTENCIA_CAPACITACIONES_ID)
 )
 go
@@ -703,9 +705,11 @@ go
 /*==============================================================*/
 create table BODEGAS
 (
-   BODEGA_ID bigint not null,
+   BODEGA_ID NUMERIC IDENTITY,
    SUCURSAL_ID bigint not null,
    BODEGA_CANTIDAD bigint not null,
+   digitador VARCHAR(15) default user_name() NOT NULL,
+   fecha DATETIME default getdate () NOT NULL,
    constraint PK_BODEGAS primary key (BODEGA_ID)
 )
 go
@@ -723,7 +727,7 @@ go
 /*==============================================================*/
 create table CANDIDATOS
 (
-   CANDIDATO_ID bigint not null,
+   CANDIDATO_ID NUMERIC IDENTITY,
    VACANTE_ID bigint null,
    CANDIDATO_NOMBRE varchar(100) not null,
    CANDIDATO_DOCUMENTO bigint not null,
@@ -734,6 +738,8 @@ create table CANDIDATOS
    CANDIDATO_GENERO varchar(100) null,
    CANDIDATO_PORCENTAJE_VALORACION int not null
       constraint CKC_CANDIDATO_PORCENT_CANDIDAT check (CANDIDATO_PORCENTAJE_VALORACION between 0 and 100),
+   digitador VARCHAR(15) default user_name() NOT NULL,
+   fecha DATETIME default getdate () NOT NULL,
    constraint PK_CANDIDATOS primary key (CANDIDATO_ID)
 )
 go
@@ -751,11 +757,13 @@ go
 /*==============================================================*/
 create table CAPACITACIONES
 (
-   CAPACITACION_ID bigint not null,
+   CAPACITACION_ID NUMERIC IDENTITY,
    EMPLEADO_ID bigint null,
    CAPACITACION_NOMBRE_TIPO varchar(100) not null,
    CAPACITACION_FECHA date not null,
    CAPACITACION_DESCRIPCION varchar(1000) not null,
+   digitador VARCHAR(15) default user_name() NOT NULL,
+   fecha DATETIME default getdate () NOT NULL,
    constraint PK_CAPACITACIONES primary key (CAPACITACION_ID)
 )
 go
@@ -773,11 +781,13 @@ go
 /*==============================================================*/
 create table CARGOS
 (
-   CARGO_ID bigint not null,
+   CARGO_ID NUMERIC IDENTITY,
    DEPARTAMENTO_ID bigint null,
    CARGO_NOMBRE varchar(100) not null,
    CARGO_SALARIO_MAX bigint not null,
    CARGO_SALARIO_MIN bigint not null,
+   digitador VARCHAR(15) default user_name() NOT NULL,
+   fecha DATETIME default getdate () NOT NULL,
    constraint PK_CARGOS primary key (CARGO_ID)
 )
 go
@@ -795,9 +805,11 @@ go
 /*==============================================================*/
 create table CIUDADES
 (
-   CIUDAD_ID bigint not null,
+   CIUDAD_ID NUMERIC IDENTITY,
    PAIS_ID bigint null,
    CIUDAD_NOMBRE varchar(100) not null,
+   digitador VARCHAR(15) default user_name() NOT NULL,
+   fecha DATETIME default getdate () NOT NULL,
    constraint PK_CIUDADES primary key (CIUDAD_ID)
 )
 go
@@ -815,7 +827,7 @@ go
 /*==============================================================*/
 create table CLIENTES
 (
-   CLIENTE_ID bigint not null,
+   CLIENTE_ID NUMERIC IDENTITY,
    SUCURSAL_ID bigint not null,
    CLIENTE_NIT bigint not null,
    CLIENTE_NOMBRE varchar(100) not null,
@@ -823,6 +835,8 @@ create table CLIENTES
    CLIENTE_DIRECCION varchar(100) not null,
    CLIENTE_NORMAS_BOOL bit not null,
    CLIENTE_CORREO varchar(100) not null,
+   digitador VARCHAR(15) default user_name() NOT NULL,
+   fecha DATETIME default getdate () NOT NULL,
    constraint PK_CLIENTES primary key (CLIENTE_ID)
 )
 go
@@ -832,12 +846,14 @@ go
 /*==============================================================*/
 create table CLIENTE_GERENTE
 (
-   CLIENTE_GERENTE_ID bigint not null,
+   CLIENTE_GERENTE_ID NUMERIC IDENTITY,
    CLIENTE_ID bigint null,
    CLIENTE_GERENTE_NOMBRE varchar(100) not null,
    CLIENTE_GERENTE_DOCUMENTO bigint not null,
    CLIENTE_GERENTE_CELULAR bigint not null,
    CLIENTE_GERENTE_CORREO varchar(100) not null,
+   digitador VARCHAR(15) default user_name() NOT NULL,
+   fecha DATETIME default getdate () NOT NULL,
    constraint PK_CLIENTE_GERENTE primary key (CLIENTE_GERENTE_ID)
 )
 go
@@ -855,10 +871,12 @@ go
 /*==============================================================*/
 create table DEPARTAMENTOS
 (
-   DEPARTAMENTO_ID bigint not null,
+   DEPARTAMENTO_ID NUMERIC IDENTITY,
    SUCURSAL_ID bigint null,
    DIRECTOR_DEPARTAMENTO_ID bigint null,
    DEPARTAMENTO_NOMBRE varchar(100) not null,
+   digitador VARCHAR(15) default user_name() NOT NULL,
+   fecha DATETIME default getdate () NOT NULL,
    constraint PK_DEPARTAMENTOS primary key (DEPARTAMENTO_ID)
 )
 go
@@ -884,7 +902,7 @@ go
 /*==============================================================*/
 create table DIRECTOR_DEPARTAMENTO
 (
-   DIRECTOR_DEPARTAMENTO_ID bigint not null,
+   DIRECTOR_DEPARTAMENTO_ID NUMERIC IDENTITY,
    DIRECTOR_SUCURSAL_ID bigint null,
    DIRECTOR_DEPARTAMENTO_NOMBRE varchar(100) not null,
    DIRECTOR_DEPARTAMENTO_DOCUMENTO bigint not null,
@@ -899,6 +917,8 @@ create table DIRECTOR_DEPARTAMENTO
       constraint CKC_DIRECTOR_DEPARTAM_DIRECTOR check (DIRECTOR_DEPARTAMENTO_SALARIO_FIJO between 3500000 and 3999999),
    DIRECTOR_DEPARTAMENTO_CONTRATO_INDEFINIDO_BOOL bit not null,
    DIRECTOR_DEPARTAMENTO_REINGRESO_BOOL bit not null,
+   digitador VARCHAR(15) default user_name() NOT NULL,
+   fecha DATETIME default getdate () NOT NULL,
    constraint PK_DIRECTOR_DEPARTAMENTO primary key (DIRECTOR_DEPARTAMENTO_ID)
 )
 go
@@ -916,7 +936,7 @@ go
 /*==============================================================*/
 create table DIRECTOR_SUCURSAL
 (
-   DIRECTOR_SUCURSAL_ID bigint not null,
+   DIRECTOR_SUCURSAL_ID NUMERIC IDENTITY,
    EMPRESA_SUBGERENTE_ID bigint null,
    DIRECTOR_SUCURSAL_NOMBRE varchar(100) not null,
    DIRECTOR_SUCURSAL_DOCUMENTO bigint not null,
@@ -931,6 +951,8 @@ create table DIRECTOR_SUCURSAL
       constraint CKC_DIRECTOR_SUCURSAL_DIRECTOR check (DIRECTOR_SUCURSAL_SALARIO_FIJO between 4000000 and 4999999),
    DIRECTOR_SUCURSAL_CONTRATO_INDEFINIDO_BOOL bit not null,
    DIRECTOR_SUCURSAL_REINGRESO_BOOL bit not null,
+   digitador VARCHAR(15) default user_name() NOT NULL,
+   fecha DATETIME default getdate () NOT NULL,
    constraint PK_DIRECTOR_SUCURSAL primary key (DIRECTOR_SUCURSAL_ID)
 )
 go
@@ -948,7 +970,7 @@ go
 /*==============================================================*/
 create table EMPLEADOS
 (
-   EMPLEADO_ID bigint not null,
+   EMPLEADO_ID NUMERIC IDENTITY,
    CARGO_ID bigint null,
    EMPLEADO_DOCUMENTO bigint not null,
    EMPLEADO_NOMBRE varchar(100) not null,
@@ -963,6 +985,8 @@ create table EMPLEADOS
    EMPLEADO_SALARIO_FIJO bigint not null,
    EMPLEADO_CONTRATO_INDEFINIDO_BOOL bit not null,
    EMPLEADO_REINGRESO_BOOL bit not null,
+   digitador VARCHAR(15) default user_name() NOT NULL,
+   fecha DATETIME default getdate () NOT NULL,
    constraint PK_EMPLEADOS primary key (EMPLEADO_ID)
 )
 go
@@ -980,10 +1004,12 @@ go
 /*==============================================================*/
 create table EMPRESA
 (
-   EMPRESA_ID bigint not null,
+   EMPRESA_ID NUMERIC IDENTITY,
    EMPRESA_NOMBRE varchar(100) not null,
    EMPRESA_DIRECCION varchar(100) not null,
    EMPRESA_CENTRO_LLAMADAS bigint not null,
+   digitador VARCHAR(15) default user_name() NOT NULL,
+   fecha DATETIME default getdate () NOT NULL,
    constraint PK_EMPRESA primary key (EMPRESA_ID)
 )
 go
@@ -993,7 +1019,7 @@ go
 /*==============================================================*/
 create table EMPRESA_GERENTE
 (
-   EMPRESA_GERENTE_ID bigint not null,
+   EMPRESA_GERENTE_ID NUMERIC IDENTITY,
    EMPRESA_ID bigint null,
    EMPRESA_GERENTE_NOMBRE varchar(100) not null,
    EMPRESA_GERENTE_DOCUMENTO bigint not null,
@@ -1008,6 +1034,8 @@ create table EMPRESA_GERENTE
    EMPRESA_GERENTE_SALARIO_FIJO bigint not null
       constraint CKC_EMPRESA_GERENTE_S_EMPRESA_ check (EMPRESA_GERENTE_SALARIO_FIJO between 6000000 and 8000000),
    EMPRESA_GERENTE_REINGRESO_BOOL bit not null,
+   digitador VARCHAR(15) default user_name() NOT NULL,
+   fecha DATETIME default getdate () NOT NULL,
    constraint PK_EMPRESA_GERENTE primary key (EMPRESA_GERENTE_ID)
 )
 go
@@ -1025,7 +1053,7 @@ go
 /*==============================================================*/
 create table EMPRESA_SUBGERENTE
 (
-   EMPRESA_SUBGERENTE_ID bigint not null,
+   EMPRESA_SUBGERENTE_ID NUMERIC IDENTITY,
    EMPRESA_GERENTE_ID bigint null,
    EMPRESA_ID bigint null,
    EMPRESA_SUBGERENTE_NOMBRE varchar(100) not null,
@@ -1041,6 +1069,8 @@ create table EMPRESA_SUBGERENTE
    EMPRESA_SUBGERENTE_SALARIO_FIJO bigint not null
       constraint CKC_EMPRESA_SUBGERENT_EMPRESA_ check (EMPRESA_SUBGERENTE_SALARIO_FIJO between 5000000 and 5999999),
    EMPRESA_SUBGERENTE_REINGRESO_BOOL bit not null,
+   digitador VARCHAR(15) default user_name() NOT NULL,
+   fecha DATETIME default getdate () NOT NULL,
    constraint PK_EMPRESA_SUBGERENTE primary key (EMPRESA_SUBGERENTE_ID)
 )
 go
@@ -1066,7 +1096,7 @@ go
 /*==============================================================*/
 create table HISTORIAL_TRABAJADORES
 (
-   HISTORIA_TRABAJADORES_ID bigint not null,
+   HISTORIA_TRABAJADORES_ID NUMERIC IDENTITY,
    HISTORIA_TRABAJADORES_FECHA_INGRESO date not null,
    HISTORIA_TRABAJADORES_FECHA_RETIRO date not null,
    HISTORIA_TRABAJADORES_ID_EMPLEADO bigint not null,
@@ -1078,6 +1108,8 @@ create table HISTORIAL_TRABAJADORES
    HISTORIA_TRABAJADORES_FECHA_REINGRESO date not null,
    HISTORIA_TRABAJADORES_CORREO varchar(100) not null,
    HISTORIA_TRABAJADORES_CELULAR bigint not null,
+   digitador VARCHAR(15) default user_name() NOT NULL,
+   fecha DATETIME default getdate () NOT NULL,
    constraint PK_HISTORIAL_TRABAJADORES primary key (HISTORIA_TRABAJADORES_ID)
 )
 go
@@ -1087,7 +1119,7 @@ go
 /*==============================================================*/
 create table ORDENES
 (
-   ORDEN_ID bigint not null,
+   ORDEN_ID NUMERIC IDENTITY,
    SUCURSAL_ID bigint not null,
    VENDEDOR_ID bigint not null,
    CLIENTE_ID bigint null,
@@ -1095,6 +1127,8 @@ create table ORDENES
       constraint CKC_ORDEN_ESTADO_ORDENES check (ORDEN_ESTADO between 1 and 4),
    ORDEN_FECHA_SOLICITUD date not null,
    ORDEN_FECHA_ENTREGA date not null,
+   digitador VARCHAR(15) default user_name() NOT NULL,
+   fecha DATETIME default getdate () NOT NULL,
    constraint PK_ORDENES primary key (ORDEN_ID)
 )
 go
@@ -1128,12 +1162,14 @@ go
 /*==============================================================*/
 create table ORDENES_ITEMS
 (
-   ORDEN_ITEM_ID bigint not null,
+   ORDEN_ITEM_ID NUMERIC IDENTITY,
    ORDEN_ID bigint null,
    PRODUCTO_ID bigint null,
    ORDEN_ITEM_CANTIDAD bigint not null,
    ORDEN_ITEM_PRECIO_TOTAL bigint not null,
    ORDEN_ITEM_DESCUENTO_BOOL bit not null,
+   digitador VARCHAR(15) default user_name() NOT NULL,
+   fecha DATETIME default getdate () NOT NULL,
    constraint PK_ORDENES_ITEMS primary key (ORDEN_ITEM_ID)
 )
 go
@@ -1159,10 +1195,12 @@ go
 /*==============================================================*/
 create table PAISES
 (
-   PAIS_ID bigint not null,
+   PAIS_ID NUMERIC IDENTITY,
    EMPRESA_ID bigint null,
    PAIS_NOMBRE varchar(100) not null,
    PAIS_PREFIJO int not null,
+   digitador VARCHAR(15) default user_name() NOT NULL,
+   fecha DATETIME default getdate () NOT NULL,
    constraint PK_PAISES primary key (PAIS_ID)
 )
 go
@@ -1180,9 +1218,11 @@ go
 /*==============================================================*/
 create table PREMIOS
 (
-   PREMIO_ID bigint not null,
+   PREMIO_ID NUMERIC IDENTITY,
    PREMIO_NOMBRE varchar(100) not null,
    PREMIO_VALOR bigint not null,
+   digitador VARCHAR(15) default user_name() NOT NULL,
+   fecha DATETIME default getdate () NOT NULL,
    constraint PK_PREMIOS primary key (PREMIO_ID)
 )
 go
@@ -1192,12 +1232,14 @@ go
 /*==============================================================*/
 create table PRODUCTOS
 (
-   PRODUCTO_ID bigint not null,
+   PRODUCTO_ID NUMERIC IDENTITY,
    BODEGA_ID bigint null,
    PROVEEDOR_ID bigint null,
    PRODUCTO_NOMBRE varchar(100) not null,
    PRODUCTO_PRECIO_ADQUISICION bigint not null,
    PRODUCTO_PRECIO_VENTA bigint not null,
+   digitador VARCHAR(15) default user_name() NOT NULL,
+   fecha DATETIME default getdate () NOT NULL,
    constraint PK_PRODUCTOS primary key (PRODUCTO_ID)
 )
 go
@@ -1223,7 +1265,7 @@ go
 /*==============================================================*/
 create table PROVEEDORES
 (
-   PROVEEDOR_ID bigint not null,
+   PROVEEDOR_ID NUMERIC IDENTITY,
    SUCURSAL_ID bigint not null,
    PROVEEDOR_NIT bigint not null,
    PROVEEDOR_NOMBRE varchar(100) not null,
@@ -1231,6 +1273,8 @@ create table PROVEEDORES
    PROVEEDOR_DIRECCION varchar(100) not null,
    PROVEEDOR_NORMAS_BOOL bit not null,
    PROVEEDOR_CORREO varchar(100) not null,
+   digitador VARCHAR(15) default user_name() NOT NULL,
+   fecha DATETIME default getdate () NOT NULL,
    constraint PK_PROVEEDORES primary key (PROVEEDOR_ID)
 )
 go
@@ -1240,12 +1284,14 @@ go
 /*==============================================================*/
 create table PROVEEDOR_GERENTE
 (
-   PROVEEDOR_GERENTE_ID bigint not null,
+   PROVEEDOR_GERENTE_ID NUMERIC IDENTITY,
    PROVEEDOR_ID bigint null,
    PROVEEDOR_GERENTE_NOMBRE varchar(100) not null,
    PROVEEDOR_GERENTE_DOCUMENTO bigint not null,
    PROVEEDOR_GERENTE_CELULAR bigint not null,
    PROVEEDOR_GERENTE_CORREO varchar(100) not null,
+   digitador VARCHAR(15) default user_name() NOT NULL,
+   fecha DATETIME default getdate () NOT NULL,
    constraint PK_PROVEEDOR_GERENTE primary key (PROVEEDOR_GERENTE_ID)
 )
 go
@@ -1263,12 +1309,14 @@ go
 /*==============================================================*/
 create table SUCURSALES
 (
-   SUCURSAL_ID bigint not null,
+   SUCURSAL_ID NUMERIC IDENTITY,
    CIUDAD_ID bigint null,
    DIRECTOR_SUCURSAL_ID bigint null,
    SUCURSAL_NOMBRE varchar(100) not null,
    SUCURSAL_CENTRO_LLAMADAS bigint not null,
    SUCURSAL_DIRECCION varchar(100) not null,
+   digitador VARCHAR(15) default user_name() NOT NULL,
+   fecha DATETIME default getdate () NOT NULL,
    constraint PK_SUCURSALES primary key (SUCURSAL_ID)
 )
 go
@@ -1294,9 +1342,11 @@ go
 /*==============================================================*/
 create table VACANTES
 (
-   VACANTE_ID bigint not null,
+   VACANTE_ID NUMERIC IDENTITY,
    CARGO_ID bigint null,
    VACANTE_NUMERO bigint not null,
+   digitador VARCHAR(15) default user_name() NOT NULL,
+   fecha DATETIME default getdate () NOT NULL,
    constraint PK_VACANTES primary key (VACANTE_ID)
 )
 go
@@ -1314,7 +1364,7 @@ go
 /*==============================================================*/
 create table VENDEDORES
 (
-   VENDEDOR_ID bigint not null,
+   VENDEDOR_ID NUMERIC IDENTITY,
    SUCURSAL_ID bigint null,
    VENDEDOR_DOCUMENTO bigint not null,
    VENDEDOR_NOMBRE varchar(100) not null,
@@ -1329,6 +1379,8 @@ create table VENDEDORES
    VENDEDOR_CONTRATO_INDEFINIDO_BOOL bit not null,
    VENDEDOR_REINGRESO_BOOL bit not null,
    VENDEDOR_COMISION bigint not null,
+   digitador VARCHAR(15) default user_name() NOT NULL,
+   fecha DATETIME default getdate () NOT NULL,
    constraint PK_VENDEDORES primary key (VENDEDOR_ID)
 )
 go
