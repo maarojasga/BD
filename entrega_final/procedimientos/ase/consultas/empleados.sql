@@ -138,3 +138,14 @@ BEGIN
     FROM EMPLEADOS
 END
 go
+
+
+create or replace procedure empleados_ganan_comision
+() as
+BEGIN
+    set nocount on
+    SELECT *
+    FROM VENDEDORES
+END
+go
+
