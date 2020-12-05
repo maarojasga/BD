@@ -1,6 +1,10 @@
 
+/*==============================================================*/
+/* DATOS_TABLA_EMPRESA                                          */
+/*==============================================================*/
 insert into VISTA_EMPRESA_EDIT values ('VENTAS COLOMBIA SAS', 'CR 45 # 187', 5253697)
 
+/
 
 /*==============================================================*/
 /* DATOS_TABLA_PAISES                                           */
@@ -251,28 +255,47 @@ insert into VISTA_PAISES_EDIT values (1, 'Zaire', 243);
 insert into VISTA_PAISES_EDIT values (1, 'Zambia', 260);
 insert into VISTA_PAISES_EDIT values (1, 'Zimbawe', 26 );
 
+/
 
-/* SÓLO HAY 5  */
+/*==============================================================*/
+/* DATOS_TABLA_CIUDADES                                           */
+/*==============================================================*/
 insert into VISTA_CIUDADES_EDIT values (45, 'Bogotá');
 insert into VISTA_CIUDADES_EDIT values (42, 'Santiago de Chile');
 insert into VISTA_CIUDADES_EDIT values (11, 'Buenos Aires');
 insert into VISTA_CIUDADES_EDIT values (168, 'Lima');
 insert into VISTA_CIUDADES_EDIT values (54, 'Quito');
 
-/* SÓLO HAY 1 GERENTE DE LA EMPRESA*/
+/
+
+/*==============================================================*/
+/* DATOS_TABLA_EMPRESA_GERENTE                                           */
+/*==============================================================*/
 insert into VISTA_EMPRESA_GERENTE_EDIT values ( 1, 'Alejandro Rodríguez', 53631501, 3123548112, 'alejandro.jimenez@ventascolombia.co', 45,  'Masculino', 1, 1, 1, 7000000, 0);
 
-/* SÓLO HAY 1 SUBGERENTE */
+/
+
+/*==============================================================*/
+/* DATOS_TABLA_EMPRESA_SUBGERENTE                                           */
+/*==============================================================*/
 insert into VISTA_EMPRESA_SUBGERENTE_EDIT values ( 1, 1, 'Luisa Fernanda López', 58566182, 3127894150, 'luisa.lopez@ventascolombia.co', 25,  'Femenino', 1, 1, 1, 5000000, 0);
 
-/* SÓLO HAY 5 DIRECTORES DE SUCURSAL, 1 POR SUCURSAL */
+/
+
+/*==============================================================*/
+/* DATOS_TABLA_DIRECTOR_SUCURSAL                                           */
+/*==============================================================*/
 insert into VISTA_DIRECTOR_SUCURSAL_EDIT values ( 1, 'Natalia Pérez', 86455525, 3124103020, 'natalia.perez@ventascolombia.co', 'Femenino', 25, 1, 1, 4000000, 0, 0);
 insert into VISTA_DIRECTOR_SUCURSAL_EDIT values ( 1, 'Diego Nájar', 93833711, 3127846362, 'diego.najar@ventascolombia.co', 'Masculino', 33, 1, 1, 4000000, 0, 0);
 insert into VISTA_DIRECTOR_SUCURSAL_EDIT values ( 1, 'Roberto Reina', 54020711, 312968574, 'roberto.reina@ventascolombia.co', 'Masculino', 41, 1, 1, 4000000, 0, 0);
 insert into VISTA_DIRECTOR_SUCURSAL_EDIT values ( 1, 'Sandra Martínez', 54486071, 3124567891, 'sandra.martinez@ventascolombia.co', 'Femenino', 27, 1, 1, 4000000, 0, 0);
 insert into VISTA_DIRECTOR_SUCURSAL_EDIT values ( 1, 'Reinaldo Díaz', 51666475, 3112003541, 'reinaldo.diaz@ventascolombia.co', 'Masculino', 22, 1, 1, 4000000, 0, 0);
 
-/* SÓLO HAY 5 DIRECTORES DE DEPARTAMENTO, 6 DEPARTAMENTOS */
+/
+
+/*==============================================================*/
+/* DATOS_TABLA_DIRECTOR_DEPARTAMENTO                                           */
+/*==============================================================*/
 insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 1, 'Cecilia Gutierrez', 84945694, 3124105263, 'cecilia.gutierrez@ventascolombia.co', 'Masc', 25 , 1, 1, 3500000, 0, 0);
 insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 2, 'Fernando Rincón', 70436506, 3127415285, 'fernando.rincon@ventascolombia.co', 'Masc', 25 , 1, 1, 3500000, 0, 0);
 insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 3, 'Beatriz Contreras', 87452985, 3114789685, 'beatriz.contreras@ventascolombia.co', 'Masc', 25 , 1, 1, 3500000, 0, 0);
@@ -304,14 +327,22 @@ insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 3, 'Fabian Torres', 844728
 insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 4, 'Ivan Cepeda', 76863950	,	3755086291	,'ivanCepeda@ventascolombia.co',	'Masculino',	30	,	1	,	1	,	3500000,	1	,	0	);
 insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 5, 'Laura Ceballos', 53190951	,	3804307992	,'LauraCeballos@ventascolombia.co',	'Femenino',	20	,	1	,	1	,	3500000,	1	,	0	);
 
-/* SÓLO HAY 5 SUCURSALES */
+/
+
+/*==============================================================*/
+/* DATOS_TABLA_SUCURSALES                                           */
+/*==============================================================*/
 insert into VISTA_SUCURSALES_EDIT values ( 1, 1, 'PRAD0', 98859187, 'CR 32 #192 AC');
 insert into VISTA_SUCURSALES_EDIT values ( 2, 2, 'NORTE', 82037137, 'CR 6 #55 A 16');
 insert into VISTA_SUCURSALES_EDIT values ( 3, 3, 'SUR', 84310823, 'CALLE 220 CR 4 15');
 insert into VISTA_SUCURSALES_EDIT values ( 4, 4, 'LAS DELICIAS', 64765902, 'DIAGONAL 41 #223');
 insert into VISTA_SUCURSALES_EDIT values ( 5, 5, 'ORIENTE', 73361143, 'CALLE 12 CR 87 A 15');
 
-/*HAY 6 DEPARTAMENTOS POR SUCURSAL, 30 DEPTOS*/
+/
+
+/*==============================================================*/
+/* DATOS_TABLA_DEPARTAMENTOS                                           */
+/*==============================================================*/
 insert into VISTA_DEPARTAMENTOS_EDIT values	( 1, 1,'RECURSOS HUMANOS');
 insert into VISTA_DEPARTAMENTOS_EDIT values	( 2, 2,'RECURSOS HUMANOS');
 insert into VISTA_DEPARTAMENTOS_EDIT values	( 3, 3,'RECURSOS HUMANOS');
@@ -343,7 +374,11 @@ insert into VISTA_DEPARTAMENTOS_EDIT values	( 3, 28,'JURÍDICO');
 insert into VISTA_DEPARTAMENTOS_EDIT values	( 4, 29,'JURÍDICO');
 insert into VISTA_DEPARTAMENTOS_EDIT values	( 5, 30,'JURÍDICO');
 
-/*HAY HAY 17 CARGOS */
+/
+
+/*==============================================================*/
+/* DATOS_TABLA_CARGOS                                           */
+/*==============================================================*/
 insert into VISTA_CARGOS_EDIT values (1	, 'Reclutador', 3499999	, 2400000, 1) ;                     
 insert into VISTA_CARGOS_EDIT values (1	, 'Técnico de formación',3499999, 1900000 , 2);
 insert into VISTA_CARGOS_EDIT values (1	, 'Técnico de comunicación interna',3499999, 1600000 , 21) ;
@@ -459,7 +494,11 @@ insert into VISTA_CARGOS_EDIT values (29	, 'Supervisor',3499999, 1900000 , 19) ;
 insert into VISTA_CARGOS_EDIT values (30	, 'Consultor',3499999, 2400000 , 28);
 insert into VISTA_CARGOS_EDIT values (30	, 'Supervisor',3499999, 1900000 , 27);
 
-/*HAY VACANTES POR CARGO*/
+/
+
+/*==============================================================*/
+/* DATOS_TABLA_VACANTES                                           */
+/*==============================================================*/
 insert into VISTA_VACANTES_EDIT values	( 1	, 1	);
 insert into VISTA_VACANTES_EDIT values	( 2	, 2	);
 insert into VISTA_VACANTES_EDIT values	( 3	, 3	);
@@ -496,7 +535,11 @@ insert into VISTA_VACANTES_EDIT values	( 33, 33 );
 insert into VISTA_VACANTES_EDIT values	( 34, 34 );
 insert into VISTA_VACANTES_EDIT values	( 35, 35 );
 
-/*HAY 200 CANDIDATOS*/
+/
+
+/*==============================================================*/
+/* DATOS_TABLA_CANDIDATOS                                           */
+/*==============================================================*/
 insert into VISTA_CANDIDATOS_EDIT values ( 1, 'Ale', 1514815151, 'pepito@gmial.com', 31251323, 18, 'fem', 80);
 insert into VISTA_CANDIDATOS_EDIT  values (9, 'Rosalind Ronaghan', 73305037, 'rronaghan0@telegraph.co.uk', 31439411, 51, 'Female', 27);
 insert into VISTA_CANDIDATOS_EDIT values (28, 'Gladys McCuaig', 83498084, 'gmccuaig1@tiny.cc', 39748993, 32, 'Female', 96);
@@ -699,7 +742,11 @@ insert into VISTA_CANDIDATOS_EDIT values (30, 'Ava Sor', 67506778, 'asor5h@bosto
 insert into VISTA_CANDIDATOS_EDIT values (11, 'Daune Chessman', 59768619, 'dchessman5i@xinhuanet.com', 33425538, 49, 'Female', 18);
 insert into VISTA_CANDIDATOS_EDIT values (29, 'Elvyn Bennis', 58371200, 'ebennis5j@ucoz.com', 39499222, 45, 'Male', 22);
 
-/*HAY  500 EMPLEADOS*/
+/
+
+/*==============================================================*/
+/* DATOS_TABLA_EMPLEADOS                                           */
+/*==============================================================*/
 
 insert into VISTA_EMPLEADOS_EDIT  values (74, 53045237, 'Lowell Routh', 31678645, 'lrouth0@sakura.ne.jp', 'Male', 56, 1, 1, 2, 3375190, 0, 30, 1);
 insert into VISTA_EMPLEADOS_EDIT  values (70, 55035484, 'Aurilia Abson', 30183931, 'aabson1@unc.edu', 'Female', 40, 1, 1, 78, 3386805, 1, 22, 1);
@@ -1202,7 +1249,11 @@ insert into VISTA_EMPLEADOS_EDIT  values (70, 83874453, 'Raymond Leipelt', 34064
 insert into VISTA_EMPLEADOS_EDIT  values (49, 50293740, 'Pedro Nurny', 30874216, 'pnurnydu@umich.edu', 'Male', 19, 1, 1, 38, 3291335, 1, 7, 1);
 insert into VISTA_EMPLEADOS_EDIT  values (82, 74540606, 'Donelle Barnewille', 36542509, 'dbarnewilledv@examiner.com', 'Female', 54, 1, 1, 27, 3475532, 0, 14, 1);
 
-/*HAY 100 CAPACITACIONES DIFERENTES PROGRAMADAS PARA EMPLEADOS AL AZAR*/
+/
+
+/*==============================================================*/
+/* DATOS_TABLA_CAPACITACIONES                                           */
+/*==============================================================*/
 insert into VISTA_CAPACITACIONES_EDIT values (24, 'Meevee', '4/7/2020', 'id nisl venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede malesuada in imperdiet et commodo vulputate');
 insert into VISTA_CAPACITACIONES_EDIT values (3, 'Edgewire', '3/2/2020', 'ante nulla justo aliquam quis turpis eget elit sodales scelerisque mauris sit amet eros suspendisse accumsan tortor quis turpis');
 insert into VISTA_CAPACITACIONES_EDIT values (44, 'Voonder', '4/2/2020', 'ut suscipit a feugiat et eros vestibulum ac est lacinia nisi venenatis tristique fusce');
@@ -1304,6 +1355,10 @@ insert into VISTA_CAPACITACIONES_EDIT values (194, 'Mydeo', '6/6/2020', 'morbi u
 insert into VISTA_CAPACITACIONES_EDIT values (134, 'Livetube', '10/3/2020', 'massa id nisl venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede');
 insert into VISTA_CAPACITACIONES_EDIT values (133, 'Browsezoom', '11/3/2020', 'lobortis sapien sapien non mi integer ac neque duis bibendum morbi non quam nec dui');
 
+/
+/*==============================================================*/
+/* DATOS_TABLA_ASISTENCIA_CAPACITACIONES                                           */
+/*==============================================================*/
 
 insert into VISTA_ASISTENCIA_CAPACITACIONES_EDIT values	( 1	,	0 );	 
 insert into VISTA_ASISTENCIA_CAPACITACIONES_EDIT values	( 2	,	1 );	 
@@ -1373,7 +1428,11 @@ insert into VISTA_ASISTENCIA_CAPACITACIONES_EDIT values	( 65	, 0 );
 insert into VISTA_ASISTENCIA_CAPACITACIONES_EDIT values	( 66	, 1 );
 insert into VISTA_ASISTENCIA_CAPACITACIONES_EDIT values	( 67	, 0 );
 
-/*HAY 200 VENDEDORES*/
+/
+
+/*==============================================================*/
+/* DATOS_TABLA_VENDEDORES                                           */
+/*==============================================================*/
 insert into VISTA_VENDEDORES_EDIT values (1, 86523038, 'Howey Sprackling', 35731588, 'hsprackling0@prnewswire.com', 'Male', 26, 1, 1, 2266170, 0, 0, 72278);
 insert into VISTA_VENDEDORES_EDIT values (4, 73184053, 'Vale Tretter', 35597125, 'vtretter1@nifty.com', 'Male', 53, 1, 1, 2367794, 0, 1, 72971);
 insert into VISTA_VENDEDORES_EDIT values (3, 86677511, 'Bordy Betun', 30879126, 'bbetun2@hud.gov', 'Male', 57, 1, 1, 1936867, 0, 0, 109196);
@@ -1575,7 +1634,11 @@ insert into VISTA_VENDEDORES_EDIT values (1, 54875886, 'Eloisa Britch', 39831099
 insert into VISTA_VENDEDORES_EDIT values (5, 73863520, 'Julie Planks', 35700372, 'jplanks5i@free.fr', 'Female', 54, 1, 1, 2949231, 1, 1, 39639);
 insert into VISTA_VENDEDORES_EDIT values (1, 88843431, 'Nadean Cadore', 36989463, 'ncadore5j@usnews.com', 'Female', 67, 1, 1, 1969699, 0, 0, 112195);
 
-/*LA EMPRESA TIENE 50 PROVEEDORES, DISTRIBUIDOS EN SUS SUCURSALES*/
+/
+
+/*==============================================================*/
+/* DATOS_TABLA_PROVEEDORES                                           */
+/*==============================================================*/
 insert into VISTA_PROVEEDORES_EDIT values (1, 76299550, 'Tawnya Bostick', 30767498, '55103 Monterey Circle', 1, 'tbostick0@yahoo.com');
 insert into VISTA_PROVEEDORES_EDIT values (4, 80038854, 'Gale Somerton', 35280929, '65179 Dovetail Plaza', 1, 'gsomerton1@cmu.edu');
 insert into VISTA_PROVEEDORES_EDIT values (1, 84044684, 'Julia Vaisey', 38150054, '9022 Kipling Circle', 1, 'jvaisey2@reverbnation.com');
@@ -1627,7 +1690,11 @@ insert into VISTA_PROVEEDORES_EDIT values (1, 82833064, 'Opalina Rearie', 377766
 insert into VISTA_PROVEEDORES_EDIT values (5, 89464145, 'Hatty Bingell', 33205097, '4321 Thackeray Court', 1, 'hbingell1c@seattletimes.com');
 insert into VISTA_PROVEEDORES_EDIT values (1, 77318083, 'Reynard Lared', 32456673, '470 Maple Trail', 1, 'rlared1d@naver.com');
 
-/*50 GERENTES PROVEEDORES*/
+/
+
+/*==============================================================*/
+/* DATOS_TABLA_PROVEEDOR_GERENTE                                           */
+/*==============================================================*/
 insert into VISTA_PROVEEDOR_GERENTE_EDIT values (18, 'Carlee Leebeter', 52411691, 32819204, 'cleebeter0@is.gd');
 insert into VISTA_PROVEEDOR_GERENTE_EDIT values (18, 'Skipton Jerzak', 67720732, 38881608, 'sjerzak1@webs.com');
 insert into VISTA_PROVEEDOR_GERENTE_EDIT values (17, 'Ardis Howlin', 77295128, 39244424, 'ahowlin2@seesaa.net');
@@ -1679,7 +1746,11 @@ insert into VISTA_PROVEEDOR_GERENTE_EDIT values (23, 'Myer Becarra', 63853267, 3
 insert into VISTA_PROVEEDOR_GERENTE_EDIT values (47, 'Marylinda Billingsly', 71840722, 39101383, 'mbillingsly1c@tamu.edu');
 insert into VISTA_PROVEEDOR_GERENTE_EDIT values (47, 'Kate Eake', 70600898, 30376253, 'keake1d@godaddy.com');
 
-/*HAY 700 CLIENTES*/
+/
+
+/*==============================================================*/
+/* DATOS_TABLA_CLIENTES                                           */
+/*==============================================================*/
 insert into VISTA_CLIENTES_EDIT values (3, 76300620, 'Sheela Sandifer', 33602298, '9978 Oak Hill', 1, 'ssandifer0@globo.com');
 insert into VISTA_CLIENTES_EDIT values (2, 84116118, 'Hersch Hedger', 30651661, '091 Hooker Crossing', 1, 'hhedger1@umn.edu');
 insert into VISTA_CLIENTES_EDIT values (3, 83215125, 'Drew Pryell', 39274142, '925 Kinsman Park', 1, 'dpryell2@mozilla.com');
@@ -2381,7 +2452,11 @@ insert into VISTA_CLIENTES_EDIT values (4, 74982209, 'Burlie Beat', 37253422, '1
 insert into VISTA_CLIENTES_EDIT values (2, 78039756, 'Kippy Whitsey', 30226043, '02325 Aberg Avenue', 1, 'kwhitseyje@cdbaby.com');
 insert into VISTA_CLIENTES_EDIT values (5, 81961882, 'Ambros Aldersey', 33325470, '82964 Sachtjen Circle', 1, 'aalderseyjf@theguardian.com');
 
-/*HAY 700 GERENTES DE CLIENTES*/
+/
+
+/*==============================================================*/
+/* DATOS_TABLA_CLIENTE_GERENTE                                           */
+/*==============================================================*/
 insert into VISTA_CLIENTE_GERENTE_EDIT values (592, 'Neville Ferran', 72010396, 31118897, 'nferran0@yahoo.co.jp');
 insert into VISTA_CLIENTE_GERENTE_EDIT values (87, 'Romona Mattsson', 88567570, 30634003, 'rmattsson1@netlog.com');
 insert into VISTA_CLIENTE_GERENTE_EDIT values (386, 'Ray Lillow', 54540436, 36249547, 'rlillow2@youtu.be');
@@ -3083,8 +3158,11 @@ insert into VISTA_CLIENTE_GERENTE_EDIT values (96, 'Lincoln Bore', 66237133, 317
 insert into VISTA_CLIENTE_GERENTE_EDIT values (340, 'Rhoda Lanchester', 70264762, 37569534, 'rlanchesterje@economist.com');
 insert into VISTA_CLIENTE_GERENTE_EDIT values (47, 'Arlee Guillford', 73106889, 38063597, 'aguillfordjf@bloomberg.com');
 
+/
 
-/*HAY 120 PRODUCTOS*/
+/*==============================================================*/
+/* DATOS_TABLA_PRODUCTOS                                           */
+/*==============================================================*/
 insert into VISTA_PRODUCTOS_EDIT values (22, 'Santa Fe', 2686, 6428);
 insert into VISTA_PRODUCTOS_EDIT values (11, 'Aviator', 2292, 6884);
 insert into VISTA_PRODUCTOS_EDIT values (41, 'S70', 2176, 6596);
@@ -3206,7 +3284,11 @@ insert into VISTA_PRODUCTOS_EDIT values (28, 'Sequoia', 2969, 5312);
 insert into VISTA_PRODUCTOS_EDIT values (11, 'S4', 2979, 6122);
 insert into VISTA_PRODUCTOS_EDIT values (30, 'Enclave', 2797, 5325);
 
-/*INSERTAR PRODUCTOS EN LAS DIFERENTES BODEGAS */
+/
+
+/*==============================================================*/
+/* DATOS_TABLA_BODEGAS                                           */
+/*==============================================================*/
 insert into VISTA_BODEGAS_EDIT values (	1	,	3	,	'PRADO',	22	,	71	);
 insert into VISTA_BODEGAS_EDIT values (	2	,	3	,	'SUR',	30	,	820	);
 insert into VISTA_BODEGAS_EDIT values (	3	,	5	,	'NORTE',	102	,	287	);
@@ -3337,7 +3419,11 @@ insert into VISTA_BODEGAS_EDIT values (	127	,	2	,	'SUR',	79	,	104	);
 insert into VISTA_BODEGAS_EDIT values (	128	,	2	,	'NORTE',	97	,	726	);
 insert into VISTA_BODEGAS_EDIT values (	129	,	4	,	'LAS DELICIAS',	76	,	729	);
 
-/*SE HAN GENERADO 140 ÓRDENES*/
+/
+
+/*==============================================================*/
+/* DATOS_TABLA_ORDENES                                           */
+/*==============================================================*/
 insert into VISTA_ORDENES_EDIT values (2, 72, 333, 2, '5/2/2020');
 insert into VISTA_ORDENES_EDIT values (2, 89, 123, 3, '6/7/2020');
 insert into VISTA_ORDENES_EDIT values (5, 52, 576, 2, '9/1/2020');
@@ -3479,7 +3565,11 @@ insert into VISTA_ORDENES_EDIT values (1, 111, 570, 4, '1/12/2020');
 insert into VISTA_ORDENES_EDIT values (2, 65, 479, 3, '9/7/2020');
 insert into VISTA_ORDENES_EDIT values (3, 41, 612, 4, '4/12/2020');
 
-/*HAY 6 DEPARTAMENTOS POR SUCURSAL, 30 DEPTOS*/
+/
+
+/*==============================================================*/
+/* DATOS_TABLA_ORDENES_ITEMS                                           */
+/*==============================================================*/
 insert into VISTA_ORDENES_ITEMS_EDIT values (83, 60, 39, 162457, 0);
 insert into VISTA_ORDENES_ITEMS_EDIT values (100, 8, 14, 175734, 0);
 insert into VISTA_ORDENES_ITEMS_EDIT values (57, 30, 27, 222372, 0);
@@ -3620,3 +3710,14 @@ insert into VISTA_ORDENES_ITEMS_EDIT values (22, 34, 21, 309012, 0);
 insert into VISTA_ORDENES_ITEMS_EDIT values (121, 78, 12, 200334, 1);
 insert into VISTA_ORDENES_ITEMS_EDIT values (102, 91, 35, 246744, 0);
 insert into VISTA_ORDENES_ITEMS_EDIT values (32, 19, 42, 210552, 1);
+
+/
+
+/* Los compañeros de su grupos tienen que añadir datos a su tabla
+NOMBRE_DE_LA_TABLA, usando la vista cuenta.VISTA_1 */
+
+/*insert into cuenta_del_compañero.VISTA_1
+values (valor_1, valor_2, . . . , valor_n);*/
+/* Ver los datos que cada uno ingresó a la tabla NOMBRE_DE_LA_TABLA
+utilizando la vista cuenta.VISTA_2 */
+/*select * from cuenta_del_compañero.VISTA_2;*/
