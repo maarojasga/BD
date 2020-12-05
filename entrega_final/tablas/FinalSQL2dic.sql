@@ -814,7 +814,7 @@ go
 create table CLIENTES
 (
    CLIENTE_ID bigint not null identity(1,1),
-    SUCURSAL_ID    bigint not null,
+   SUCURSAL_ID    bigint not null,
    CLIENTE_NIT bigint not null,
    CLIENTE_NOMBRE varchar(100) not null,
    CLIENTE_CENTRO_LLAMADAS bigint not null,
@@ -822,17 +822,17 @@ create table CLIENTES
    CLIENTE_NORMAS_BOOL bit not null,
    CLIENTE_CORREO varchar(100) not null,
    CLIENTE_digitador VARCHAR(15) default user_name() NOT NULL,
-    CLIENTE_fecha DATETIME default getdate () NOT NULL,
+   CLIENTE_fecha DATETIME default getdate () NOT NULL,
    constraint PK_CLIENTES primary key (CLIENTE_ID)
 )
 go
 /*==============================================================*/
 /* Index: UBICACION_CLIENTE_FK                                  */
 /*==============================================================*/
-create nonclustered index UBICACION_CLIENTE_FK on CLIENTES (
+/*create nonclustered index UBICACION_CLIENTE_FK on CLIENTES (
 SUCURSAL_ID ASC
 )
-go
+go*/
 
 /*==============================================================*/
 /* Table: CLIENTE_GERENTE                                       */
@@ -1312,11 +1312,15 @@ go
 /*==============================================================*/
 /* Index: UBICACION_PROVEEDOR_FK                                */
 /*==============================================================*/
-create nonclustered index UBICACION_PROVEEDOR_FK on PROVEEDORES (
+/*create nonclustered index UBICACION_PROVEEDOR_FK on PROVEEDORES (
 SUCURSAL_ID ASC
 )
-go
-
+go*/
+/*foreign key*/
+alter table PROVEEDORES
+add foreign key (SUCURSAL_ID) references SUCURSALES(SUCURSAL_ID)
+GO
+   
 /*==============================================================*/
 /* Table: PROVEEDOR_GERENTE                                     */
 /*==============================================================*/
@@ -1444,21 +1448,9 @@ go
 /*==============================================================*/
 
 
-
-
 create nonclustered index ATENDIDA_POR_FK on VENDEDORES (SUCURSAL_ID ASC)
 go
 
-/*==============================================================*/
-/* Table: REGISTRO_HISTORICO                                    */
-/*==============================================================*/
-create table REGISTRO_HISTORICO
-(
-   REGISTRO_HISTORICO_USUARIO VARCHAR(15) default user_name() NOT NULL,
-   REGISTRO_HISTORICO_FECHA DATETIME default getdate () NOT NULL,
-   REGISTRO_HISTORICO_MENSAJE VARCHAR(100) NOT NULL
-)
-go
 
 
 alter table ASISTENCIA_CAPACITACIONES
@@ -1591,15 +1583,15 @@ alter table SUCURSALES
       references DIRECTOR_SUCURSAL (DIRECTOR_SUCURSAL_ID)
 go
 
-alter table SUCURSALES
+/*alter table SUCURSALES
    add constraint FK_SUCURSAL_UBICACION_CLIENTES foreign key (CLIENTE_ID)
       references CLIENTES (CLIENTE_ID)
-go
+go*/
 
-alter table SUCURSALES
+/*alter table SUCURSALES
    add constraint FK_SUCURSAL_UBICACION_PROVEEDO foreign key (PROVEEDOR_ID)
       references PROVEEDORES (PROVEEDOR_ID)
-go
+go*/
 
 alter table VACANTES
    add constraint FK_VACANTES_CARGOS_DI_CARGOS foreign key (CARGO_ID)
@@ -1610,3 +1602,15 @@ alter table VENDEDORES
    add constraint FK_VENDEDOR_ATENDIDA__SUCURSAL foreign key (SUCURSAL_ID)
       references SUCURSALES (SUCURSAL_ID)
 go
+
+/*foreign key*/
+alter table CLIENTES
+add foreign key (SUCURSAL_ID) references SUCURSALES(SUCURSAL_ID)
+GO
+/*alter table PROVEEDORES
+add foreign key (SUCURSAL_ID) references SUCURSALES(SUCURSAL_ID)
+GO*/
+alter table PROVEEDORES
+   add constraint FK_PROVEEDOR_UBICACION_DI_PRUEBA foreign key (SUCURSAL_ID)
+      references SUCURSALES(SUCURSAL_ID)
+GO
