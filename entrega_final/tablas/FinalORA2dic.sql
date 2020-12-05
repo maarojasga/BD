@@ -930,7 +930,7 @@ create table DIRECTOR_DEPARTAMENTO  (
    DIRECTOR_DEPARTAMENTO_SEGURIDAD_SOCIAL_BOOL SMALLINT                        not null,
    DIRECTOR_DEPARTAMENTO_POLIZA_VIGENTE_BOOL SMALLINT                        not null,
    DIRECTOR_DEPARTAMENTO_SALARIO_FIJO INTEGER                         not null
-      constraint CKC_DIRECTOR_DEPARTAM_DIRECTOR check (DIRECTOR_DEPARTAMENTO_SALARIO_ between 3500000 and 3999999),
+      constraint CKC_DIRECTOR_DEPARTAM_DIRECTOR check (DIRECTOR_DEPARTAMENTO_SALARIO_FIJO between 3500000 and 3999999),
    DIRECTOR_DEPARTAMENTO_CONTRATO_INDEFINIDO_BOOL SMALLINT                        not null,
    DIRECTOR_DEPARTAMENTO_REINGRESO_BOOL SMALLINT                        not null,
    digitador VARCHAR(15) default USER                    not null,
@@ -1079,7 +1079,7 @@ create table EMPRESA_SUBGERENTE  (
    EMPRESA_SUBGERENTE_POLIZA_VIGENTE_BOOL SMALLINT                        not null,
    EMPRESA_SUBGERENTE_CONTRATO_INDEFINIDO_BOOL SMALLINT                        not null,
    EMPRESA_SUBGERENTE_SALARIO_FIJO INTEGER                         not null
-      constraint CKC_EMPRESA_SUBGERENT_EMPRESA_ check (EMPRESA_SUBGERENTE_SALARIO_FIJ between 5000000 and 5999999),
+      constraint CKC_EMPRESA_SUBGERENT_EMPRESA_ check (EMPRESA_SUBGERENTE_SALARIO_FIJO between 5000000 and 5999999),
    EMPRESA_SUBGERENTE_REINGRESO_BOOL SMALLINT                        not null,
    digitador VARCHAR(15) default USER                    not null,
    fecha DATE default sysdate                            not null,
