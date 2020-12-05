@@ -494,6 +494,8 @@ drop sequence SECUENCIA_VENDEDORES
 
 drop sequence SEQUENCE_7
 /
+drop table REGISTRO_HISTORICO_USUARIO
+/
 
 create sequence SECUENCIA_ASISTENCIA_CAPACITAC
 increment by 1
@@ -719,6 +721,7 @@ create index CONTROL_ASISTENCIA_FK on ASISTENCIA_CAPACITACIONES (
 create table BODEGAS  (
    BODEGA_ID            INTEGER                         not null,
    SUCURSAL_ID          INTEGER                         not null,
+   PRODUCTO_ID          INTEGER                         not null,
    BODEGA_CANTIDAD      INTEGER                         not null,
    digitador VARCHAR(15) default USER                    not null,
    fecha DATE default sysdate                            not null,
@@ -731,6 +734,14 @@ create table BODEGAS  (
 /*==============================================================*/
 create index TIENEN_FK on BODEGAS (
    SUCURSAL_ID ASC
+)
+/
+
+/*==============================================================*/
+/* Index: ALMACENA_FK                                             */
+/*==============================================================*/
+create index ALMACENA_FK on BODEGAS (
+   PRODUCTO_ID ASC
 )
 /
 
@@ -795,6 +806,7 @@ create table CARGOS  (
    CARGO_NOMBRE         VARCHAR2(100)                   not null,
    CARGO_SALARIO_MAX    INTEGER                         not null,
    CARGO_SALARIO_MIN    INTEGER                         not null,
+   CARGO_JEFE_INMEDIATO_ID   INTEGER                    not null,
    digitador VARCHAR(15) default USER                    not null,
    fecha DATE default sysdate                            not null,
    constraint PK_CARGOS primary key (CARGO_ID)
@@ -985,7 +997,8 @@ create table EMPLEADOS  (
    EMPLEADO_POLIZA_VIGENTE_BOOL SMALLINT                        not null,
    EMPLEADO_CARGO       INTEGER                         not null,
    EMPLEADO_SALARIO_FIJO INTEGER                         not null,
-   EMPLEADO_CONTRATO_INDEFINIDO_B SMALLINT                        not null,
+   EMPLEADO_CONTRATO_INDEFINIDO_BOOL SMALLINT                        not null,
+    EMLEADO_DEPARTAMENTO_ID,
    EMPLEADO_REINGRESO_BOOL SMALLINT                        not null,
    digitador VARCHAR(15) default USER                    not null,
    fecha DATE default sysdate                            not null,
@@ -1122,7 +1135,7 @@ create table ORDENES  (
    CLIENTE_ID           INTEGER,
    ORDEN_ESTADO         INTEGER                         not null
       constraint CKC_ORDEN_ESTADO_ORDENES check (ORDEN_ESTADO between 1 and 4),
-   ORDEN_FECHA_SOLICITUD DATE                            not null,
+   ORDEN_FECHA_SOLICITUD DATE default sysdate          not null,        
    ORDEN_FECHA_ENTREGA  DATE                            not null,
    digitador VARCHAR(15) default USER                    not null,
    fecha DATE default sysdate                            not null,
@@ -1213,6 +1226,8 @@ create index ESTA_PRESENTE_FK on PAISES (
 /*==============================================================*/
 create table PREMIOS  (
    PREMIO_ID            INTEGER                         not null,
+   EMPLEADO_ID          INTEGER                         not null,
+   VENDEDOR_ID          INTEGER                         not null,   
    PREMIO_NOMBRE        VARCHAR2(100)                   not null,
    PREMIO_VALOR         INTEGER                         not null,
    digitador VARCHAR(15) default USER                    not null,
@@ -1225,8 +1240,7 @@ create table PREMIOS  (
 /* Table: PRODUCTOS                                             */
 /*==============================================================*/
 create table PRODUCTOS  (
-   PRODUCTO_ID          INTEGER                         not null,
-   BODEGA_ID            INTEGER,
+   PRODUCTO_ID          INTEGER 
    PROVEEDOR_ID         INTEGER,
    PRODUCTO_NOMBRE      VARCHAR2(100)                   not null,
    PRODUCTO_PRECIO_ADQUISICION INTEGER                         not null,
@@ -1240,8 +1254,8 @@ create table PRODUCTOS  (
 /*==============================================================*/
 /* Index: ALMACENA_FK                                           */
 /*==============================================================*/
-create index ALMACENA_FK on PRODUCTOS (
-   BODEGA_ID ASC
+create index PROVEE_PRODUCTOS_FK on PRODUCTOS (
+   PROVEEDOR_ID ASC
 )
 /
 

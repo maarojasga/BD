@@ -12,12 +12,16 @@ SELECT * FROM VACANTES
 SELECT * FROM CANDIDATOS
 SELECT * FROM EMPLEADOS
 SELECT * FROM CAPACITACIONES
+SELECT * FROM ASISTENCIA_CAPACITACIONES
 SELECT * FROM VENDEDORES
 SELECT * FROM PROVEEDORES
 SELECT * FROM PROVEEDOR_GERENTE
 SELECT * FROM CLIENTES
 SELECT * FROM CLIENTE_GERENTE
+SELECT * FROM PRODUCTOS
 SELECT * FROM BODEGAS
+SELECT * FROM ORDENES
+SELECT * FROM ORDENES_ITEMS
 
 insert into VISTA_EMPRESA_EDIT values ('VENTAS COLOMBIA SAS', 'CR 45 # 187', 5253697)
 
@@ -267,7 +271,7 @@ insert into VISTA_PAISES_EDIT values (1, 'Zaire', 243)
 insert into VISTA_PAISES_EDIT values (1, 'Zambia', 260)
 insert into VISTA_PAISES_EDIT values (1, 'Zimbawe', 26 ) 
 
-
+/* SÓLO HAY 5 SUCURSALES */
 insert into VISTA_CIUDADES_EDIT values (45, 'Bogotá')
 insert into VISTA_CIUDADES_EDIT values (42, 'Santiago de Chile')
 insert into VISTA_CIUDADES_EDIT values (11, 'Buenos Aires')
@@ -275,12 +279,36 @@ insert into VISTA_CIUDADES_EDIT values (168, 'Lima')
 insert into VISTA_CIUDADES_EDIT values (54, 'Quito')
 insert into VISTA_CIUDADES_EDIT values (237, 'Caracas')
 
+/* SÓLO HAY 1 GERENTE DE LA EMPRESA*/
+insert into VISTA_EMPRESA_GERENTE_EDIT values ( 1, 'Alejandro Rodríguez', 53631501, 3123548112, 'alejandro.jimenez@ventascolombia.co', 45,  'Masculino', 1, 1, 1, 7000000, 0)
 
-insert into VISTA_EMPRESA_GERENTE_EDIT values ( 1, 'Alejandro', 11111111, 3123548112, 'maarojasga@una', 25,  'Masc',1,  1, 1, 7000000, 0)
+/* SÓLO HAY 1 SUBGERENTE */
+insert into VISTA_EMPRESA_SUBGERENTE_EDIT values ( 1, 1, 'Luisa Fernanda López', 58566182, 3127894150, 'luisa.lopez@ventascolombia.co', 25,  'Femenino', 1, 1, 1, 5000000, 0)
 
-insert into VISTA_EMPRESA_SUBGERENTE_EDIT values ( 1, 1, 'Alejandro', 11111111, 3123548112, 'maarojasga@una', 25,  'Masc',1,  1, 1, 5000000, 0)
-insert into VISTA_DIRECTOR_SUCURSAL_EDIT values ( 2, 'Alejandro', 11111111, 3123548112, 'maarojasga@una', 'Masc', 25 , 1, 1, 4000000, 0, 0)
-insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 1, 'Alejandro', 11111111, 3123548112, 'maarojasga@una', 'Masc', 25 , 1, 1, 3500000, 0, 0)
+/* SÓLO HAY 5 DIRECTORES DE SUCURSAL, 1 POR SUCURSAL */
+insert into VISTA_DIRECTOR_SUCURSAL_EDIT values ( 1, 'Natalia Pérez', 86455525, 3124103020, 'natalia.perez@ventascolombia.co', 'Femenino', 25, 1, 1, 4000000, 0, 0)
+insert into VISTA_DIRECTOR_SUCURSAL_EDIT values ( 2, 'Diego Nájar', 93833711, 3127846362, 'diego.najar@ventascolombia.co', 'Masculino', 33, 1, 1, 4000000, 0, 0)
+insert into VISTA_DIRECTOR_SUCURSAL_EDIT values ( 3, 'Roberto Reina', 54020711, 312968574, 'roberto.reina@ventascolombia.co', 'Masculino', 41, 1, 1, 4000000, 0, 0)
+insert into VISTA_DIRECTOR_SUCURSAL_EDIT values ( 4, 'Sandra Martínez', 54486071, 3124567891, 'sandra.martinez@ventascolombia.co', 'Femenino', 27, 1, 1, 4000000, 0, 0)
+insert into VISTA_DIRECTOR_SUCURSAL_EDIT values ( 5, 'Reinaldo Díaz', 51666475, 3112003541, 'reinaldo.diaz@ventascolombia.co', 'Masculino', 22, 1, 1, 4000000, 0, 0)
+
+/* SÓLO HAY 5 DIRECTORES DE DEPARTAMENTO, 1 DEPARTAMENTO */
+insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 1, 'Cecilia Gutierrez', 84945694, 3124105263, 'cecilia.gutierrez@ventascolombia.co', 'Masc', 25 , 1, 1, 3500000, 0, 0)
+insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 1, 'Fernando Rincón', 70436506, 3127415285, 'fernando.rincon@ventascolombia.co', 'Masc', 25 , 1, 1, 3500000, 0, 0)
+insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 1, 'Beatriz Contreras', 87452985, 3114789685, 'beatriz.contreras@ventascolombia.co', 'Masc', 25 , 1, 1, 3500000, 0, 0)
+insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 1, 'Cristian Peña', 98713237, 3012142010, 'cristian.pena@ventascolombia.co', 'Masc', 25 , 1, 1, 3500000, 0, 0)
+insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 1, 'Joaquin Villa', 66876465, 3214569674, 'joaquin.villa@ventascolombia.co', 'Masc', 25 , 1, 1, 3500000, 0, 0)
+insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 1, 'Hugo Llano', 91876068, 3054107420, 'hugo.llano@ventascolombia.co', 'Masc', 25 , 1, 1, 3500000, 0, 0)
+insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 1, 'Armando Casas', 74121308, 3506347896, 'armando.casas@ventascolombia.co', 'Masc', 25 , 1, 1, 3500000, 0, 0)
+insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 1, 'Teresa Niño', 61573473, 3114561042, 'teresa.niño@ventascolombia.co', 'Masc', 25 , 1, 1, 3500000, 0, 0)
+insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 1, 'Rigoberto Sanchez', 59108725, 3104123010, 'rigoberto.sanchez@ventascolombia.co', 'Masc', 25 , 1, 1, 3500000, 0, 0)
+insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 1, 'John Salinas', 73637750, 3045627874, 'john.salinas@ventascolombia.co', 'Masc', 25 , 1, 1, 3500000, 0, 0)
+insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 1, 'Juan Quiñones', 87607977, 3034178520, 'juan.quinones@ventascolombia.co', 'Masc', 25 , 1, 1, 3500000, 0, 0)
+insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 1, 'Sofía Vélez', 80764675, 3014785645, 'sofia.velez@ventascolombia.co', 'Masc', 25 , 1, 1, 3500000, 0, 0)
+insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 1, 'Patricia Fernández', 83749913, 3124789674, 'patricia.fernandez@ventascolombia.co', 'Masc', 25 , 1, 1, 3500000, 0, 0)
+insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 1, 'Mario Yepes', 52089830, 3014201514, 'mario.yepes@ventascolombia.co', 'Masc', 25 , 1, 1, 3500000, 0, 0)
+insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 1, 'Johan Morales', 76601416, 3014575220, 'johan.morales@ventascolombia.co', 'Masc', 25 , 1, 1, 3500000, 0, 0)
+
 
 insert into VISTA_SUCURSALES_EDIT values ( 1, 1, 'PRAD0', 11111111, 'CR 6 #192SSASD')
 insert into VISTA_DEPARTAMENTOS_EDIT values ( 1, 1,'RECURSOS HUMANOS')
@@ -309,5 +337,11 @@ insert into VISTA_CLIENTES_EDIT values ( 1, 15115515, 'RAFA', 11012155454, 'SOY 
 
 insert into VISTA_CLIENTE_GERENTE_EDIT values ( 1,'RAFA', 11012155454, 155544144,'SOY UN CORRE0')
 
-insert into VISTA_BODEGAS_EDIT values ( 1, 12, 1)
 insert into VISTA_PRODUCTOS_EDIT values ( 1, 'ARROZ', 1000, 10000)
+insert into VISTA_BODEGAS_EDIT values ( 1, 1, 1, 12)
+
+insert into VISTA_ORDENES_EDIT values ( 1, 1, 1, 1, '12/05/20')
+
+
+insert into VISTA_ORDENES_ITEMS_EDIT values ( 1, 1, 10, 1000000, 0)
+
