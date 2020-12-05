@@ -987,9 +987,10 @@ create table EMPLEADOS
    EMPLEADO_CARGO bigint not null,
    EMPLEADO_SALARIO_FIJO bigint not null,
    EMPLEADO_CONTRATO_INDEFINIDO_BOOL bit not null,
+   EMPLEADO_DEPARTAMENTO_ID  bigint                      not null,
    EMPLEADO_REINGRESO_BOOL bit not null,
 	EMPLEADO_digitador VARCHAR(15) default user_name() NOT NULL,
-    EMPLEADO_fecha DATETIME default getdate () NOT NULL,
+   EMPLEADO_fecha DATETIME default getdate () NOT NULL,
    constraint PK_EMPLEADOS primary key (EMPLEADO_ID)
 )
 go
@@ -1245,7 +1246,7 @@ create table PREMIOS
 (
    PREMIO_ID bigint not null identity(1,1),
    EMPLEADO_ID           bigint  null,
-    VENDEDOR_ID           bigint  null,
+   VENDEDOR_ID           bigint  null,
    PREMIO_NOMBRE varchar(100) not null,
    PREMIO_VALOR bigint not null,
    PREMIO_digitador VARCHAR(15) default user_name() NOT NULL,
