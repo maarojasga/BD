@@ -1318,11 +1318,7 @@ go
 SUCURSAL_ID ASC
 )
 go*/
-/*foreign key*/
-alter table PROVEEDORES
-add foreign key (SUCURSAL_ID) references SUCURSALES(SUCURSAL_ID)
-GO
-   
+/*foreign key*/   
 /*==============================================================*/
 /* Table: PROVEEDOR_GERENTE                                     */
 /*==============================================================*/
