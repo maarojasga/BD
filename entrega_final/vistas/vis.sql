@@ -16,6 +16,7 @@ AS
     SELECT
         BODEGA_ID,
         SUCURSAL_ID,
+        SUCURSAL_NOMBRE,
         PRODUCTO_ID,
         BODEGA_CANTIDAD
     FROM BODEGAS

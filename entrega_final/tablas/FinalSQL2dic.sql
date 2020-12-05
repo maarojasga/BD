@@ -677,8 +677,9 @@ go
 /*==============================================================*/
 create table BODEGAS
 (
-   BODEGA_ID bigint not null identity(1,1),
+   BODEGA_ID bigint not null,
    SUCURSAL_ID bigint not null,
+   SUCURSAL_NOMBRE VARCHAR(100) NOT NULL,
    PRODUCTO_ID BIGINT NOT NULL,
    BODEGA_CANTIDAD bigint not null,
    BODEGA_digitador VARCHAR(15) default user_name() NOT NULL,
