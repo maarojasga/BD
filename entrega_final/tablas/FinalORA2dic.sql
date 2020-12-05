@@ -1042,7 +1042,7 @@ create table EMPRESA_GERENTE  (
       constraint CKC_EMPRESA_GERENTE_E_EMPRESA_ check (EMPRESA_GERENTE_EDAD between 18 and 99),
    EMPRESA_GERENTE_GENERO VARCHAR2(100),
    EMPRESA_GERENTE_SEGURIDAD_SOCIAL_BOOL SMALLINT                        not null,
-   EMPRESA_GERENTE_POLIZA_VIGENTENTE_BOOL SMALLINT                        not null,
+   EMPRESA_GERENTE_POLIZA_VIGENTE_BOOL SMALLINT                        not null,
    EMPRESA_GERENTE_CONTRATO_INDEFINIDO_BOOL SMALLINT                        not null,
    EMPRESA_GERENTE_SALARIO_FIJO INTEGER                         not null
       constraint CKC_EMPRESA_GERENTE_S_EMPRESA_ check (EMPRESA_GERENTE_SALARIO_FIJO between 6000000 and 8000000),
@@ -2092,10 +2092,6 @@ exception
        raise_application_error(errno, errmsg);
 end;
 /
-
-
-
-
 
 
 
