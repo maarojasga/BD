@@ -657,7 +657,7 @@ create table ASISTENCIA_CAPACITACIONES
    CAPACITACION_ID bigint null,
    ASISTENCIA_CAPACITACIONES_SI_NO_BOOL bit not null,
    ASISTENCIA_CAPACITACIONES_digitador VARCHAR(15) default user_name() NOT NULL,
-    ASISTENCIA_CAPACITACIONES_fecha DATETIME default getdate () NOT NULL,
+   ASISTENCIA_CAPACITACIONES_fecha DATETIME default getdate () NOT NULL,
    constraint PK_ASISTENCIA_CAPACITACIONES primary key (ASISTENCIA_CAPACITACIONES_ID)
 )
 go
@@ -679,9 +679,10 @@ create table BODEGAS
 (
    BODEGA_ID bigint not null identity(1,1),
    SUCURSAL_ID bigint not null,
+   PRODUCTO_ID BIGINT NOT NULL,
    BODEGA_CANTIDAD bigint not null,
    BODEGA_digitador VARCHAR(15) default user_name() NOT NULL,
-    BODEGA_fecha DATETIME default getdate () NOT NULL,
+   BODEGA_fecha DATETIME default getdate () NOT NULL,
    constraint PK_BODEGAS primary key (BODEGA_ID)
 )
 go
@@ -691,9 +692,15 @@ go
 /*==============================================================*/
 
 
-
-
 create nonclustered index TIENEN_FK on BODEGAS (SUCURSAL_ID ASC)
+go
+
+/*==============================================================*/
+/* Index: ALMACENA_FK                                             */
+/*==============================================================*/
+create nonclustered index ALMACENA_FK on BODEGAS (
+PRODUCTO_ID ASC
+)
 go
 
 /*==============================================================*/
@@ -713,7 +720,7 @@ create table CANDIDATOS
    CANDIDATO_PORCENTAJE_VALORACION int not null
       constraint CKC_CANDIDATO_PORCENT_CANDIDAT check (CANDIDATO_PORCENTAJE_VALORACION between 0 and 100),
 	CANDIDATO_digitador VARCHAR(15) default user_name() NOT NULL,
-    CANDIDATO_fecha DATETIME default getdate () NOT NULL,
+   CANDIDATO_fecha DATETIME default getdate () NOT NULL,
    constraint PK_CANDIDATOS primary key (CANDIDATO_ID)
 )
 go
@@ -721,8 +728,6 @@ go
 /*==============================================================*/
 /* Index: TIENE_CANDIDATOS_FK                                   */
 /*==============================================================*/
-
-
 
 
 create nonclustered index TIENE_CANDIDATOS_FK on CANDIDATOS (VACANTE_ID ASC)
@@ -739,7 +744,7 @@ create table CAPACITACIONES
    CAPACITACION_FECHA datetime not null,
    CAPACITACION_DESCRIPCION varchar(1000) not null,
    CAPACITACIONES_digitador VARCHAR(15) default user_name() NOT NULL,
-    CAPACITACIONES_fecha DATETIME default getdate () NOT NULL,
+   CAPACITACIONES_fecha DATETIME default getdate () NOT NULL,
    constraint PK_CAPACITACIONES primary key (CAPACITACION_ID)
 )
 go
@@ -747,8 +752,6 @@ go
 /*==============================================================*/
 /* Index: RECIBEN_CAPACITACIONES_FK                             */
 /*==============================================================*/
-
-
 
 
 create nonclustered index RECIBEN_CAPACITACIONES_FK on CAPACITACIONES (EMPLEADO_ID ASC)
@@ -764,6 +767,7 @@ create table CARGOS
    CARGO_NOMBRE varchar(100) not null,
    CARGO_SALARIO_MAX bigint not null,
    CARGO_SALARIO_MIN bigint not null,
+   CARGO_JEFE_INMEDIATO_ID    bigint not null,
    CARGO_digitador VARCHAR(15) default user_name() NOT NULL,
     CARGO_fecha DATETIME default getdate () NOT NULL,
    constraint PK_CARGOS primary key (CARGO_ID)
@@ -789,7 +793,7 @@ create table CIUDADES
    PAIS_ID bigint null,
    CIUDAD_NOMBRE varchar(100) not null,
    CIUDAD_digitador VARCHAR(15) default user_name() NOT NULL,
-    CIUDAD_fecha DATETIME default getdate () NOT NULL,
+   CIUDAD_fecha DATETIME default getdate () NOT NULL,
    constraint PK_CIUDADES primary key (CIUDAD_ID)
 )
 go
@@ -810,6 +814,7 @@ go
 create table CLIENTES
 (
    CLIENTE_ID bigint not null identity(1,1),
+    SUCURSAL_ID    bigint not null,
    CLIENTE_NIT bigint not null,
    CLIENTE_NOMBRE varchar(100) not null,
    CLIENTE_CENTRO_LLAMADAS bigint not null,
@@ -819,6 +824,13 @@ create table CLIENTES
    CLIENTE_digitador VARCHAR(15) default user_name() NOT NULL,
     CLIENTE_fecha DATETIME default getdate () NOT NULL,
    constraint PK_CLIENTES primary key (CLIENTE_ID)
+)
+go
+/*==============================================================*/
+/* Index: UBICACION_CLIENTE_FK                                  */
+/*==============================================================*/
+create nonclustered index UBICACION_CLIENTE_FK on CLIENTES (
+SUCURSAL_ID ASC
 )
 go
 
@@ -834,7 +846,7 @@ create table CLIENTE_GERENTE
    CLIENTE_GERENTE_CELULAR bigint not null,
    CLIENTE_GERENTE_CORREO varchar(100) not null,
    CLIENTE_GERENTE_digitador VARCHAR(15) default user_name() NOT NULL,
-    CLIENTE_GERENTE_fecha DATETIME default getdate () NOT NULL,
+   CLIENTE_GERENTE_fecha DATETIME default getdate () NOT NULL,
    constraint PK_CLIENTE_GERENTE primary key (CLIENTE_GERENTE_ID)
 )
 go
@@ -859,7 +871,7 @@ create table DEPARTAMENTOS
    DIRECTOR_DEPARTAMENTO_ID bigint null,
    DEPARTAMENTO_NOMBRE varchar(100) not null,
    DEPARTAMENTO_digitador VARCHAR(15) default user_name() NOT NULL,
-    DEPARTAMENTO_fecha DATETIME default getdate () NOT NULL,
+   DEPARTAMENTO_fecha DATETIME default getdate () NOT NULL,
    constraint PK_DEPARTAMENTOS primary key (DEPARTAMENTO_ID)
 )
 go
@@ -905,7 +917,7 @@ create table DIRECTOR_DEPARTAMENTO
    DIRECTOR_DEPARTAMENTO_CONTRATO_INDEFINIDO_BOOL bit not null,
    DIRECTOR_DEPARTAMENTO_REINGRESO_BOOL bit not null,
    DIRECTOR_DEPARTAMENTO_digitador VARCHAR(15) default user_name() NOT NULL,
-    DIRECTOR_DEPARTAMENTO_fecha DATETIME default getdate () NOT NULL,
+   DIRECTOR_DEPARTAMENTO_fecha DATETIME default getdate () NOT NULL,
    constraint PK_DIRECTOR_DEPARTAMENTO primary key (DIRECTOR_DEPARTAMENTO_ID)
 )
 go
@@ -1092,7 +1104,7 @@ go
 
 /*==============================================================*/
 /* Table: HISTORIAL_TRABAJADORES                                */
-/*==============================================================*/
+/*=============================================================*/
 create table HISTORIAL_TRABAJADORES
 (
    HISTORIA_TRABAJADORES_ID bigint identity(1,1),
@@ -1129,7 +1141,7 @@ create table ORDENES
    ORDEN_FECHA_SOLICITUD datetime not null,
    ORDEN_FECHA_ENTREGA datetime not null,
    ORDEN_digitador VARCHAR(15) default user_name() NOT NULL,
-    ORDEN_fecha DATETIME default getdate () NOT NULL,
+   ORDEN_fecha DATETIME default getdate () NOT NULL,
    constraint PK_ORDENES primary key (ORDEN_ID)
 )
 go
@@ -1211,7 +1223,7 @@ create table PAISES
    PAIS_NOMBRE varchar(100) not null,
    PAIS_PREFIJO int not null,
    PAIS_digitador VARCHAR(15) default user_name() NOT NULL,
-    PAIS_fecha DATETIME default getdate () NOT NULL,
+   PAIS_fecha DATETIME default getdate () NOT NULL,
    constraint PK_PAISES primary key (PAIS_ID)
 )
 go
@@ -1232,6 +1244,8 @@ go
 create table PREMIOS
 (
    PREMIO_ID bigint not null identity(1,1),
+   EMPLEADO_ID           bigint  null,
+    VENDEDOR_ID           bigint  null,
    PREMIO_NOMBRE varchar(100) not null,
    PREMIO_VALOR bigint not null,
    PREMIO_digitador VARCHAR(15) default user_name() NOT NULL,
@@ -1283,6 +1297,7 @@ go
 create table PROVEEDORES
 (
    PROVEEDOR_ID bigint not null identity(1,1),
+   SUCURSAL_ID          bigint                         not null,
    PROVEEDOR_NIT bigint not null,
    PROVEEDOR_NOMBRE varchar(100) not null,
    PROVEEDOR_CENTRO_LLAMADAS bigint not null,
@@ -1292,6 +1307,13 @@ create table PROVEEDORES
    PROVEEDOR_digitador VARCHAR(15) default user_name() NOT NULL,
    PROVEEDOR_fecha DATETIME default getdate () NOT NULL,
    constraint PK_PROVEEDORES primary key (PROVEEDOR_ID)
+)
+go
+/*==============================================================*/
+/* Index: UBICACION_PROVEEDOR_FK                                */
+/*==============================================================*/
+create nonclustered index UBICACION_PROVEEDOR_FK on PROVEEDORES (
+SUCURSAL_ID ASC
 )
 go
 
@@ -1328,11 +1350,8 @@ go
 create table SUCURSALES
 (
    SUCURSAL_ID bigint not null identity(1,1),
-   CIUDAD_ID bigint null,
    DIRECTOR_SUCURSAL_ID bigint null,
-   CLIENTE_ID bigint null,
-   PROVEEDOR_ID bigint null,
-   SUCURSAL_NOMBRE varchar(100) not null,
+   CIUDAD_ID bigint null,
    SUCURSAL_CENTRO_LLAMADAS bigint not null,
    SUCURSAL_DIRECCION varchar(100) not null,
    SUCURSAL_digitador VARCHAR(15) default user_name() NOT NULL,
@@ -1384,7 +1403,16 @@ go
 
 create nonclustered index CARGOS_DISPONIBLES_FK on VACANTES (CARGO_ID ASC)
 go
-
+/*==============================================================*/
+/* Table: REGISTRO_HISTORICO                                           */
+/*==============================================================*/
+create table REGISTRO_HISTORICO
+(
+   REGISTRO_HISTORICO_USUARIO VARCHAR(15) default user_name() NOT NULL,
+   REGISTRO_HISTORICO_FECHA DATETIME default getdate () NOT NULL,
+   REGISTRO_HISTORICO_MENSAJE VARCHAR(100) NOT NULL
+)
+go
 /*==============================================================*/
 /* Table: VENDEDORES                                            */
 /*==============================================================*/
@@ -1420,6 +1448,18 @@ go
 
 create nonclustered index ATENDIDA_POR_FK on VENDEDORES (SUCURSAL_ID ASC)
 go
+
+/*==============================================================*/
+/* Table: REGISTRO_HISTORICO                                    */
+/*==============================================================*/
+create table REGISTRO_HISTORICO
+(
+   REGISTRO_HISTORICO_USUARIO VARCHAR(15) default user_name() NOT NULL,
+   REGISTRO_HISTORICO_FECHA DATETIME default getdate () NOT NULL,
+   REGISTRO_HISTORICO_MENSAJE VARCHAR(100) NOT NULL
+)
+go
+
 
 alter table ASISTENCIA_CAPACITACIONES
    add constraint FK_ASISTENC_CONTROL_A_CAPACITA foreign key (CAPACITACION_ID)
