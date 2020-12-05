@@ -998,7 +998,7 @@ create table EMPLEADOS  (
    EMPLEADO_CARGO       INTEGER                         not null,
    EMPLEADO_SALARIO_FIJO INTEGER                         not null,
    EMPLEADO_CONTRATO_INDEFINIDO_BOOL SMALLINT                        not null,
-    EMLEADO_DEPARTAMENTO_ID,
+    EMLEADO_DEPARTAMENTO_ID     INTEGER,
    EMPLEADO_REINGRESO_BOOL SMALLINT                        not null,
    digitador VARCHAR(15) default USER                    not null,
    fecha DATE default sysdate                            not null,
