@@ -45,9 +45,10 @@ GRANT SELECT ON VISTA_ASISTENCIA_CAPACITACIONES_EDIT TO dsilvamo;
 /*==============================================================*/
 /* VIEW_EDIT: BODEGAS                                           */
 /*==============================================================*/
-CREATE VIEW VISTA_BODEGAS_EDIT AS SELECT 
-    
+CREATE or replace VIEW VISTA_BODEGAS_EDIT AS SELECT 
+    BODEGA_ID,
     SUCURSAL_ID,
+    SUCURSAL_NOMBRE,
     PRODUCTO_ID,
     BODEGA_CANTIDAD
                                     FROM BODEGAS;
@@ -59,6 +60,7 @@ CREATE OR replace VIEW VISTA_BODEGAS_VIEW
 (
    BODEGA_ID,
    SUCURSAL_ID,
+   SUCURSAL_NOMBRE,
    PRODUCTO_ID,
    BODEGA_CANTIDAD,
    digitador,
@@ -67,6 +69,7 @@ CREATE OR replace VIEW VISTA_BODEGAS_VIEW
 AS SELECT 
    BODEGA_ID,
    SUCURSAL_ID,
+   SUCURSAL_NOMBRE,
    PRODUCTO_ID,
    BODEGA_CANTIDAD,
    digitador,
@@ -979,9 +982,10 @@ GRANT SELECT ON VISTA_HISTORIAL_TRABAJADORES_EDIT TO dsilvamo;
 /*==============================================================*/
 /* VIEW_EDIT: ORDENES                                            */
 /*==============================================================*/
-CREATE VIEW VISTA_ORDENES_EDIT AS SELECT 
+CREATE or replace VIEW VISTA_ORDENES_EDIT AS SELECT 
     
     SUCURSAL_ID,
+    VENDEDOR_ID,
     CLIENTE_ID,
     ORDEN_ESTADO,
     ORDEN_FECHA_ENTREGA
@@ -996,6 +1000,7 @@ CREATE OR replace VIEW VISTA_ORDENES_VIEW
 (
    ORDEN_ID,
     SUCURSAL_ID,
+    VENDEDOR_ID,
     CLIENTE_ID,
     ORDEN_ESTADO,
     ORDEN_FECHA_SOLICITUD,
@@ -1006,6 +1011,7 @@ CREATE OR replace VIEW VISTA_ORDENES_VIEW
 AS SELECT 
     ORDEN_ID,
     SUCURSAL_ID,
+    VENDEDOR_ID,
     CLIENTE_ID,
     ORDEN_ESTADO,
     ORDEN_FECHA_SOLICITUD,
@@ -1037,8 +1043,8 @@ GRANT SELECT ON VISTA_ORDENES_EDIT TO dsilvamo;
 /*==============================================================*/
 CREATE VIEW VISTA_ORDENES_ITEMS_EDIT AS SELECT 
     
-    ORDEN_ID,
     PRODUCTO_ID,
+    ORDEN_ID,
     ORDEN_ITEM_CANTIDAD,
     ORDEN_ITEM_PRECIO_TOTAL,
     ORDEN_ITEM_DESCUENTO_BOOL
@@ -1245,8 +1251,9 @@ GRANT SELECT ON VISTA_PRODUCTOS_EDIT TO dsilvamo;
 /*==============================================================*/
 /* VIEW_EDIT: PROVEEDORES                                            */
 /*==============================================================*/
-CREATE VIEW VISTA_PROVEEDORES_EDIT AS SELECT 
+CREATE or replace VIEW VISTA_PROVEEDORES_EDIT AS SELECT 
     
+    SUCURSAL_ID,
     PROVEEDOR_NIT,
     PROVEEDOR_NOMBRE,
     PROVEEDOR_CENTRO_LLAMADAS,
@@ -1466,7 +1473,7 @@ GRANT SELECT ON VISTA_VACANTES_EDIT TO dsilvamo;
 /*==============================================================*/
 /* VIEW_EDIT: VENDEDORES                                            */
 /*==============================================================*/
-CREATE VIEW VISTA_VENDEDORES_EDIT AS SELECT 
+CREATE or replace VIEW VISTA_VENDEDORES_EDIT AS SELECT 
     
     SUCURSAL_ID,
     VENDEDOR_DOCUMENTO,
@@ -1479,6 +1486,7 @@ CREATE VIEW VISTA_VENDEDORES_EDIT AS SELECT
     VENDEDOR_POLIZA_VIGENTE_BOOL,
     VENDEDOR_SALARIO_FIJO,
     VENDEDOR_CONTRATO_INDEFINIDO_BOOL,
+    VENDEDOR_REINGRESO_BOOL,
     VENDEDOR_COMISION
 
     
