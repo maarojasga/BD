@@ -927,12 +927,12 @@ create table DIRECTOR_DEPARTAMENTO  (
    DIRECTOR_DEPARTAMENTO_GENERO VARCHAR2(100),
    DIRECTOR_DEPARTAMENTO_EDAD INTEGER                         not null
       constraint CKC_DIRECTOR_DEPARTAM_DIRECTO2 check (DIRECTOR_DEPARTAMENTO_EDAD between 18 and 99),
-   DIRECTOR_DEPARTAMENTO_SEGURIDA SMALLINT                        not null,
-   DIRECTOR_DEPARTAMENTO_POLIZA_V SMALLINT                        not null,
-   DIRECTOR_DEPARTAMENTO_SALARIO_ INTEGER                         not null
+   DIRECTOR_DEPARTAMENTO_SEGURIDAD_SOCIAL_BOOL SMALLINT                        not null,
+   DIRECTOR_DEPARTAMENTO_POLIZA_VIGENTE_BOOL SMALLINT                        not null,
+   DIRECTOR_DEPARTAMENTO_SALARIO_FIJO INTEGER                         not null
       constraint CKC_DIRECTOR_DEPARTAM_DIRECTOR check (DIRECTOR_DEPARTAMENTO_SALARIO_ between 3500000 and 3999999),
-   DIRECTOR_DEPARTAMENTO_CONTRATO SMALLINT                        not null,
-   DIRECTOR_DEPARTAMENTO_REINGRES SMALLINT                        not null,
+   DIRECTOR_DEPARTAMENTO_CONTRATO_INDEFINIDO_BOOL SMALLINT                        not null,
+   DIRECTOR_DEPARTAMENTO_REINGRESO_BOOL SMALLINT                        not null,
    digitador VARCHAR(15) default USER                    not null,
    fecha DATE default sysdate                            not null,
    constraint PK_DIRECTOR_DEPARTAMENTO primary key (DIRECTOR_DEPARTAMENTO_ID)
@@ -960,12 +960,12 @@ create table DIRECTOR_SUCURSAL  (
    DIRECTOR_SUCURSAL_GENERO VARCHAR2(100),
    DIRECTOR_SUCURSAL_EDAD INTEGER                         not null
       constraint CKC_DIRECTOR_SUCURSAL_DIRECTO2 check (DIRECTOR_SUCURSAL_EDAD between 18 and 99),
-   DIRECTOR_SUCURSAL_SEGURIDAD_SO SMALLINT                        not null,
-   DIRECTOR_SUCURSAL_POLIZA_VIGEN SMALLINT                        not null,
+   DIRECTOR_SUCURSAL_SEGURIDAD_SOCIAL_BOOL SMALLINT                        not null,
+   DIRECTOR_SUCURSAL_POLIZA_VIGENTE_BOOL SMALLINT                        not null,
    DIRECTOR_SUCURSAL_SALARIO_FIJO INTEGER                         not null
       constraint CKC_DIRECTOR_SUCURSAL_DIRECTOR check (DIRECTOR_SUCURSAL_SALARIO_FIJO between 4000000 and 4999999),
-   DIRECTOR_SUCURSAL_CONTRATO_IND SMALLINT                        not null,
-   DIRECTOR_SUCURSAL_REINGRESO_BO SMALLINT                        not null,
+   DIRECTOR_SUCURSAL_CONTRATO_INDEFINIDO_BOOL SMALLINT                        not null,
+   DIRECTOR_SUCURSAL_REINGRESO_BOOL SMALLINT                        not null,
    digitador VARCHAR(15) default USER                    not null,
    fecha DATE default sysdate                            not null,
    constraint PK_DIRECTOR_SUCURSAL primary key (DIRECTOR_SUCURSAL_ID)
@@ -998,7 +998,7 @@ create table EMPLEADOS  (
    EMPLEADO_CARGO       INTEGER                         not null,
    EMPLEADO_SALARIO_FIJO INTEGER                         not null,
    EMPLEADO_CONTRATO_INDEFINIDO_BOOL SMALLINT                        not null,
-    EMLEADO_DEPARTAMENTO_ID     INTEGER,
+   EMPLEADO_DEPARTAMENTO_ID     INTEGER,
    EMPLEADO_REINGRESO_BOOL SMALLINT                        not null,
    digitador VARCHAR(15) default USER                    not null,
    fecha DATE default sysdate                            not null,
@@ -1041,9 +1041,9 @@ create table EMPRESA_GERENTE  (
    EMPRESA_GERENTE_EDAD INTEGER                         not null
       constraint CKC_EMPRESA_GERENTE_E_EMPRESA_ check (EMPRESA_GERENTE_EDAD between 18 and 99),
    EMPRESA_GERENTE_GENERO VARCHAR2(100),
-   EMPRESA_GERENTE_SEGURIDAD_SOCI SMALLINT                        not null,
-   EMPRESA_GERENTE_POLIZA_VIGENTE SMALLINT                        not null,
-   EMPRESA_GERENTE_CONTRATO_INDEF SMALLINT                        not null,
+   EMPRESA_GERENTE_SEGURIDAD_SOCIAL_BOOL SMALLINT                        not null,
+   EMPRESA_GERENTE_POLIZA_VIGENTENTE_BOOL SMALLINT                        not null,
+   EMPRESA_GERENTE_CONTRATO_INDEFINIDO_BOOL SMALLINT                        not null,
    EMPRESA_GERENTE_SALARIO_FIJO INTEGER                         not null
       constraint CKC_EMPRESA_GERENTE_S_EMPRESA_ check (EMPRESA_GERENTE_SALARIO_FIJO between 6000000 and 8000000),
    EMPRESA_GERENTE_REINGRESO_BOOL SMALLINT                        not null,
@@ -1075,12 +1075,12 @@ create table EMPRESA_SUBGERENTE  (
    EMPRESA_SUBGERENTE_EDAD INTEGER                         not null
       constraint CKC_EMPRESA_SUBGERENT_EMPRESA2 check (EMPRESA_SUBGERENTE_EDAD between 18 and 99),
    EMPRESA_SUBGERENTE_GENERO VARCHAR2(100),
-   EMPRESA_SUBGERENTE_SEGURIDAD_S SMALLINT                        not null,
-   EMPRESA_SUBGERENTE_POLIZA_VIGE SMALLINT                        not null,
-   EMPRESA_SUBGERENTE_CONTRATO_IN SMALLINT                        not null,
-   EMPRESA_SUBGERENTE_SALARIO_FIJ INTEGER                         not null
+   EMPRESA_SUBGERENTE_SEGURIDAD_SOCIAL_BOOL SMALLINT                        not null,
+   EMPRESA_SUBGERENTE_POLIZA_VIGENTE_BOOL SMALLINT                        not null,
+   EMPRESA_SUBGERENTE_CONTRATO_INDEFINIDO_BOOL SMALLINT                        not null,
+   EMPRESA_SUBGERENTE_SALARIO_FIJO INTEGER                         not null
       constraint CKC_EMPRESA_SUBGERENT_EMPRESA_ check (EMPRESA_SUBGERENTE_SALARIO_FIJ between 5000000 and 5999999),
-   EMPRESA_SUBGERENTE_REINGRESO_B SMALLINT                        not null,
+   EMPRESA_SUBGERENTE_REINGRESO_BOOL SMALLINT                        not null,
    digitador VARCHAR(15) default USER                    not null,
    fecha DATE default sysdate                            not null,
    constraint PK_EMPRESA_SUBGERENTE primary key (EMPRESA_SUBGERENTE_ID)
@@ -1108,15 +1108,15 @@ create index REEMPLAZO_GERENTE_FK on EMPRESA_SUBGERENTE (
 /*==============================================================*/
 create table HISTORIAL_TRABAJADORES  (
    HISTORIA_TRABAJADORES_ID INTEGER                         not null,
-   HISTORIA_TRABAJADORES_FECHA_IN DATE                            not null,
-   HISTORIA_TRABAJADORES_FECHA_RE DATE                            not null,
-   HISTORIA_TRABAJADORES_ID_EMPLE INTEGER                         not null,
-   HISTORIA_TRABAJADORES_ID_EMPL2 INTEGER                         not null,
-   HISTORIA_TRABAJADORES_DOCUMENT INTEGER                         not null,
+   HISTORIA_TRABAJADORES_FECHA_INGRESO DATE                            not null,
+   HISTORIA_TRABAJADORES_FECHA_RETIRO DATE                            not null,
+   HISTORIA_TRABAJADORES_ID_EMPLEADO INTEGER                         not null,
+   HISTORIA_TRABAJADORES_ID_EMPLEADO_VENDEDOR INTEGER                         not null,
+   HISTORIA_TRABAJADORES_DOCUMENTO INTEGER                         not null,
    HISTORIA_TRABAJADORES_NOMBRE VARCHAR2(100)                   not null,
    HISTORIA_TRABAJADORES_CARGO VARCHAR2(100)                   not null,
-   HISTORIA_TRABAJADORES_FECHA_CA DATE                            not null,
-   HISTORIA_TRABAJADORES_FECHA_R2 DATE                            not null,
+   HISTORIA_TRABAJADORES_FECHA_CAMBIO_CARGO DATE                            not null,
+   HISTORIA_TRABAJADORES_FECHA_REINGRESO DATE                            not null,
    HISTORIA_TRABAJADORES_CORREO VARCHAR2(100)                   not null,
    HISTORIA_TRABAJADORES_CELULAR INTEGER                         not null,
    digitador VARCHAR(15) default USER                    not null,
@@ -1378,7 +1378,7 @@ create table VENDEDORES  (
    VENDEDOR_SEGURIDAD_SOCIAL_BOOL SMALLINT                        not null,
    VENDEDOR_POLIZA_VIGENTE_BOOL SMALLINT                        not null,
    VENDEDOR_SALARIO_FIJO INTEGER                         not null,
-   VENDEDOR_CONTRATO_INDEFINIDO_B SMALLINT                        not null,
+   VENDEDOR_CONTRATO_INDEFINIDO_BOOL SMALLINT                        not null,
    VENDEDOR_REINGRESO_BOOL SMALLINT                        not null,
    VENDEDOR_COMISION    INTEGER                         not null,
    digitador VARCHAR(15) default USER                    not null,
