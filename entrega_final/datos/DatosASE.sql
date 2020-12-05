@@ -480,12 +480,248 @@ insert into VISTA_CARGOS_EDIT values (30	, 'Consultor',3499999, 2400000)
 insert into VISTA_CARGOS_EDIT values (30	, 'Supervisor',2399999, 1900000)
 
 
+/*HAY VACANTES POR CARGO*/
+insert into VISTA_VACANTES_EDIT values	( 1	, 1	)
+insert into VISTA_VACANTES_EDIT values	( 2	, 2	)
+insert into VISTA_VACANTES_EDIT values	( 3	, 3	)
+insert into VISTA_VACANTES_EDIT values	( 4	, 4	)
+insert into VISTA_VACANTES_EDIT values	( 5	, 5	)
+insert into VISTA_VACANTES_EDIT values	( 6	, 6	)
+insert into VISTA_VACANTES_EDIT values	( 7	, 7	)
+insert into VISTA_VACANTES_EDIT values	( 8	, 8	)
+insert into VISTA_VACANTES_EDIT values	( 9	, 9	)
+insert into VISTA_VACANTES_EDIT values	( 10, 10 )
+insert into VISTA_VACANTES_EDIT values	( 11, 11 )
+insert into VISTA_VACANTES_EDIT values	( 12, 12 )
+insert into VISTA_VACANTES_EDIT values	( 13, 13 )
+insert into VISTA_VACANTES_EDIT values	( 14, 14 )
+insert into VISTA_VACANTES_EDIT values	( 15, 15 )
+insert into VISTA_VACANTES_EDIT values	( 16, 16 )
+insert into VISTA_VACANTES_EDIT values	( 17, 17 )
+insert into VISTA_VACANTES_EDIT values	( 18, 18 )
+insert into VISTA_VACANTES_EDIT values	( 19, 19 )
+insert into VISTA_VACANTES_EDIT values	( 20, 20 )
+insert into VISTA_VACANTES_EDIT values	( 21, 21 )
+insert into VISTA_VACANTES_EDIT values	( 22, 22 )
+insert into VISTA_VACANTES_EDIT values	( 23, 23 )
+insert into VISTA_VACANTES_EDIT values	( 24, 24 )
+insert into VISTA_VACANTES_EDIT values	( 25, 25 )
+insert into VISTA_VACANTES_EDIT values	( 26, 26 )
+insert into VISTA_VACANTES_EDIT values	( 27, 27 )
+insert into VISTA_VACANTES_EDIT values	( 28, 28 )
+insert into VISTA_VACANTES_EDIT values	( 29, 29 )
+insert into VISTA_VACANTES_EDIT values	( 30, 30 )
+insert into VISTA_VACANTES_EDIT values	( 31, 31 )
+insert into VISTA_VACANTES_EDIT values	( 32, 32 )
+insert into VISTA_VACANTES_EDIT values	( 33, 33 )
+insert into VISTA_VACANTES_EDIT values	( 34, 34 )
+insert into VISTA_VACANTES_EDIT values	( 35, 35 )
 
-/*HAY 6 DEPARTAMENTOS POR SUCURSAL, 30 DEPTOS*/
-insert into VISTA_VACANTES_EDIT values ( 1, 1)
-/*HAY 6 DEPARTAMENTOS POR SUCURSAL, 30 DEPTOS*/
+
+/*HAY 200 CANDIDATOS*/
 insert into VISTA_CANDIDATOS_EDIT values ( 1, 'Ale', 1514815151, 'pepito@gmial.com', 31251323, 18, 'fem', 80)
-/*HAY 6 DEPARTAMENTOS POR SUCURSAL, 30 DEPTOS*/
+insert into VISTA_CANDIDATOS_EDIT  values (9, 'Rosalind Ronaghan', 73305037, 'rronaghan0@telegraph.co.uk', 31439411, 51, 'Female', 27);
+insert into VISTA_CANDIDATOS_EDIT values (28, 'Gladys McCuaig', 83498084, 'gmccuaig1@tiny.cc', 39748993, 32, 'Female', 96);
+insert into VISTA_CANDIDATOS_EDIT  values (1, 'Orran Crewther', 51187123, 'ocrewther2@mayoclinic.com', 30733942, 42, 'Male', 100);
+insert into VISTA_CANDIDATOS_EDIT values (10, 'Andie Butcher', 71705451, 'abutcher3@japanpost.jp', 35559491, 42, 'Male', 25);
+insert into VISTA_CANDIDATOS_EDIT values (29, 'Giustino Crace', 76831148, 'gcrace4@infoseek.co.jp', 37884299, 39, 'Male', 63);
+insert into VISTA_CANDIDATOS_EDIT values (25, 'Butch Elsbury', 53996560, 'belsbury5@hp.com', 33181902, 53, 'Male', 74);
+insert into VISTA_CANDIDATOS_EDIT values (10, 'Lavinie Grishankov', 78528984, 'lgrishankov6@booking.com', 34011021, 29, 'Female', 39);
+insert into VISTA_CANDIDATOS_EDIT values (11, 'Eustacia MacLaverty', 89481088, 'emaclaverty7@businessinsider.com', 38191762, 58, 'Female', 68);
+insert into VISTA_CANDIDATOS_EDIT  values (5, 'Noella Tiptaft', 84664815, 'ntiptaft8@indiatimes.com', 33016891, 44, 'Female', 31);
+insert into VISTA_CANDIDATOS_EDIT values (29, 'Zena Dade', 89640201, 'zdade9@gov.uk', 37455544, 38, 'Female', 89);
+insert into VISTA_CANDIDATOS_EDIT  values (4, 'Fifine Waby', 66630518, 'fwabya@washington.edu', 37726507, 37, 'Female', 31);
+insert into VISTA_CANDIDATOS_EDIT values (11, 'Leo Thursby', 63938312, 'lthursbyb@wired.com', 39496726, 66, 'Male', 93);
+insert into VISTA_CANDIDATOS_EDIT values (16, 'Robin Cossam', 87939810, 'rcossamc@cdbaby.com', 37887134, 50, 'Male', 60);
+insert into VISTA_CANDIDATOS_EDIT values (23, 'Blane Bratchell', 74434930, 'bbratchelld@t-online.de', 31584847, 52, 'Male', 100);
+insert into VISTA_CANDIDATOS_EDIT  values (9, 'Aurel Pindell', 71340355, 'apindelle@state.tx.us', 30538445, 63, 'Female', 9);
+insert into VISTA_CANDIDATOS_EDIT  values (9, 'Dav Wisniewski', 52817740, 'dwisniewskif@europa.eu', 31907302, 68, 'Male', 52);
+insert into VISTA_CANDIDATOS_EDIT values (11, 'Alano Castard', 55485840, 'acastardg@hubpages.com', 34717092, 35, 'Male', 96);
+insert into VISTA_CANDIDATOS_EDIT values (12, 'Noella Riccio', 51727559, 'nriccioh@mashable.com', 35522955, 27, 'Female', 78);
+insert into VISTA_CANDIDATOS_EDIT  values (7, 'Aleksandr Ridgwell', 50648746, 'aridgwelli@google.it', 35407552, 68, 'Male', 43);
+insert into VISTA_CANDIDATOS_EDIT values (24, 'Carline Hilary', 75775526, 'chilaryj@narod.ru', 34846483, 43, 'Female', 66);
+insert into VISTA_CANDIDATOS_EDIT values (28, 'Elianore Syrad', 87930027, 'esyradk@blogger.com', 35412163, 65, 'Female', 54);
+insert into VISTA_CANDIDATOS_EDIT values (20, 'Perkin Caro', 88851492, 'pcarol@cyberchimps.com', 38100345, 40, 'Male', 46);
+insert into VISTA_CANDIDATOS_EDIT values (21, 'Lew Enticknap', 68367797, 'lenticknapm@people.com.cn', 35896177, 26, 'Male', 23);
+insert into VISTA_CANDIDATOS_EDIT values (30, 'Fritz Ayer', 89117262, 'fayern@deliciousdays.com', 32540185, 60, 'Male', 6);
+insert into VISTA_CANDIDATOS_EDIT values (21, 'Farly Rowlin', 79931347, 'frowlino@delicious.com', 35319175, 18, 'Male', 80);
+insert into VISTA_CANDIDATOS_EDIT values (10, 'Alvin Lownie', 53852741, 'alowniep@flavors.me', 35044311, 32, 'Male', 95);
+insert into VISTA_CANDIDATOS_EDIT values (18, 'Bride Page', 87865722, 'bpageq@yahoo.com', 30287051, 57, 'Female', 34);
+insert into VISTA_CANDIDATOS_EDIT  values (1, 'Angelia Gookes', 77945068, 'agookesr@deviantart.com', 31183980, 52, 'Female', 44);
+insert into VISTA_CANDIDATOS_EDIT values (21, 'Anne-corinne Masterman', 53853659, 'amastermans@storify.com', 32845652, 51, 'Female', 85);
+insert into VISTA_CANDIDATOS_EDIT values (28, 'Ingelbert Astell', 59783473, 'iastellt@mashable.com', 33987419, 67, 'Male', 9);
+insert into VISTA_CANDIDATOS_EDIT values (30, 'Sergei Whitticks', 54670317, 'swhitticksu@hostgator.com', 36038912, 49, 'Male', 100);
+insert into VISTA_CANDIDATOS_EDIT values (27, 'Adamo Colbertson', 59058477, 'acolbertsonv@sohu.com', 39701249, 49, 'Male', 3);
+insert into VISTA_CANDIDATOS_EDIT values (12, 'Ransom Cicero', 82401447, 'rcicerow@cbsnews.com', 39346023, 40, 'Male', 32);
+insert into VISTA_CANDIDATOS_EDIT values (18, 'Vonny Maccari', 76413113, 'vmaccarix@php.net', 36941213, 21, 'Female', 44);
+insert into VISTA_CANDIDATOS_EDIT values (14, 'Kevin Larmouth', 80479486, 'klarmouthy@aboutads.info', 32820281, 37, 'Male', 58);
+insert into VISTA_CANDIDATOS_EDIT  values (9, 'Cathleen Adamek', 64880724, 'cadamekz@blogs.com', 32774760, 47, 'Female', 25);
+insert into VISTA_CANDIDATOS_EDIT values (13, 'Sean Frensche', 85812738, 'sfrensche10@amazon.co.uk', 35984125, 66, 'Female', 9);
+insert into VISTA_CANDIDATOS_EDIT values (23, 'Tedman Kinnie', 57163686, 'tkinnie11@sbwire.com', 36509253, 55, 'Male', 60);
+insert into VISTA_CANDIDATOS_EDIT values (22, 'Bale Myford', 60614507, 'bmyford12@jugem.jp', 31462722, 42, 'Male', 26);
+insert into VISTA_CANDIDATOS_EDIT values (24, 'Melloney Sparshutt', 68660544, 'msparshutt13@twitter.com', 36683831, 67, 'Female', 79);
+insert into VISTA_CANDIDATOS_EDIT  values (7, 'Oralle Ankers', 56159634, 'oankers14@nsw.gov.au', 39190512, 47, 'Female', 22);
+insert into VISTA_CANDIDATOS_EDIT values (17, 'Danica Mack', 63843945, 'dmack15@skyrock.com', 33618234, 41, 'Female', 84);
+insert into VISTA_CANDIDATOS_EDIT  values (3, 'Becki McShane', 78032819, 'bmcshane16@shinystat.com', 32050238, 22, 'Female', 2);
+insert into VISTA_CANDIDATOS_EDIT  values (1, 'Scott Fenge', 76047669, 'sfenge17@jigsy.com', 39485786, 56, 'Male', 60);
+insert into VISTA_CANDIDATOS_EDIT values (27, 'Rosaline Stenet', 79391095, 'rstenet18@mlb.com', 31896224, 22, 'Female', 12);
+insert into VISTA_CANDIDATOS_EDIT  values (9, 'Viola Laxon', 83772561, 'vlaxon19@redcross.org', 39698245, 20, 'Female', 84);
+insert into VISTA_CANDIDATOS_EDIT values (27, 'Meredith Camplin', 81679412, 'mcamplin1a@addtoany.com', 33763389, 52, 'Male', 92);
+insert into VISTA_CANDIDATOS_EDIT  values (5, 'Allis Prentice', 72624193, 'aprentice1b@samsung.com', 37372840, 43, 'Female', 95);
+insert into VISTA_CANDIDATOS_EDIT values (21, 'Pebrook Durban', 69169705, 'pdurban1c@alibaba.com', 35615080, 39, 'Male', 2);
+insert into VISTA_CANDIDATOS_EDIT values (10, 'Kit Tott', 65612676, 'ktott1d@ucla.edu', 32930495, 68, 'Female', 69);
+insert into VISTA_CANDIDATOS_EDIT values (12, 'Horacio Westhoff', 87823545, 'hwesthoff1e@creativecommons.org', 38066547, 50, 'Male', 27);
+insert into VISTA_CANDIDATOS_EDIT values (30, 'Tamas Coakley', 88633805, 'tcoakley1f@cocolog-nifty.com', 32117425, 34, 'Male', 66);
+insert into VISTA_CANDIDATOS_EDIT values (29, 'Brantley Lutman', 76050942, 'blutman1g@arstechnica.com', 35098547, 55, 'Male', 77);
+insert into VISTA_CANDIDATOS_EDIT values (22, 'Yves Hundall', 55712489, 'yhundall1h@yale.edu', 35408838, 26, 'Male', 35);
+insert into VISTA_CANDIDATOS_EDIT  values (2, 'Terrance Aucock', 85591457, 'taucock1i@nature.com', 37210438, 41, 'Male', 52);
+insert into VISTA_CANDIDATOS_EDIT  values (4, 'Gene Wettern', 67889428, 'gwettern1j@umn.edu', 33489039, 29, 'Female', 66);
+insert into VISTA_CANDIDATOS_EDIT  values (3, 'Kevon Cunrado', 79197896, 'kcunrado1k@clickbank.net', 32402398, 52, 'Male', 16);
+insert into VISTA_CANDIDATOS_EDIT  values (1, 'Leandra Deason', 52350140, 'ldeason1l@ovh.net', 34138250, 39, 'Female', 59);
+insert into VISTA_CANDIDATOS_EDIT  values (9, 'Noreen Paskerful', 73021409, 'npaskerful1m@1688.com', 33652056, 47, 'Female', 56);
+insert into VISTA_CANDIDATOS_EDIT values (21, 'Leonidas Kobsch', 74324909, 'lkobsch1n@answers.com', 37000813, 69, 'Male', 6);
+insert into VISTA_CANDIDATOS_EDIT values (14, 'Caesar Cristoforo', 65273224, 'ccristoforo1o@mtv.com', 35062501, 37, 'Male', 94);
+insert into VISTA_CANDIDATOS_EDIT  values (5, 'Cole Athow', 82360736, 'cathow1p@cafepress.com', 33084694, 45, 'Male', 23);
+insert into VISTA_CANDIDATOS_EDIT values (11, 'Gregorio Secker', 70662981, 'gsecker1q@1688.com', 37157748, 70, 'Male', 13);
+insert into VISTA_CANDIDATOS_EDIT values (16, 'Norean Covotti', 52374725, 'ncovotti1r@utexas.edu', 32579166, 46, 'Female', 47);
+insert into VISTA_CANDIDATOS_EDIT  values (8, 'Octavius Dossantos', 74696011, 'odossantos1s@wunderground.com', 35046973, 57, 'Male', 83);
+insert into VISTA_CANDIDATOS_EDIT values (29, 'Davon Ambroz', 84221586, 'dambroz1t@howstuffworks.com', 35238771, 63, 'Male', 8);
+insert into VISTA_CANDIDATOS_EDIT values (21, 'Woody Dobkin', 74159825, 'wdobkin1u@yandex.ru', 34683792, 66, 'Male', 79);
+insert into VISTA_CANDIDATOS_EDIT  values (3, 'Ava Couling', 64627471, 'acouling1v@hc360.com', 36702451, 19, 'Female', 21);
+insert into VISTA_CANDIDATOS_EDIT values (28, 'Jarrid Ilem', 88679707, 'jilem1w@telegraph.co.uk', 36618873, 65, 'Male', 4);
+insert into VISTA_CANDIDATOS_EDIT values (29, 'Natalee Thrower', 73802120, 'nthrower1x@webmd.com', 36478711, 22, 'Female', 33);
+insert into VISTA_CANDIDATOS_EDIT  values (9, 'Claude Armsden', 85827384, 'carmsden1y@businessinsider.com', 32360205, 36, 'Female', 30);
+insert into VISTA_CANDIDATOS_EDIT  values (5, 'Denis Shepley', 87528911, 'dshepley1z@yellowpages.com', 39206767, 59, 'Male', 23);
+insert into VISTA_CANDIDATOS_EDIT values (10, 'Ted Blei', 50918039, 'tblei20@ed.gov', 37637741, 57, 'Male', 22);
+insert into VISTA_CANDIDATOS_EDIT  values (9, 'Silvain Stealy', 55041041, 'sstealy21@yellowbook.com', 31655906, 30, 'Male', 51);
+insert into VISTA_CANDIDATOS_EDIT  values (5, 'Mollie Martschik', 62528276, 'mmartschik22@studiopress.com', 34201709, 44, 'Female', 54);
+insert into VISTA_CANDIDATOS_EDIT values (20, 'Trevar Sharples', 62648943, 'tsharples23@kickstarter.com', 38794195, 25, 'Male', 3);
+insert into VISTA_CANDIDATOS_EDIT values (10, 'Khalil Bricknell', 50148502, 'kbricknell24@wunderground.com', 38175705, 20, 'Male', 47);
+insert into VISTA_CANDIDATOS_EDIT  values (8, 'Alexei Ferryn', 62710137, 'aferryn25@mashable.com', 36077591, 25, 'Male', 4);
+insert into VISTA_CANDIDATOS_EDIT values (10, 'Tobey Teal', 66967239, 'tteal26@csmonitor.com', 36376404, 66, 'Female', 32);
+insert into VISTA_CANDIDATOS_EDIT  values (4, 'Claudio Fewster', 58285376, 'cfewster27@flickr.com', 35225576, 27, 'Male', 48);
+insert into VISTA_CANDIDATOS_EDIT values (27, 'Arlie Mirfield', 61921922, 'amirfield28@ca.gov', 34731950, 28, 'Female', 64);
+insert into VISTA_CANDIDATOS_EDIT  values (2, 'Alida Snaden', 56867063, 'asnaden29@ftc.gov', 39910522, 67, 'Female', 64);
+insert into VISTA_CANDIDATOS_EDIT values (25, 'Gracie Lunny', 82080716, 'glunny2a@networkadvertising.org', 32111595, 19, 'Female', 7);
+insert into VISTA_CANDIDATOS_EDIT values (12, 'Vina Perri', 81730940, 'vperri2b@ft.com', 36213314, 35, 'Female', 46);
+insert into VISTA_CANDIDATOS_EDIT  values (4, 'Lanny Newe', 72166727, 'lnewe2c@geocities.jp', 30132655, 30, 'Male', 4);
+insert into VISTA_CANDIDATOS_EDIT values (19, 'Julie Heighway', 75829188, 'jheighway2d@jugem.jp', 32055280, 38, 'Male', 15);
+insert into VISTA_CANDIDATOS_EDIT values (17, 'Florence Hubane', 61649977, 'fhubane2e@sciencedaily.com', 30862263, 60, 'Female', 40);
+insert into VISTA_CANDIDATOS_EDIT values (10, 'Almeria Mutton', 69420414, 'amutton2f@posterous.com', 32379939, 22, 'Female', 62);
+insert into VISTA_CANDIDATOS_EDIT  values (6, 'Cher Paling', 89694196, 'cpaling2g@yale.edu', 32017417, 53, 'Female', 69);
+insert into VISTA_CANDIDATOS_EDIT values (21, 'Umeko Skene', 66753445, 'uskene2h@wp.com', 34237460, 37, 'Female', 24);
+insert into VISTA_CANDIDATOS_EDIT  values (7, 'Allistir Sweed', 85991461, 'asweed2i@live.com', 36895787, 32, 'Male', 36);
+insert into VISTA_CANDIDATOS_EDIT  values (5, 'Janean Henniger', 57423416, 'jhenniger2j@meetup.com', 39137687, 37, 'Female', 73);
+insert into VISTA_CANDIDATOS_EDIT values (23, 'Laurene Blindermann', 84546319, 'lblindermann2k@live.com', 34735161, 60, 'Female', 81);
+insert into VISTA_CANDIDATOS_EDIT values (10, 'Roderich Mcettrick', 59408087, 'rmcettrick2l@hostgator.com', 32117792, 69, 'Male', 92);
+insert into VISTA_CANDIDATOS_EDIT values (18, 'Burk Hirtz', 50779024, 'bhirtz2m@angelfire.com', 34052910, 44, 'Male', 20);
+insert into VISTA_CANDIDATOS_EDIT values (21, 'Bronson Fever', 89256689, 'bfever2n@freewebs.com', 32456886, 32, 'Male', 58);
+insert into VISTA_CANDIDATOS_EDIT  values (6, 'Anatola Llewelly', 71721837, 'allewelly2o@accuweather.com', 31633117, 54, 'Female', 32);
+insert into VISTA_CANDIDATOS_EDIT values (20, 'Millicent Mc Curlye', 76331105, 'mmc2p@netvibes.com', 33900181, 65, 'Female', 100);
+insert into VISTA_CANDIDATOS_EDIT values (21, 'Alvinia Tysack', 66810635, 'atysack2q@europa.eu', 33240046, 20, 'Female', 95);
+insert into VISTA_CANDIDATOS_EDIT  values (7, 'Fancy Newbatt', 89556312, 'fnewbatt2r@amazon.de', 32524388, 59, 'Female', 17);
+insert into VISTA_CANDIDATOS_EDIT values (23, 'Kathrine Crole', 54566304, 'kcrole2s@ovh.net', 37168779, 49, 'Female', 48);
+insert into VISTA_CANDIDATOS_EDIT  values (5, 'Irwinn Gobell', 84850227, 'igobell2t@google.ru', 32434954, 53, 'Male', 80);
+insert into VISTA_CANDIDATOS_EDIT values (25, 'Ernst Brunnen', 70858069, 'ebrunnen2u@ifeng.com', 35037053, 70, 'Male', 76);
+insert into VISTA_CANDIDATOS_EDIT  values (6, 'Elmira Haigh', 55142368, 'ehaigh2v@hud.gov', 34347311, 32, 'Female', 72);
+insert into VISTA_CANDIDATOS_EDIT values (10, 'Keenan Cockshutt', 66249923, 'kcockshutt2w@apache.org', 31098867, 64, 'Male', 70);
+insert into VISTA_CANDIDATOS_EDIT values (28, 'Baldwin Wheeliker', 64949725, 'bwheeliker2x@gmpg.org', 37431070, 21, 'Male', 21);
+insert into VISTA_CANDIDATOS_EDIT values (12, 'Carolee Sommerton', 88844782, 'csommerton2y@fema.gov', 37652033, 51, 'Female', 80);
+insert into VISTA_CANDIDATOS_EDIT values (19, 'Susan Swash', 54950504, 'sswash2z@woothemes.com', 32060466, 49, 'Female', 2);
+insert into VISTA_CANDIDATOS_EDIT  values (3, 'Garret Moogan', 73084468, 'gmoogan30@upenn.edu', 38620269, 45, 'Male', 70);
+insert into VISTA_CANDIDATOS_EDIT values (20, 'Shermy Howle', 80350491, 'showle31@ed.gov', 30506311, 59, 'Male', 93);
+insert into VISTA_CANDIDATOS_EDIT values (17, 'Dodie Arlott', 85992465, 'darlott32@opensource.org', 39792295, 59, 'Female', 25);
+insert into VISTA_CANDIDATOS_EDIT values (25, 'Witty Blease', 69724974, 'wblease33@symantec.com', 39775626, 67, 'Male', 62);
+insert into VISTA_CANDIDATOS_EDIT values (18, 'Kirbie Bircher', 76851085, 'kbircher34@usgs.gov', 38847722, 28, 'Female', 39);
+insert into VISTA_CANDIDATOS_EDIT values (11, 'Corabel Dabels', 84818181, 'cdabels35@prlog.org', 33468976, 33, 'Female', 12);
+insert into VISTA_CANDIDATOS_EDIT values (21, 'Verile Sheara', 64675004, 'vsheara36@live.com', 36407650, 52, 'Female', 63);
+insert into VISTA_CANDIDATOS_EDIT values (23, 'Abeu Mackett', 66579595, 'amackett37@printfriendly.com', 33154119, 20, 'Male', 7);
+insert into VISTA_CANDIDATOS_EDIT  values (8, 'Carny Filipiak', 59018894, 'cfilipiak38@github.com', 35107943, 58, 'Male', 47);
+insert into VISTA_CANDIDATOS_EDIT values (14, 'Dody Laurisch', 64711343, 'dlaurisch39@youtube.com', 33211083, 70, 'Female', 53);
+insert into VISTA_CANDIDATOS_EDIT  values (5, 'Torrie Burgh', 59854713, 'tburgh3a@sitemeter.com', 32202954, 56, 'Female', 65);
+insert into VISTA_CANDIDATOS_EDIT values (11, 'Anabelle Guiraud', 88680652, 'aguiraud3b@barnesandnoble.com', 32271942, 23, 'Female', 19);
+insert into VISTA_CANDIDATOS_EDIT  values (7, 'Kellie Cruce', 50156017, 'kcruce3c@delicious.com', 39043284, 45, 'Female', 87);
+insert into VISTA_CANDIDATOS_EDIT values (15, 'Nicolette Sandiland', 84993035, 'nsandiland3d@shop-pro.jp', 31960181, 67, 'Female', 15);
+insert into VISTA_CANDIDATOS_EDIT values (26, 'Frederic Hindrick', 87706329, 'fhindrick3e@ow.ly', 35373002, 27, 'Male', 68);
+insert into VISTA_CANDIDATOS_EDIT values (17, 'Estrella Ramelot', 62294510, 'eramelot3f@artisteer.com', 34204034, 36, 'Female', 35);
+insert into VISTA_CANDIDATOS_EDIT  values (6, 'Jeni Klimschak', 62578128, 'jklimschak3g@live.com', 35496277, 32, 'Female', 43);
+insert into VISTA_CANDIDATOS_EDIT  values (6, 'Igor Middlemass', 85342195, 'imiddlemass3h@theguardian.com', 39878645, 35, 'Male', 75);
+insert into VISTA_CANDIDATOS_EDIT values (20, 'Lawrence Wetheril', 67740494, 'lwetheril3i@stanford.edu', 30769110, 64, 'Male', 49);
+insert into VISTA_CANDIDATOS_EDIT  values (1, 'Hartwell Dani', 51509871, 'hdani3j@vimeo.com', 30131254, 37, 'Male', 100);
+insert into VISTA_CANDIDATOS_EDIT  values (2, 'Cathyleen Bransdon', 59353520, 'cbransdon3k@wunderground.com', 35564423, 18, 'Female', 97);
+insert into VISTA_CANDIDATOS_EDIT  values (9, 'Homer MacMaster', 60420647, 'hmacmaster3l@dailymotion.com', 34166552, 66, 'Male', 96);
+insert into VISTA_CANDIDATOS_EDIT values (23, 'Benita McTrustie', 71646953, 'bmctrustie3m@multiply.com', 39723191, 61, 'Female', 85);
+insert into VISTA_CANDIDATOS_EDIT values (13, 'Culver Webster', 66417698, 'cwebster3n@cpanel.net', 33781527, 30, 'Male', 30);
+insert into VISTA_CANDIDATOS_EDIT values (26, 'Alexei Griffithe', 76348038, 'agriffithe3o@ezinearticles.com', 31194843, 57, 'Male', 17);
+insert into VISTA_CANDIDATOS_EDIT values (14, 'Darelle Ganiclef', 53783741, 'dganiclef3p@drupal.org', 33351766, 47, 'Female', 56);
+insert into VISTA_CANDIDATOS_EDIT values (29, 'Kennith Saunt', 85923748, 'ksaunt3q@msu.edu', 32569837, 49, 'Male', 100);
+insert into VISTA_CANDIDATOS_EDIT values (26, 'Giorgio Arnull', 55841834, 'garnull3r@dell.com', 30725022, 69, 'Male', 77);
+insert into VISTA_CANDIDATOS_EDIT values (27, 'Hedy Klazenga', 72149337, 'hklazenga3s@unesco.org', 32104720, 21, 'Female', 3);
+insert into VISTA_CANDIDATOS_EDIT values (14, 'Peta Vasiltsov', 85046410, 'pvasiltsov3t@webnode.com', 37633968, 23, 'Female', 26);
+insert into VISTA_CANDIDATOS_EDIT values (29, 'Laverne McLucky', 55971881, 'lmclucky3u@slate.com', 30414106, 64, 'Female', 91);
+insert into VISTA_CANDIDATOS_EDIT  values (8, 'Merwin Demelt', 64202116, 'mdemelt3v@google.com.hk', 33434281, 27, 'Male', 13);
+insert into VISTA_CANDIDATOS_EDIT values (15, 'Ephraim MacEllen', 77939009, 'emacellen3w@123-reg.co.uk', 39163859, 40, 'Male', 3);
+insert into VISTA_CANDIDATOS_EDIT values (10, 'Gloriana Laverenz', 85171326, 'glaverenz3x@parallels.com', 31205175, 70, 'Female', 39);
+insert into VISTA_CANDIDATOS_EDIT  values (7, 'Lida Cunney', 58740825, 'lcunney3y@cnn.com', 32490182, 28, 'Female', 35);
+insert into VISTA_CANDIDATOS_EDIT values (26, 'Morissa Berzins', 80564531, 'mberzins3z@blog.com', 33295590, 23, 'Female', 6);
+insert into VISTA_CANDIDATOS_EDIT values (20, 'Isaac Sherlock', 77004175, 'isherlock40@google.com.hk', 32497485, 28, 'Male', 97);
+insert into VISTA_CANDIDATOS_EDIT values (28, 'Caryn Linnett', 58249224, 'clinnett41@taobao.com', 31234564, 29, 'Female', 82);
+insert into VISTA_CANDIDATOS_EDIT values (30, 'Joycelin Hardaway', 87782866, 'jhardaway42@latimes.com', 30676820, 51, 'Female', 2);
+insert into VISTA_CANDIDATOS_EDIT values (19, 'Robby Suthren', 55932927, 'rsuthren43@tmall.com', 35207037, 35, 'Female', 84);
+insert into VISTA_CANDIDATOS_EDIT values (28, 'Leah Gauthorpp', 65215593, 'lgauthorpp44@baidu.com', 35881958, 48, 'Female', 60);
+insert into VISTA_CANDIDATOS_EDIT values (20, 'Rita Gobbet', 87055416, 'rgobbet45@telegraph.co.uk', 30845429, 19, 'Female', 16);
+insert into VISTA_CANDIDATOS_EDIT values (24, 'Ruthi Freyn', 51407237, 'rfreyn46@spotify.com', 37026663, 55, 'Female', 51);
+insert into VISTA_CANDIDATOS_EDIT values (16, 'Raquela Ormonde', 65431777, 'rormonde47@printfriendly.com', 37412521, 35, 'Female', 21);
+insert into VISTA_CANDIDATOS_EDIT  values (3, 'Georg Vatcher', 80889763, 'gvatcher48@a8.net', 31333244, 20, 'Male', 45);
+insert into VISTA_CANDIDATOS_EDIT values (25, 'Kristan Davison', 78150648, 'kdavison49@msu.edu', 34413596, 52, 'Female', 19);
+insert into VISTA_CANDIDATOS_EDIT values (20, 'Ernesto Obray', 77597334, 'eobray4a@over-blog.com', 32847283, 52, 'Male', 89);
+insert into VISTA_CANDIDATOS_EDIT values (29, 'Dallas Iacovazzi', 88735262, 'diacovazzi4b@blogger.com', 35426054, 66, 'Female', 65);
+insert into VISTA_CANDIDATOS_EDIT values (25, 'Ring Andreone', 80164105, 'randreone4c@wired.com', 35495441, 47, 'Male', 31);
+insert into VISTA_CANDIDATOS_EDIT values (10, 'Filmer Scamerden', 67342093, 'fscamerden4d@cocolog-nifty.com', 36090147, 55, 'Male', 43);
+insert into VISTA_CANDIDATOS_EDIT values (23, 'Merna Versey', 55812267, 'mversey4e@google.com.hk', 31887822, 40, 'Female', 61);
+insert into VISTA_CANDIDATOS_EDIT values (26, 'Dianne Leatham', 83837797, 'dleatham4f@gizmodo.com', 36691970, 45, 'Female', 91);
+insert into VISTA_CANDIDATOS_EDIT  values (2, 'Catarina Stegell', 50046514, 'cstegell4g@seattletimes.com', 34083044, 50, 'Female', 92);
+insert into VISTA_CANDIDATOS_EDIT values (12, 'Chicky Nuccitelli', 85684410, 'cnuccitelli4h@illinois.edu', 32743824, 59, 'Female', 11);
+insert into VISTA_CANDIDATOS_EDIT values (12, 'Tony Skrines', 85510938, 'tskrines4i@mail.ru', 37711019, 34, 'Female', 67);
+insert into VISTA_CANDIDATOS_EDIT  values (7, 'Mariejeanne Prowse', 57625403, 'mprowse4j@webmd.com', 32575159, 19, 'Female', 87);
+insert into VISTA_CANDIDATOS_EDIT values (12, 'Wanda Spilsbury', 87184844, 'wspilsbury4k@nih.gov', 38504812, 65, 'Female', 33);
+insert into VISTA_CANDIDATOS_EDIT  values (2, 'Nona Le Port', 83537473, 'nle4l@phpbb.com', 37218888, 18, 'Female', 29);
+insert into VISTA_CANDIDATOS_EDIT values (16, 'Benjie Kilford', 58050674, 'bkilford4m@theguardian.com', 39594171, 41, 'Male', 68);
+insert into VISTA_CANDIDATOS_EDIT values (29, 'Hinze Erdes', 79396306, 'herdes4n@mail.ru', 37414504, 41, 'Male', 5);
+insert into VISTA_CANDIDATOS_EDIT values (28, 'Keir Garbar', 83245341, 'kgarbar4o@bloglovin.com', 31442934, 20, 'Male', 38);
+insert into VISTA_CANDIDATOS_EDIT values (16, 'Kellina Garioch', 81351700, 'kgarioch4p@techcrunch.com', 32965499, 18, 'Female', 44);
+insert into VISTA_CANDIDATOS_EDIT  values (5, 'Obadiah Boagey', 77014582, 'oboagey4q@cnbc.com', 38580579, 18, 'Male', 41);
+insert into VISTA_CANDIDATOS_EDIT values (21, 'Dudley Maciocia', 59630424, 'dmaciocia4r@skype.com', 36774008, 42, 'Male', 95);
+insert into VISTA_CANDIDATOS_EDIT values (19, 'Alvan Maytom', 50563632, 'amaytom4s@soundcloud.com', 33659278, 67, 'Male', 42);
+insert into VISTA_CANDIDATOS_EDIT values (29, 'Leslie McElhinney', 50820182, 'lmcelhinney4t@google.ca', 33628549, 23, 'Male', 54);
+insert into VISTA_CANDIDATOS_EDIT values (13, 'Robinet Cowlard', 53516107, 'rcowlard4u@goo.gl', 39427307, 63, 'Male', 56);
+insert into VISTA_CANDIDATOS_EDIT  values (1, 'Anni Keggin', 76146765, 'akeggin4v@ihg.com', 34708035, 37, 'Female', 16);
+insert into VISTA_CANDIDATOS_EDIT values (23, 'Kaitlynn Longstaffe', 52559587, 'klongstaffe4w@bigcartel.com', 31875542, 64, 'Female', 46);
+insert into VISTA_CANDIDATOS_EDIT  values (9, 'Antony Yakuntzov', 76293148, 'ayakuntzov4x@freewebs.com', 33569267, 58, 'Male', 42);
+insert into VISTA_CANDIDATOS_EDIT  values (6, 'Whitman McNeely', 64814596, 'wmcneely4y@businesswire.com', 32744209, 35, 'Male', 91);
+insert into VISTA_CANDIDATOS_EDIT values (30, 'Kaitlin Diboll', 62590132, 'kdiboll4z@admin.ch', 31232480, 48, 'Female', 59);
+insert into VISTA_CANDIDATOS_EDIT  values (1, 'Dian Hagley', 78370584, 'dhagley50@jugem.jp', 35557276, 24, 'Female', 91);
+insert into VISTA_CANDIDATOS_EDIT  values (7, 'Nick Caldera', 87428393, 'ncaldera51@technorati.com', 32011327, 58, 'Male', 44);
+insert into VISTA_CANDIDATOS_EDIT  values (9, 'Heda Vennart', 86367412, 'hvennart52@google.pl', 39887096, 43, 'Female', 44);
+insert into VISTA_CANDIDATOS_EDIT  values (7, 'Arny Wilacot', 73599685, 'awilacot53@fotki.com', 39020868, 54, 'Male', 25);
+insert into VISTA_CANDIDATOS_EDIT values (24, 'Jessee Rugg', 77417538, 'jrugg54@gmpg.org', 31564698, 38, 'Male', 71);
+insert into VISTA_CANDIDATOS_EDIT values (24, 'Fifi Gavaghan', 61286274, 'fgavaghan55@github.io', 33273872, 45, 'Female', 95);
+insert into VISTA_CANDIDATOS_EDIT values (14, 'Rikki Van der Mark', 81413370, 'rvan56@mayoclinic.com', 30266455, 64, 'Male', 64);
+insert into VISTA_CANDIDATOS_EDIT values (13, 'Farley Fontaine', 86714656, 'ffontaine57@nih.gov', 33667614, 57, 'Male', 79);
+insert into VISTA_CANDIDATOS_EDIT values (25, 'Liliane Mouland', 70121286, 'lmouland58@wordpress.com', 38040615, 48, 'Female', 61);
+insert into VISTA_CANDIDATOS_EDIT values (16, 'Amabel Sammonds', 73600835, 'asammonds59@miitbeian.gov.cn', 34172939, 41, 'Female', 50);
+insert into VISTA_CANDIDATOS_EDIT values (14, 'Sholom Newstead', 60646585, 'snewstead5a@discuz.net', 33425061, 58, 'Male', 61);
+insert into VISTA_CANDIDATOS_EDIT values (19, 'Emmye Grumble', 71869028, 'egrumble5b@house.gov', 35663984, 37, 'Female', 57);
+insert into VISTA_CANDIDATOS_EDIT  values (9, 'Gae Nuton', 56614623, 'gnuton5c@gizmodo.com', 39743129, 48, 'Female', 61);
+insert into VISTA_CANDIDATOS_EDIT values (19, 'Charles Longforth', 61716810, 'clongforth5d@histats.com', 37755053, 30, 'Male', 84);
+insert into VISTA_CANDIDATOS_EDIT values (24, 'Onfroi Ticehurst', 86330877, 'oticehurst5e@stanford.edu', 34716524, 68, 'Male', 14);
+insert into VISTA_CANDIDATOS_EDIT values (28, 'Helaina Hansemann', 86291709, 'hhansemann5f@hubpages.com', 39211810, 41, 'Female', 44);
+insert into VISTA_CANDIDATOS_EDIT values (23, 'Rodie Eaglesham', 66845328, 'reaglesham5g@slashdot.org', 32854310, 27, 'Female', 4);
+insert into VISTA_CANDIDATOS_EDIT values (30, 'Ava Sor', 67506778, 'asor5h@boston.com', 37938915, 18, 'Female', 36);
+insert into VISTA_CANDIDATOS_EDIT values (11, 'Daune Chessman', 59768619, 'dchessman5i@xinhuanet.com', 33425538, 49, 'Female', 18);
+insert into VISTA_CANDIDATOS_EDIT values (29, 'Elvyn Bennis', 58371200, 'ebennis5j@ucoz.com', 39499222, 45, 'Male', 22);
+
+/*HAY  200 EMPLEADOS*/
 insert into VISTA_EMPLEADOS_EDIT values ( 1, 1514815151, 'arx', 4144144, 'correo', 'fem', 18, 1 ,1, 1 , 245555555, 1, 1)
 /*HAY 6 DEPARTAMENTOS POR SUCURSAL, 30 DEPTOS*/
 insert into VISTA_CAPACITACIONES_EDIT values ( 1, 'Segur', '12/20/14 *DÍA-MES-AÑO', 'Soy una descripción')
