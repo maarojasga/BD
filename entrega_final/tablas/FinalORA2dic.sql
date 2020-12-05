@@ -1272,7 +1272,7 @@ create index PROVEE_PRODUCTOS_FK on PRODUCTOS (
 /*==============================================================*/
 create table PROVEEDORES  (
    PROVEEDOR_ID         INTEGER                         not null,
-    SUCURSAL_ID                                         null,
+    SUCURSAL_ID         INTEGER                                null,
    PROVEEDOR_NIT        INTEGER                         not null,
    PROVEEDOR_NOMBRE     VARCHAR2(100)                   not null,
    PROVEEDOR_CENTRO_LLAMADAS INTEGER                         not null,
