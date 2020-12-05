@@ -277,7 +277,7 @@ insert into VISTA_CIUDADES_EDIT values (42, 'Santiago de Chile')
 insert into VISTA_CIUDADES_EDIT values (11, 'Buenos Aires')
 insert into VISTA_CIUDADES_EDIT values (168, 'Lima')
 insert into VISTA_CIUDADES_EDIT values (54, 'Quito')
-insert into VISTA_CIUDADES_EDIT values (237, 'Caracas')
+
 
 /* SÓLO HAY 1 GERENTE DE LA EMPRESA*/
 insert into VISTA_EMPRESA_GERENTE_EDIT values ( 1, 'Alejandro Rodríguez', 53631501, 3123548112, 'alejandro.jimenez@ventascolombia.co', 45,  'Masculino', 1, 1, 1, 7000000, 0)
@@ -287,61 +287,228 @@ insert into VISTA_EMPRESA_SUBGERENTE_EDIT values ( 1, 1, 'Luisa Fernanda López'
 
 /* SÓLO HAY 5 DIRECTORES DE SUCURSAL, 1 POR SUCURSAL */
 insert into VISTA_DIRECTOR_SUCURSAL_EDIT values ( 1, 'Natalia Pérez', 86455525, 3124103020, 'natalia.perez@ventascolombia.co', 'Femenino', 25, 1, 1, 4000000, 0, 0)
-insert into VISTA_DIRECTOR_SUCURSAL_EDIT values ( 2, 'Diego Nájar', 93833711, 3127846362, 'diego.najar@ventascolombia.co', 'Masculino', 33, 1, 1, 4000000, 0, 0)
-insert into VISTA_DIRECTOR_SUCURSAL_EDIT values ( 3, 'Roberto Reina', 54020711, 312968574, 'roberto.reina@ventascolombia.co', 'Masculino', 41, 1, 1, 4000000, 0, 0)
-insert into VISTA_DIRECTOR_SUCURSAL_EDIT values ( 4, 'Sandra Martínez', 54486071, 3124567891, 'sandra.martinez@ventascolombia.co', 'Femenino', 27, 1, 1, 4000000, 0, 0)
-insert into VISTA_DIRECTOR_SUCURSAL_EDIT values ( 5, 'Reinaldo Díaz', 51666475, 3112003541, 'reinaldo.diaz@ventascolombia.co', 'Masculino', 22, 1, 1, 4000000, 0, 0)
+insert into VISTA_DIRECTOR_SUCURSAL_EDIT values ( 1, 'Diego Nájar', 93833711, 3127846362, 'diego.najar@ventascolombia.co', 'Masculino', 33, 1, 1, 4000000, 0, 0)
+insert into VISTA_DIRECTOR_SUCURSAL_EDIT values ( 1, 'Roberto Reina', 54020711, 312968574, 'roberto.reina@ventascolombia.co', 'Masculino', 41, 1, 1, 4000000, 0, 0)
+insert into VISTA_DIRECTOR_SUCURSAL_EDIT values ( 1, 'Sandra Martínez', 54486071, 3124567891, 'sandra.martinez@ventascolombia.co', 'Femenino', 27, 1, 1, 4000000, 0, 0)
+insert into VISTA_DIRECTOR_SUCURSAL_EDIT values ( 1, 'Reinaldo Díaz', 51666475, 3112003541, 'reinaldo.diaz@ventascolombia.co', 'Masculino', 22, 1, 1, 4000000, 0, 0)
 
 /* SÓLO HAY 5 DIRECTORES DE DEPARTAMENTO, 1 DEPARTAMENTO */
 insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 1, 'Cecilia Gutierrez', 84945694, 3124105263, 'cecilia.gutierrez@ventascolombia.co', 'Masc', 25 , 1, 1, 3500000, 0, 0)
-insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 1, 'Fernando Rincón', 70436506, 3127415285, 'fernando.rincon@ventascolombia.co', 'Masc', 25 , 1, 1, 3500000, 0, 0)
-insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 1, 'Beatriz Contreras', 87452985, 3114789685, 'beatriz.contreras@ventascolombia.co', 'Masc', 25 , 1, 1, 3500000, 0, 0)
-insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 1, 'Cristian Peña', 98713237, 3012142010, 'cristian.pena@ventascolombia.co', 'Masc', 25 , 1, 1, 3500000, 0, 0)
-insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 1, 'Joaquin Villa', 66876465, 3214569674, 'joaquin.villa@ventascolombia.co', 'Masc', 25 , 1, 1, 3500000, 0, 0)
+insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 2, 'Fernando Rincón', 70436506, 3127415285, 'fernando.rincon@ventascolombia.co', 'Masc', 25 , 1, 1, 3500000, 0, 0)
+insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 3, 'Beatriz Contreras', 87452985, 3114789685, 'beatriz.contreras@ventascolombia.co', 'Masc', 25 , 1, 1, 3500000, 0, 0)
+insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 4, 'Cristian Peña', 98713237, 3012142010, 'cristian.pena@ventascolombia.co', 'Masc', 25 , 1, 1, 3500000, 0, 0)
+insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 5, 'Joaquin Villa', 66876465, 3214569674, 'joaquin.villa@ventascolombia.co', 'Masc', 25 , 1, 1, 3500000, 0, 0)
 insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 1, 'Hugo Llano', 91876068, 3054107420, 'hugo.llano@ventascolombia.co', 'Masc', 25 , 1, 1, 3500000, 0, 0)
-insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 1, 'Armando Casas', 74121308, 3506347896, 'armando.casas@ventascolombia.co', 'Masc', 25 , 1, 1, 3500000, 0, 0)
-insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 1, 'Teresa Niño', 61573473, 3114561042, 'teresa.niño@ventascolombia.co', 'Masc', 25 , 1, 1, 3500000, 0, 0)
-insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 1, 'Rigoberto Sanchez', 59108725, 3104123010, 'rigoberto.sanchez@ventascolombia.co', 'Masc', 25 , 1, 1, 3500000, 0, 0)
-insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 1, 'John Salinas', 73637750, 3045627874, 'john.salinas@ventascolombia.co', 'Masc', 25 , 1, 1, 3500000, 0, 0)
+insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 2, 'Armando Casas', 74121308, 3506347896, 'armando.casas@ventascolombia.co', 'Masc', 25 , 1, 1, 3500000, 0, 0)
+insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 3, 'Teresa Niño', 61573473, 3114561042, 'teresa.niño@ventascolombia.co', 'Masc', 25 , 1, 1, 3500000, 0, 0)
+insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 4, 'Rigoberto Sanchez', 59108725, 3104123010, 'rigoberto.sanchez@ventascolombia.co', 'Masc', 25 , 1, 1, 3500000, 0, 0)
+insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 5, 'John Salinas', 73637750, 3045627874, 'john.salinas@ventascolombia.co', 'Masc', 25 , 1, 1, 3500000, 0, 0)
 insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 1, 'Juan Quiñones', 87607977, 3034178520, 'juan.quinones@ventascolombia.co', 'Masc', 25 , 1, 1, 3500000, 0, 0)
-insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 1, 'Sofía Vélez', 80764675, 3014785645, 'sofia.velez@ventascolombia.co', 'Masc', 25 , 1, 1, 3500000, 0, 0)
-insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 1, 'Patricia Fernández', 83749913, 3124789674, 'patricia.fernandez@ventascolombia.co', 'Masc', 25 , 1, 1, 3500000, 0, 0)
-insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 1, 'Mario Yepes', 52089830, 3014201514, 'mario.yepes@ventascolombia.co', 'Masc', 25 , 1, 1, 3500000, 0, 0)
-insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 1, 'Johan Morales', 76601416, 3014575220, 'johan.morales@ventascolombia.co', 'Masc', 25 , 1, 1, 3500000, 0, 0)
+insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 2, 'Sofía Vélez', 80764675, 3014785645, 'sofia.velez@ventascolombia.co', 'Masc', 25 , 1, 1, 3500000, 0, 0)
+insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 3, 'Patricia Fernández', 83749913, 3124789674, 'patricia.fernandez@ventascolombia.co', 'Masc', 25 , 1, 1, 3500000, 0, 0)
+insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 4, 'Mario Yepes', 52089830, 3014201514, 'mario.yepes@ventascolombia.co', 'Masc', 25 , 1, 1, 3500000, 0, 0)
+insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 5, 'Johan Morales', 76601416, 3014575220, 'johan.morales@ventascolombia.co', 'Masc', 25 , 1, 1, 3500000, 0, 0)
+insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 1, 'Alexandra Ramirez' 	98764183	,	3115204178	,	'AlexandraRamirez@ventascolombia.co',	'Femenino',	18	,	1	,	1	,	3500000	1	,	0	)
+insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 2, 'Ricardo Montaner' 	90476787	,	3164425879	,	'RicardoMontaner@ventascolombia.co',	'Masculino',	19	,	1	,	1	,	3500000	1	,	0	)
+insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 3, 'Nairo Quintana' 	99622469	,	3213647580	,	'NairoQuintana@ventascolombia.co',	'Masculino',	20	,	1	,	1	,	3500000	1	,	0	)
+insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 4, 'Mireya Garzón' 	82307982	,	3262869281	,	'mireyaGarzon@ventascolombia.co',	'Femenino',	24	,	1	,	1	,	3500000	1	,	0	)
+insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 5, 'Nicolás Salinas' 	97682156	,	3312090982	,	'NicolásSalinas@ventascolombia.co',	'Masculino',	25	,	1	,	1	,	3500000	1	,	0	)
+insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 1, 'Pablo Cruz' 	84859479	,	3361312683	,	'PabloCruz@ventascolombia.co',	'Masculino',	21	,	1	,	1	,	3500000	1	,	0	)
+insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 2, 'Valeria Arias' 	62556779	,	3410534384	,	'ValeriaArias@ventascolombia.co',	'Femenino',	23	,	1	,	1	,	3500000	1	,	0	)
+insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 3, 'Laura Fernandez' 	63361127	,	3459756085	,	'LauraFernandez@ventascolombia.co',	'Femenino',	26	,	1	,	1	,	3500000	1	,	0	)
+insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 4, 'María Robledo' 	86008546	,	3508977786	,	'MariaRobledo@ventascolombia.co',	'Femenino',	20	,	1	,	1	,	3500000	1	,	0	)
+insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 5, 'Daniel Plazas' 	98732115	,	3558199487	,	'DanielaPlazas@ventascolombia.co',	'Femenino',	23	,	1	,	1	,	3500000	1	,	0	)
+insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 1, 'Victor Naranjo' 	63269674	,	3607421188	,	'VictorNaranjo@ventascolombia.co',	'Masculino',	21	,	1	,	1	,	3500000	1	,	0	)
+insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 2, 'Elias Rojas' 	85787956	,	3656642889	,	'EliasRojas@ventascolombia.co',	'Masculino',	27	,	1	,	1	,	3500000	1	,	0	)
+insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 3, 'Fabian Torres' 	84472811	,	3705864590	,	'FabianTorres@ventascolombia.co',	'Masculino',	29	,	1	,	1	,	3500000	1	,	0	)
+insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 4, 'Ivan Cepeda' 	76863950	,	3755086291	,	'ivanCepeda@ventascolombia.co',	'Masculino',	30	,	1	,	1	,	3500000	1	,	0	)
+insert into VISTA_DIRECTOR_DEPARTAMENTO_EDIT values ( 5, 'Laura Ceballos' 	53190951	,	3804307992	,	'LauraCeballos@ventascolombia.co',	'Femenino',	20	,	1	,	1	,	3500000	1	,	0	)
+
+/* SÓLO HAY 5 SUCURSALES */
+insert into VISTA_SUCURSALES_EDIT values ( 1, 1, 'PRAD0', 98859187, 'CR 32 #192 AC')
+insert into VISTA_SUCURSALES_EDIT values ( 2, 2, 'NORTE', 82037137, 'CR 6 #55 A 16')
+insert into VISTA_SUCURSALES_EDIT values ( 3, 3, 'SUR', 84310823, 'CALLE 220 CR 4 15')
+insert into VISTA_SUCURSALES_EDIT values ( 4, 4, 'LAS DELICIAS', 64765902, 'DIAGONAL 41 #223')
+insert into VISTA_SUCURSALES_EDIT values ( 5, 5, 'ORIENTE', 73361143, 'CALLE 12 CR 87 A 15')
+
+/*HAY 6 DEPARTAMENTOS POR SUCURSAL, 30 DEPTOS*/
+insert into VISTA_DEPARTAMENTOS_EDIT values	( 1, 1,'RECURSOS HUMANOS')
+insert into VISTA_DEPARTAMENTOS_EDIT values	( 2, 2,'RECURSOS HUMANOS')
+insert into VISTA_DEPARTAMENTOS_EDIT values	( 3, 3,'RECURSOS HUMANOS')
+insert into VISTA_DEPARTAMENTOS_EDIT values	( 4, 4,'RECURSOS HUMANOS')
+insert into VISTA_DEPARTAMENTOS_EDIT values	( 5, 5,'RECURSOS HUMANOS')
+insert into VISTA_DEPARTAMENTOS_EDIT values	( 1, 6,'CONTABILIDAD')
+insert into VISTA_DEPARTAMENTOS_EDIT values	( 2, 7,'CONTABILIDAD')
+insert into VISTA_DEPARTAMENTOS_EDIT values	( 3, 8,'CONTABILIDAD')
+insert into VISTA_DEPARTAMENTOS_EDIT values	( 4, 9,'CONTABILIDAD')
+insert into VISTA_DEPARTAMENTOS_EDIT values	( 5, 10,'CONTABILIDAD')
+insert into VISTA_DEPARTAMENTOS_EDIT values	( 1, 11,'MERCADEO')
+insert into VISTA_DEPARTAMENTOS_EDIT values	( 2, 12,'MERCADEO')
+insert into VISTA_DEPARTAMENTOS_EDIT values	( 3, 13,'MERCADEO')
+insert into VISTA_DEPARTAMENTOS_EDIT values	( 4, 14,'MERCADEO')
+insert into VISTA_DEPARTAMENTOS_EDIT values	( 5, 15,'MERCADEO')
+insert into VISTA_DEPARTAMENTOS_EDIT values	( 1, 16,'SISTEMAS E INFORMÁTICA')
+insert into VISTA_DEPARTAMENTOS_EDIT values	( 2, 17,'SISTEMAS E INFORMÁTICA')
+insert into VISTA_DEPARTAMENTOS_EDIT values	( 3, 18,'SISTEMAS E INFORMÁTICA')
+insert into VISTA_DEPARTAMENTOS_EDIT values	( 4, 19,'SISTEMAS E INFORMÁTICA')
+insert into VISTA_DEPARTAMENTOS_EDIT values	( 5, 20,'SISTEMAS E INFORMÁTICA')
+insert into VISTA_DEPARTAMENTOS_EDIT values	( 1, 21,'VENTAS')
+insert into VISTA_DEPARTAMENTOS_EDIT values	( 2, 22,'VENTAS')
+insert into VISTA_DEPARTAMENTOS_EDIT values	( 3, 23,'VENTAS')
+insert into VISTA_DEPARTAMENTOS_EDIT values	( 4, 24,'VENTAS')
+insert into VISTA_DEPARTAMENTOS_EDIT values	( 5, 25,'VENTAS')
+insert into VISTA_DEPARTAMENTOS_EDIT values	( 1, 26,'JURÍDICO')
+insert into VISTA_DEPARTAMENTOS_EDIT values	( 2, 27,'JURÍDICO')
+insert into VISTA_DEPARTAMENTOS_EDIT values	( 3, 28,'JURÍDICO')
+insert into VISTA_DEPARTAMENTOS_EDIT values	( 4, 29,'JURÍDICO')
+insert into VISTA_DEPARTAMENTOS_EDIT values	( 5, 30,'JURÍDICO')
+
+/*HAY HAY 17 CARGOS POR DEPARTAMENTO*/
+insert into VISTA_CARGOS_EDIT values (1	, 'Reclutador', 3499999	, 2400000)                           
+insert into VISTA_CARGOS_EDIT values (1	, 'Técnico de formación',2399999, 1900000)
+insert into VISTA_CARGOS_EDIT values (1	, 'Técnico de comunicación interna',1899999, 1600000)
+
+insert into VISTA_CARGOS_EDIT values (2	, 'Reclutador', 3499999	, 2400000)                           
+insert into VISTA_CARGOS_EDIT values (2	, 'Técnico de formación',2399999, 1900000)
+insert into VISTA_CARGOS_EDIT values (2	, 'Técnico de comunicación interna',1899999, 1600000)
+
+insert into VISTA_CARGOS_EDIT values (3	, 'Reclutador', 3499999	, 2400000)                           
+insert into VISTA_CARGOS_EDIT values (3	, 'Técnico de formación',2399999, 1900000)
+insert into VISTA_CARGOS_EDIT values (3	, 'Técnico de comunicación interna',1899999, 1600000)
+
+insert into VISTA_CARGOS_EDIT values (4	, 'Reclutador', 3499999	, 2400000)                           
+insert into VISTA_CARGOS_EDIT values (4	, 'Técnico de formación',2399999, 1900000)
+insert into VISTA_CARGOS_EDIT values (4	, 'Técnico de comunicación interna',1899999, 1600000)
+
+insert into VISTA_CARGOS_EDIT values (5	, 'Reclutador', 3499999	, 2400000)                           
+insert into VISTA_CARGOS_EDIT values (5	, 'Técnico de formación',2399999, 1900000)
+insert into VISTA_CARGOS_EDIT values (5	, 'Técnico de comunicación interna',1899999, 1600000)
+
+insert into VISTA_CARGOS_EDIT values (6	, 'Contador',3499999, 2400000)
+insert into VISTA_CARGOS_EDIT values (6	, 'Tesorero',2399999, 1900000)
+insert into VISTA_CARGOS_EDIT values (6	, 'Auxiliar contable',1899999, 1600000)
+
+insert into VISTA_CARGOS_EDIT values (7	, 'Contador',3499999, 2400000)
+insert into VISTA_CARGOS_EDIT values (7	, 'Tesorero',2399999, 1900000)
+insert into VISTA_CARGOS_EDIT values (7	, 'Auxiliar contable',1899999, 1600000)
+
+insert into VISTA_CARGOS_EDIT values (8	, 'Contador',3499999, 2400000)
+insert into VISTA_CARGOS_EDIT values (8	, 'Tesorero',2399999, 1900000)
+insert into VISTA_CARGOS_EDIT values (8	, 'Auxiliar contable',1899999, 1600000)
+
+insert into VISTA_CARGOS_EDIT values (9	, 'Contador',3499999, 2400000)
+insert into VISTA_CARGOS_EDIT values (9	, 'Tesorero',2399999, 1900000)
+insert into VISTA_CARGOS_EDIT values (9	, 'Auxiliar contable',1899999, 1600000)
+
+insert into VISTA_CARGOS_EDIT values (10	, 'Contador',3499999, 2400000)
+insert into VISTA_CARGOS_EDIT values (10	, 'Tesorero',2399999, 1900000)
+insert into VISTA_CARGOS_EDIT values (10	, 'Auxiliar contable',1899999, 1600000)
+
+insert into VISTA_CARGOS_EDIT values (11	, 'Publicista',3499999, 2400000)
+insert into VISTA_CARGOS_EDIT values (11	, 'Diseñador',2399999, 1900000)
+insert into VISTA_CARGOS_EDIT values (11	, 'Desarrollador',1899999, 1600000)
+
+insert into VISTA_CARGOS_EDIT values (12	, 'Publicista',3499999, 2400000)
+insert into VISTA_CARGOS_EDIT values (12	, 'Diseñador',2399999, 1900000)
+insert into VISTA_CARGOS_EDIT values (12	, 'Desarrollador',1899999, 1600000)
+
+insert into VISTA_CARGOS_EDIT values (13	, 'Publicista',3499999, 2400000)
+insert into VISTA_CARGOS_EDIT values (13	, 'Diseñador',2399999, 1900000)
+insert into VISTA_CARGOS_EDIT values (13	, 'Desarrollador',1899999, 1600000)
+
+insert into VISTA_CARGOS_EDIT values (14	, 'Publicista',3499999, 2400000)
+insert into VISTA_CARGOS_EDIT values (14	, 'Diseñador',2399999, 1900000)
+insert into VISTA_CARGOS_EDIT values (14	, 'Desarrollador',1899999, 1600000)
+
+insert into VISTA_CARGOS_EDIT values (15	, 'Publicista',3499999, 2400000)
+insert into VISTA_CARGOS_EDIT values (15	, 'Diseñador',2399999, 1900000)
+insert into VISTA_CARGOS_EDIT values (15	, 'Desarrollador',1899999, 1600000)
+
+insert into VISTA_CARGOS_EDIT values (16	, 'Analista',3499999, 2400000)
+insert into VISTA_CARGOS_EDIT values (16	, 'Técnico',2399999, 1900000)
+insert into VISTA_CARGOS_EDIT values (16	, 'Pasante',1899999, 1600000)
+
+insert into VISTA_CARGOS_EDIT values (17	, 'Analista',3499999, 2400000)
+insert into VISTA_CARGOS_EDIT values (17	, 'Técnico',2399999, 1900000)
+insert into VISTA_CARGOS_EDIT values (17	, 'Pasante',1899999, 1600000)
+
+insert into VISTA_CARGOS_EDIT values (18	, 'Analista',3499999, 2400000)
+insert into VISTA_CARGOS_EDIT values (18	, 'Técnico',2399999, 1900000)
+insert into VISTA_CARGOS_EDIT values (18	, 'Pasante',1899999, 1600000)
+
+insert into VISTA_CARGOS_EDIT values (19	, 'Analista',3499999, 2400000)
+insert into VISTA_CARGOS_EDIT values (19	, 'Técnico',2399999, 1900000)
+insert into VISTA_CARGOS_EDIT values (19	, 'Pasante',1899999, 1600000)
+
+insert into VISTA_CARGOS_EDIT values (20	, 'Analista',3499999, 2400000)
+insert into VISTA_CARGOS_EDIT values (20	, 'Técnico',2399999, 1900000)
+insert into VISTA_CARGOS_EDIT values (20	, 'Pasante',1899999, 1600000)
+
+insert into VISTA_CARGOS_EDIT values (21	, 'Supervisor',3499999, 2400000)
+insert into VISTA_CARGOS_EDIT values (21	, 'Vendedor',2399999, 1900000)
+insert into VISTA_CARGOS_EDIT values (21	, 'Cajero',1899999, 1600000)
+
+insert into VISTA_CARGOS_EDIT values (22	, 'Supervisor',3499999, 2400000)
+insert into VISTA_CARGOS_EDIT values (22	, 'Vendedor',2399999, 1900000)
+insert into VISTA_CARGOS_EDIT values (22	, 'Cajero',1899999, 1600000)
+
+insert into VISTA_CARGOS_EDIT values (23	, 'Supervisor',3499999, 2400000)
+insert into VISTA_CARGOS_EDIT values (23	, 'Vendedor',2399999, 1900000)
+insert into VISTA_CARGOS_EDIT values (23	, 'Cajero',1899999, 1600000)
+
+insert into VISTA_CARGOS_EDIT values (24	, 'Supervisor',3499999, 2400000)
+insert into VISTA_CARGOS_EDIT values (24	, 'Vendedor',2399999, 1900000)
+insert into VISTA_CARGOS_EDIT values (24	, 'Cajero',1899999, 1600000)
+
+insert into VISTA_CARGOS_EDIT values (25	, 'Supervisor',3499999, 2400000)
+insert into VISTA_CARGOS_EDIT values (25	, 'Vendedor',2399999, 1900000)
+insert into VISTA_CARGOS_EDIT values (25	, 'Cajero',1899999, 1600000)
+
+insert into VISTA_CARGOS_EDIT values (26	, 'Consultor',3499999, 2400000)
+insert into VISTA_CARGOS_EDIT values (26	, 'Supervisor',2399999, 1900000)
+
+insert into VISTA_CARGOS_EDIT values (27	, 'Consultor',3499999, 2400000)
+insert into VISTA_CARGOS_EDIT values (27	, 'Supervisor',2399999, 1900000)
+
+insert into VISTA_CARGOS_EDIT values (28	, 'Consultor',3499999, 2400000)
+insert into VISTA_CARGOS_EDIT values (28	, 'Supervisor',2399999, 1900000)
+
+insert into VISTA_CARGOS_EDIT values (29	, 'Consultor',3499999, 2400000)
+insert into VISTA_CARGOS_EDIT values (29	, 'Supervisor',2399999, 1900000)
+
+insert into VISTA_CARGOS_EDIT values (30	, 'Consultor',3499999, 2400000)
+insert into VISTA_CARGOS_EDIT values (30	, 'Supervisor',2399999, 1900000)
 
 
-insert into VISTA_SUCURSALES_EDIT values ( 1, 1, 'PRAD0', 11111111, 'CR 6 #192SSASD')
-insert into VISTA_DEPARTAMENTOS_EDIT values ( 1, 1,'RECURSOS HUMANOS')
 
-
-insert into VISTA_CARGOS_EDIT values ( 1, 'Reclutador', 3499999, 2400000)
-
+/*HAY 6 DEPARTAMENTOS POR SUCURSAL, 30 DEPTOS*/
 insert into VISTA_VACANTES_EDIT values ( 1, 1)
-
+/*HAY 6 DEPARTAMENTOS POR SUCURSAL, 30 DEPTOS*/
 insert into VISTA_CANDIDATOS_EDIT values ( 1, 'Ale', 1514815151, 'pepito@gmial.com', 31251323, 18, 'fem', 80)
-
+/*HAY 6 DEPARTAMENTOS POR SUCURSAL, 30 DEPTOS*/
 insert into VISTA_EMPLEADOS_EDIT values ( 1, 1514815151, 'arx', 4144144, 'correo', 'fem', 18, 1 ,1, 1 , 245555555, 1, 1)
-
+/*HAY 6 DEPARTAMENTOS POR SUCURSAL, 30 DEPTOS*/
 insert into VISTA_CAPACITACIONES_EDIT values ( 1, 'Segur', '12/20/14 *DÍA-MES-AÑO', 'Soy una descripción')
-
+/*HAY 6 DEPARTAMENTOS POR SUCURSAL, 30 DEPTOS*/
 insert into VISTA_ASISTENCIA_CAPACITACIONES_EDIT values ( 1, 1)
-
+/*HAY 6 DEPARTAMENTOS POR SUCURSAL, 30 DEPTOS*/
 insert into VISTA_VENDEDORES_EDIT values ( 1, 11012155454, 'RAÚL', 2515551, 'SOY UN CORREO', 'SOY UN GENERO', 18, 1, 1, 2000000, 1, 0, 100000)
-
+/*HAY 6 DEPARTAMENTOS POR SUCURSAL, 30 DEPTOS*/
 insert into VISTA_PROVEEDORES_EDIT values ( 1, 11012155454, 'RAÚL', 2515551, 'SOY UNA DIRECCIÓN', 1, 'SOY UN CORRE0')
 
-
+/*HAY 6 DEPARTAMENTOS POR SUCURSAL, 30 DEPTOS*/
 insert into VISTA_PROVEEDOR_GERENTE_EDIT values ( 1, 'RAFA', 11012155454, 2515551, 'SOY UN CORRE0')
-
+/*HAY 6 DEPARTAMENTOS POR SUCURSAL, 30 DEPTOS*/
 insert into VISTA_CLIENTES_EDIT values ( 1, 15115515, 'RAFA', 11012155454, 'SOY UNA DIRECCION', 1, 'SOY UN CORRE0')
-
+/*HAY 6 DEPARTAMENTOS POR SUCURSAL, 30 DEPTOS*/
 insert into VISTA_CLIENTE_GERENTE_EDIT values ( 1,'RAFA', 11012155454, 155544144,'SOY UN CORRE0')
-
+/*HAY 6 DEPARTAMENTOS POR SUCURSAL, 30 DEPTOS*/
 insert into VISTA_PRODUCTOS_EDIT values ( 1, 'ARROZ', 1000, 10000)
+/*HAY 6 DEPARTAMENTOS POR SUCURSAL, 30 DEPTOS*/
 insert into VISTA_BODEGAS_EDIT values ( 1, 1, 1, 12)
-
+/*HAY 6 DEPARTAMENTOS POR SUCURSAL, 30 DEPTOS*/
 insert into VISTA_ORDENES_EDIT values ( 1, 1, 1, 1, '12/05/20')
 
-
+/*HAY 6 DEPARTAMENTOS POR SUCURSAL, 30 DEPTOS*/
 insert into VISTA_ORDENES_ITEMS_EDIT values ( 1, 1, 10, 1000000, 0)
 

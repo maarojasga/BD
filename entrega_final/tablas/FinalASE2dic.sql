@@ -730,6 +730,7 @@ go
 create table BODEGAS (
    BODEGA_ID            bigint                         not null,
    SUCURSAL_ID          bigint                         not null,
+   SUCURSAL_NOMBRE      VARCHAR(100)                   not null,
    PRODUCTO_ID          bigint                         not null,
    BODEGA_CANTIDAD      bigint                         not null,
    digitador VARCHAR(15) default user_name() NOT NULL,
