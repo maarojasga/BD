@@ -2,7 +2,7 @@
 /* VIEW_EDIT: ASISTENCIA_CAPACITACIONES                                             */
 /*==============================================================*/
 CREATE VIEW VISTA_ASISTENCIA_CAPACITACIONES_EDIT AS SELECT 
-    ASISTENCIA_CAPACITACIONES_ID,
+    
     CAPACITACION_ID,
     ASISTENCIA_CAPACITACIONES_SI_N
                                     FROM ASISTENCIA_CAPACITACIONES;
@@ -41,12 +41,12 @@ GRANT SELECT ON VISTA_ASISTENCIA_CAPACITACIONES_EDIT TO dabonilla;
 GRANT SELECT ON VISTA_ASISTENCIA_CAPACITACIONES_VIEW TO dsilvamo;
 GRANT INSERT ON VISTA_ASISTENCIA_CAPACITACIONES_EDIT TO dsilvamo;
 GRANT SELECT ON VISTA_ASISTENCIA_CAPACITACIONES_EDIT TO dsilvamo;
-
+/
 /*==============================================================*/
 /* VIEW_EDIT: BODEGAS                                           */
 /*==============================================================*/
 CREATE VIEW VISTA_BODEGAS_EDIT AS SELECT 
-    BODEGA_ID,
+    
     SUCURSAL_ID,
     PRODUCTO_ID,
     BODEGA_CANTIDAD
@@ -93,7 +93,7 @@ GRANT SELECT ON VISTA_BODEGAS_EDIT TO dsilvamo;
 /* VIEW_EDIT: CANDIDATOS                                           */
 /*==============================================================*/
 CREATE VIEW VISTA_CANDIDATOS_EDIT AS SELECT 
-    CANDIDATO_ID,
+    
     VACANTE_ID,
     CANDIDATO_NOMBRE,
     CANDIDATO_DOCUMENTO,
@@ -156,7 +156,7 @@ GRANT SELECT ON VISTA_CANDIDATOS_EDIT TO dsilvamo;
 /* VIEW_EDIT: CAPACITACIONES                                           */
 /*==============================================================*/
 CREATE VIEW VISTA_CAPACITACIONES_EDIT AS SELECT 
-    CAPACITACION_ID,
+    
     EMPLEADO_ID,
     CAPACITACION_NOMBRE_TIPO,
     CAPACITACION_FECHA,
@@ -207,7 +207,7 @@ GRANT SELECT ON VISTA_CAPACITACIONES_EDIT TO dsilvamo;
 /* VIEW_EDIT: CARGOS                                           */
 /*==============================================================*/
 CREATE VIEW VISTA_CARGOS_EDIT AS SELECT 
-    CARGO_ID,
+    
     DEPARTAMENTO_ID,
     CARGO_NOMBRE,
     CARGO_SALARIO_MAX,
@@ -261,7 +261,7 @@ GRANT SELECT ON VISTA_CARGOS_EDIT TO dsilvamo;
 /* VIEW_EDIT: CIUDADES                                           */
 /*==============================================================*/
 CREATE VIEW VISTA_CIUDADES_EDIT AS SELECT 
-    CIUDAD_ID,
+    
     PAIS_ID,
     CIUDAD_NOMBRE
                                     FROM CIUDADES;
@@ -306,7 +306,7 @@ GRANT SELECT ON VISTA_CIUDADES_EDIT TO dsilvamo;
 /* VIEW_EDIT: CLIENTES                                            */
 /*==============================================================*/
 CREATE VIEW VISTA_CLIENTES_EDIT AS SELECT 
-    CLIENTE_ID,
+    
     SUCURSAL_ID,
     CLIENTE_NIT,
     CLIENTE_NOMBRE,
@@ -321,7 +321,7 @@ CREATE VIEW VISTA_CLIENTES_EDIT AS SELECT
 /*==============================================================*/
 CREATE OR replace VIEW VISTA_CLIENTES_VIEW 
 (
-   CLIENTE_ID,
+    CLIENTE_ID,
     SUCURSAL_ID,
     CLIENTE_NIT,
     CLIENTE_NOMBRE,
@@ -366,7 +366,7 @@ GRANT SELECT ON VISTA_CLIENTES_EDIT TO dsilvamo;
 /* VIEW_EDIT: CLIENTE_GERENTE                                            */
 /*==============================================================*/
 CREATE VIEW VISTA_CLIENTE_GERENTE_EDIT AS SELECT 
-    CLIENTE_GERENTE_ID,
+    
     CLIENTE_ID,
     CLIENTE_GERENTE_NOMBRE,
     CLIENTE_GERENTE_DOCUMENTO,
@@ -420,7 +420,7 @@ GRANT SELECT ON VISTA_CLIENTE_GERENTE_EDIT TO dsilvamo;
 /* VIEW_EDIT: DEPARTAMENTOS                                            */
 /*==============================================================*/
 CREATE VIEW VISTA_DEPARTAMENTOS_EDIT AS SELECT 
-    DEPARTAMENTO_ID,
+    
     SUCURSAL_ID,
     DIRECTOR_DEPARTAMENTO_ID,
     DEPARTAMENTO_NOMBRE
@@ -467,7 +467,7 @@ GRANT SELECT ON VISTA_DEPARTAMENTOS_EDIT TO dsilvamo;
 /* VIEW_EDIT: DIRECTOR_DEPARTAMENTO                                            */
 /*==============================================================*/
 CREATE VIEW VISTA_DIRECTOR_DEPARTAMENTO_EDIT AS SELECT 
-    DIRECTOR_DEPARTAMENTO_ID,
+    
     DIRECTOR_SUCURSAL_ID,
     DIRECTOR_DEPARTAMENTO_NOMBRE,
     DIRECTOR_DEPARTAMENTO_DOCUMENT,
@@ -543,7 +543,7 @@ GRANT SELECT ON VISTA_DIRECTOR_DEPARTAMENTO_EDIT TO dsilvamo;
 /* VIEW_EDIT: DIRECTOR_SUCURSAL                                            */
 /*==============================================================*/
 CREATE VIEW VISTA_DIRECTOR_SUCURSAL_EDIT AS SELECT 
-    DIRECTOR_SUCURSAL_ID,
+    
     EMPRESA_SUBGERENTE_ID,
     DIRECTOR_SUCURSAL_NOMBRE,
     DIRECTOR_SUCURSAL_DOCUMENTO,
@@ -618,7 +618,7 @@ GRANT SELECT ON VISTA_DIRECTOR_SUCURSAL_EDIT TO dsilvamo;
 /* VIEW_EDIT: EMPLEADOS                                            */
 /*==============================================================*/
 CREATE VIEW VISTA_EMPLEADOS_EDIT AS SELECT 
-    EMPLEADO_ID,
+    
     CARGO_ID,
     EMPLEADO_DOCUMENTO,
     EMPLEADO_NOMBRE,
@@ -701,7 +701,7 @@ GRANT SELECT ON VISTA_EMPLEADOS_EDIT TO dsilvamo;
 /* VIEW_EDIT: EMPRESA                                            */
 /*==============================================================*/
 CREATE VIEW VISTA_EMPRESA_EDIT AS SELECT 
-    EMPRESA_ID,
+    
     EMPRESA_NOMBRE,
     EMPRESA_DIRECCION,
     EMPRESA_CENTRO_LLAMADAS
@@ -750,7 +750,7 @@ GRANT SELECT ON VISTA_EMPRESA_EDIT TO dsilvamo;
 /* VIEW_EDIT: EMPRESA_GERENTE                                            */
 /*==============================================================*/
 CREATE VIEW VISTA_EMPRESA_GERENTE_EDIT AS SELECT 
-    EMPRESA_GERENTE_ID,
+    
     EMPRESA_ID,
     EMPRESA_GERENTE_NOMBRE,
     EMPRESA_GERENTE_DOCUMENTO,
@@ -826,7 +826,7 @@ GRANT SELECT ON VISTA_EMPRESA_GERENTE_EDIT TO dsilvamo;
 /* VIEW_EDIT: EMPRESA_SUBGERENTE                                            */
 /*==============================================================*/
 CREATE VIEW VISTA_EMPRESA_SUBGERENTE_EDIT AS SELECT 
-    EMPRESA_SUBGERENTE_ID,
+    
     EMPRESA_GERENTE_ID,
     EMPRESA_ID,
     EMPRESA_SUBGERENTE_NOMBRE,
@@ -905,7 +905,7 @@ GRANT SELECT ON VISTA_EMPRESA_SUBGERENTE_EDIT TO dsilvamo;
 /* VIEW_EDIT: HISTORIAL_TRABAJADORES                                            */
 /*==============================================================*/
 CREATE VIEW VISTA_HISTORIAL_TRABAJADORES_EDIT AS SELECT 
-    HISTORIA_TRABAJADORES_ID,
+    
     HISTORIA_TRABAJADORES_FECHA_INGRESO,
     HISTORIA_TRABAJADORES_FECHA_RETIRO,
     HISTORIA_TRABAJADORES_ID_EMPLEADO,
@@ -980,7 +980,7 @@ GRANT SELECT ON VISTA_HISTORIAL_TRABAJADORES_EDIT TO dsilvamo;
 /* VIEW_EDIT: ORDENES                                            */
 /*==============================================================*/
 CREATE VIEW VISTA_ORDENES_EDIT AS SELECT 
-    ORDEN_ID,
+    
     SUCURSAL_ID,
     CLIENTE_ID,
     ORDEN_ESTADO,
@@ -1036,7 +1036,7 @@ GRANT SELECT ON VISTA_ORDENES_EDIT TO dsilvamo;
 /* VIEW_EDIT: ORDENES_ITEMS                                            */
 /*==============================================================*/
 CREATE VIEW VISTA_ORDENES_ITEMS_EDIT AS SELECT 
-    ORDEN_ITEM_ID,
+    
     ORDEN_ID,
     PRODUCTO_ID,
     ORDEN_ITEM_CANTIDAD,
@@ -1092,7 +1092,7 @@ GRANT SELECT ON VISTA_ORDENES_ITEMS_EDIT TO dsilvamo;
 /* VIEW_EDIT: PAISES                                            */
 /*==============================================================*/
 CREATE VIEW VISTA_PAISES_EDIT AS SELECT 
-    PAIS_ID,
+    
     EMPRESA_ID,
     PAIS_NOMBRE,
     PAIS_PREFIJO
@@ -1143,7 +1143,7 @@ GRANT SELECT ON VISTA_PAISES_EDIT TO dsilvamo;
 /* VIEW_EDIT: PREMIOS                                            */
 /*==============================================================*/
 CREATE VIEW VISTA_PREMIOS_EDIT AS SELECT 
-    PREMIO_ID,
+    
     EMPLEADO_ID,
     VENDEDOR_ID,
     PREMIO_NOMBRE,
@@ -1193,7 +1193,7 @@ GRANT SELECT ON VISTA_PREMIOS_EDIT TO dsilvamo;
 /* VIEW_EDIT: PRODUCTOS                                            */
 /*==============================================================*/
 CREATE VIEW VISTA_PRODUCTOS_EDIT AS SELECT 
-    PRODUCTO_ID,
+    
     PROVEEDOR_ID,
     PRODUCTO_NOMBRE,
     PRODUCTO_PRECIO_ADQUISICION,
@@ -1246,7 +1246,7 @@ GRANT SELECT ON VISTA_PRODUCTOS_EDIT TO dsilvamo;
 /* VIEW_EDIT: PROVEEDORES                                            */
 /*==============================================================*/
 CREATE VIEW VISTA_PROVEEDORES_EDIT AS SELECT 
-    PROVEEDOR_ID,
+    
     PROVEEDOR_NIT,
     PROVEEDOR_NOMBRE,
     PROVEEDOR_CENTRO_LLAMADAS,
@@ -1306,7 +1306,7 @@ GRANT SELECT ON VISTA_PROVEEDORES_EDIT TO dsilvamo;
 /* VIEW_EDIT: PROVEEDOR_GERENTE                                            */
 /*==============================================================*/
 CREATE VIEW VISTA_PROVEEDOR_GERENTE_EDIT AS SELECT 
-    PROVEEDOR_GERENTE_ID,
+    
     PROVEEDOR_ID,
     PROVEEDOR_GERENTE_NOMBRE,
     PROVEEDOR_GERENTE_DOCUMENTO,
@@ -1363,7 +1363,7 @@ GRANT SELECT ON VISTA_PROVEEDOR_GERENTE_EDIT TO dsilvamo;
 /* VIEW_EDIT: SUCURSALES                                            */
 /*==============================================================*/
 CREATE VIEW VISTA_SUCURSALES_EDIT AS SELECT 
-    SUCURSAL_ID,
+    
     CIUDAD_ID,
     DIRECTOR_SUCURSAL_ID,
     SUCURSAL_NOMBRE,
@@ -1420,7 +1420,7 @@ GRANT SELECT ON VISTA_SUCURSALES_EDIT TO dsilvamo;
 /* VIEW_EDIT: VACANTES                                            */
 /*==============================================================*/
 CREATE VIEW VISTA_VACANTES_EDIT AS SELECT 
-    VACANTE_ID,
+    
     CARGO_ID,
     VACANTE_NUMERO
 
@@ -1467,7 +1467,7 @@ GRANT SELECT ON VISTA_VACANTES_EDIT TO dsilvamo;
 /* VIEW_EDIT: VENDEDORES                                            */
 /*==============================================================*/
 CREATE VIEW VISTA_VENDEDORES_EDIT AS SELECT 
-    VENDEDOR_ID,
+    
     SUCURSAL_ID,
     VENDEDOR_DOCUMENTO,
     VENDEDOR_NOMBRE,
@@ -1635,7 +1635,5 @@ GRANT SELECT ON VISTA_PUBLICA_PROVEDORES_View TO PUBLIC;
 GRANT SELECT ON VISTA_PUBLICA_EMPLEADO_View TO PUBLIC;
 GRANT SELECT ON VISTA_PUBLICA_VENDEDORES_View TO PUBLIC;
 GRANT SELECT ON VISTA_PUBLICA_REGISTRO_HISTORICO_View TO PUBLIC;
-
-
 
 
