@@ -698,7 +698,7 @@ create sequence SEQUENCE_7
 /* Table: ASISTENCIA_CAPACITACIONES                             */
 /*==============================================================*/
 create table ASISTENCIA_CAPACITACIONES  (
-   ASISTENCIA_CAPACITACIONES_ID INTEGER                         not null,
+   ASISTENCIA_CAPACITACIONES_ID NUMBER GENERATED ALWAYS AS IDENTITY,
    CAPACITACION_ID      INTEGER,
    ASISTENCIA_CAPACITACIONES_SI_N SMALLINT                        not null,
    digitador VARCHAR(15) default USER                    not null,
@@ -719,7 +719,7 @@ create index CONTROL_ASISTENCIA_FK on ASISTENCIA_CAPACITACIONES (
 /* Table: BODEGAS                                               */
 /*==============================================================*/
 create table BODEGAS  (
-   BODEGA_ID            INTEGER                         not null,
+   BODEGA_ID            NUMBER GENERATED ALWAYS AS IDENTITY,
    SUCURSAL_ID          INTEGER                         not null,
    PRODUCTO_ID          INTEGER                         not null,
    BODEGA_CANTIDAD      INTEGER                         not null,
@@ -749,7 +749,7 @@ create index ALMACENA_FK on BODEGAS (
 /* Table: CANDIDATOS                                            */
 /*==============================================================*/
 create table CANDIDATOS  (
-   CANDIDATO_ID         INTEGER                         not null,
+   CANDIDATO_ID         NUMBER GENERATED ALWAYS AS IDENTITY,
    VACANTE_ID           INTEGER,
    CANDIDATO_NOMBRE     VARCHAR2(100)                   not null,
    CANDIDATO_DOCUMENTO  INTEGER                         not null,
@@ -778,7 +778,7 @@ create index TIENE_CANDIDATOS_FK on CANDIDATOS (
 /* Table: CAPACITACIONES                                        */
 /*==============================================================*/
 create table CAPACITACIONES  (
-   CAPACITACION_ID      INTEGER                         not null,
+   CAPACITACION_ID      NUMBER GENERATED ALWAYS AS IDENTITY,
    EMPLEADO_ID          INTEGER,
    CAPACITACION_NOMBRE_TIPO VARCHAR2(100)                   not null,
    CAPACITACION_FECHA   DATE                            not null,
@@ -801,7 +801,7 @@ create index RECIBEN_CAPACITACIONES_FK on CAPACITACIONES (
 /* Table: CARGOS                                                */
 /*==============================================================*/
 create table CARGOS  (
-   CARGO_ID             INTEGER                         not null,
+   CARGO_ID             NUMBER GENERATED ALWAYS AS IDENTITY,
    DEPARTAMENTO_ID      INTEGER,
    CARGO_NOMBRE         VARCHAR2(100)                   not null,
    CARGO_SALARIO_MAX    INTEGER                         not null,
@@ -825,7 +825,7 @@ create index DIVIDE_EN_CARGOS_FK on CARGOS (
 /* Table: CIUDADES                                              */
 /*==============================================================*/
 create table CIUDADES  (
-   CIUDAD_ID            INTEGER                         not null,
+   CIUDAD_ID            NUMBER GENERATED ALWAYS AS IDENTITY,
    PAIS_ID              INTEGER,
    CIUDAD_NOMBRE        VARCHAR2(100)                   not null,
    digitador VARCHAR(15) default USER                    not null,
@@ -846,7 +846,7 @@ create index CONTIENE_CIUDADES_FK on CIUDADES (
 /* Table: CLIENTES                                              */
 /*==============================================================*/
 create table CLIENTES  (
-   CLIENTE_ID           INTEGER                         not null,
+   CLIENTE_ID           NUMBER GENERATED ALWAYS AS IDENTITY,
    SUCURSAL_ID          INTEGER                          null,
    CLIENTE_NIT          INTEGER                         not null,
    CLIENTE_NOMBRE       VARCHAR2(100)                   not null,
@@ -864,7 +864,7 @@ create table CLIENTES  (
 /* Table: CLIENTE_GERENTE                                       */
 /*==============================================================*/
 create table CLIENTE_GERENTE  (
-   CLIENTE_GERENTE_ID   INTEGER                         not null,
+   CLIENTE_GERENTE_ID   NUMBER GENERATED ALWAYS AS IDENTITY,
    CLIENTE_ID           INTEGER,
    CLIENTE_GERENTE_NOMBRE VARCHAR2(100)                   not null,
    CLIENTE_GERENTE_DOCUMENTO INTEGER                         not null,
@@ -888,7 +888,7 @@ create index REPRESENTA_CLIENTE_FK on CLIENTE_GERENTE (
 /* Table: DEPARTAMENTOS                                         */
 /*==============================================================*/
 create table DEPARTAMENTOS  (
-   DEPARTAMENTO_ID      INTEGER                         not null,
+   DEPARTAMENTO_ID      NUMBER GENERATED ALWAYS AS IDENTITY,
    SUCURSAL_ID          INTEGER,
    DIRECTOR_DEPARTAMENTO_ID INTEGER,
    DEPARTAMENTO_NOMBRE  VARCHAR2(100)                   not null,
@@ -918,7 +918,7 @@ create index DIRIGE_DEPARTAMENTO_FK on DEPARTAMENTOS (
 /* Table: DIRECTOR_DEPARTAMENTO                                 */
 /*==============================================================*/
 create table DIRECTOR_DEPARTAMENTO  (
-   DIRECTOR_DEPARTAMENTO_ID INTEGER                         not null,
+   DIRECTOR_DEPARTAMENTO_ID NUMBER GENERATED ALWAYS AS IDENTITY,
    DIRECTOR_SUCURSAL_ID INTEGER,
    DIRECTOR_DEPARTAMENTO_NOMBRE VARCHAR2(100)                   not null,
    DIRECTOR_DEPARTAMENTO_DOCUMENT INTEGER                         not null,
@@ -951,7 +951,7 @@ create index JEFE_DIR_DEPARTAMENTO_FK on DIRECTOR_DEPARTAMENTO (
 /* Table: DIRECTOR_SUCURSAL                                     */
 /*==============================================================*/
 create table DIRECTOR_SUCURSAL  (
-   DIRECTOR_SUCURSAL_ID INTEGER                         not null,
+   DIRECTOR_SUCURSAL_ID NUMBER GENERATED ALWAYS AS IDENTITY,
    EMPRESA_SUBGERENTE_ID INTEGER,
    DIRECTOR_SUCURSAL_NOMBRE VARCHAR2(100)                   not null,
    DIRECTOR_SUCURSAL_DOCUMENTO INTEGER                         not null,
@@ -984,7 +984,7 @@ create index JEFE_DIRECTOR_SUCURSAL_FK on DIRECTOR_SUCURSAL (
 /* Table: EMPLEADOS                                             */
 /*==============================================================*/
 create table EMPLEADOS  (
-   EMPLEADO_ID          INTEGER                         not null,
+   EMPLEADO_ID          NUMBER GENERATED ALWAYS AS IDENTITY,
    CARGO_ID             INTEGER,
    EMPLEADO_DOCUMENTO   INTEGER                         not null,
    EMPLEADO_NOMBRE      VARCHAR2(100)                   not null,
@@ -1018,7 +1018,7 @@ create index OCUPADOS_POR_FK on EMPLEADOS (
 /* Table: EMPRESA                                               */
 /*==============================================================*/
 create table EMPRESA  (
-   EMPRESA_ID           INTEGER                         not null,
+   EMPRESA_ID           NUMBER GENERATED ALWAYS AS IDENTITY,
    EMPRESA_NOMBRE       VARCHAR2(100)                   not null,
    EMPRESA_DIRECCION    VARCHAR2(100)                   not null,
    EMPRESA_CENTRO_LLAMADAS INTEGER                         not null,
@@ -1032,7 +1032,7 @@ create table EMPRESA  (
 /* Table: EMPRESA_GERENTE                                       */
 /*==============================================================*/
 create table EMPRESA_GERENTE  (
-   EMPRESA_GERENTE_ID   INTEGER                         not null,
+   EMPRESA_GERENTE_ID   NUMBER GENERATED ALWAYS AS IDENTITY,
    EMPRESA_ID           INTEGER,
    EMPRESA_GERENTE_NOMBRE VARCHAR2(100)                   not null,
    EMPRESA_GERENTE_DOCUMENTO INTEGER                         not null,
@@ -1065,7 +1065,7 @@ create index DIRIGIDA_POR_FK on EMPRESA_GERENTE (
 /* Table: EMPRESA_SUBGERENTE                                    */
 /*==============================================================*/
 create table EMPRESA_SUBGERENTE  (
-   EMPRESA_SUBGERENTE_ID INTEGER                         not null,
+   EMPRESA_SUBGERENTE_ID NUMBER GENERATED ALWAYS AS IDENTITY,
    EMPRESA_GERENTE_ID   INTEGER,
    EMPRESA_ID           INTEGER,
    EMPRESA_SUBGERENTE_NOMBRE VARCHAR2(100)                   not null,
@@ -1107,7 +1107,7 @@ create index REEMPLAZO_GERENTE_FK on EMPRESA_SUBGERENTE (
 /* Table: HISTORIAL_TRABAJADORES                                */
 /*==============================================================*/
 create table HISTORIAL_TRABAJADORES  (
-   HISTORIA_TRABAJADORES_ID INTEGER                         not null,
+   HISTORIA_TRABAJADORES_ID NUMBER GENERATED ALWAYS AS IDENTITY,
    HISTORIA_TRABAJADORES_FECHA_INGRESO DATE                            not null,
    HISTORIA_TRABAJADORES_FECHA_RETIRO DATE                            not null,
    HISTORIA_TRABAJADORES_ID_EMPLEADO INTEGER                         not null,
@@ -1129,7 +1129,7 @@ create table HISTORIAL_TRABAJADORES  (
 /* Table: ORDENES                                               */
 /*==============================================================*/
 create table ORDENES  (
-   ORDEN_ID             INTEGER                         not null,
+   ORDEN_ID             NUMBER GENERATED ALWAYS AS IDENTITY,
    SUCURSAL_ID          INTEGER                         not null,
    VENDEDOR_ID          INTEGER                         not null,
    CLIENTE_ID           INTEGER,
@@ -1171,7 +1171,7 @@ create index PIDEN_FK on ORDENES (
 /* Table: ORDENES_ITEMS                                         */
 /*==============================================================*/
 create table ORDENES_ITEMS  (
-   ORDEN_ITEM_ID        INTEGER                         not null,
+   ORDEN_ITEM_ID        NUMBER GENERATED ALWAYS AS IDENTITY,
    ORDEN_ID             INTEGER,
    PRODUCTO_ID          INTEGER,
    ORDEN_ITEM_CANTIDAD  INTEGER                         not null,
@@ -1203,7 +1203,7 @@ create index RELACIONAN_PRODUCTOS_FK on ORDENES_ITEMS (
 /* Table: PAISES                                                */
 /*==============================================================*/
 create table PAISES  (
-   PAIS_ID              INTEGER                         not null,
+   PAIS_ID              NUMBER GENERATED ALWAYS AS IDENTITY,
    EMPRESA_ID           INTEGER,
    PAIS_NOMBRE          VARCHAR2(100)                   not null,
    PAIS_PREFIJO         INTEGER                         not null,
@@ -1225,7 +1225,7 @@ create index ESTA_PRESENTE_FK on PAISES (
 /* Table: PREMIOS                                               */
 /*==============================================================*/
 create table PREMIOS  (
-   PREMIO_ID            INTEGER                         not null,
+   PREMIO_ID            NUMBER GENERATED ALWAYS AS IDENTITY,
    EMPLEADO_ID          INTEGER                         not null,
    VENDEDOR_ID          INTEGER                         not null,   
    PREMIO_NOMBRE        VARCHAR2(100)                   not null,
@@ -1240,7 +1240,7 @@ create table PREMIOS  (
 /* Table: PRODUCTOS                                             */
 /*==============================================================*/
 create table PRODUCTOS  (
-   PRODUCTO_ID          INTEGER, 
+   PRODUCTO_ID          NUMBER GENERATED ALWAYS AS IDENTITY, 
    PROVEEDOR_ID         INTEGER,
    PRODUCTO_NOMBRE      VARCHAR2(100)                   not null,
    PRODUCTO_PRECIO_ADQUISICION INTEGER                         not null,
@@ -1271,7 +1271,7 @@ create index PROVEE_PRODUCTOS_FK on PRODUCTOS (
 /* Table: PROVEEDORES                                           */
 /*==============================================================*/
 create table PROVEEDORES  (
-   PROVEEDOR_ID         INTEGER                         not null,
+   PROVEEDOR_ID         NUMBER GENERATED ALWAYS AS IDENTITY,
     SUCURSAL_ID         INTEGER                                null,
    PROVEEDOR_NIT        INTEGER                         not null,
    PROVEEDOR_NOMBRE     VARCHAR2(100)                   not null,
@@ -1289,7 +1289,7 @@ create table PROVEEDORES  (
 /* Table: PROVEEDOR_GERENTE                                     */
 /*==============================================================*/
 create table PROVEEDOR_GERENTE  (
-   PROVEEDOR_GERENTE_ID INTEGER                         not null,
+   PROVEEDOR_GERENTE_ID NUMBER GENERATED ALWAYS AS IDENTITY,
    PROVEEDOR_ID         INTEGER,
    PROVEEDOR_GERENTE_NOMBRE VARCHAR2(100)                   not null,
    PROVEEDOR_GERENTE_DOCUMENTO INTEGER                         not null,
@@ -1313,7 +1313,7 @@ create index REPRESENTA_PROVEEDOR_FK on PROVEEDOR_GERENTE (
 /* Table: SUCURSALES                                            */
 /*==============================================================*/
 create table SUCURSALES  (
-   SUCURSAL_ID          INTEGER                         not null,
+   SUCURSAL_ID          NUMBER GENERATED ALWAYS AS IDENTITY,
    CIUDAD_ID            INTEGER,
    DIRECTOR_SUCURSAL_ID INTEGER,
    SUCURSAL_NOMBRE      VARCHAR2(100)                   not null,
@@ -1345,7 +1345,7 @@ create index DIRIGE_SUCURSAL_FK on SUCURSALES (
 /* Table: VACANTES                                              */
 /*==============================================================*/
 create table VACANTES  (
-   VACANTE_ID           INTEGER                         not null,
+   VACANTE_ID           NUMBER GENERATED ALWAYS AS IDENTITY,
    CARGO_ID             INTEGER,
    VACANTE_NUMERO       INTEGER                         not null,
    digitador VARCHAR(15) default USER                    not null,
@@ -1366,7 +1366,7 @@ create index CARGOS_DISPONIBLES_FK on VACANTES (
 /* Table: VENDEDORES                                            */
 /*==============================================================*/
 create table VENDEDORES  (
-   VENDEDOR_ID          INTEGER                         not null,
+   VENDEDOR_ID          NUMBER GENERATED ALWAYS AS IDENTITY,
    SUCURSAL_ID          INTEGER                             null,
    VENDEDOR_DOCUMENTO   INTEGER                         not null,
    VENDEDOR_NOMBRE      VARCHAR2(100)                   not null,
@@ -2092,6 +2092,8 @@ exception
        raise_application_error(errno, errmsg);
 end;
 /
+
+
 
 
 
