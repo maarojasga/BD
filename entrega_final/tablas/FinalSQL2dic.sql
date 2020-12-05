@@ -1357,6 +1357,7 @@ create table SUCURSALES
    SUCURSAL_ID bigint not null identity(1,1),
    DIRECTOR_SUCURSAL_ID bigint null,
    CIUDAD_ID bigint null,
+   SUCURSAL_NOMBRE varchar(100) not null,
    SUCURSAL_CENTRO_LLAMADAS bigint not null,
    SUCURSAL_DIRECCION varchar(100) not null,
    SUCURSAL_digitador VARCHAR(15) default user_name() NOT NULL,
