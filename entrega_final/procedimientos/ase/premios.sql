@@ -17,7 +17,7 @@ create or replace procedure insert_premio_empleado
 BEGIN
     set nocount on
     INSERT INTO PREMIOS
-        ( PREMIO_NOMBRE, PREMIO_VALOR, PREMIO_EMPLEADO_ID)
+        ( PREMIO_NOMBRE, PREMIO_VALOR, EMPLEADO_ID)
     VALUES
         (
             @PREMIO_NOMBRE,
@@ -40,7 +40,7 @@ create or replace procedure insert_premio_empleado_vendedor
 BEGIN
     set nocount on
     INSERT INTO PREMIOS
-        ( PREMIO_NOMBRE, PREMIO_VALOR, PREMIO_VENDEDOR_ID)
+        ( PREMIO_NOMBRE, PREMIO_VALOR, VENDEDOR_ID)
     VALUES
         (
             @PREMIO_NOMBRE,
