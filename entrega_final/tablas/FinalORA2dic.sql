@@ -1240,7 +1240,7 @@ create table PREMIOS  (
 /* Table: PRODUCTOS                                             */
 /*==============================================================*/
 create table PRODUCTOS  (
-   PRODUCTO_ID          INTEGER 
+   PRODUCTO_ID          INTEGER, 
    PROVEEDOR_ID         INTEGER,
    PRODUCTO_NOMBRE      VARCHAR2(100)                   not null,
    PRODUCTO_PRECIO_ADQUISICION INTEGER                         not null,
@@ -2092,6 +2092,10 @@ exception
        raise_application_error(errno, errmsg);
 end;
 /
+
+
+
+
 
 
 
