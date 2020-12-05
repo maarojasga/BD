@@ -289,17 +289,17 @@ WHERE digitador = USER;
 /*==============================================================*/
 /* Permisos                                                     */
 /*==============================================================*/
-GRANT SELECT ON VISTA_ASISTENCIA_CIUDADES_VIEW TO negarzonc;
-GRANT INSERT ON VISTA_ASISTENCIA_CIUDADES_EDIT TO negarzonc;
-GRANT SELECT ON VISTA_ASISTENCIA_CIUDADES_EDIT TO negarzonc;
+GRANT SELECT ON VISTA_CIUDADES_VIEW TO negarzonc;
+GRANT INSERT ON VISTA_CIUDADES_EDIT TO negarzonc;
+GRANT SELECT ON VISTA_CIUDADES_EDIT TO negarzonc;
 
-GRANT SELECT ON VISTA_ASISTENCIA_CIUDADES_VIEW TO dabonilla;
-GRANT INSERT ON VISTA_ASISTENCIA_CIUDADES_EDIT TO dabonilla;
-GRANT SELECT ON VISTA_ASISTENCIA_CIUDADES_EDIT TO dabonilla;
+GRANT SELECT ON VISTA_CIUDADES_VIEW TO dabonilla;
+GRANT INSERT ON VISTA_CIUDADES_EDIT TO dabonilla;
+GRANT SELECT ON VISTA_CIUDADES_EDIT TO dabonilla;
 
-GRANT SELECT ON VISTA_ASISTENCIA_CIUDADES_VIEW TO dsilvamo;
-GRANT INSERT ON VISTA_ASISTENCIA_CIUDADES_EDIT TO dsilvamo;
-GRANT SELECT ON VISTA_ASISTENCIA_CIUDADES_EDIT TO dsilvamo;
+GRANT SELECT ON VISTA_CIUDADES_VIEW TO dsilvamo;
+GRANT INSERT ON VISTA_CIUDADES_EDIT TO dsilvamo;
+GRANT SELECT ON VISTA_CIUDADES_EDIT TO dsilvamo;
 
 
 /*==============================================================*/
@@ -474,7 +474,7 @@ CREATE VIEW VISTA_DIRECTOR_DEPARTAMENTO_EDIT AS SELECT
     DIRECTOR_DEPARTAMENTO_CELULAR,
     DIRECTOR_DEPARTAMENTO_CORREO,
     DIRECTOR_DEPARTAMENTO_GENERO,
-    DIRECTOR_DIRECTOR_DEPARTAMENTO_EDAD,
+    DIRECTOR_DEPARTAMENTO_EDAD,
     DIRECTOR_DEPARTAMENTO_SEGURIDAD_SOCIAL_BOOL,
     DIRECTOR_DEPARTAMENTO_POLIZA_VIGENTE_BOOL,
     DIRECTOR_DEPARTAMENTO_SALARIO_FIJO,
@@ -494,7 +494,7 @@ CREATE OR replace VIEW VISTA_DIRECTOR_DEPARTAMENTO_VIEW
     DIRECTOR_DEPARTAMENTO_CELULAR,
     DIRECTOR_DEPARTAMENTO_CORREO,
     DIRECTOR_DEPARTAMENTO_GENERO,
-    DIRECTOR_DIRECTOR_DEPARTAMENTO_EDAD,
+    DIRECTOR_DEPARTAMENTO_EDAD,
     DIRECTOR_DEPARTAMENTO_SEGURIDAD_SOCIAL_BOOL,
     DIRECTOR_DEPARTAMENTO_POLIZA_VIGENTE_BOOL,
     DIRECTOR_DEPARTAMENTO_SALARIO_FIJO,
@@ -511,7 +511,7 @@ AS SELECT
     DIRECTOR_DEPARTAMENTO_CELULAR,
     DIRECTOR_DEPARTAMENTO_CORREO,
     DIRECTOR_DEPARTAMENTO_GENERO,
-    DIRECTOR_DIRECTOR_DEPARTAMENTO_EDAD,
+    DIRECTOR_DEPARTAMENTO_EDAD,
     DIRECTOR_DEPARTAMENTO_SEGURIDAD_SOCIAL_BOOL,
     DIRECTOR_DEPARTAMENTO_POLIZA_VIGENTE_BOOL,
     DIRECTOR_DEPARTAMENTO_SALARIO_FIJO,
@@ -982,7 +982,6 @@ GRANT SELECT ON VISTA_HISTORIAL_TRABAJADORES_EDIT TO dsilvamo;
 CREATE VIEW VISTA_ORDENES_EDIT AS SELECT 
     ORDEN_ID,
     SUCURSAL_ID,
-    VACANTE_ID,
     CLIENTE_ID,
     ORDEN_ESTADO,
     ORDEN_FECHA_ENTREGA
@@ -997,10 +996,9 @@ CREATE OR replace VIEW VISTA_ORDENES_VIEW
 (
    ORDEN_ID,
     SUCURSAL_ID,
-    VACANTE_ID,
     CLIENTE_ID,
     ORDEN_ESTADO,
-    ORDEN_FECHA_SOLICITUD
+    ORDEN_FECHA_SOLICITUD,
     ORDEN_FECHA_ENTREGA,
    digitador,
    fecha
@@ -1008,10 +1006,9 @@ CREATE OR replace VIEW VISTA_ORDENES_VIEW
 AS SELECT 
     ORDEN_ID,
     SUCURSAL_ID,
-    VACANTE_ID,
     CLIENTE_ID,
     ORDEN_ESTADO,
-    ORDEN_FECHA_SOLICITUD
+    ORDEN_FECHA_SOLICITUD,
     ORDEN_FECHA_ENTREGA,
    digitador,
    to_char(fecha, 'dd-mm-yyyy" "hh24:mi:ss')
@@ -1465,27 +1462,6 @@ GRANT SELECT ON VISTA_VACANTES_VIEW TO dsilvamo;
 GRANT INSERT ON VISTA_VACANTES_EDIT TO dsilvamo;
 GRANT SELECT ON VISTA_VACANTES_EDIT TO dsilvamo;
 
-/*==============================================================*/
-/* Table: VENDEDORES                                            */
-/*==============================================================*/
-create table VENDEDORES  (
-   VENDEDOR_ID          INTEGER                         not null,
-   SUCURSAL_ID          INTEGER,
-   VENDEDOR_DOCUMENTO   INTEGER                         not null,
-   VENDEDOR_NOMBRE      VARCHAR2(100)                   not null,
-   VENDEDOR_CELULAR     INTEGER                         not null,
-   VENDEDOR_CORREO      VARCHAR2(100)                   not null,
-   VENDEDOR_GENERO      VARCHAR2(100),
-   VENDEDOR_EDAD        INTEGER                         not null
-      constraint CKC_VENDEDOR_EDAD_VENDEDOR check (VENDEDOR_EDAD between 18 and 99),
-   VENDEDOR_SEGURIDAD_SOCIAL_BOOL SMALLINT                        not null,
-   VENDEDOR_POLIZA_VIGENTE_BOOL SMALLINT                        not null,
-   VENDEDOR_SALARIO_FIJO INTEGER                         not null,
-   VENDEDOR_CONTRATO_INDEFINIDO_BOOL SMALLINT                        not null,
-   VENDEDOR_REINGRESO_BOOL SMALLINT                        not null,
-   VENDEDOR_COMISION    INTEGER                         not null,
-   constraint PK_VENDEDORES primary key (VENDEDOR_ID)
-)
 
 /*==============================================================*/
 /* VIEW_EDIT: VENDEDORES                                            */
@@ -1579,7 +1555,7 @@ AS SELECT
    CLIENTE_CENTRO_LLAMADAS,
    CLIENTE_CORREO
 FROM CLIENTES
-
+/
 /*==============================================================*/
 /* View: PUBLICA_PROVEEDORES                                           */
 /*==============================================================*/
@@ -1596,7 +1572,7 @@ AS SELECT
    PROVEEDOR_CENTRO_LLAMADAS,
    PROVEEDOR_CORREO
 FROM PROVEEDORES
-
+/
 /*==============================================================*/
 /* View: PUBLICA_EMPLEADO                                           */
 /*==============================================================*/
@@ -1614,8 +1590,8 @@ AS SELECT
    EMPLEADO_CELULAR,
    EMPLEADO_CORREO,
    EMPLEADO_CARGO
-FROM EMPLEADO
-
+FROM EMPLEADOS
+/
 /*==============================================================*/
 /* View: PUBLICA_VENDEDORES                                           */
 /*==============================================================*/
@@ -1632,7 +1608,7 @@ AS SELECT
    VENDEDOR_CELULAR,
    VENDEDOR_CORREO
 FROM VENDEDORES
-
+/
 /*==============================================================*/
 /* View: REGISTRO_HISTORICO                                           */
 /*==============================================================*/
@@ -1647,7 +1623,7 @@ AS SELECT
    REGISTRO_HISTORICO_FECHA,
    REGISTRO_HISTORICO_MENSAJE
 FROM REGISTRO_HISTORICO_USUARIO
-
+/
 
 
 
@@ -1659,5 +1635,7 @@ GRANT SELECT ON VISTA_PUBLICA_PROVEDORES_View TO PUBLIC;
 GRANT SELECT ON VISTA_PUBLICA_EMPLEADO_View TO PUBLIC;
 GRANT SELECT ON VISTA_PUBLICA_VENDEDORES_View TO PUBLIC;
 GRANT SELECT ON VISTA_PUBLICA_REGISTRO_HISTORICO_View TO PUBLIC;
+
+
 
 
