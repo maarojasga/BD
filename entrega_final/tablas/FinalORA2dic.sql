@@ -719,8 +719,9 @@ create index CONTROL_ASISTENCIA_FK on ASISTENCIA_CAPACITACIONES (
 /* Table: BODEGAS                                               */
 /*==============================================================*/
 create table BODEGAS  (
-   BODEGA_ID            NUMBER GENERATED ALWAYS AS IDENTITY,
+   BODEGA_ID            INTEGER                         not null,
    SUCURSAL_ID          INTEGER                         not null,
+   SUCURSAL_NOMBRE       VARCHAR2(100)                  not null,
    PRODUCTO_ID          INTEGER                         not null,
    BODEGA_CANTIDAD      INTEGER                         not null,
    digitador VARCHAR(15) default USER                    not null,
@@ -989,7 +990,7 @@ create table EMPLEADOS  (
    EMPLEADO_DOCUMENTO   INTEGER                         not null,
    EMPLEADO_NOMBRE      VARCHAR2(100)                   not null,
    EMPLEADO_CELULAR     INTEGER                         not null,
-   EMPLEADO_CORREO      INTEGER                         not null,
+   EMPLEADO_CORREO      VARCHAR2(100)                         not null,
    EMPLEADO_GENERO      VARCHAR2(100),
    EMPLEADO_EDAD        INTEGER                         not null
       constraint CKC_EMPLEADO_EDAD_EMPLEADO check (EMPLEADO_EDAD between 18 and 99),
@@ -1172,8 +1173,8 @@ create index PIDEN_FK on ORDENES (
 /*==============================================================*/
 create table ORDENES_ITEMS  (
    ORDEN_ITEM_ID        NUMBER GENERATED ALWAYS AS IDENTITY,
-   ORDEN_ID             INTEGER,
    PRODUCTO_ID          INTEGER,
+   ORDEN_ID             INTEGER,
    ORDEN_ITEM_CANTIDAD  INTEGER                         not null,
    ORDEN_ITEM_PRECIO_TOTAL INTEGER                         not null,
    ORDEN_ITEM_DESCUENTO_BOOL SMALLINT                        not null,
@@ -2092,6 +2093,10 @@ exception
        raise_application_error(errno, errmsg);
 end;
 /
+
+
+
+
 
 
 
