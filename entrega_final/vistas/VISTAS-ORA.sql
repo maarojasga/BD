@@ -6,7 +6,7 @@ CREATE VIEW VISTA_ASISTENCIA_CAPACITACIONES_EDIT AS SELECT
     CAPACITACION_ID,
     ASISTENCIA_CAPACITACIONES_SI_N
                                     FROM ASISTENCIA_CAPACITACIONES;
-
+/
 /*==============================================================*/
 /* VIEW_VIEW:ASISTENCIA_CAPACITACIONES                                             */
 /*==============================================================*/
@@ -26,7 +26,7 @@ AS SELECT
    to_char(fecha, 'dd-mm-yyyy" "hh24:mi:ss')
 FROM ASISTENCIA_CAPACITACIONES
 WHERE digitador = USER;
-
+/
 /*==============================================================*/
 /* Permisos                                                     */
 /*==============================================================*/
@@ -52,7 +52,7 @@ CREATE or replace VIEW VISTA_BODEGAS_EDIT AS SELECT
     PRODUCTO_ID,
     BODEGA_CANTIDAD
                                     FROM BODEGAS;
-
+/
 /*==============================================================*/
 /* VIEW_VIEW: BODEGAS                                             */
 /*==============================================================*/
@@ -76,7 +76,7 @@ AS SELECT
    to_char(fecha, 'dd-mm-yyyy" "hh24:mi:ss')
 FROM BODEGAS
 WHERE digitador = USER;
-
+/
 /*==============================================================*/
 /* Permisos                                                     */
 /*==============================================================*/
@@ -91,7 +91,7 @@ GRANT SELECT ON VISTA_BODEGAS_EDIT TO dabonilla;
 GRANT SELECT ON VISTA_BODEGAS_VIEW TO dsilvamo;
 GRANT INSERT ON VISTA_BODEGAS_EDIT TO dsilvamo;
 GRANT SELECT ON VISTA_BODEGAS_EDIT TO dsilvamo;
-
+/
 /*==============================================================*/
 /* VIEW_EDIT: CANDIDATOS                                           */
 /*==============================================================*/
@@ -106,7 +106,7 @@ CREATE VIEW VISTA_CANDIDATOS_EDIT AS SELECT
     CANDIDATO_GENERO,
     CANDIDATO_PORCENTAJE_VALORACIO
                                     FROM CANDIDATOS;
-
+/
 /*==============================================================*/
 /* VIEW_VIEW: CANDIDATOS                                             */
 /*==============================================================*/
@@ -138,7 +138,7 @@ AS SELECT
    to_char(fecha, 'dd-mm-yyyy" "hh24:mi:ss')
 FROM CANDIDATOS
 WHERE digitador = USER;
-
+/
 /*==============================================================*/
 /* Permisos                                                     */
 /*==============================================================*/
@@ -153,7 +153,7 @@ GRANT SELECT ON VISTA_CANDIDATOS_EDIT TO dabonilla;
 GRANT SELECT ON VISTA_CANDIDATOS_VIEW TO dsilvamo;
 GRANT INSERT ON VISTA_CANDIDATOS_EDIT TO dsilvamo;
 GRANT SELECT ON VISTA_CANDIDATOS_EDIT TO dsilvamo;
-
+/
 
 /*==============================================================*/
 /* VIEW_EDIT: CAPACITACIONES                                           */
@@ -165,7 +165,7 @@ CREATE VIEW VISTA_CAPACITACIONES_EDIT AS SELECT
     CAPACITACION_FECHA,
     CAPACITACION_DESCRIPCION
                                     FROM CAPACITACIONES;
-
+/
 /*==============================================================*/
 /* VIEW_VIEW: CAPACITACIONES                                            */
 /*==============================================================*/
@@ -189,7 +189,7 @@ AS SELECT
    to_char(fecha, 'dd-mm-yyyy" "hh24:mi:ss')
 FROM CAPACITACIONES
 WHERE digitador = USER;
-
+/
 /*==============================================================*/
 /* Permisos                                                     */
 /*==============================================================*/
@@ -204,7 +204,7 @@ GRANT SELECT ON VISTA_CAPACITACIONES_EDIT TO dabonilla;
 GRANT SELECT ON VISTA_CAPACITACIONES_VIEW TO dsilvamo;
 GRANT INSERT ON VISTA_CAPACITACIONES_EDIT TO dsilvamo;
 GRANT SELECT ON VISTA_CAPACITACIONES_EDIT TO dsilvamo;
-
+/
 
 /*==============================================================*/
 /* VIEW_EDIT: CARGOS                                           */
@@ -243,7 +243,7 @@ AS SELECT
    to_char(fecha, 'dd-mm-yyyy" "hh24:mi:ss')
 FROM CARGOS
 WHERE digitador = USER;
-
+/
 /*==============================================================*/
 /* Permisos                                                     */
 /*==============================================================*/
@@ -258,7 +258,7 @@ GRANT SELECT ON VISTA_CARGOS_EDIT TO dabonilla;
 GRANT SELECT ON VISTA_CARGOS_VIEW TO dsilvamo;
 GRANT INSERT ON VISTA_CARGOS_EDIT TO dsilvamo;
 GRANT SELECT ON VISTA_CARGOS_EDIT TO dsilvamo;
-
+/
 
 /*==============================================================*/
 /* VIEW_EDIT: CIUDADES                                           */
@@ -268,7 +268,7 @@ CREATE VIEW VISTA_CIUDADES_EDIT AS SELECT
     PAIS_ID,
     CIUDAD_NOMBRE
                                     FROM CIUDADES;
-
+/
 /*==============================================================*/
 /* VIEW_VIEW: CIUDADES                                             */
 /*==============================================================*/
@@ -288,7 +288,7 @@ AS SELECT
    to_char(fecha, 'dd-mm-yyyy" "hh24:mi:ss')
 FROM CIUDADES
 WHERE digitador = USER;
-
+/
 /*==============================================================*/
 /* Permisos                                                     */
 /*==============================================================*/
@@ -303,7 +303,7 @@ GRANT SELECT ON VISTA_CIUDADES_EDIT TO dabonilla;
 GRANT SELECT ON VISTA_CIUDADES_VIEW TO dsilvamo;
 GRANT INSERT ON VISTA_CIUDADES_EDIT TO dsilvamo;
 GRANT SELECT ON VISTA_CIUDADES_EDIT TO dsilvamo;
-
+/
 
 /*==============================================================*/
 /* VIEW_EDIT: CLIENTES                                            */
@@ -318,7 +318,7 @@ CREATE VIEW VISTA_CLIENTES_EDIT AS SELECT
     CLIENTE_NORMAS_BOOL,
     CLIENTE_CORREO
                                     FROM CLIENTES ;
-
+/
 /*==============================================================*/
 /* VIEW_VIEW: CLIENTES                                              */
 /*==============================================================*/
@@ -348,7 +348,7 @@ AS SELECT
    to_char(fecha, 'dd-mm-yyyy" "hh24:mi:ss')
 FROM CLIENTES 
 WHERE digitador = USER;
-
+/
 /*==============================================================*/
 /* Permisos                                                     */
 /*==============================================================*/
@@ -363,7 +363,7 @@ GRANT SELECT ON VISTA_CLIENTES_EDIT TO dabonilla;
 GRANT SELECT ON VISTA_CLIENTES_VIEW TO dsilvamo;
 GRANT INSERT ON VISTA_CLIENTES_EDIT TO dsilvamo;
 GRANT SELECT ON VISTA_CLIENTES_EDIT TO dsilvamo;
-
+/
 
 /*==============================================================*/
 /* VIEW_EDIT: CLIENTE_GERENTE                                            */
@@ -376,7 +376,7 @@ CREATE VIEW VISTA_CLIENTE_GERENTE_EDIT AS SELECT
     CLIENTE_GERENTE_CELULAR,
     CLIENTE_GERENTE_CORREO
                                     FROM CLIENTE_GERENTE;
-
+/
 /*==============================================================*/
 /* VIEW_VIEW: CLIENTE_GERENTE                                              */
 /*==============================================================*/
@@ -402,7 +402,7 @@ AS SELECT
    to_char(fecha, 'dd-mm-yyyy" "hh24:mi:ss')
 FROM CLIENTE_GERENTE 
 WHERE digitador = USER;
-
+/
 /*==============================================================*/
 /* Permisos                                                     */
 /*==============================================================*/
@@ -417,7 +417,7 @@ GRANT SELECT ON VISTA_CLIENTE_GERENTE_EDIT TO dabonilla;
 GRANT SELECT ON VISTA_CLIENTE_GERENTE_VIEW TO dsilvamo;
 GRANT INSERT ON VISTA_CLIENTE_GERENTE_EDIT TO dsilvamo;
 GRANT SELECT ON VISTA_CLIENTE_GERENTE_EDIT TO dsilvamo;
-
+/
 
 /*==============================================================*/
 /* VIEW_EDIT: DEPARTAMENTOS                                            */
@@ -428,7 +428,7 @@ CREATE VIEW VISTA_DEPARTAMENTOS_EDIT AS SELECT
     DIRECTOR_DEPARTAMENTO_ID,
     DEPARTAMENTO_NOMBRE
                                     FROM DEPARTAMENTOS;
-
+/
 /*==============================================================*/
 /* VIEW_VIEW: DEPARTAMENTOS                                              */
 /*==============================================================*/
@@ -450,7 +450,7 @@ AS SELECT
    to_char(fecha, 'dd-mm-yyyy" "hh24:mi:ss')
 FROM DEPARTAMENTOS 
 WHERE digitador = USER;
-
+/
 /*==============================================================*/
 /* Permisos                                                     */
 /*==============================================================*/
@@ -465,7 +465,7 @@ GRANT SELECT ON VISTA_DEPARTAMENTOS_EDIT TO dabonilla;
 GRANT SELECT ON VISTA_DEPARTAMENTOS_VIEW TO dsilvamo;
 GRANT INSERT ON VISTA_DEPARTAMENTOS_EDIT TO dsilvamo;
 GRANT SELECT ON VISTA_DEPARTAMENTOS_EDIT TO dsilvamo;
-
+/
 /*==============================================================*/
 /* VIEW_EDIT: DIRECTOR_DEPARTAMENTO                                            */
 /*==============================================================*/
@@ -484,7 +484,7 @@ CREATE VIEW VISTA_DIRECTOR_DEPARTAMENTO_EDIT AS SELECT
     DIRECTOR_DEPARTAMENTO_CONTRATO_INDEFINIDO_BOOL,
     DIRECTOR_DEPARTAMENTO_REINGRESO_BOOL
                                     FROM DIRECTOR_DEPARTAMENTO;
-
+/
 /*==============================================================*/
 /* VIEW_VIEW: DIRECTOR_DEPARTAMENTO                                              */
 /*==============================================================*/
@@ -524,7 +524,7 @@ AS SELECT
    to_char(fecha, 'dd-mm-yyyy" "hh24:mi:ss')
 FROM DIRECTOR_DEPARTAMENTO 
 WHERE digitador = USER;
-
+/
 /*==============================================================*/
 /* Permisos                                                     */
 /*==============================================================*/
@@ -539,7 +539,7 @@ GRANT SELECT ON VISTA_DIRECTOR_DEPARTAMENTO_EDIT TO dabonilla;
 GRANT SELECT ON VISTA_DIRECTOR_DEPARTAMENTO_VIEW TO dsilvamo;
 GRANT INSERT ON VISTA_DIRECTOR_DEPARTAMENTO_EDIT TO dsilvamo;
 GRANT SELECT ON VISTA_DIRECTOR_DEPARTAMENTO_EDIT TO dsilvamo;
-
+/
 
 
 /*==============================================================*/
@@ -560,7 +560,7 @@ CREATE VIEW VISTA_DIRECTOR_SUCURSAL_EDIT AS SELECT
     DIRECTOR_SUCURSAL_CONTRATO_INDEFINIDO_BOOL,
     DIRECTOR_SUCURSAL_REINGRESO_BOOL
                                     FROM DIRECTOR_SUCURSAL;
-
+/
 /*==============================================================*/
 /* VIEW_VIEW: DIRECTOR_SUCURSAL                                              */
 /*==============================================================*/
@@ -600,7 +600,7 @@ AS SELECT
    to_char(fecha, 'dd-mm-yyyy" "hh24:mi:ss')
 FROM DIRECTOR_SUCURSAL 
 WHERE digitador = USER;
-
+/
 /*==============================================================*/
 /* Permisos                                                     */
 /*==============================================================*/
@@ -615,7 +615,7 @@ GRANT SELECT ON VISTA_DIRECTOR_SUCURSAL_EDIT TO dabonilla;
 GRANT SELECT ON VISTA_DIRECTOR_SUCURSAL_VIEW TO dsilvamo;
 GRANT INSERT ON VISTA_DIRECTOR_SUCURSAL_EDIT TO dsilvamo;
 GRANT SELECT ON VISTA_DIRECTOR_SUCURSAL_EDIT TO dsilvamo;
-
+/
 
 /*==============================================================*/
 /* VIEW_EDIT: EMPLEADOS                                            */
@@ -638,7 +638,7 @@ CREATE VIEW VISTA_EMPLEADOS_EDIT AS SELECT
     EMPLEADO_REINGRESO_BOOL
     
                                     FROM EMPLEADOS;
-
+/
 /*==============================================================*/
 /* VIEW_VIEW: EMPLEADOS                                              */
 /*==============================================================*/
@@ -682,7 +682,7 @@ AS SELECT
    to_char(fecha, 'dd-mm-yyyy" "hh24:mi:ss')
 FROM EMPLEADOS 
 WHERE digitador = USER;
-
+/
 /*==============================================================*/
 /* Permisos                                                     */
 /*==============================================================*/
@@ -697,7 +697,7 @@ GRANT SELECT ON VISTA_EMPLEADOS_EDIT TO dabonilla;
 GRANT SELECT ON VISTA_EMPLEADOS_VIEW TO dsilvamo;
 GRANT INSERT ON VISTA_EMPLEADOS_EDIT TO dsilvamo;
 GRANT SELECT ON VISTA_EMPLEADOS_EDIT TO dsilvamo;
-
+/
 
 
 /*==============================================================*/
@@ -710,7 +710,7 @@ CREATE VIEW VISTA_EMPRESA_EDIT AS SELECT
     EMPRESA_CENTRO_LLAMADAS
     
                                     FROM EMPRESA;
-
+/
 /*==============================================================*/
 /* VIEW_VIEW: EMPRESA                                              */
 /*==============================================================*/
@@ -732,7 +732,7 @@ AS SELECT
    to_char(fecha, 'dd-mm-yyyy" "hh24:mi:ss')
 FROM EMPRESA 
 WHERE digitador = USER;
-
+/
 /*==============================================================*/
 /* Permisos                                                     */
 /*==============================================================*/
@@ -747,7 +747,7 @@ GRANT SELECT ON VISTA_EMPRESA_EDIT TO dabonilla;
 GRANT SELECT ON VISTA_EMPRESA_VIEW TO dsilvamo;
 GRANT INSERT ON VISTA_EMPRESA_EDIT TO dsilvamo;
 GRANT SELECT ON VISTA_EMPRESA_EDIT TO dsilvamo;
-
+/
 
 /*==============================================================*/
 /* VIEW_EDIT: EMPRESA_GERENTE                                            */
@@ -768,7 +768,7 @@ CREATE VIEW VISTA_EMPRESA_GERENTE_EDIT AS SELECT
     EMPRESA_GERENTE_REINGRESO_BOOL
     
                                     FROM EMPRESA_GERENTE;
-
+/
 /*==============================================================*/
 /* VIEW_VIEW: EMPRESA_GERENTE                                              */
 /*==============================================================*/
@@ -808,7 +808,7 @@ AS SELECT
    to_char(fecha, 'dd-mm-yyyy" "hh24:mi:ss')
 FROM EMPRESA_GERENTE 
 WHERE digitador = USER;
-
+/
 /*==============================================================*/
 /* Permisos                                                     */
 /*==============================================================*/
@@ -823,7 +823,7 @@ GRANT SELECT ON VISTA_EMPRESA_GERENTE_EDIT TO dabonilla;
 GRANT SELECT ON VISTA_EMPRESA_GERENTE_VIEW TO dsilvamo;
 GRANT INSERT ON VISTA_EMPRESA_GERENTE_EDIT TO dsilvamo;
 GRANT SELECT ON VISTA_EMPRESA_GERENTE_EDIT TO dsilvamo;
-
+/
 
 /*==============================================================*/
 /* VIEW_EDIT: EMPRESA_SUBGERENTE                                            */
@@ -845,7 +845,7 @@ CREATE VIEW VISTA_EMPRESA_SUBGERENTE_EDIT AS SELECT
     EMPRESA_SUBGERENTE_REINGRESO_BOOL
     
                                     FROM EMPRESA_SUBGERENTE;
-
+/
 /*==============================================================*/
 /* VIEW_VIEW: EMPRESA_SUBGERENTE                                              */
 /*==============================================================*/
@@ -887,7 +887,7 @@ AS SELECT
    to_char(fecha, 'dd-mm-yyyy" "hh24:mi:ss')
 FROM EMPRESA_SUBGERENTE 
 WHERE digitador = USER;
-
+/
 /*==============================================================*/
 /* Permisos                                                     */
 /*==============================================================*/
@@ -902,7 +902,7 @@ GRANT SELECT ON VISTA_EMPRESA_SUBGERENTE_EDIT TO dabonilla;
 GRANT SELECT ON VISTA_EMPRESA_SUBGERENTE_VIEW TO dsilvamo;
 GRANT INSERT ON VISTA_EMPRESA_SUBGERENTE_EDIT TO dsilvamo;
 GRANT SELECT ON VISTA_EMPRESA_SUBGERENTE_EDIT TO dsilvamo;
-
+/
 
 /*==============================================================*/
 /* VIEW_EDIT: HISTORIAL_TRABAJADORES                                            */
@@ -923,7 +923,7 @@ CREATE VIEW VISTA_HISTORIAL_TRABAJADORES_EDIT AS SELECT
 
     
                                     FROM HISTORIAL_TRABAJADORES;
-
+/
 /*==============================================================*/
 /* VIEW_VIEW: HISTORIAL_TRABAJADORES                                              */
 /*==============================================================*/
@@ -961,7 +961,7 @@ AS SELECT
    to_char(fecha, 'dd-mm-yyyy" "hh24:mi:ss')
 FROM HISTORIAL_TRABAJADORES 
 WHERE digitador = USER;
-
+/
 /*==============================================================*/
 /* Permisos                                                     */
 /*==============================================================*/
@@ -976,7 +976,7 @@ GRANT SELECT ON VISTA_HISTORIAL_TRABAJADORES_EDIT TO dabonilla;
 GRANT SELECT ON VISTA_HISTORIAL_TRABAJADORES_VIEW TO dsilvamo;
 GRANT INSERT ON VISTA_HISTORIAL_TRABAJADORES_EDIT TO dsilvamo;
 GRANT SELECT ON VISTA_HISTORIAL_TRABAJADORES_EDIT TO dsilvamo;
-
+/
 
 
 /*==============================================================*/
@@ -992,7 +992,7 @@ CREATE or replace VIEW VISTA_ORDENES_EDIT AS SELECT
 
     
                                     FROM ORDENES;
-
+/
 /*==============================================================*/
 /* VIEW_VIEW: ORDENES                                              */
 /*==============================================================*/
@@ -1020,7 +1020,7 @@ AS SELECT
    to_char(fecha, 'dd-mm-yyyy" "hh24:mi:ss')
 FROM ORDENES 
 WHERE digitador = USER;
-
+/
 /*==============================================================*/
 /* Permisos                                                     */
 /*==============================================================*/
@@ -1035,7 +1035,7 @@ GRANT SELECT ON VISTA_ORDENES_EDIT TO dabonilla;
 GRANT SELECT ON VISTA_ORDENES_VIEW TO dsilvamo;
 GRANT INSERT ON VISTA_ORDENES_EDIT TO dsilvamo;
 GRANT SELECT ON VISTA_ORDENES_EDIT TO dsilvamo;
-
+/
 
 
 /*==============================================================*/
@@ -1051,7 +1051,7 @@ CREATE VIEW VISTA_ORDENES_ITEMS_EDIT AS SELECT
 
     
                                     FROM ORDENES_ITEMS;
-
+/
 /*==============================================================*/
 /* VIEW_VIEW: ORDENES_ITEMS                                              */
 /*==============================================================*/
@@ -1077,7 +1077,7 @@ AS SELECT
    to_char(fecha, 'dd-mm-yyyy" "hh24:mi:ss')
 FROM ORDENES_ITEMS 
 WHERE digitador = USER;
-
+/
 /*==============================================================*/
 /* Permisos                                                     */
 /*==============================================================*/
@@ -1092,7 +1092,7 @@ GRANT SELECT ON VISTA_ORDENES_ITEMS_EDIT TO dabonilla;
 GRANT SELECT ON VISTA_ORDENES_ITEMS_VIEW TO dsilvamo;
 GRANT INSERT ON VISTA_ORDENES_ITEMS_EDIT TO dsilvamo;
 GRANT SELECT ON VISTA_ORDENES_ITEMS_EDIT TO dsilvamo;
-
+/
 
 /*==============================================================*/
 /* VIEW_EDIT: PAISES                                            */
@@ -1105,7 +1105,7 @@ CREATE VIEW VISTA_PAISES_EDIT AS SELECT
 
     
                                     FROM PAISES;
-
+/
 /*==============================================================*/
 /* VIEW_VIEW: PAISES                                              */
 /*==============================================================*/
@@ -1127,7 +1127,7 @@ AS SELECT
    to_char(fecha, 'dd-mm-yyyy" "hh24:mi:ss')
 FROM PAISES 
 WHERE digitador = USER;
-
+/
 /*==============================================================*/
 /* Permisos                                                     */
 /*==============================================================*/
@@ -1142,7 +1142,7 @@ GRANT SELECT ON VISTA_PAISES_EDIT TO dabonilla;
 GRANT SELECT ON VISTA_PAISES_VIEW TO dsilvamo;
 GRANT INSERT ON VISTA_PAISES_EDIT TO dsilvamo;
 GRANT SELECT ON VISTA_PAISES_EDIT TO dsilvamo;
-
+/
 
 
 /*==============================================================*/
@@ -1157,7 +1157,7 @@ CREATE VIEW VISTA_PREMIOS_EDIT AS SELECT
 
     
                                     FROM PREMIOS;
-
+/
 /*==============================================================*/
 /* VIEW_VIEW: PREMIOS                                              */
 /*==============================================================*/
@@ -1177,7 +1177,7 @@ AS SELECT
    to_char(fecha, 'dd-mm-yyyy" "hh24:mi:ss')
 FROM PREMIOS 
 WHERE digitador = USER;
-
+/
 /*==============================================================*/
 /* Permisos                                                     */
 /*==============================================================*/
@@ -1192,7 +1192,7 @@ GRANT SELECT ON VISTA_PREMIOS_EDIT TO dabonilla;
 GRANT SELECT ON VISTA_PREMIOS_VIEW TO dsilvamo;
 GRANT INSERT ON VISTA_PREMIOS_EDIT TO dsilvamo;
 GRANT SELECT ON VISTA_PREMIOS_EDIT TO dsilvamo;
-
+/
 
 
 /*==============================================================*/
@@ -1207,7 +1207,7 @@ CREATE VIEW VISTA_PRODUCTOS_EDIT AS SELECT
 
     
                                     FROM PRODUCTOS;
-
+/
 /*==============================================================*/
 /* VIEW_VIEW: PRODUCTOS                                              */
 /*==============================================================*/
@@ -1231,7 +1231,7 @@ AS SELECT
    to_char(fecha, 'dd-mm-yyyy" "hh24:mi:ss')
 FROM PRODUCTOS 
 WHERE digitador = USER;
-
+/
 /*==============================================================*/
 /* Permisos                                                     */
 /*==============================================================*/
@@ -1246,7 +1246,7 @@ GRANT SELECT ON VISTA_PRODUCTOS_EDIT TO dabonilla;
 GRANT SELECT ON VISTA_PRODUCTOS_VIEW TO dsilvamo;
 GRANT INSERT ON VISTA_PRODUCTOS_EDIT TO dsilvamo;
 GRANT SELECT ON VISTA_PRODUCTOS_EDIT TO dsilvamo;
-
+/
 
 /*==============================================================*/
 /* VIEW_EDIT: PROVEEDORES                                            */
@@ -1263,7 +1263,7 @@ CREATE or replace VIEW VISTA_PROVEEDORES_EDIT AS SELECT
 
     
                                     FROM PROVEEDORES;
-
+/
 /*==============================================================*/
 /* VIEW_VIEW: PROVEEDORES                                              */
 /*==============================================================*/
@@ -1291,7 +1291,7 @@ AS SELECT
    to_char(fecha, 'dd-mm-yyyy" "hh24:mi:ss')
 FROM PROVEEDORES 
 WHERE digitador = USER;
-
+/
 /*==============================================================*/
 /* Permisos                                                     */
 /*==============================================================*/
@@ -1306,7 +1306,7 @@ GRANT SELECT ON VISTA_PROVEEDORES_EDIT TO dabonilla;
 GRANT SELECT ON VISTA_PROVEEDORES_VIEW TO dsilvamo;
 GRANT INSERT ON VISTA_PROVEEDORES_EDIT TO dsilvamo;
 GRANT SELECT ON VISTA_PROVEEDORES_EDIT TO dsilvamo;
-
+/
 
 
 /*==============================================================*/
@@ -1322,7 +1322,7 @@ CREATE VIEW VISTA_PROVEEDOR_GERENTE_EDIT AS SELECT
 
     
                                     FROM PROVEEDOR_GERENTE;
-
+/
 /*==============================================================*/
 /* VIEW_VIEW: PROVEEDOR_GERENTE                                              */
 /*==============================================================*/
@@ -1348,7 +1348,7 @@ AS SELECT
    to_char(fecha, 'dd-mm-yyyy" "hh24:mi:ss')
 FROM PROVEEDOR_GERENTE 
 WHERE digitador = USER;
-
+/
 /*==============================================================*/
 /* Permisos                                                     */
 /*==============================================================*/
@@ -1363,7 +1363,7 @@ GRANT SELECT ON VISTA_PROVEEDOR_GERENTE_EDIT TO dabonilla;
 GRANT SELECT ON VISTA_PROVEEDOR_GERENTE_VIEW TO dsilvamo;
 GRANT INSERT ON VISTA_PROVEEDOR_GERENTE_EDIT TO dsilvamo;
 GRANT SELECT ON VISTA_PROVEEDOR_GERENTE_EDIT TO dsilvamo;
-
+/
 
 
 /*==============================================================*/
@@ -1379,7 +1379,7 @@ CREATE VIEW VISTA_SUCURSALES_EDIT AS SELECT
 
     
                                     FROM SUCURSALES;
-
+/
 /*==============================================================*/
 /* VIEW_VIEW: SUCURSALES                                              */
 /*==============================================================*/
@@ -1405,7 +1405,7 @@ AS SELECT
    to_char(fecha, 'dd-mm-yyyy" "hh24:mi:ss')
 FROM SUCURSALES 
 WHERE digitador = USER;
-
+/
 /*==============================================================*/
 /* Permisos                                                     */
 /*==============================================================*/
@@ -1420,7 +1420,7 @@ GRANT SELECT ON VISTA_SUCURSALES_EDIT TO dabonilla;
 GRANT SELECT ON VISTA_SUCURSALES_VIEW TO dsilvamo;
 GRANT INSERT ON VISTA_SUCURSALES_EDIT TO dsilvamo;
 GRANT SELECT ON VISTA_SUCURSALES_EDIT TO dsilvamo;
-
+/
 
 
 /*==============================================================*/
@@ -1433,7 +1433,7 @@ CREATE VIEW VISTA_VACANTES_EDIT AS SELECT
 
     
                                     FROM VACANTES;
-
+/
 /*==============================================================*/
 /* VIEW_VIEW: VACANTES                                              */
 /*==============================================================*/
@@ -1453,7 +1453,7 @@ AS SELECT
    to_char(fecha, 'dd-mm-yyyy" "hh24:mi:ss')
 FROM VACANTES 
 WHERE digitador = USER;
-
+/
 /*==============================================================*/
 /* Permisos                                                     */
 /*==============================================================*/
@@ -1468,7 +1468,7 @@ GRANT SELECT ON VISTA_VACANTES_EDIT TO dabonilla;
 GRANT SELECT ON VISTA_VACANTES_VIEW TO dsilvamo;
 GRANT INSERT ON VISTA_VACANTES_EDIT TO dsilvamo;
 GRANT SELECT ON VISTA_VACANTES_EDIT TO dsilvamo;
-
+/
 
 /*==============================================================*/
 /* VIEW_EDIT: VENDEDORES                                            */
@@ -1491,7 +1491,7 @@ CREATE or replace VIEW VISTA_VENDEDORES_EDIT AS SELECT
 
     
                                     FROM VENDEDORES;
-
+/
 /*==============================================================*/
 /* VIEW_VIEW: VENDEDORES                                              */
 /*==============================================================*/
@@ -1531,7 +1531,7 @@ AS SELECT
    to_char(fecha, 'dd-mm-yyyy" "hh24:mi:ss')
 FROM VENDEDORES 
 WHERE digitador = USER;
-
+/
 /*==============================================================*/
 /* Permisos                                                     */
 /*==============================================================*/
@@ -1546,7 +1546,7 @@ GRANT SELECT ON VISTA_VENDEDORES_EDIT TO dabonilla;
 GRANT SELECT ON VISTA_VENDEDORES_VIEW TO dsilvamo;
 GRANT INSERT ON VISTA_VENDEDORES_EDIT TO dsilvamo;
 GRANT SELECT ON VISTA_VENDEDORES_EDIT TO dsilvamo;
-
+/
 /*==============================================================*/
 /* View: PUBLICA_CLIENTES                                           */
 /*==============================================================*/
@@ -1643,5 +1643,5 @@ GRANT SELECT ON VISTA_PUBLICA_PROVEDORES_View TO PUBLIC;
 GRANT SELECT ON VISTA_PUBLICA_EMPLEADO_View TO PUBLIC;
 GRANT SELECT ON VISTA_PUBLICA_VENDEDORES_View TO PUBLIC;
 GRANT SELECT ON VISTA_PUBLICA_REGISTRO_HISTORICO_View TO PUBLIC;
-
+/
 
