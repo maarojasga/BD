@@ -494,6 +494,8 @@ drop sequence SECUENCIA_VENDEDORES
 
 drop sequence SEQUENCE_7
 /
+drop table REGISTRO_HISTORICO_USUARIO
+/
 
 create sequence SECUENCIA_ASISTENCIA_CAPACITAC
 increment by 1
@@ -804,6 +806,7 @@ create table CARGOS  (
    CARGO_NOMBRE         VARCHAR2(100)                   not null,
    CARGO_SALARIO_MAX    INTEGER                         not null,
    CARGO_SALARIO_MIN    INTEGER                         not null,
+   CARGO_JEFE_INMEDIATO_ID   INTEGER                    not null,
    digitador VARCHAR(15) default USER                    not null,
    fecha DATE default sysdate                            not null,
    constraint PK_CARGOS primary key (CARGO_ID)
@@ -994,7 +997,8 @@ create table EMPLEADOS  (
    EMPLEADO_POLIZA_VIGENTE_BOOL SMALLINT                        not null,
    EMPLEADO_CARGO       INTEGER                         not null,
    EMPLEADO_SALARIO_FIJO INTEGER                         not null,
-   EMPLEADO_CONTRATO_INDEFINIDO_B SMALLINT                        not null,
+   EMPLEADO_CONTRATO_INDEFINIDO_BOOL SMALLINT                        not null,
+    EMLEADO_DEPARTAMENTO_ID,
    EMPLEADO_REINGRESO_BOOL SMALLINT                        not null,
    digitador VARCHAR(15) default USER                    not null,
    fecha DATE default sysdate                            not null,
